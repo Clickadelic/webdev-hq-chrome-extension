@@ -1,0 +1,26 @@
+{
+  "name": "webdev-hq-chrome-extensions",
+  "version": "1.0.0",
+  "description": "A tool to collect links - powered by WebDev HQ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "bootstrap: popup.css": "sass ./scss/popup.scss ./css/popup.css --no-source-map --watch",
+    "bootstrap: options.css": "sass ./scss/options.scss ./css/options.css --no-source-map --watch",
+    "bootstrap: content.css": "sass ./scss/content.scss ./css/content.css --no-source-map --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/clickadelic/webdev-hq-chrome-extension.git"
+  },
+  "author": "Tobias Hopp aka Clickadelic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/clickadelic/webdev-hq-chrome-extension/issues"
+  },
+  "homepage": "https://bitbucket.org/clickadelic/webdev-hq-chrome-extension#readme",
+  "devDependencies": {
+    "bootstrap": "^5.2.2",
+    "sass": "^1.57.1"
+  }
+}
