@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "bootstrap: popup.css": "sass ./scss/popup.scss ./css/popup.css --no-source-map --watch",
-    "bootstrap: options.css": "sass ./scss/options.scss ./css/options.css --no-source-map --watch",
-    "bootstrap: content.css": "sass ./scss/content.scss ./css/content.css --no-source-map --watch"
+    "Extension CSS": "sass ./scss/webdev-hq.scss ./css/webdev-hq.css --no-source-map --watch"
   },
   "repository": {
     "type": "git",
@@ -22,5 +20,8 @@
   "devDependencies": {
     "bootstrap": "^5.2.2",
     "sass": "^1.57.1"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.10.2"
   }
 }
