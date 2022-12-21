@@ -1,0 +1,1 @@
+console.log("Content script logged this one: content-script.js");

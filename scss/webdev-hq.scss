@@ -51,27 +51,10 @@
 // scss-docs-end import-stack
 
 @import "extension-icon";
+@import "extension-app-icon";
 
 body {
 	background-color: $light;
-}
-
-
-
-a.navbar-brand:link,
-a.navbar-brand:visited {
-	width: 250px;
-    overflow: hidden;
-    height: 60px;
-    background: url('../static/images/Logo-WebDev-HQ.png') -15px -70px no-repeat;
-    border-radius: 4px;
-	text-indent: -999em;
-}
-
-a.navbar-brand:hover,
-a.navbar-brand:focus {
-	opacity: .85;
-	cursor: pointer;
 }
 
 .extension-wrap {

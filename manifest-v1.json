@@ -10,6 +10,12 @@
 		"page": "views/options.html",
 		"open_in_tab": true
 	},
+	"content_scripts": [
+		{
+		  "matches": ["<all_urls>"],
+		  "js": ["./js/contentScript.js"]
+		}
+	],
 	"background": {
 		"service_worker": "./js/background.js"
 	},
