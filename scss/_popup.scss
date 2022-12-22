@@ -1,0 +1,33 @@
+.brand-logo {
+	position: relative;
+	width: 200px;
+    height: 75px;
+	display: block;
+    background: $white url('../static/images/Logo-WebDev-HQ-white-bg.png') 0 -65px no-repeat;
+    overflow: hidden;
+    border-radius: 4px;
+	text-indent: -999em;
+	border: 2px solid $gray-100;
+}
+
+.brand-logo:hover {
+	border-style: dashed;
+	border-color: $gray-300;
+}
+
+.brand-icon {
+	position: relative;
+	width: 60px;
+    height: 60px;
+	display: block;
+    background: url('../static/images/Logo-WebDev-HQ.png') -15px -70px no-repeat;
+    overflow: hidden;
+    border-radius: 4px;
+	text-indent: -999em;
+	border: 2px solid $gray-100;
+}
+
+.brand-icon:hover {
+	border-style:dashed;
+	border-color: $gray-300;
+}
