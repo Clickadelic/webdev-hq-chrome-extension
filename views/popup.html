@@ -6,95 +6,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/webdev-hq.css" />
 </head>
-<body>
-	<div class="extension-wrap" id="popup">
+<body class="popup" cz-shortcut-listen="true">
 
-		<div class="container-md">
-
-			<template id="template-auth-screen">
-				<div class="row">
-					<div class="offset-md-3 col-md-9">
-						<ul class="nav nav-pills nav-justified" id="authTab" role="tablist">
-							<li class="nav-item active"><a class="nav-link active" href="#login" role="tab" aria-controls="login" data-bs-toggle="tab">Login</a></li>
-							<li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Register</a></li>
-						</ul>
-						<div class="tab-content w-50">
-							<div class="tab-pane active justify-center" id="login" role="tabpanel" aria-labelledby="login-tab">
-								<form>
-									<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-									<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-								
-									<div class="form-floating">
-									  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-									  <label for="floatingInput">Email address</label>
-									</div>
-									<div class="form-floating">
-									  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-									  <label for="floatingPassword">Password</label>
-									</div>
-									<div class="checkbox mb-3">
-										<label>
-											<input type="checkbox" value="remember-me"> Remember me
-										</label>
-									</div>
-									<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-									<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-								</form>
+	<template id="template-auth-screen">
+		<div class="row">
+			<div class="offset-md-3 col-md-9">
+				<ul class="nav nav-pills nav-justified" id="authTab" role="tablist">
+					<li class="nav-item active"><a class="nav-link active" href="#login" role="tab" aria-controls="login" data-bs-toggle="tab">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Register</a></li>
+				</ul>
+				<div class="tab-content w-50">
+					<div class="tab-pane active justify-center" id="login" role="tabpanel" aria-labelledby="login-tab">
+						<form>
+							<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+							<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+						
+							<div class="form-floating">
+								<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+								<label for="floatingInput">Email address</label>
 							</div>
-							<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-								<form>
-									<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-									<h1 class="h3 mb-3 fw-normal">Please register</h1>
-								
-									<div class="form-floating">
-									  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-									  <label for="floatingInput">Email address</label>
-									</div>
-									<div class="form-floating">
-									  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-									  <label for="floatingPassword">Password</label>
-									</div>
-								
-									<div class="checkbox mb-3">
-									  <label>
-										<input type="checkbox" value="remember-me"> Remember me
-									  </label>
-									</div>
-									<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-									<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-								  </form>
+							<div class="form-floating">
+								<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+								<label for="floatingPassword">Password</label>
 							</div>
-						</div>
+							<div class="checkbox mb-3">
+								<label>
+									<input type="checkbox" value="remember-me"> Remember me
+								</label>
+							</div>
+							<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+							<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+						</form>
 					</div>
-				</div>
-			</template>
-
-			<header>
-				<nav class="navbar navbar-expand" aria-label="Second navbar example">
-					<div class="container-fluid">
-						<a href="https://webdev-hq.com" target="_blank" class="brand-logo">WebDev HQ</a>
-						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarsExample02">
-							<div class="wrap-alert ms-auto">
-								<div class="alert alert-success">
-									<p class="mb-0">Super nice!</p>
-								</div>
+					<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						<form>
+							<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+							<h1 class="h3 mb-3 fw-normal">Please register</h1>
+						
+							<div class="form-floating">
+								<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+								<label for="floatingInput">Email address</label>
 							</div>
-						</div>
+							<div class="form-floating">
+								<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+								<label for="floatingPassword">Password</label>
+							</div>
+						
+							<div class="checkbox mb-3">
+								<label>
+								<input type="checkbox" value="remember-me"> Remember me
+								</label>
+							</div>
+							<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+							<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
+							</form>
 					</div>
-				</nav>
-			</header>
-			
-			<div class="row">
-				<div class="col">
-					<a href="#" id="open-dashboard" class="btn btn-primary text-white">Open Dashboard</a>
 				</div>
 			</div>
 		</div>
-		
-	</div>
+	</template>
+
+
+
 	<script src="../js/popper/popper.min.js" type="module"></script>
 	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<script src="../js/popup.js" type="module"></script>

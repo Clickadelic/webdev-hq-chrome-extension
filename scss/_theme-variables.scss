@@ -41,16 +41,16 @@ $grays: (
 // fusv-enable
 
 // scss-docs-start color-variables
-$blue:    #0d6efd !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #d63384 !default;
-$red:     #dc3545 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #198754 !default;
-$teal:    #20c997 !default;
-$cyan:    #0dcaf0 !default;
+$blue:    #1890ff;
+$indigo:  #7818ff;
+$purple:  #ba18ff;
+$pink:    #d518ff;
+$red:     #ff1833;
+$orange:  #ff8f18;
+$yellow:  #fbff18;
+$green:   #37ff18;
+$teal:    #18ffd1;
+$cyan:    #18dcff;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -303,7 +303,7 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary:       $teal;
+$primary:       $blue;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
@@ -403,7 +403,7 @@ $position-values: (
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   #fafafb;
 $body-color:                $gray-900 !default;
 $body-text-align:           null !default;
 

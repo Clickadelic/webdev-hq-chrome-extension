@@ -4,7 +4,7 @@
 // scss-docs-start import-stack
 // Configuration
 @import "../node_modules/bootstrap/scss/functions";
-@import "brand-variables";
+@import "theme-variables";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -50,13 +50,15 @@
 @import "../node_modules/bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
 
-// App and brand icon
-@import "brand-icons";
+// Popup styles
+@import "popup";
 
-// Common Styles
-@import "common-styles";
-
-// Popup Styles
+// Options styles
+@import "options";
 
 // Dashboard styles
 @import "dashboard";
+
+svg {
+	margin-top: -3px;
+}

@@ -1,14 +1,7 @@
-
-function devSysLogs(){
-	var extensionId = chrome.i18n.getMessage("@@extension_id");
-	var runtimeId = chrome.runtime.id;
-	console.log(`WebDev HQ Chrome Extension ID (by i18n message): ${extensionId}`);
-	console.log(`WebDev HQ Chrome Extension ID (by runtime id): ${runtimeId}`);
-}
-
-devSysLogs()
-
 document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('open-options').addEventListener('click', function() {
+		chrome.tabs.create({url: "./views/options.html"});
+	});
 	document.getElementById('open-dashboard').addEventListener('click', function() {
 		chrome.tabs.create({url: "./views/dashboard.html"});
 	});
@@ -59,7 +52,7 @@ function prepareTabs(triggerEl) {
 }
 
 // Tabs
-var triggerTabListTest = [].slice.call(document.querySelectorAll("#authTabs a"));
-triggerTabListTest.forEach(function (triggerEl) {
-  prepareTabs(triggerEl);
+var tabList = [].slice.call(document.querySelectorAll("#authTabs a"));
+tabList.forEach(function (triggerEl) {
+	prepareTabs(triggerEl);
 });
