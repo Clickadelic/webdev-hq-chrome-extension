@@ -1,6 +1,6 @@
 body.popup {
 	width: 800px;
-	height: 460px;
+	height: 450px;
 	background-color: #f5f5f5;
 }
 
@@ -41,12 +41,15 @@ a#extension-icon:focus {
 }
 
 button#sidebar-toggle {
-	padding-top: 2px;
-	padding-bottom: 2px;
+	padding: 6px;
 	border: 0;
-	margin-top: 7px;
+	margin-top:6px;
 	margin-left: 20px;
 	border-radius: 3px;
+}
+
+button#sidebar-toggle:hover {
+	background-color: $gray-300;
 }
 
 
@@ -55,12 +58,13 @@ button#sidebar-toggle {
 		a.nav-link:link,
 		a.nav-link:visited {
 			margin: 4px;
+			border-radius: 4px;
 			// Something
 		}
 		a.nav-link:hover,
 		a.nav-link:focus {
-			border-radius: 4px;
 			background-color: $primary-hover-bg;
+			color: $primary;
 			svg {
 				fill: $primary;
 			}
