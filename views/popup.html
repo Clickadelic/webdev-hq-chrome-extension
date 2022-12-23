@@ -65,8 +65,127 @@
 			</div>
 		</div>
 	</template>
+	<div class="d-flex flex-column flex-shrink-0" id="popup-sidebar">
+		<a href="/" class="d-block p-3 link-dark text-decoration-none" id="extension-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+			<span class="visually-hidden">WebDev HQ</span>
+		</a>
+		<ul class="nav nav-pills nav-flush flex-column mb-auto text-center border-right" id="extension-nav" role="tablist">
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-dashboard" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="speedometer2">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#speedometer2"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="diagram-2">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#diagram-2"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-home" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="person-vcard">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#person-vcard"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-dashboard" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="database">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#database"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="graph-up-arrow">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#graph-up-arrow"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="chat-right-dots">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#chat-right-dots"></use>
+					</svg>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
+					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="calendar">
+						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#calendar"></use>
+					</svg>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="popup-navbar">
+		<nav class="navbar navbar-expand" aria-label="Second navbar example">
+			<button id="sidebar-toggle">
+				<svg class="bi pe-none" width="24" height="24" role="img" aria-label="text-indent-left">
+					<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#text-indent-left"></use>
+				</svg>
+			</button>
+		
+			  <div class="collapse navbar-collapse" id="popup-top-nav">
+				<form role="search" id="popup-navbar-search-form">
+					<input class="form-control" type="search" placeholder="Ctrl + K" aria-label="Search">
+				</form>
+				<ul class="navbar-nav" id="popup-top-right-menu">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="fonts">
+								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#fonts"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="bell">
+								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#bell"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="envelope">
+								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#envelope"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="gear">
+								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#gear"></use>
+							</svg>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="person">
+								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#person"></use>
+							</svg>
+							Tobias Hopp
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
 
-
+	<div class="tab-content">
+		<div class="tab-pane active" id="pane-home" role="tabpanel" aria-labelledby="pane-home">
+			<h1 class="h2">Home</h1>
+		</div>
+		<div class="tab-pane" id="pane-dashboard" role="tabpanel" aria-labelledby="pane-dashboard">
+			<h1 class="h2">Dashbaord</h1>
+		</div>
+		<div class="tab-pane" id="pane-heart" role="tabpanel" aria-labelledby="pane-heart">
+			<h1 class="h2">Heart</h1>
+		</div>
+	</div>
 
 	<script src="../js/popper/popper.min.js" type="module"></script>
 	<script src="../js/bootstrap/bootstrap.min.js"></script>

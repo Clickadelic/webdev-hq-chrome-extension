@@ -1,51 +1,104 @@
 body.popup {
-	background-color: $light;
+	width: 800px;
+	height: 460px;
+	background-color: #f5f5f5;
 }
 
-.popup-wrap {
-	width: 660px;
-	height: 440px;
-	padding: 0 0 1rem 0;
+#popup-sidebar {
+	position: fixed;
+	width: 64px;
+	background-color: $white;
+	border-right: 1px solid $border-decent;
+	box-shadow: rgb(0 0 0 / 8%) 0px 1px 4px;
+	z-index: 10;
 }
 
-header {
-	margin-bottom: 2rem;
+a#extension-icon:link,
+a#extension-icon:visited {
+	width: 64px;
+	height: 64px;
+	background: url('../static/images/64-Icon-Dashboard.png') 10px 10px no-repeat;
+	background-size: 65%;
 }
 
-.brand-logo {
-	position: relative;
-	width: 200px;
-    height: 75px;
-	display: block;
-    background: $white url('../static/images/Logo-WebDev-HQ-white-bg.png') 0 -65px no-repeat;
-    overflow: hidden;
-    border-radius: 4px;
-	text-indent: -999em;
-	border: 2px solid $gray-100;
+a#extension-icon:hover,
+a#extension-icon:focus {
+	
 }
 
-.brand-logo:hover {
-	border-style: dashed;
-	border-color: $gray-300;
+#popup-navbar {
+	position: absolute;
+	top: 0;
+	left: 64px;
+	background: $white;
+	width: 100%;
+	height: 64px;
+	nav {
+		ul, ol {
+			margin-bottom: 0;
+		}
+	}
 }
 
-.brand-icon {
-	position: relative;
-	width: 60px;
-    height: 60px;
-	display: block;
-    background: url('../static/images/Logo-WebDev-HQ.png') -15px -70px no-repeat;
-    overflow: hidden;
-    border-radius: 4px;
-	text-indent: -999em;
-	border: 2px solid $gray-100;
+button#sidebar-toggle {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border: 0;
+	margin-top: 7px;
+	margin-left: 20px;
+	border-radius: 3px;
 }
 
-.brand-icon:hover {
-	border-style:dashed;
-	border-color: $gray-300;
+
+#extension-nav {
+	li {
+		a.nav-link:link,
+		a.nav-link:visited {
+			margin: 4px;
+			// Something
+		}
+		a.nav-link:hover,
+		a.nav-link:focus {
+			border-radius: 4px;
+			background-color: $primary-hover-bg;
+			svg {
+				fill: $primary;
+			}
+		}
+	}
 }
 
-.navbar-extension {
-	background: none;
+#popup-navbar-search-form {
+	margin-top: 5px;
+	margin-left: 12px;
+	width: 240px;
+}
+
+#popup-top-right-menu {
+	position: fixed;
+	right: 1rem;
+	margin-top: 5px;
+	li.nav-item {
+		margin-right: 1rem;
+		a.nav-link:link,
+		a.nav-link:visited {
+			background-color: $gray-200;
+			color: unset;
+			border-radius: 4px;
+		}
+		a.nav-link:hover,
+		a.nav-link:focus {
+			background-color: $primary-hover-bg;
+			color: $primary;
+			border-radius: 4px;
+		}
+	}
+	li.nav-item:last-child {
+		margin-right: 0;
+	}
+}
+
+.tab-content {
+	padding-top: 4.5rem;
+	margin-left: 85px;
 }

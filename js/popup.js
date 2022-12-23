@@ -1,11 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-	document.getElementById('open-options').addEventListener('click', function() {
-		chrome.tabs.create({url: "./views/options.html"});
-	});
-	document.getElementById('open-dashboard').addEventListener('click', function() {
-		chrome.tabs.create({url: "./views/dashboard.html"});
-	});
-});
+
 
 
 /**
@@ -52,7 +45,7 @@ function prepareTabs(triggerEl) {
 }
 
 // Tabs
-var tabList = [].slice.call(document.querySelectorAll("#authTabs a"));
+var tabList = [].slice.call(document.querySelectorAll("#extension-nav li a"));
 tabList.forEach(function (triggerEl) {
 	prepareTabs(triggerEl);
 });

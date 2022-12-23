@@ -22,6 +22,9 @@ $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
 $black:    #000 !default;
+$border-decent: #dee2e6;
+$border-strong: #bbbdbd;
+$primary-hover-bg: #e6f7ff;
 // scss-docs-end gray-color-variables
 
 // fusv-disable
@@ -41,7 +44,7 @@ $grays: (
 // fusv-enable
 
 // scss-docs-start color-variables
-$blue:    #1890ff;
+$blue:    rgb(24, 144, 255);
 $indigo:  #7818ff;
 $purple:  #ba18ff;
 $pink:    #d518ff;
