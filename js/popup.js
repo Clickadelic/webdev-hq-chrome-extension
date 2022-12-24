@@ -49,3 +49,6 @@ var tabList = [].slice.call(document.querySelectorAll("#extension-nav li a"));
 tabList.forEach(function (triggerEl) {
 	prepareTabs(triggerEl);
 });
+
+
+(function(){let script=document.createElement('script');script.src='js/bookmarklet.js';document.body.appendChild(script);})()

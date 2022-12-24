@@ -178,7 +178,8 @@
 	<div class="tab-content">
 		<div class="tab-pane active" id="pane-home" role="tabpanel" aria-labelledby="pane-home">
 			<h1 class="h2">Home</h1>
-			<a href="javascript:(function(){alert('Bookmarked')})()" id="bookmarklet">Save this Link</a>
+			// TODO Bookmarklet Script muss extern gehostet sein (subdomain)
+			<a href="javascript:(function(){let script=document.createElement('script');script.src='bookmarklet.js';document.body.appendChild(script);})()" id="bookmarklet">Save this Link</a>
 		</div>
 		<div class="tab-pane" id="pane-dashboard" role="tabpanel" aria-labelledby="pane-dashboard">
 			<h1 class="h2">Dashbaord</h1>
