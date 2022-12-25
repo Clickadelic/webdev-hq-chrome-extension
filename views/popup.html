@@ -122,7 +122,7 @@
 		</ul>
 	</div>
 	<div id="popup-navbar">
-		<nav class="navbar navbar-expand" aria-label="Second navbar example">
+		<nav class="navbar navbar-expand" aria-label="WebDev HQ Navbar">
 			<button id="sidebar-toggle">
 				<svg class="bi pe-none" width="24" height="24" role="img" aria-label="text-indent-left">
 					<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#text-indent-left"></use>
@@ -174,18 +174,30 @@
 			</div>
 		</nav>
 	</div>
-
+	<div id="popup-breadcrumbs">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<nav aria-label="breadcrumb">
+						<ol class="breadcrumb">
+						  <li class="breadcrumb-item"><a href="#">Home</a></li>
+						  <li class="breadcrumb-item active" aria-current="page">Library</li>
+						</ol>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="tab-content">
 		<div class="tab-pane active" id="pane-home" role="tabpanel" aria-labelledby="pane-home">
-			<h1 class="h2">Home</h1>
-			// TODO Bookmarklet Script muss extern gehostet sein (subdomain)
-			<a href="javascript:(function(){let script=document.createElement('script');script.src='bookmarklet.js';document.body.appendChild(script);})()" id="bookmarklet">Save this Link</a>
+			<h1>Dashboard</h1>
+			<p>Dashboard Content, stats, etc..</p>
 		</div>
 		<div class="tab-pane" id="pane-dashboard" role="tabpanel" aria-labelledby="pane-dashboard">
-			<h1 class="h2">Dashbaord</h1>
+			<h1>Dashbaord</h1>
 		</div>
 		<div class="tab-pane" id="pane-heart" role="tabpanel" aria-labelledby="pane-heart">
-			<h1 class="h2">Heart</h1>
+			<h1>Heart</h1>
 		</div>
 	</div>
 

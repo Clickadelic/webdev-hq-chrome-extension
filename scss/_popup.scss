@@ -102,6 +102,24 @@ button#sidebar-toggle:hover {
 	}
 }
 
+#popup-breadcrumbs {
+	position: relative;
+	top: 80px;
+	margin-left: 75px;
+	margin-bottom: 3rem;
+	z-index: 10;
+	nav {
+		ul, ol {
+			margin-bottom: 0;
+			li {
+				a:link, a:visited {
+					font-size: .85rem;
+				}
+			}
+		}
+	}
+}
+
 .tab-content {
 	padding-top: 4.5rem;
 	margin-left: 85px;
