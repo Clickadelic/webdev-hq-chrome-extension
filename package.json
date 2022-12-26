@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "Extension CSS": "sass ./scss/webdev-hq.scss ./css/webdev-hq.css --no-source-map --watch"
+    "Extension CSS": "sass ./scss/webdev-hq.scss ./css/webdev-hq.css --no-source-map --watch",
+	"Content CSS": "sass ./scss/webdev-hq-content.scss ./css/webdev-hq-content.css --no-source-map --watch"
   },
   "repository": {
     "type": "git",
