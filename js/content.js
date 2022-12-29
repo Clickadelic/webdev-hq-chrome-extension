@@ -1,23 +1,21 @@
-class ActionBox {
+class Actionbox {
+	constructor(){
+		this.addElement()
+		this.addInlineStyle()
+	}
+	addElement(){
+		const box = document.createElement('div')
+		box.setAttribute('id', 'action-box')
+		const body = document.querySelector('body')
+		body.appendChild(box)
+	}
 
-    constructor(){
-        this.renderActionBox()
-    }
-
-    renderActionBox(){
-        // create
-        const body = document.body
-        const actionBox = document.createElement('div')
-		actionBox.style.position = "fixed"
-		actionBox.style.right = "2rem"
-		actionBox.style.bottom = "2rem"
-		actionBox.style.background = "aqua"
-		actionBox.style.width = "60px"
-		actionBox.style.height = "60px"
-		actionBox.style = {background: "red"}
-        body.appendChild(actionBox)
-        console.log('Rendering Layout finished')
-    }
+	addInlineStyle(){
+		const style = document.createElement('style')
+		const head = document.querySelector('head')
+		head.appendChild(style)
+	}
 
 }
-const actionbox = new ActionBox()
+
+const myBox = new Actionbox()
