@@ -1,6 +1,10 @@
 {
 	"extName": {
 		"message": "WebDev HQ",
-		"description": "Extension Name"
+		"description": "Extension name"
+	},
+	"hello": {
+		"message": "Hallo",
+		"description": "Begrüßung"
 	}
 }

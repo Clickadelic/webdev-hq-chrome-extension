@@ -132,9 +132,8 @@ class WebDevBox {
 
 		const dashboardBtn = document.getElementById('dashboard-btn')
 		dashboardBtn.addEventListener('click', () => {
-		let newURL = "chrome-extension://" + chrome.runtime.id + "/views/dashboard.html";
-        	alert("Yo")
-			// chrome.tabs.create({ url: newURL });
+			let newURL = "chrome-extension://" + chrome.runtime.id + "/views/dashboard.html"
+        	chrome.tabs.create({ url: newURL });
 		})
 
 		// const optionsBtn = document.getElementById('options-btn')
@@ -147,5 +146,3 @@ class WebDevBox {
 }
 
 const myBox = new WebDevBox()
-
-// alert('Hello, world!');
