@@ -1,3 +1,4 @@
+// Run onboarding on installation
 chrome.runtime.onInstalled.addListener((reason) => {
 	if (reason === chrome.runtime.OnInstalledReason.INSTALL) {
 	  chrome.tabs.create({
@@ -19,9 +20,25 @@ chrome.tabs.onActivated.addListener((tab) => {
 	console.log(tab);
 })
 
-chrome.downloads.search({}, (items) => {
-	items.forEach((item) => {
-		if (item.endTime)
-		console.log(new Date(item.endTime))
+// chrome.downloads.search({}, (items) => {
+// 	items.forEach((item) => {
+// 		if (item.endTime)
+// 		console.log(new Date(item.endTime))
+// 	})
+// })
+
+// background.js
+chrome.action.onClicked.addListener((tab) => {
+	chrome.scripting.executeScript({
+		target: {tabId: tab.id},
+		files: ['content.js']
 	})
 })
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+
+	if (request.message == 'buttonClicked') {
+		// Create a new tab with options page
+		alert("huhu")
+	}
+});

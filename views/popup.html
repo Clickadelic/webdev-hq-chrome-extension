@@ -1,207 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="../css/webdev-hq.css" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebDev HQ - Dashboard</title>
+	<link href="../css/webdev-hq.css" rel="stylesheet">
 </head>
-<body class="popup" cz-shortcut-listen="true">
-
-	<template id="template-auth-screen">
-		<div class="row">
-			<div class="offset-md-3 col-md-9">
-				<ul class="nav nav-pills nav-justified" id="authTab" role="tablist">
-					<li class="nav-item active"><a class="nav-link active" href="#login" role="tab" aria-controls="login" data-bs-toggle="tab">Login</a></li>
-					<li class="nav-item"><a class="nav-link" href="#profile" role="tab" aria-controls="profile" data-bs-toggle="tab">Register</a></li>
-				</ul>
-				<div class="tab-content w-50">
-					<div class="tab-pane active justify-center" id="login" role="tabpanel" aria-labelledby="login-tab">
-						<form>
-							<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-							<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-						
-							<div class="form-floating">
-								<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-								<label for="floatingInput">Email address</label>
-							</div>
-							<div class="form-floating">
-								<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-								<label for="floatingPassword">Password</label>
-							</div>
-							<div class="checkbox mb-3">
-								<label>
-									<input type="checkbox" value="remember-me"> Remember me
-								</label>
-							</div>
-							<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-							<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-						</form>
-					</div>
-					<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-						<form>
-							<img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-							<h1 class="h3 mb-3 fw-normal">Please register</h1>
-						
-							<div class="form-floating">
-								<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-								<label for="floatingInput">Email address</label>
-							</div>
-							<div class="form-floating">
-								<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-								<label for="floatingPassword">Password</label>
-							</div>
-						
-							<div class="checkbox mb-3">
-								<label>
-								<input type="checkbox" value="remember-me"> Remember me
-								</label>
-							</div>
-							<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-							<p class="mt-5 mb-3 text-muted">© 2017–2022</p>
-							</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</template>
-	<div class="d-flex flex-column flex-shrink-0" id="popup-sidebar">
-		<a href="/" class="d-block p-3 link-dark text-decoration-none" id="extension-icon" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-			<span class="visually-hidden">WebDev HQ</span>
-		</a>
-		<ul class="nav nav-pills nav-flush flex-column mb-auto text-center border-right" id="extension-nav" role="tablist">
-			<li class="nav-item">
-				<a href="https://webdev-hq.com" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-dashboard" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="speedometer2">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#speedometer2"></use>
+<body class="bg-slate-100 p-4 w-auto">
+	<nav class="block">
+		<ul class="m-auto">
+			<li class="mb-3">
+				<button id="dashboard-link" title="Go to Dashboard" class="w-full p-3 bg-blue-500 hover:bg-blue-600 text-2xl rounded text-white flex">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-speedometer2 mr-3 mt-1" viewBox="0 0 16 16">
+						<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+						<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
 					</svg>
-				</a>
+					Dashboard
+				</button>
 			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="diagram-2">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#diagram-2"></use>
+			<li>
+				<button id="options-link" title="Go to Options" class="w-full p-3 bg-blue-500 hover:bg-blue-600 text-2xl rounded text-white flex">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear mr-3 mt-1" viewBox="0 0 16 16">
+						<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+						<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
 					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-home" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="person-vcard">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#person-vcard"></use>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-dashboard" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="database">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#database"></use>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="graph-up-arrow">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#graph-up-arrow"></use>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="chat-right-dots">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#chat-right-dots"></use>
-					</svg>
-				</a>
-			</li>
-			<li class="nav-item">
-				<a href="#" class="nav-link py-3" aria-current="page" role="tab" aria-controls="pane-todos" data-bs-toggle="tab">
-					<svg class="bi pe-none" width="24" height="24" role="img" aria-label="calendar">
-						<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#calendar"></use>
-					</svg>
-				</a>
+					Options
+				</button>
 			</li>
 		</ul>
-	</div>
-	<div id="popup-navbar">
-		<nav class="navbar navbar-expand" aria-label="WebDev HQ Navbar">
-			<button id="sidebar-toggle">
-				<svg class="bi pe-none" width="24" height="24" role="img" aria-label="text-indent-left">
-					<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#text-indent-left"></use>
-				</svg>
-			</button>
-		
-			  <div class="collapse navbar-collapse" id="popup-top-nav">
-				<form role="search" id="popup-navbar-search-form">
-					<input class="form-control" type="search" placeholder="Ctrl + K" aria-label="Search">
-				</form>
-				<ul class="navbar-nav" id="popup-top-right-menu">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">
-							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="fonts">
-								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#fonts"></use>
-							</svg>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">
-							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="bell">
-								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#bell"></use>
-							</svg>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">
-							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="envelope">
-								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#envelope"></use>
-							</svg>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">
-							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="gear">
-								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#gear"></use>
-							</svg>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="#" class="nav-link">
-							<svg class="bi pe-none" width="24" height="24" role="img" aria-label="person">
-								<use xlink:href="../static/icons/bootstrap/bootstrap-icons.svg#person"></use>
-							</svg>
-							User Account
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<div id="popup-breadcrumbs">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col">
-					<nav aria-label="breadcrumb">
-						<ol class="breadcrumb">
-						  <li class="breadcrumb-item"><a href="#">Home</a></li>
-						</ol>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tab-content">
-		<div class="tab-pane active" id="pane-home" role="tabpanel" aria-labelledby="pane-home">
-			<h1>Dashboard</h1>
-			<p>Dashboard Content, stats, etc..</p>
-		</div>
-		<div class="tab-pane" id="pane-dashboard" role="tabpanel" aria-labelledby="pane-dashboard">
-			<h1>Dashbaord</h1>
-		</div>
-		<div class="tab-pane" id="pane-heart" role="tabpanel" aria-labelledby="pane-heart">
-			<h1>Heart</h1>
-		</div>
-	</div>
-
-	<script src="../js/popper/popper.min.js" type="module"></script>
-	<script src="../js/bootstrap/bootstrap.min.js"></script>
-	<script src="../js/popup.js" type="module"></script>
+	</nav>
+<script src="../js/popup.js"></script>
 </body>
 </html>
