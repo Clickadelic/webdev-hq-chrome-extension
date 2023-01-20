@@ -48,7 +48,9 @@
 		"storage",
 		"downloads",
 		"contextMenus",
-		"bookmarks"
+		"bookmarks",
+		"identity",
+		"identity.email"
 	],
 	"author": "admin@webdev-hq.com",
 	"devtools_page": "./views/devtools.html"

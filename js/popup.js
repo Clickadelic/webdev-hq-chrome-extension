@@ -1,15 +1,13 @@
 window.addEventListener('DOMContentLoaded', function() {
+	chrome.identity.getProfileUserInfo({'accountStatus': 'ANY'}, (info) => {
+		
+		const extensionBaseUrl = "chrome-extension://"
+		const runtimeId =  chrome.runtime.id
+		const loginTemplate = document.getElementById("login-template")
+		const navbarTemplate = document.getElementById("navbar-template")
+		
+		const loginView = loginTemplate.content.firstElementChild.cloneNode(true)
+		document.body.appendChild(loginView)
 
-    const dashboardLink = document.getElementById('dashboard-link');
-	const optionsLink = document.getElementById('options-link');
-
-    // onClick's logic below:
-    dashboardLink.addEventListener('click', function() {
-        const newURL = "chrome-extension://" + chrome.runtime.id + "/views/dashboard.html";
-        chrome.tabs.create({ url: newURL });
-    });
-	optionsLink.addEventListener('click', function() {
-        const newURL = "chrome-extension://" + chrome.runtime.id + "/views/options.html";
-        chrome.tabs.create({ url: newURL });
-    });
-});
+	})
+})

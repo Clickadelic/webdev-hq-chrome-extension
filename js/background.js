@@ -7,3 +7,4 @@ chrome.runtime.onMessage.addListener(
 		sendResponse({farewell: "goodbye"});
 	}
 );
+
