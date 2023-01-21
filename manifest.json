@@ -40,17 +40,18 @@
 		"128": "./static/icons/extension/icon-128.png"
 	},
 	"host_permissions": [
-		"https://*.webdev-hq.com/*"
+		"https://*.webdev-hq.com/*",
+		"https://developer.chrome.com/*"
 	],
 	"permissions": [
-		"tabGroups",
+		"identity",
+		"identity.email",
 		"tabs",
+		"tabGroups",
+		"bookmarks",
 		"storage",
 		"downloads",
-		"contextMenus",
-		"bookmarks",
-		"identity",
-		"identity.email"
+		"contextMenus"
 	],
 	"author": "admin@webdev-hq.com",
 	"devtools_page": "./views/devtools.html"
