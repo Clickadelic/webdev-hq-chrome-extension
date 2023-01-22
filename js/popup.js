@@ -2,7 +2,8 @@ const runtimeId = chrome.runtime.id
 
 const tabs = await chrome.tabs.query({
 	url: [
-	  "https://*/*"
+	  "https://*/*",
+	  "http://*/*"
 	],
 });
 
@@ -14,11 +15,11 @@ const elements = new Set();
 
 for (const tab of tabs) {
 	const element = template.content.firstElementChild.cloneNode(true);
-	const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.how7o.com&size=64"
+
+	const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://`${domain}`&size=64"
 
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
-
 
 	element.querySelector(".title").textContent = title;
 	element.querySelector(".pathname").textContent = pathname;
@@ -32,15 +33,28 @@ for (const tab of tabs) {
 }
 document.querySelector("#tabList").append(...elements);
 
-const tabsBtn = document.querySelector("#tabsBtn");
+const dashboardBtn = document.querySelector("#btn-open-dashboard");
+dashboardBtn.addEventListener("click", async () => {
+	const dashboardUrl = "chrome-extension://"+ runtimeId + "/views/dashboard.html"
+	chrome.tabs.create({url: dashboardUrl, active: true})
+});
+
+const optionsBtn = document.querySelector("#btn-open-options");
+optionsBtn.addEventListener("click", async () => {
+	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/options.html"
+	chrome.tabs.create({url: optionsUrl, active: true})
+});
+
+const tabsBtn = document.querySelector("#btn-group-tabs");
 tabsBtn.addEventListener("click", async () => {
   const tabIds = tabs.map(({ id }) => id);
   const group = await chrome.tabs.group({ tabIds });
   await chrome.tabGroups.update(group, { title: "DOCS" });
 });
 
-const dashboardBtn = document.querySelector("#dashboardBtn");
-dashboardBtn.addEventListener("click", async () => {
-	const dashboardUrl = "chrome-extension://"+ runtimeId + "/views/dashboard.html"
-	chrome.tabs.create({url: dashboardUrl, active: true})
+const accountBtn = document.querySelector("#btn-open-accountpage");
+accountBtn.addEventListener("click", async () => {
+	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/account.html"
+	chrome.tabs.create({url: optionsUrl, active: true})
 });
+

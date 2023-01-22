@@ -5,17 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>WebDev HQ - Dashboard</title>
-	<link href="../css/fonts.css" rel="stylesheet">
 	<link href="../css/webdev-hq.css" rel="stylesheet">
 </head>
 <body class="bg-white">
 	<div class="App bg-slate-100 min-h-screen">
 		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow" id="App-sidebar">
 			<div class="App-sidebar-logo flex justify-center px-2 py-3">
-				<h1 class="text-2xl" >
-					<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline mr-2 -mt-1" alt="WebDev HQ Logo" />
-					<span class="web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span>
-				</h1>
+					<h1 class="text-2xl" >
+						<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline mr-2 -mt-1" alt="WebDev HQ Logo" />
+						<span class="web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span>
+					</h1>
 			</div>
 			<section class="sidebar-section mt-10 mb-6">
 				<h2 class="text-1xl font-medium mx-5 my-3">
@@ -23,12 +22,8 @@
 					<span class="sidebar-text">Todos</span>
 				</h2>
 				<ul class="sidebar-nav">
-					<li>
-						<a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">
-							<span class="sidebar-icon">SVG</span>
-							<span class="sidebar-text">Todos</span>
-						</a>
-					</li>
+					<li><a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">SVG All Todos</a></li>
+					<li><a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500"><span class="sidebar-icon">SVG</span><span class="sidebar-text">Todos</span></a></li>
 				</ul>
 			</section>
 		</aside>
@@ -66,7 +61,7 @@
 								<path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z"/>
 							</svg>
 						</button>
-						<div class="mega-menu w-[720px] h-72 border rounded bg-white absolute top-12 right-1 shadow overflow-hidden grid grid-cols-3">
+						<div class="mega-menu w-[720px] h-72 border rounded bg-white absolute top-12 right-1 shadow overflow-hidden hidden grid-cols-3">
 							<div class="bg-blue-600 p-6">
 								<h2 class="text-2xl mb-4 text-white">Explore the Dashboard</h2>
 								<p class="text-white">Feel free to explore all features.</p>
