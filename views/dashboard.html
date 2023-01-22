@@ -11,24 +11,33 @@
 	<div class="App bg-slate-100 min-h-screen">
 		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow" id="App-sidebar">
 			<div class="App-sidebar-logo flex justify-center px-2 py-3">
-				<h1 class="text-2xl">
+				<h1 class="text-2xl" >
 					<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline mr-2 -mt-1" alt="WebDev HQ Logo" />
-					<span class="web sidebar-text">Web</span><span class='dev-hq font-medium'>Dev HQ</span>
+					<span class="web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span>
 				</h1>
 			</div>
 			<section class="sidebar-section mt-10 mb-6">
 				<h2 class="text-1xl font-medium mx-5 my-3">
-					<span class="sidebar-icon"></span>
+					<span class="sidebar-icon">SVG</span>
 					<span class="sidebar-text">Todos</span>
 				</h2>
 				<ul class="sidebar-nav">
-					<li><a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">SVG All Todos</a></li>
+					<li>
+						<a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">
+							<span class="sidebar-icon">SVG</span>
+							<span class="sidebar-text">Todos</span>
+						</a>
+					</li>
 				</ul>
 			</section>
 		</aside>
-		<header class="App-header flex fixed top-0 md:ml-64 w-screen p-2 bg-white shadow">
+		<header class="App-header flex fixed top-0 md:ml-64 w-screen p-2 bg-white shadow" id="App-navbar">
 			<nav class="flex justify-between w-max">
 				<span class="p-0">
+					<h1 class="md:hidden text-2xl" id="App-logo">
+						<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline mr-2 -mt-1" alt="WebDev HQ Logo" />
+						<span class="web sidebar-text">Web</span><span class='dev-hq font-medium'>Dev HQ</span>
+					</h1>
 					<button class="bg-slate-200 hidden md:inline hover:bg-slate-300 ml-3 mr-1 rounded p-2 mt-1" id="btn-sidebar-toggle">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-text-indent-right" viewBox="0 0 16 16">
 							<path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
