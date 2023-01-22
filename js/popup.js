@@ -13,10 +13,12 @@ const template = document.getElementById("li_template");
 const elements = new Set();
 
 for (const tab of tabs) {
-  const element = template.content.firstElementChild.cloneNode(true);
+	const element = template.content.firstElementChild.cloneNode(true);
+	const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.how7o.com&size=64"
 
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
+
 
 	element.querySelector(".title").textContent = title;
 	element.querySelector(".pathname").textContent = pathname;
@@ -26,7 +28,7 @@ for (const tab of tabs) {
 		await chrome.windows.update(tab.windowId, { focused: true });
 	});
 
-  elements.add(element);
+	elements.add(element);
 }
 document.querySelector("#tabList").append(...elements);
 
