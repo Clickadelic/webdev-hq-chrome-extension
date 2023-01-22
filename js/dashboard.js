@@ -1,6 +1,11 @@
-
-function devSysLogs(){
-	const extensionId = chrome.i18n.getMessage("@@extension_id");
-	console.log(`WebDev HQ Chrome Extension ID (by i18n message): ${extensionId}`);
+function dashboardSetup(){
+	const toggleBtn = document.getElementById("btn-sidebar-toggle")
+	toggleBtn.addEventListener("click", toggleSidebar)
 }
-devSysLogs()
+
+dashboardSetup()
+
+function toggleSidebar(){
+	const sidebar = document.getElementById("App-sidebar")
+	sidebar.classList.toggle("md:block")
+}

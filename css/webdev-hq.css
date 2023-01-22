@@ -541,6 +541,10 @@ video {
   right: 1.25rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -582,6 +586,10 @@ video {
 
 .mt-1 {
   margin-top: 0.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
 }
 
 .block {
@@ -633,6 +641,10 @@ video {
   width: 700px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .grid-cols-6 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
@@ -663,6 +675,10 @@ video {
 
 .border-r-2 {
   border-right-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-slate-400 {

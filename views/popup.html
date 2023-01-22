@@ -6,24 +6,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="../css/webdev-hq.css" />
 </head>
-<body class="bg-slate-200 p-3 w-[700px] h-[400]">
+<body class="bg-slate-100 w-[700px] h-[400]">
     <template id="li_template">
-      <li>
-        <a>
-          <h3 class="title">Tab Title</h3>
+      <li class="mb-1">
+        <a class="cursor-pointer">
+          <h3 class="title text-1xl">Tab Title</h3>
           <p class="pathname">Tab Pathname</p>
         </a>
       </li>
     </template>
-
+	<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow">
+		<div class="App-sidebar-logo flex justify-center px-2 py-3">
+			<h1 class="text-2xl">
+				<img src="#" class="logo inline mr-2 -mt-1" alt="WebDev HQ Logo" />
+				<span class="web">Lo</span><span class='dev-hq font-medium'>Go</span>
+			</h1>
+		</div>
+		<section class="sidebar-section mt-10 mb-6">
+			<h2 class="text-1xl font-medium mx-5 my-3">SVG Todos</h2>
+			<ul class="sidebar-nav">
+				<li><a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">SVG All Todos</a></li>
+			</ul>
+		</section>
+	</aside>
     <nav>
 		<ul class="flex justify-center">
-			<li><button class="flex border-1 border-blue-500 p-2 rounded" id="tabsBtn">Group Tabs</button></li>
-			<li><button class="flex border-1 border-blue-500 p-2 rounded" id="dashboardBtn">Dashboard</button></li>
-			<li><button class="flex border-1 border-blue-500 p-2 rounded" id="btn-group-tabs">Group Tabs</button></li>
+			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="tabsBtn">Group Tabs</button></li>
+			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="dashboardBtn">Dashboard</button></li>
+			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="btn-group-tabs">Group Tabs</button></li>
 		</ul>
 	</nav>
-    <ul id="tabList"></ul>
+    <ul id="tabList" class="p-2 m-2"></ul>
 
 	<script src="../js/popup.js" type="module"></script>
 	</body>
