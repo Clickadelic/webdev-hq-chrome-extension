@@ -15,13 +15,11 @@ const elements = new Set();
 
 for (const tab of tabs) {
 	const element = template.content.firstElementChild.cloneNode(true);
-
-	// const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://`${domain}`&size=64"
-
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
 	const length = 80;
 	const trimmedTitle = title.substring(0, length);
+	element.querySelector("img.favicon").src = tab.favIconUrl;
 	element.querySelector(".title").textContent = trimmedTitle;
 	element.querySelector(".pathname").textContent = pathname;
 	element.querySelector("a.linktext").addEventListener("click", async () => {
@@ -30,7 +28,7 @@ for (const tab of tabs) {
 		await chrome.windows.update(tab.windowId, { focused: true });
 	});
 	element.querySelector("button.btn-collect-link").addEventListener("click", async () => {
-		alert(tab.id)
+		console.table(tab)
 	});
 
 	elements.add(element);

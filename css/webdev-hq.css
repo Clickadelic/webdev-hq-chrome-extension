@@ -674,8 +674,28 @@ video {
   margin-bottom: 0.5rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-16 {
+  margin-left: 4rem;
+}
+
+.ml-20 {
+  margin-left: 5rem;
+}
+
+.-mt-2 {
+  margin-top: -0.5rem;
+}
+
 .block {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .inline {
@@ -922,6 +942,10 @@ video {
   padding-right: 1rem;
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -978,9 +1002,18 @@ body {
   border-width: 1px;
 }
 
+.hover\:border-r-2:hover {
+  border-right-width: 2px;
+}
+
 .hover\:border-blue-500:hover {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+
+.hover\:border-r-slate-200:hover {
+  --tw-border-opacity: 1;
+  border-right-color: rgb(226 232 240 / var(--tw-border-opacity));
 }
 
 .hover\:bg-slate-300:hover {
@@ -991,6 +1024,11 @@ body {
 .hover\:bg-blue-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-slate-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .hover\:text-blue-800:hover {
@@ -1005,6 +1043,10 @@ body {
 
   .md\:mt-1 {
     margin-top: 0.25rem;
+  }
+
+  .md\:ml-16 {
+    margin-left: 4rem;
   }
 
   .md\:block {
