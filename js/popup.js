@@ -16,17 +16,21 @@ const elements = new Set();
 for (const tab of tabs) {
 	const element = template.content.firstElementChild.cloneNode(true);
 
-	const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://`${domain}`&size=64"
+	// const endpoint = "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://`${domain}`&size=64"
 
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
-
-	element.querySelector(".title").textContent = title;
+	const length = 80;
+	const trimmedTitle = title.substring(0, length);
+	element.querySelector(".title").textContent = trimmedTitle;
 	element.querySelector(".pathname").textContent = pathname;
-	element.querySelector("a").addEventListener("click", async () => {
+	element.querySelector("a.linktext").addEventListener("click", async () => {
 		// need to focus window as well as the active tab
 		await chrome.tabs.update(tab.id, { active: true });
 		await chrome.windows.update(tab.windowId, { focused: true });
+	});
+	element.querySelector("button.btn-collect-link").addEventListener("click", async () => {
+		alert(tab.id)
 	});
 
 	elements.add(element);
