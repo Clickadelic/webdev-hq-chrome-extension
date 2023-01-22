@@ -9,9 +9,9 @@
 <body class="bg-slate-100 w-[760px] h-[360]">
     <template id="li_template">
       <li class="mb-1">
-        <a class="cursor-pointer">
-          <h3 class="title text-1xl">Tab Title</h3>
-          <p class="pathname">Tab Pathname</p>
+        <a class="p-1 block cursor-pointer hover:text-blue-500">
+          <h3 class="title text-2xl">Tab Title</h3>
+          <p class="pathname text-slate-900">Tab Pathname</p>
         </a>
       </li>
     </template>
@@ -92,8 +92,9 @@
 			</ul>
 		</nav>
 	</header>
-    <ul id="tabList" class="p-2 m-2"></ul>
-
+    <main class="p-2 mt-16 ml-16">
+		<ul id="tabList"></ul>
+	</main>
 	<script src="../js/popup.js" type="module"></script>
 	</body>
 </html>
