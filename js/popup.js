@@ -61,4 +61,3 @@ accountBtn.addEventListener("click", async () => {
 	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/account.html"
 	chrome.tabs.create({url: optionsUrl, active: true})
 });
-
