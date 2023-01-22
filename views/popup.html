@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="../css/webdev-hq.css" />
 </head>
-<body class="bg-slate-100 w-[700px] h-[400]">
+<body class="bg-slate-100 w-[760px] h-[360]">
     <template id="li_template">
       <li class="mb-1">
         <a class="cursor-pointer">
@@ -15,27 +15,83 @@
         </a>
       </li>
     </template>
-	<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow">
+	<aside class="App-sidebar block fixed top-0 left-0 w-12 min-h-screen bg-white shadow">
 		<div class="App-sidebar-logo flex justify-center px-2 py-3">
 			<h1 class="text-2xl">
-				<img src="#" class="logo inline mr-2 -mt-1" alt="WebDev HQ Logo" />
-				<span class="web">Lo</span><span class='dev-hq font-medium'>Go</span>
+				<img src="../static/logo/icon-32.png" class="logo inline mr-2 -mt-1" alt="WebDev HQ Logo" />
+				
 			</h1>
 		</div>
-		<section class="sidebar-section mt-10 mb-6">
-			<h2 class="text-1xl font-medium mx-5 my-3">SVG Todos</h2>
+		<section class="sidebar-section mt-1 mb-6">
+			<!-- <h2 class="text-1xl font-medium mx-5 my-3">SVG Todos</h2> -->
 			<ul class="sidebar-nav">
-				<li><a href="/" class="block px-4 py-2 bg-sky-100 border-r-2 border-r-sky-500">SVG All Todos</a></li>
+				<li>
+					<button class="block p-3 hover:bg-sky-100 hover:border-r-2 hover:border-r-sky-500" id="dashboardBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
+							<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+							<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button class="block p-3 hover:bg-sky-100 hover:border-r-2 hover:border-r-sky-500" id="tabsBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-segmented-nav" viewBox="0 0 16 16">
+							<path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z"/>
+						</svg>
+					</button>
+				</li>
 			</ul>
 		</section>
 	</aside>
-    <nav>
-		<ul class="flex justify-center">
-			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="tabsBtn">Group Tabs</button></li>
-			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="dashboardBtn">Dashboard</button></li>
-			<li><button class="flex text-2xl border border-blue-500 p-2 rounded" id="btn-group-tabs">Group Tabs</button></li>
-		</ul>
-	</nav>
+	<header class="App-header flex fixed top-0 ml-12 w-screen p-2 bg-white shadow">
+		<nav class="flex justify-between w-max">
+			<span class="p-0">
+				<button class="bg-slate-200 hidden md:inline hover:bg-slate-300 mt-1 ml-3 mr-1 rounded p-2">
+					<span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-text-indent-left" viewBox="0 0 16 16">
+							<path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm.646 2.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L4.293 8 2.646 6.354a.5.5 0 0 1 0-.708zM7 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+						</svg>
+					</span>
+				</button>
+				<input type="search" name="search" class="search-input-desktop inline p-2 border rounded-md ml-3 mt-1" placeholder="Search / CTRL + K" />
+			</span>
+			<button class="fixed right-5 md:hidden bg-slate-200 rounded p-2">SVG</button>
+			<ul class="hidden fixed right-5 md:inline-flex md:mt-1">
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded" id="dashboardBtn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns" viewBox="0 0 16 16">
+							<path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z"/>
+						</svg>
+					</button>
+				</li>
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded">
+						SVG
+					</button>
+				</li>
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded">
+						SVG
+					</button>
+				</li>
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded">
+						SVG
+					</button>
+				</li>
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded">
+						SVG
+					</button>
+				</li>
+				<li>
+					<button class="bg-slate-200 mx-2 inline-flex p-3 rounded">
+						SVG
+					</button>
+				</li>
+			</ul>
+		</nav>
+	</header>
     <ul id="tabList" class="p-2 m-2"></ul>
 
 	<script src="../js/popup.js" type="module"></script>
