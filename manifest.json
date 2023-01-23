@@ -51,7 +51,8 @@
 		"bookmarks",
 		"storage",
 		"downloads",
-		"contextMenus"
+		"contextMenus",
+		"history"
 	],
 	"author": "admin@webdev-hq.com",
 	"devtools_page": "./views/devtools.html"

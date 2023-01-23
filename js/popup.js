@@ -4,18 +4,21 @@ const tabs = await chrome.tabs.query({
 	url: [
 	  "https://*/*",
 	  "http://*/*"
-	],
+	]
 });
 
 const collator = new Intl.Collator();
 tabs.sort((a, b) => collator.compare(a.title, b.title));
 
-const template = document.getElementById("li_template");
+const li_template = document.getElementById("li_template");
 const elements = new Set();
+
+const history_template = document.getElementById("history_template");
+const userHistory = new Set();
 
 for (const tab of tabs) {
 	// Scoop up elements
-	const element = template.content.firstElementChild.cloneNode(true);
+	const element = li_template.content.firstElementChild.cloneNode(true);
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
 	const length = 80;
@@ -31,47 +34,21 @@ for (const tab of tabs) {
 	});
 
 	element.querySelector("button.btn-collect-link").addEventListener("click", async () => {
-		const save = fetch(`https://api.webdev-hq.com/api/auth/${tab.url}`)
+		alert(tab.url)
 	});
 
 	elements.add(element);
 }
 document.querySelector("#tabList").append(...elements);
 
-const dashboardBtn = document.querySelector("#btn-open-dashboard");
-dashboardBtn.addEventListener("click", async () => {
-	const dashboardUrl = "chrome-extension://"+ runtimeId + "/views/dashboard.html"
-	chrome.tabs.create({url: dashboardUrl, active: true})
-});
-
-const optionsBtn = document.querySelector("#btn-open-options");
-optionsBtn.addEventListener("click", async () => {
-	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/options.html"
-	chrome.tabs.create({url: optionsUrl, active: true})
-});
-
-const tabsBtn = document.querySelector("#btn-group-tabs");
-tabsBtn.addEventListener("click", async () => {
-  const tabIds = tabs.map(({ id }) => id);
-  const group = await chrome.tabs.group({ tabIds });
-  await chrome.tabGroups.update(group, { title: "DOCS" });
-});
-
-const accountBtn = document.querySelector("#btn-open-accountpage");
-accountBtn.addEventListener("click", async () => {
-	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/account.html"
-	chrome.tabs.create({url: optionsUrl, active: true})
-});
-
-const setBtn = document.querySelector("#btn-open-collection");
-setBtn.addEventListener("click", async () => {
-	const urlSet = [
-		"https://webdev-hq.com",
-		"https://www.tobias-hopp.de",
-		"https://www.clickadelic.de"
-	]
-	for(const item of urlSet) {
-		chrome.tabs.create({url: item, active: true})
-	}
-});
-
+chrome.history.search({text: '', maxResults: 10}, function(page){
+	page.forEach(function(page) {
+		console.log(page)
+		const element = history_template.content.firstElementChild.cloneNode(true);
+		const link = element.firstElementChild
+		link.setAttribute("href", page.url)
+		link.innerText = page.title
+		userHistory.add(element)
+    })
+	document.querySelector("#history-tabs").append(...userHistory);
+})
