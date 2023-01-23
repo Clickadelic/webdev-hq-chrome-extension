@@ -9,17 +9,22 @@
 <body class="bg-slate-100 w-[760px] h-[360]">
     <template id="li_template">
       <li class="flex mb-2 w-full">
-		<a href="" class="linktext flex w-full px-2 py-1 bg-white rounded-md shadow">
-			<img src="" class="favicon h-6 w-6 mt-2 rounded-full bg-slate-800 border border-1" alt="Favicon of" />
+		<a href="" class="linktext flex w-full bg-white rounded-md shadow">
+			<img src="" class="favicon h-[24px] w-[24px] m-2 rounded bg-transparent" alt="Favicon of" />
 			<div class="ml-3 overflow-hidden">
 				<p class="text-sm font-medium text-slate-900 title"></p>
 				<p class="text-sm text-slate-500 truncate pathname"></p>
 			</div>
 		</a>
-		<button class="btn-collect-link rounded px-4 text-blue-500 hover:text-blue-800">
-			<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+		<button class="btn-collect-link ml-4 rounded px-2 py-1 bg-blue-500 text-white border border-blue-500 hover:bg-blue-600 hover:border-blue-600">
+			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
 				<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
 				<path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
+			</svg>
+		</button>
+		<button class="btn-collect-link ml-4 rounded px-2 py-1 bg-red-500 text-white border border-red-500 hover:bg-red-600 hover:border-red-600">
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+				<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
 			</svg>
 		</button>
       </li>

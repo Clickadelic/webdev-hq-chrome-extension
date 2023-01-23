@@ -14,11 +14,13 @@ const template = document.getElementById("li_template");
 const elements = new Set();
 
 for (const tab of tabs) {
+	// Scoop up elements
 	const element = template.content.firstElementChild.cloneNode(true);
 	const title = tab.title.split("-")[0].trim();
 	const pathname = new URL(tab.url).pathname.slice("/docs".length);
 	const length = 80;
 	const trimmedTitle = title.substring(0, length);
+
 	element.querySelector("img.favicon").src = tab.favIconUrl;
 	element.querySelector(".title").textContent = trimmedTitle;
 	element.querySelector(".pathname").textContent = pathname;
@@ -27,8 +29,9 @@ for (const tab of tabs) {
 		await chrome.tabs.update(tab.id, { active: true });
 		await chrome.windows.update(tab.windowId, { focused: true });
 	});
+
 	element.querySelector("button.btn-collect-link").addEventListener("click", async () => {
-		console.table(tab)
+		const save = fetch(`https://api.webdev-hq.com/api/auth/${tab.url}`)
 	});
 
 	elements.add(element);
