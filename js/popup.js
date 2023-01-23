@@ -62,3 +62,16 @@ accountBtn.addEventListener("click", async () => {
 	const optionsUrl = "chrome-extension://"+ runtimeId + "/views/account.html"
 	chrome.tabs.create({url: optionsUrl, active: true})
 });
+
+const setBtn = document.querySelector("#btn-open-collection");
+setBtn.addEventListener("click", async () => {
+	const urlSet = [
+		"https://webdev-hq.com",
+		"https://www.tobias-hopp.de",
+		"https://www.clickadelic.de"
+	]
+	for(const item of urlSet) {
+		chrome.tabs.create({url: item, active: true})
+	}
+});
+
