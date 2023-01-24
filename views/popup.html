@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="../css/webdev-hq.css" />
 </head>
-<body class="bg-slate-100 w-[760px] h-[360]">
+<body class="bg-slate-100 w-[760px] h-[500]">
     <template id="li_template">
-      <li class="flex w-full hover:bg-white p-3">
+      <li class="flex w-full hover:bg-white p-2">
 		<a href="" class="linktext flex w-full">
 			<img src="" class="favicon h-[24px] w-[24px] m-2 rounded bg-transparent" alt="Favicon of" />
 			<div class="ml-3 overflow-hidden">
@@ -16,21 +16,23 @@
 				<p class="text-sm text-slate-500 truncate pathname"></p>
 			</div>
 		</a>
-		<button class="btn-collect-link ml-4 rounded px-1 text-blue-500">
+		<button class="btn-collect-link ml-4 rounded px-1 text-blue-500 hover:text-blue-700">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
 				<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
 				<path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4z"/>
 			</svg>
 		</button>
-		<button class="btn-collect-link ml-4 rounded px-1 text-red-500">
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-				<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
-			</svg>
-		</button>
       </li>
     </template>
 	<template id="history_template">
-		<li><a href="https://example.com" class="linktext" target="_blank">test</a></li>
+		<li class="flex w-full hover:bg-white p-2">
+			<a href="https://example.com" class="linktext" target="_blank">test</a>
+			<button class="btn-collect-link ml-4 rounded px-1 text-red-500">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+					<path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+				</svg>
+			</button>
+		</li>
 	</template>
 	<header class="App-header flex fixed top-0 w-screen p-1 bg-white shadow">
 		<nav class="flex justify-between w-max mb-1 pl-2">
@@ -39,7 +41,6 @@
 				<span class="hidden text-2xl"><span class="webdev">Web</span><span class="hq">Dev HQ</span></span>
 				<input type="search" onchange="handleChange()" name="search" class="search-input-desktop inline p-2 border rounded-md ml-3 mt-1" placeholder="Search / CTRL + K" />
 			</span>
-			<button class="fixed right-2 md:hidden bg-slate-200 rounded p-2">SVG</button>
 			<ul class="fixed top-2 right-2 inline-flex mt-1" id="tabs-nav">
 				<li>
 					<a href="#current-tabs" class="bg-slate-200 mx-2 inline-flex p-2 rounded border border-blue-200">
@@ -87,21 +88,21 @@
 			</ul>
 		</nav>
 	</header>
-    <main class="p-3 mt-16 min-h-[760px]">
+    <main class="p-3 mt-16">
 		<div id="tab-contents">
 			<div id="current-tabs" class="p-2">
 				<ul id="tabList" class="divide-y divide-slate-200"></ul>
 			</div>
-			<div id="history" class="hidden p-2">
+			<div id="history" class="hidden p-2 mx-auto">
 				<ul id="history-tabs" class="divide-y divide-slate-200"></ul>
 			</div>
-			<div id="settings" class="hidden p-2">
-				Tab 3 content
+			<div id="settings" class="hidden p-2 mx-auto">
+				Settings
 			</div>
-			<div id="tools" class="hidden p-2">
+			<div id="tools" class="hidden p-2 mx-auto">
 				Tab 4 content
 			</div>
-			<div id="account" class="hidden p-2">
+			<div id="account" class="hidden p-2 mx-auto">
 				<input type="text" class="rounded border border-slate-200 p-2 flex">
 				<input type="text" class="rounded border border-slate-200 p-2 flex">
 			</div>
