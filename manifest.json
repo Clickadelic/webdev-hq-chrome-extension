@@ -10,6 +10,9 @@
 		"page": "views/options.html",
 		"open_in_tab": true
 	},
+	"chrome_url_overrides": {
+		"newtab": "views/dashboard.html"
+	},
 	"background": {
 		"service_worker": "./js/background.js"
 	},
