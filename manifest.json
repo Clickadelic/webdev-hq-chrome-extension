@@ -11,7 +11,7 @@
 		"open_in_tab": true
 	},
 	"chrome_url_overrides": {
-		"newtab": "views/index.html"
+		"newtab": "views/home.html"
 	},
 	"background": {
 		"service_worker": "./js/background.js"

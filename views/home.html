@@ -8,18 +8,18 @@
 	<link href="../css/webdev-hq.css" rel="stylesheet">
 </head>
 <body class="bg-white">
-	<div class="App bg-[url('/static/backgrounds/Color-Fog.jpg')] bg-cover min-h-screen">
-		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-16 min-h-screen bg-slate-800 shadow" id="App-sidebar">
+	<div class="App bg-[url('/static/backgrounds/Blue-Bricks.jpg')] bg-cover min-h-screen">
+		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-slate-800 shadow" id="App-sidebar">
 			<div class="App-sidebar-logo flex justify-center px-2 py-3">
 				<h1 class="text-2xl" >
 					<a href="https://webdev-hq.com/" target="_self" title="Go to WebDev HQ">
 						<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline -mt-1" alt="WebDev HQ Logo" />
-						<span class="hidden"><span class="inline-block -mt-1 ml-2 web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span></span>
+						<span class="text-white"><span class="inline-block -mt-1 ml-2 web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span></span>
 					</a>
 				</h1>
 			</div>
 			<section class="sidebar-section mt-10 mb-6">
-				<h2 class="text-1xl font-medium mx-5 my-3 flex text-slate-200">
+				<h2 class="text-1xl font-medium m-5 flex text-white">
 					<span class="sidebar-icon inline">
 						<span class="sidebar-icon inline">
 							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
@@ -28,39 +28,38 @@
 							</svg>
 						</span>
 					</span>
-					<span class="sidebar-text hidden ml-2">Todos</span>
+					<span class="sidebar-text ml-2">Dashboard</span>
 				</h2>
-				<ul class="sidebar-nav">
+				<ul class="sidebar-nav text-center">
 					<li>
-						<a href="/" class="flex p-3 mx-auto font-medium hover:bg-slate-100 hover:border-r-2 hover:border-r-slate-200 active">
-							<span class="sidebar-icon inline">
-								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-									<path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
-									<path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+						<a href="#" class="flex mx-4 rounded p-1 text-white hover:bg-white/30">
+							<span class="sidebar-icon inline mt-[2px]">
+								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+									<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
 								</svg>
 							</span>
-							<span class="sidebar-text hidden ml-2 -mt-1">Todos</span>
+							<span class="sidebar-text ml-4">Text</span>
 						</a>
 					</li>
 				</ul>
 			</section>
 		</aside>
-		<header class="App-header flex fixed top-0 w-screen p-2 bg-slate-800 shadow ml-16" id="App-header">
+		<header class="App-header flex fixed top-0 w-screen p-2 bg-slate-800 shadow ml-64" id="App-header">
 			<nav class="flex justify-between w-max">
 				<span class="p-0">
 					<h1 class="md:hidden text-2xl" id="App-logo">
 						<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline mr-2 -mt-1" alt="WebDev HQ Logo" />
 						<span class="web sidebar-text">Web</span><span class='dev-hq font-medium'>Dev HQ</span>
 					</h1>
-					<button class="bg-slate-200 hidden md:inline hover:bg-slate-300 ml-3 mr-1 rounded p-2 mt-1" id="btn-sidebar-toggle">
+					<button class="bg-slate-400 hidden md:inline hover:bg-slate-300 ml-3 mr-1 rounded p-2 mt-1" id="btn-sidebar-toggle">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-text-indent-right" viewBox="0 0 16 16">
 							<path d="M2 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm10.646 2.146a.5.5 0 0 1 .708.708L11.707 8l1.647 1.646a.5.5 0 0 1-.708.708l-2-2a.5.5 0 0 1 0-.708l2-2zM2 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
 						</svg>
 					</button>
 					<input type="search" name="search" class="search-input-mobile md:hidden p-2 border rounded-md ml-3 mt-1" placeholder="Search" />
-					<input type="search" name="search" class="search-input-desktop hidden md:inline md:w-48 p-2 border border-slate-400 rounded-md ml-3 relative top-[-6px]" placeholder="Search / CTRL + K" />
+					<input type="search" name="search" class="search-input-desktop hidden md:inline md:w-48 p-2 border bg-slate-900 rounded-md ml-3 relative top-[-6px]" placeholder="Search / CTRL + K" />
 				</span>
-				<button class="fixed top-3 right-5 md:hidden bg-slate-200 rounded p-2" id="toggle-mobile-menu">
+				<button class="fixed top-3 right-5 md:hidden bg-slate-400 rounded p-2" id="toggle-mobile-menu">
 					<span class="mobile-toggle" id="toggle-hamburger">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 							<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -150,6 +149,6 @@
 			</main>
 		</div>
 	</div>
-<script src="../js/dashboard.js"></script>
+<script src="../js/home.js"></script>
 </body>
 </html>
