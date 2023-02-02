@@ -8,19 +8,20 @@ dashboardSetup()
 
 function toggleSidebar(){
 	const sidebar = document.getElementById("App-sidebar")
-	const navbar = document.getElementById("App-navbar")
+	const header = document.getElementById("App-header")
 	const sidebarTexts = document.getElementsByClassName("sidebar-text")
-	if((sidebar.classList.contains("w-64")) && (navbar.classList.contains("md:ml-64"))){
-		sidebar.classList.remove("w-64")
-		navbar.classList.remove("md:ml-64")
-		navbar.classList.add("md:ml-16")
+
+	if((sidebar.classList.contains("w-16")) && (header.classList.contains("ml-16"))){
+		sidebar.classList.remove("w-16")
+		header.classList.remove("ml-16")
+
+		sidebar.classList.add("w-64")
+		header.classList.add("ml-64")
 		for (let item of sidebarTexts) {
-			item.classList.add("hidden")
+			item.classList.remove("hidden")
 		}
 	} else {
-		sidebar.classList.add("w-64")
-		navbar.classList.remove("md:ml-16")
-		navbar.classList.add("md:ml-64")
+		
 		for (let item of sidebarTexts) {
 			item.classList.remove("hidden")
 		}

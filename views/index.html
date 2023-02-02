@@ -4,20 +4,22 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>WebDev HQ - Dashboard</title>
+	<title>WebDev HQ - Startpage</title>
 	<link href="../css/webdev-hq.css" rel="stylesheet">
 </head>
 <body class="bg-white">
-	<div class="App bg-[url('/static/backgrounds/Winter-Crystals.jpg')] bg-cover min-h-screen">
-		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-16 min-h-screen backdrop-blur bg-white/30 shadow" id="App-sidebar">
+	<div class="App bg-[url('/static/backgrounds/Color-Fog.jpg')] bg-cover min-h-screen">
+		<aside class="App-sidebar hidden md:block fixed top-0 left-0 w-16 min-h-screen bg-slate-800 shadow" id="App-sidebar">
 			<div class="App-sidebar-logo flex justify-center px-2 py-3">
 				<h1 class="text-2xl" >
-					<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline -mt-1" alt="WebDev HQ Logo" />
-					<span class="inline-block -mt-1 ml-2 web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span>
+					<a href="https://webdev-hq.com/" target="_self" title="Go to WebDev HQ">
+						<img src="../static/logo/icon-32.png" class="logo sidebar-icon inline -mt-1" alt="WebDev HQ Logo" />
+						<span class="hidden"><span class="inline-block -mt-1 ml-2 web sidebar-text">Web</span><span class='dev-hq font-medium sidebar-text'>Dev HQ</span></span>
+					</a>
 				</h1>
 			</div>
-			<section class="sidebar-section mt-10 mb-6 text-center">
-				<h2 class="text-1xl font-medium mx-5 my-3 flex">
+			<section class="sidebar-section mt-10 mb-6">
+				<h2 class="text-1xl font-medium mx-5 my-3 flex text-slate-200">
 					<span class="sidebar-icon inline">
 						<span class="sidebar-icon inline">
 							<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16">
@@ -26,24 +28,24 @@
 							</svg>
 						</span>
 					</span>
-					<span class="sidebar-text ml-2">Todos</span>
+					<span class="sidebar-text hidden ml-2">Todos</span>
 				</h2>
 				<ul class="sidebar-nav">
 					<li>
-						<a href="/" class="flex w-full p-3 mx-auto font-medium hover:bg-slate-100 hover:border-r-2 hover:border-r-slate-200 active">
+						<a href="/" class="flex p-3 mx-auto font-medium hover:bg-slate-100 hover:border-r-2 hover:border-r-slate-200 active">
 							<span class="sidebar-icon inline">
 								<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
 									<path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
 								</svg>
 							</span>
-							<span class="sidebar-text ml-2 -mt-1">Todos</span>
+							<span class="sidebar-text hidden ml-2 -mt-1">Todos</span>
 						</a>
 					</li>
 				</ul>
 			</section>
 		</aside>
-		<header class="App-header flex fixed top-0 w-screen p-2 backdrop-blur bg-white/30 shadow ml-16" id="App-header">
+		<header class="App-header flex fixed top-0 w-screen p-2 bg-slate-800 shadow ml-16" id="App-header">
 			<nav class="flex justify-between w-max">
 				<span class="p-0">
 					<h1 class="md:hidden text-2xl" id="App-logo">
@@ -140,54 +142,11 @@
 				</ul>
 			</nav>
 		</header>
-		<div class="pt-16 pl-4 pr-4 md:pl-72 md:pt-24 md:w-full min-h-screen">
-			<!-- BreadCrumbs -->
-			<div class="breadcrumb-navigation mb-6">
-				<ul class="flex">
-					<li><a href="/">WebDev HQ</a></li>
-					<li><a href="#">Todos</a></li>
-				</ul>
-			</div>
+		<div class="pt-16 pl-4 pr-4 md:pl-24 md:pt-24 md:w-full min-h-screen">
+
 			<!-- Body -->
 			<main class="md:w-full">
-				<div class="grid grid-cols-6 gap-4">
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-					<div className="bg-green-200 rounded">
-						<h2>Todos</h2>
-						<ul>
-							<li><a href="/">ListItem</a></li>
-						</ul>
-					</div>
-				</div>
+				<div class="bg-slate-800">asd</div>
 			</main>
 		</div>
 	</div>
