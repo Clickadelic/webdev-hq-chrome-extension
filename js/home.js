@@ -71,7 +71,6 @@ function toggleaccountMenu() {
 
 function actionSearchbla(){
 	let term = '';
-
 	alert(`https://www.google.com/search?q=${term}`)
 }
 
