@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "A tool to collect links - powered by WebDev HQ",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "Tailwind-Dashboard": "npx tailwindcss -i ./css/style-input.css -o ./css/webdev-hq.css --watch"
+    "dev": "webpack --watch --progress --config webpack.config.cjs"
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,21 @@
   },
   "homepage": "https://bitbucket.org/clickadelic/webdev-hq-chrome-extension#readme",
   "devDependencies": {
-    "tailwindcss": "^3.2.4"
+    "autoprefixer": "^10.4.13",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.4.21",
+    "postcss-loader": "^7.0.2",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "ts-loader": "^9.4.2"
   }
 }
