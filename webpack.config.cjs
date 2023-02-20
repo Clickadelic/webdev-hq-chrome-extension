@@ -64,6 +64,11 @@ module.exports = {
 	},
 	output: {
 		filename: "[name].js"
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		}
 	}
 }
 

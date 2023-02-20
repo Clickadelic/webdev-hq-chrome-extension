@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "../assets/css/tailwind.css";
 
 const Options = (
-	<div className="bg-sky-500">
+	<div className="bg-slate-200">
 		<h1>Options</h1>
 	</div>
 )
