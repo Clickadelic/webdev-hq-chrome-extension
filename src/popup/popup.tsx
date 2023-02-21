@@ -4,8 +4,7 @@ import "../assets/css/tailwind.css";
 
 const Layout = (
 	<div className="bg-sky-500">
-		<h1>Hello World</h1>
-		<h2>Whats Up</h2>
+		<img src="./static/backgrounds/Awesome-Orange.jpg" />
 	</div>
 )
 

@@ -29,6 +29,10 @@ module.exports = {
 					}
 				}],
 				test: /\.css$/i
+			},
+			{
+				type: 'asset/resource',
+				test: /\.(png|svg|jpg|jpeg|gif)$/i,
 			}
 		]
 	},
@@ -39,7 +43,7 @@ module.exports = {
 				// Manifest.json
 				{ from: path.resolve('src/manifest.json'), to: path.resolve('dist') },
 				// Assets
-				{
+				{	
 					from: path.resolve('src/assets'),
 					globOptions: {
 						dot: true,
@@ -49,7 +53,15 @@ module.exports = {
 					to: path.resolve('dist/assets')
 				},
 				// Static
-				{ from: path.resolve('src/static'), to: path.resolve('dist/static') },
+				{
+					from: path.resolve('src/static'),
+					globOptions: {
+						dot: true,
+						gitignore: true,
+						ignore: ["**/assets/css/input.css"],
+					},
+					to: path.resolve('dist/static')
+				},
 				// Locales
 				{ from: path.resolve('src/_locales'), to: path.resolve('dist/_locales') },
 			]
