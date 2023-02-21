@@ -56,11 +56,6 @@ module.exports = {
 				// Static
 				{
 					from: path.resolve('src/static'),
-					globOptions: {
-						dot: true,
-						gitignore: true,
-						ignore: ["**/assets/css/input.css"],
-					},
 					to: path.resolve('dist/static')
 				},
 				// Locales
