@@ -2,6 +2,7 @@
 	"manifest_version": 3,
 	"name": "WebDev HQ",
 	"description": "WebDev HQ Chrome Extension | A daily webdeveloper dashboard. Visit https://webdev-hq.com/ for more information.",
+	"author": "admin@webdev-hq.com",
 	"version": "1.0.0",
 	"action": {
 		"default_title": "Webdev HQ",
@@ -22,6 +23,9 @@
 		"48": "./static/icons/extension/icon-48.png",
 		"128": "./static/icons/extension/icon-128.png"
 	},
+	"chrome_url_overrides": {
+		"newtab": "newTab.html"
+	},
 	"host_permissions": [
 		"https://*.webdev-hq.com/*",
 		"https://developer.chrome.com/*"
@@ -37,6 +41,11 @@
 		"contextMenus",
 		"history"
 	],
-	"author": "admin@webdev-hq.com",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["contentScript.js"]
+        }
+    ],
 	"devtools_page": "./views/devtools.html"
 }

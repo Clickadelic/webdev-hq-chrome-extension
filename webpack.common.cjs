@@ -5,12 +5,14 @@ const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
 
 module.exports = {
-	mode: "development",
-	devtool: "cheap-module-source-map",
+	
 	entry: {
 		popup: path.resolve('./src/popup/popup.tsx'),
 		options: path.resolve('./src/options/options.tsx'),
 		background: path.resolve('./src/background/background.ts'),
+		contentScript: path.resolve('./src/content-script/content-script.ts'),
+		dashboard: path.resolve('./src/dashboard/index.tsx'),
+		newTab: path.resolve('./src/newTab/index.tsx'),
 	},
 	module: {
 		rules: [
@@ -64,7 +66,9 @@ module.exports = {
 		}),
 		...getHtmlPlugins([
 			'popup',
-			'options'
+			'options',
+			'dashboard',
+			'newTab'
 		])
 	],
 	resolve: {
