@@ -1,6 +1,7 @@
 import React from 'react'
 import {createRoot} from "react-dom/client"
-import Demo from './Demo'
+import { HashRouter as Router } from 'react-router-dom'
+import NewTab from './NewTab'
 
 function init() {
 	const appContainer = document.createElement('div')
@@ -11,6 +12,6 @@ function init() {
 
 	const root = createRoot(appContainer)
 	console.log(appContainer)
-	root.render(<Demo />)
+	root.render(<Router><NewTab /></Router>)
 }
 init()
