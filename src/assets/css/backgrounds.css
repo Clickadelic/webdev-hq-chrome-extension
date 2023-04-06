@@ -1,0 +1,52 @@
+.bg-colorful-wall {
+	background: url('../../static/backgrounds/Window-Wall.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-awesome-orange {
+	background: url('../../static/backgrounds/Awesome-Orange.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-blue-bricks {
+	background: url('../../static/backgrounds/Blue-Bricks.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-candy-store {
+	background: url('../../static/backgrounds/Candy-Store.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-color-curves {
+	background: url('../../static/backgrounds/Color-Curves.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-color-fog {
+	background: url('../../static/backgrounds/Color-Fog.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-color-stripes {
+	background: url('../../static/backgrounds/Color-Stripes.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-eye-rainbow {
+	background: url('../../static/backgrounds/Eye-of-the-Rainbow.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-glass-tunnel {
+	background: url('../../static/backgrounds/Glass-Tunnel.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-metal-plates {
+	background: url('../../static/backgrounds/Metal-Plates.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-used-brushes {
+	background: url('../../static/backgrounds/Used-Brushes.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-window-wall {
+	background: url('../../static/backgrounds/Window-Wall.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-winter-crystals {
+	background: url('../../static/backgrounds/Winter-Crystals.jpg') top center no-repeat;
+	background-size: cover;
+}
