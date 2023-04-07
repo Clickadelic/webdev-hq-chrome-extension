@@ -6,5 +6,9 @@
 	"hello": {
 		"message": "Hello",
 		"description": "Salutation"
+	},
+	"search": {
+		"message": "Search",
+		"description": "Searchfield text"
 	}
 }
