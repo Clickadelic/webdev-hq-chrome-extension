@@ -1,17 +1,23 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../assets/css/tailwind.css';
-import Home from './components/Home';
+import History from './components/History';
 import About from './components/About';
 import SearchBox from './components/SearchBox';
-// import Breadcrumbs from './components/Breadcrumbs'
 function NewTab() {
     return (React.createElement("div", { className: "App bg-slate-100 bg-window-wall min-h-screen" },
-        React.createElement("div", { className: "pt-16 pl-4 pr-4 md:pt-24 md:w-full min-h-screen" },
+        React.createElement("div", { className: " px-4  md:w-full" },
             React.createElement(SearchBox, null),
-            React.createElement("main", { className: "md:w-full" },
-                React.createElement(Routes, null,
-                    React.createElement(Route, { path: "/", element: React.createElement(Home, null) }),
-                    React.createElement(Route, { path: "/about", element: React.createElement(About, null) }))))));
+            React.createElement("div", { className: "tab-box md:w-[800px] m-auto p-4 rounded bg-white/30 backdrop-blur-md" },
+                React.createElement("nav", { className: "tab-nav" },
+                    React.createElement("ul", { className: "flex bg-white" },
+                        React.createElement("li", { className: "list-none" },
+                            React.createElement("a", { href: "#/", className: "p-2 text-medium" }, "History")),
+                        React.createElement("li", { className: "list-none" },
+                            React.createElement("a", { href: "#/about", className: "p-2 text-medium" }, "About")))),
+                React.createElement("main", { className: "md:w-full bg-white" },
+                    React.createElement(Routes, null,
+                        React.createElement(Route, { path: "/", element: React.createElement(History, null) }),
+                        React.createElement(Route, { path: "/about", element: React.createElement(About, null) })))))));
 }
 export default NewTab;
