@@ -3,20 +3,18 @@ import {useState, useEffect} from 'react'
 
 function History() {
 
-	
-	const history = () => {
+	const [userHistory, setUserHistory] = useState([])
 
+	function readHistory() {
 		chrome.history.search({text: '', maxResults: 20}, (data) => {
-
-			data.forEach(function(page) {
-				// console.log({page})
-				return <li><a href={page.url}>{page.title}</a></li>
-			})
-
+		console.log(data);
+		return data
+		// data.forEach(function(page) {
+		// 	// console.log({page})
+		// 	return <li><a href={page.url}>{page.title}</a></li>
+		// })
 		})
 	}
-
-
 
 	return (
 		<div className="de">
