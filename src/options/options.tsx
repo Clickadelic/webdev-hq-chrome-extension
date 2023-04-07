@@ -1,10 +1,17 @@
 import React from 'react';
 import { createRoot } from "react-dom/client";
 import "../assets/css/tailwind.css";
+import Checkbox from './Checkbox';
+import Logo from '../Logo';
 
 const Options = (
-	<div className="bg-slate-200">
-		<h1>Options</h1>
+	<div className="min-h-screen bg-slate-200 ">
+		<div className="md:w-[800px] m-auto bg-white p-4">
+			<Logo />
+			<div className="tobysrow">
+				<Checkbox />
+			</div>
+		</div>
 	</div>
 )
 

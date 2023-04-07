@@ -5,11 +5,7 @@ function HeaderSidebar() {
     }
     return (React.createElement(React.Fragment, null,
         React.createElement("aside", { className: "App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow" },
-            React.createElement("div", { className: "App-sidebar-logo flex justify-center px-2 py-3" },
-                React.createElement("h1", { className: "text-2xl" },
-                    React.createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
-                    React.createElement("span", { className: "web" }, "Web"),
-                    React.createElement("span", { className: "dev-hq font-medium" }, "Dev HQ"))),
+            React.createElement("div", { className: "App-sidebar-logo flex justify-center px-2 py-3" }),
             React.createElement("section", { className: "sidebar-section mt-10 mb-6" },
                 React.createElement("h2", { className: "text-1xl font-medium mx-5 my-3 flex" },
                     React.createElement("span", { className: "mt-1.5 mr-4" },

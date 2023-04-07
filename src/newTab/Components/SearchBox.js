@@ -1,7 +1,7 @@
 import React from 'react';
 function SearchBox() {
-    return (React.createElement("div", { className: "searchbox flex w-[800px] m-auto mt-12 mb-48 justify-center p-4 rounded bg-white/40 backdrop backdrop-blur-0" },
-        React.createElement("form", { method: "GET", className: "flex w-[800px]", action: "https://search.brave.com/search", id: "action-search" },
+    return (React.createElement("div", { className: "searchbox flex md:w-[800px] m-auto mt-12 mb-48 justify-center p-4 rounded bg-white/40 backdrop backdrop-blur-0" },
+        React.createElement("form", { method: "GET", className: "flex md:w-[800px]", action: "https://search.brave.com/search", id: "action-search" },
             React.createElement("input", { type: "text", className: "p-3 text-2xl w-full rounded-tl rounded-bl mx-auto", name: "q", id: "q", placeholder: chrome.i18n.getMessage("search") }),
             React.createElement("button", { className: "bg-sky-600 text-white rounded-br rounded-tr px-6", type: "submit" },
                 React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-search", viewBox: "0 0 16 16" },

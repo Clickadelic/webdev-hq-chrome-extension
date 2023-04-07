@@ -8,10 +8,7 @@ function HeaderSidebar() {
 		<>
 			<aside className="App-sidebar hidden md:block fixed top-0 left-0 w-64 min-h-screen bg-white shadow">
 				<div className="App-sidebar-logo flex justify-center px-2 py-3">
-					<h1 className="text-2xl">
-						<img src="../static/icons/extension/icon-32.png" className="logo inline mr-2 -mt-1" alt="WebDev HQ Logo" />
-						<span className="web">Web</span><span className="dev-hq font-medium">Dev HQ</span>
-					</h1>
+					
 				</div>
 				<section className="sidebar-section mt-10 mb-6">
 					<h2 className="text-1xl font-medium mx-5 my-3 flex">
