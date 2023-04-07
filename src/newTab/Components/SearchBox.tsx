@@ -2,21 +2,15 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 function SearchBox() {
 
-	const [engine, setEngine] = useState({})
-
 	const handleChange = (e) => {
-		
-		const name = e.target.name;
-		const selected = e.target.value;
-		// Ternary/If ...then Simple Obj[key] => Obj[value]
-		const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-		setEngine((prevState) => ({ ...prevState, [name]: value }));
-		console.log(engine, selected);
+
+		// const [engine, setEngine] = useState('https://search.brave.com/search')
+		console.log(e)
 	}
 
 	return (
 		<div className="searchbox flex md:w-[800px] m-auto justify-center p-4 mb-4 rounded bg-white/30 backdrop-blur-md">
-			<form method="GET" className="flex md:w-[800px]" action="https://search.brave.com/search" id="action-search">
+			<form method="GET" className="flex md:w-[800px]" action="#" id="action-search">
 				<input type="text" className="p-3 text-2xl w-full rounded-tl rounded-bl mx-auto" name="q" id="q" placeholder={chrome.i18n.getMessage("search")} />
 				<select onChange={handleChange} name="search-engine" id="search-engine" className="p-3 text-2xl">
 					<option value="https://search.brave.com/search">Brave</option>

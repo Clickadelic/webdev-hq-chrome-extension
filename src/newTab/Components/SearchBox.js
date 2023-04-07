@@ -1,17 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
 function SearchBox() {
-    const [engine, setEngine] = useState({});
     const handleChange = (e) => {
-        const name = e.target.name;
-        const selected = e.target.value;
-        // Ternary/If ...then Simple Obj[key] => Obj[value]
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        setEngine((prevState) => (Object.assign(Object.assign({}, prevState), { [name]: value })));
-        console.log(engine, selected);
+        // const [engine, setEngine] = useState('https://search.brave.com/search')
+        console.log(e);
     };
     return (React.createElement("div", { className: "searchbox flex md:w-[800px] m-auto justify-center p-4 mb-4 rounded bg-white/30 backdrop-blur-md" },
-        React.createElement("form", { method: "GET", className: "flex md:w-[800px]", action: "https://search.brave.com/search", id: "action-search" },
+        React.createElement("form", { method: "GET", className: "flex md:w-[800px]", action: "#", id: "action-search" },
             React.createElement("input", { type: "text", className: "p-3 text-2xl w-full rounded-tl rounded-bl mx-auto", name: "q", id: "q", placeholder: chrome.i18n.getMessage("search") }),
             React.createElement("select", { onChange: handleChange, name: "search-engine", id: "search-engine", className: "p-3 text-2xl" },
                 React.createElement("option", { value: "https://search.brave.com/search" }, "Brave"),
