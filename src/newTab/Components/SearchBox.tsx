@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+
 function SearchBox() {
 	
 	// TODO improve this
@@ -13,11 +14,11 @@ function SearchBox() {
 					const selected = e.target.value
 					setEngine(selected)
 
-				}} value={engine} name="search-engine" id="search-engine" className="p-3 text-2xl">
-					<option value="https://search.brave.com/search">Brave</option>
-					<option value="https://www.google.com/search">Google</option>
-					<option value="https://www.bing.com/search">Bing</option>
-					<option value="https://duckduckgo.com/search">Duck</option>
+				}} value={engine} name="search-engine" id="search-engine" className="p-3 text-medium">
+					<option value="https://search.brave.com/search" className="brave">Brave</option>
+					<option value="https://www.google.com/search" className="google">Google</option>
+					<option value="https://www.bing.com/search" className="bing">Bing</option>
+					<option value="https://duckduckgo.com/search" className="duck">Duck</option>
 				</select>
 				<button className="bg-white text-slate-500 hover:text-blue-500 rounded-br rounded-tr p-6" type="submit">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
