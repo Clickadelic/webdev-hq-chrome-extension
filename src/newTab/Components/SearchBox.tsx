@@ -25,7 +25,6 @@ function SearchBox() {
 					</svg>
 				</button>
 			</form>
-			{engine}
 		</div>
 	)
 }
