@@ -1,22 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 function SearchBox() {
-
-	const handleChange = (e) => {
-
-		// const [engine, setEngine] = useState('https://search.brave.com/search')
-		console.log(e)
-	}
+	
+	// TODO improve this
+	const [engine, setEngine] = useState("https://search.brave.com/search")
 
 	return (
 		<div className="searchbox flex md:w-[800px] m-auto justify-center p-4 mb-4 rounded bg-white/30 backdrop-blur-md">
-			<form method="GET" className="flex md:w-[800px]" action="#" id="action-search">
+			<form method="GET" className="flex md:w-[800px]" action={engine} id="action-search">
 				<input type="text" className="p-3 text-2xl w-full rounded-tl rounded-bl mx-auto" name="q" id="q" placeholder={chrome.i18n.getMessage("search")} />
-				<select onChange={handleChange} name="search-engine" id="search-engine" className="p-3 text-2xl">
+				<select onChange={(e) => {
+					const selected = e.target.value
+					setEngine(selected)
+
+				}} value={engine} name="search-engine" id="search-engine" className="p-3 text-2xl">
 					<option value="https://search.brave.com/search">Brave</option>
-					<option value="https://www.google.com/">Google</option>
-					<option value="https://www.bing.com/">Bing</option>
-					<option value="https://duckduckgo.com/">Duck</option>
+					<option value="https://www.google.com/search">Google</option>
+					<option value="https://www.bing.com/search">Bing</option>
+					<option value="https://duckduckgo.com/search">Duck</option>
 				</select>
 				<button className="bg-white text-slate-500 hover:text-blue-500 rounded-br rounded-tr p-6" type="submit">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -24,6 +25,7 @@ function SearchBox() {
 					</svg>
 				</button>
 			</form>
+			{engine}
 		</div>
 	)
 }
