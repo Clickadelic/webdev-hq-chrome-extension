@@ -21,7 +21,7 @@ function History() {
 			const history = data.map((page) => {
 				return (
 					<li key={page.id} className="flex justify-between overflow-ellipsis">
-						<a href={page.url} id="item-`${page.id}`" className="text-base text-slate-900 hover:text-slate-400" target="_self" title={page.title}>{page.title}</a>
+						<a href={page.url} className="text-base text-slate-900 hover:text-slate-400" target="_self" title={page.title}>{page.title}</a>
 						<span>
 							<button onClick={() => {
 								// console.log("This is to be deleted:", page.url)
