@@ -1,10 +1,22 @@
 chrome.runtime.onInstalled.addListener(() => {
-	console.log("huhu")
+	chrome.contextMenus.create({
+		id: "webdev-hq",
+		title: "Save this website for later",
+		type: "normal",
+		contexts: ["all"]
+	})
 })
 
 chrome.bookmarks.onCreated.addListener(() => {
 	console.log("Bookmark created")
 })
+
+chrome.contextMenus.onClicked.addListener((info) => {
+	// chrome.tabs.create({
+	// 	url: "https://webdev-hq.com/search?q=" + encodeURIComponent(info.selectionText)
+	// })
+})
+
 
 // function getClickHandler() {
 // 	return function(info, tab) {
