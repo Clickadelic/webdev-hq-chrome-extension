@@ -1,42 +1,32 @@
 {
   "name": "webdev-hq-chrome-extension",
   "version": "1.0.0",
-  "description": "A tool to collect links - powered by WebDev HQ",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --watch --progress --config webpack.dev.cjs",
-    "build": "webpack --watch --progress --config webpack.production.cjs"
+    "server-dev": "nodemon server.js --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/clickadelic/webdev-hq-chrome-extension.git"
+    "url": "git+ssh://git@bitbucket.org/webdev-hq/webdev-hq-chrome-extension.git"
   },
-  "author": "Tobias Hopp aka Clickadelic",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://bitbucket.org/clickadelic/webdev-hq-chrome-extension/issues"
+    "url": "https://bitbucket.org/webdev-hq/webdev-hq-chrome-extension/issues"
   },
-  "homepage": "https://bitbucket.org/clickadelic/webdev-hq-chrome-extension#readme",
-  "devDependencies": {
-    "@types/chrome": "^0.0.217",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "autoprefixer": "^10.4.13",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
-    "postcss": "^8.4.21",
-    "postcss-loader": "^7.0.2",
-    "style-loader": "^3.3.1",
-    "tailwindcss": "^3.2.7",
-    "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1",
-    "webpack-merge": "^5.8.0"
-  },
+  "homepage": "https://bitbucket.org/webdev-hq/webdev-hq-chrome-extension#readme",
   "dependencies": {
-    "react": "^18.2.0",
-    "react-router-dom": "^6.8.2",
-    "ts-loader": "^9.4.2"
+    "concurrently": "^8.0.1",
+    "cookie-session": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-google-oauth20": "^2.0.0"
   }
 }

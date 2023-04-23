@@ -15,6 +15,7 @@ function NewTab() {
 						<ul className="flex rounded-full bg-white list-none">
 							<li><a href="#/" className="inline-block m-2 ml-6 p-2 text-base text-slate-500">History</a></li>
 							<li><a href="#/about" className="inline-block m-2 p-2 text-base text-slate-500">About</a></li>
+							<li><a href="/auth/google" className="inline-block m-2 p-2 text-base text-slate-500">Login with Google</a></li>
 						</ul>
 					</nav>
 					<main className="md:w-full p-4 mb-4">
