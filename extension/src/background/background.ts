@@ -1,43 +1,16 @@
 chrome.runtime.onInstalled.addListener(() => {
 	chrome.contextMenus.create({
 		id: "webdev-hq",
-		title: "Save this website for later",
+		title: "save @ WebDev HQ",
 		type: "normal",
 		contexts: ["all"]
 	})
 })
 
-chrome.bookmarks.onCreated.addListener(() => {
-	console.log("Bookmark created")
-})
-
 chrome.contextMenus.onClicked.addListener((info) => {
-	// chrome.tabs.create({
-	// 	url: "https://webdev-hq.com/search?q=" + encodeURIComponent(info.selectionText)
-	// })
+	chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+		let url = tabs[0].url;
+		// use `url` here inside the callback because it's asynchronous!
+		console.log(url);
+	});
 })
-
-
-// function getClickHandler() {
-// 	return function(info, tab) {
-// 		// The srcUrl property is only available for image elements.
-// 		var url = "http://regex.info/exif.cgi?imgurl=" + info.srcUrl;
-  
-// 		// Create a new tabto the info page
-//   		chrome.tabs.create({ url: url, });
-// 	};
-// };
-  
-  
-  
-  /**
-   * Create a context menu which will only show up for images.
-   */
-  
-  
-// chrome.contextMenus.create({
-// 	"title" : "Get image info via Jeffrey's Exif Viewer",
-// 	"type" : "normal",
-// 	"contexts" : ["image"],
-// 	"onclick" : getClickHandler()
-// });

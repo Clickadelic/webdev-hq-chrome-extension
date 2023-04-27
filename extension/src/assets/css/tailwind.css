@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './backgrounds.css';<
+@import './backgrounds.css';
 
 /* Checkbox */
 input:checked + div {  

@@ -3,7 +3,7 @@ import React from 'react'
 function DigitalClock() {
 
 	return (
-		<div id="digital-clock">21:07 Uhr</div>
+		<div id="digital-clock">The Time</div>
 	)
 }
 
