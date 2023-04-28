@@ -10,7 +10,6 @@ function MultiBox() {
 				<Logo />
 			</div>
 			<div className="w-96 md:w-[600px] m-auto rounded-md bg-white/10 backdrop backdrop-blur p-2">
-				
 				<div className="bg-white p-2 rounded-md">
 					<FormSearchBar />
 					<GoogleApps />
