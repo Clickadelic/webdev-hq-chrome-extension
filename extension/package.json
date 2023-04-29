@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-digital-clock": "^0.1.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "ts-loader": "^9.4.2"

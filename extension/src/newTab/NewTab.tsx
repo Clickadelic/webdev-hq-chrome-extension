@@ -8,7 +8,7 @@ import NavBar from './components/NavBar'
 
 function NewTab() {
 	return (
-		<div className="App h-screen bg-slate-900">
+		<div className="App h-screen bg-slate-900 bg-color-stripes">
 			<NavBar />
 			<MultiBox />
 			{/* <main className="md:w-full p-4 mb-4">

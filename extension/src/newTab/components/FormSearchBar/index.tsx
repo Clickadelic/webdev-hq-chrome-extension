@@ -18,7 +18,7 @@ function FormSearchBar() {
 	console.log(userSettings)
 	return (
 		<form method="GET" className="flex justify-between" action={engine} id="multi-search">
-			<input type="text" className="w-full text-base pl-3 focus-visible:outline-0" name="q" id="q" placeholder={chrome.i18n.getMessage("search")} />
+			<input type="text" className="w-full text-2xl pl-3 focus-visible:outline-0" name="q" id="q" placeholder={chrome.i18n.getMessage("search")} />
 			<select onChange={(e) => {handleChange(e)}} value={engine} name="search-engine" id="search-engine" className="p-3 text-lg">
 				<option value="https://search.brave.com/search" className="brave">Brave</option>
 				<option value="https://www.google.com/search" className="google">Google</option>
