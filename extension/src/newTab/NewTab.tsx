@@ -8,7 +8,7 @@ import History from './components/History'
 import About from './components/About'
 function NewTab() {
 	return (
-		<div className="App h-screen bg-slate-900 bg-color-stripes">
+		<div className="App h-screen bg-slate-900 bg-mountain-beach">
 			<NavBar />
 			<div className="flex m-auto md:w-[600px] justify-center mb-12">
 				<Logo />

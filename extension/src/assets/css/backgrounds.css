@@ -46,7 +46,11 @@
 	background: url('../../static/backgrounds/Window-Wall.jpg') top center no-repeat;
 	background-size: cover;
 }
-.bg-winter-crystals {
-	background: url('../../static/backgrounds/Winter-Crystals.jpg') top center no-repeat;
+.bg-cube-house {
+	background: url('../../static/backgrounds/Cube-House.jpg') top center no-repeat;
+	background-size: cover;
+}
+.bg-mountain-beach {
+	background: url('../../static/backgrounds/Mountain-Beach.jpg') top center no-repeat;
 	background-size: cover;
 }
