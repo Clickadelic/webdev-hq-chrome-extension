@@ -36,7 +36,7 @@ function History({ classes }) {
     }
     useEffect(() => {
         getHistory();
-    }, [history]);
+    }, [userHistory]);
     return (React.createElement("div", { className: `${classes}` },
         React.createElement("ul", { className: "list-history p-4" }, userHistory)));
 }

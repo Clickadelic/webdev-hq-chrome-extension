@@ -53,7 +53,7 @@ function History({classes}) {
 
 	useEffect(() => {
 		getHistory()
-	}, [history])
+	}, [userHistory])
 
 	return (
 		<div className={`${classes}`}>
