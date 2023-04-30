@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './backgrounds.css';<
+@import './backgrounds.css';
+@import './navbar-grid.css';
 
 /* Checkbox */
 input:checked + div {  

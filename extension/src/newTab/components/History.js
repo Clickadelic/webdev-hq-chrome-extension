@@ -1,18 +1,21 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-function History() {
+function History({ classes }) {
     const [userHistory, setUserHistory] = useState([]);
     function saveItem(page) {
         console.log("Save:", page);
     }
     function deleteItem(url) {
-        console.log("Delete: ", url);
+        chrome.history.deleteUrl(url, callBack);
     }
     function getHistory() {
         chrome.history.search({ text: '', maxResults: 10 }, (data) => {
             const history = data.map((page) => {
+                let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain=" + page.url;
                 return (React.createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
-                    React.createElement("a", { href: page.url, className: "text-base text-slate-900 hover:text-slate-400", target: "_self", title: page.title }, page.title),
+                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate", target: "_self", title: page.title },
+                        React.createElement("img", { src: faviconUrl, className: "favicon inline-block mr-2", alt: page.title }),
+                        page.title),
                     React.createElement("span", null,
                         React.createElement("button", { onClick: () => {
                                 // console.log("This is to be deleted:", page.url)
@@ -27,14 +30,14 @@ function History() {
                                 React.createElement("path", { d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" }))))));
             });
             setUserHistory(history);
-            console.log("History is:", history);
-            console.table(history);
+            // console.log("History is:", history);
+            // console.table(history);
         });
     }
     useEffect(() => {
         getHistory();
     }, [history]);
-    return (React.createElement("div", { className: "history bg-white/30 backdrop backdrop-blur-sm p-4 rounded-md" },
-        React.createElement("ul", { className: "list-history p-4 bg-white rounded-md" }, userHistory)));
+    return (React.createElement("div", { className: `${classes}` },
+        React.createElement("ul", { className: "list-history p-4" }, userHistory)));
 }
 export default History;

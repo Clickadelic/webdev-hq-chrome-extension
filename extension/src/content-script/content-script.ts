@@ -1,3 +1,5 @@
 window.onload = () => {
-	console.log("I am from the content script");
+	const button = document.createElement("button")
+	button.innerText = "Save"
+	document.body.appendChild(button)
 }

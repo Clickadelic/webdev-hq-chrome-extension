@@ -1,25 +1,27 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../assets/css/tailwind.css';
+import NavBar from './components/NavBar';
+import Logo from '../Logo';
+import FormSearchBar from './components/FormSearchBar';
 import History from './components/History';
 import About from './components/About';
-import SearchBox from './components/SearchBox';
+import SettingsButton from './components/SettingsButton';
 function NewTab() {
-    return (React.createElement("div", { className: "App h-screen bg-slate-100 bg-color-fog" },
-        React.createElement("div", { className: "m-auto px-4 pt-24 md:w-full" },
-            React.createElement(SearchBox, null),
-            React.createElement("div", { className: "tab-box md:w-[800px] m-auto" },
-                React.createElement("nav", { className: "tab-nav p-4 mb-4 rounded-full bg-white/30 backdrop-blur-md" },
-                    React.createElement("ul", { className: "flex rounded-full bg-white list-none" },
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#/", className: "inline-block m-2 ml-6 p-2 text-base text-slate-500" }, "History")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "#/about", className: "inline-block m-2 p-2 text-base text-slate-500" }, "About")),
-                        React.createElement("li", null,
-                            React.createElement("a", { href: "/auth/google", className: "inline-block m-2 p-2 text-base text-slate-500" }, "Login with Google")))),
-                React.createElement("main", { className: "md:w-full p-4 mb-4" },
-                    React.createElement(Routes, null,
-                        React.createElement(Route, { path: "/", element: React.createElement(History, null) }),
-                        React.createElement(Route, { path: "/about", element: React.createElement(About, null) })))))));
+    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-mountain-beach" },
+        React.createElement("div", { className: "flex m-auto mb-24" },
+            React.createElement(NavBar, null)),
+        React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },
+            React.createElement(Logo, null)),
+        React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12 rounded bg-white/10 backdrop backdrop-blur p-2" },
+            React.createElement("div", { className: "bg-white p-3 w-full rounded" },
+                React.createElement(FormSearchBar, null))),
+        React.createElement("main", { className: "md:w-full p-4 mb-4" },
+            React.createElement(Routes, null,
+                React.createElement(Route, { path: "/", element: React.createElement(History, { classes: "bg-white/10 backdrop backdrop-blur md:w-[600px] m-auto" }) }),
+                React.createElement(Route, { path: "/about", element: React.createElement(About, null) }))),
+        React.createElement("footer", { className: "flex justify-center" },
+            React.createElement("p", { className: "text-slate-400 text-medium" }, "Footer Stuff")),
+        React.createElement(SettingsButton, null)));
 }
 export default NewTab;

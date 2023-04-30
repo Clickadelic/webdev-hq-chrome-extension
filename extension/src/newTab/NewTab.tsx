@@ -1,31 +1,39 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
 import '../assets/css/tailwind.css'
+import NavBar from './components/NavBar'
+import Logo from '../Logo'
+import FormSearchBar from './components/FormSearchBar'
 import History from './components/History'
 import About from './components/About'
-import SearchBox from './components/SearchBox'
+import SettingsButton from './components/SettingsButton'
+
 
 function NewTab() {
+	
 	return (
-		<div className="App h-screen bg-slate-100 bg-color-fog">
-			<div className="m-auto px-4 pt-24 md:w-full">
-				<SearchBox />
-				<div className="tab-box md:w-[800px] m-auto">
-					<nav className="tab-nav p-4 mb-4 rounded-full bg-white/30 backdrop-blur-md">
-						<ul className="flex rounded-full bg-white list-none">
-							<li><a href="#/" className="inline-block m-2 ml-6 p-2 text-base text-slate-500">History</a></li>
-							<li><a href="#/about" className="inline-block m-2 p-2 text-base text-slate-500">About</a></li>
-							<li><a href="/auth/google" className="inline-block m-2 p-2 text-base text-slate-500">Login with Google</a></li>
-						</ul>
-					</nav>
-					<main className="md:w-full p-4 mb-4">
-						<Routes>
-							<Route path="/" element={<History />} />
-							<Route path="/about" element={<About />} />
-						</Routes>
-					</main>
+		<div className="App h-screen bg-slate-900 bg-mountain-beach">
+			<div className="flex m-auto mb-24">
+				<NavBar />
+			</div>
+			<div className="flex m-auto md:w-[600px] justify-center mb-12">
+				<Logo />
+			</div>
+			<div className="flex m-auto md:w-[600px] justify-center mb-12 rounded bg-white/10 backdrop backdrop-blur p-2">
+				<div className="bg-white p-3 w-full rounded">
+					<FormSearchBar />
 				</div>
 			</div>
+			<main className="md:w-full p-4 mb-4">
+				<Routes>
+					<Route path="/" element={<History classes="bg-white/10 backdrop backdrop-blur md:w-[600px] m-auto" />} />
+					<Route path="/about" element={<About />} />
+				</Routes>
+			</main>
+			<footer className="flex justify-center">
+				<p className="text-slate-400 text-medium">Footer Stuff</p>
+			</footer>
+			<SettingsButton />
 		</div>
 	)
 }
