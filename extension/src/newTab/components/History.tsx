@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 
  
-function History() {
+function History({classes}) {
 
 	const [userHistory, setUserHistory] = useState([])
 
@@ -21,7 +21,7 @@ function History() {
 			const history = data.map((page) => {
 				return (
 					<li key={page.id} className="flex justify-between overflow-ellipsis">
-						<a href={page.url} className="text-base text-slate-900 hover:text-slate-400" target="_self" title={page.title}>{page.title}</a>
+						<a href={page.url} className="text-base text-white hover:text-slate-400" target="_self" title={page.title}>{page.title}</a>
 						<span>
 							<button onClick={() => {
 								// console.log("This is to be deleted:", page.url)
@@ -53,8 +53,8 @@ function History() {
 	}, [history])
 
 	return (
-		<div className="history bg-white/30 backdrop backdrop-blur-sm p-4 rounded-md">
-			<ul className="list-history p-4 bg-white rounded-md">
+		<div className={`${classes}`}>
+			<ul className="list-history p-4">
 				{userHistory}
 			</ul>
 		</div>

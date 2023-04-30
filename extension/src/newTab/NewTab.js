@@ -18,7 +18,7 @@ function NewTab() {
                 React.createElement(FormSearchBar, null))),
         React.createElement("main", { className: "md:w-full p-4 mb-4" },
             React.createElement(Routes, null,
-                React.createElement(Route, { path: "/", element: React.createElement(History, null) }),
+                React.createElement(Route, { path: "/", element: React.createElement(History, { classes: "bg-white/10 backdrop backdrop-blur md:w-[600px] m-auto" }) }),
                 React.createElement(Route, { path: "/about", element: React.createElement(About, null) }))),
         React.createElement("footer", null,
             React.createElement("p", null, "Footer Stuff")),

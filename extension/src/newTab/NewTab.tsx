@@ -26,7 +26,7 @@ function NewTab() {
 			</div>
 			<main className="md:w-full p-4 mb-4">
 				<Routes>
-					<Route path="/" element={<History />} />
+					<Route path="/" element={<History classes="bg-white/10 backdrop backdrop-blur md:w-[600px] m-auto" />} />
 					<Route path="/about" element={<About />} />
 				</Routes>
 			</main>

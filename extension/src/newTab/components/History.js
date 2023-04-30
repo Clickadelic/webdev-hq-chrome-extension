@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-function History() {
+function History({ classes }) {
     const [userHistory, setUserHistory] = useState([]);
     function saveItem(page) {
         console.log("Save:", page);
@@ -12,7 +12,7 @@ function History() {
         chrome.history.search({ text: '', maxResults: 10 }, (data) => {
             const history = data.map((page) => {
                 return (React.createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
-                    React.createElement("a", { href: page.url, className: "text-base text-slate-900 hover:text-slate-400", target: "_self", title: page.title }, page.title),
+                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400", target: "_self", title: page.title }, page.title),
                     React.createElement("span", null,
                         React.createElement("button", { onClick: () => {
                                 // console.log("This is to be deleted:", page.url)
@@ -34,7 +34,7 @@ function History() {
     useEffect(() => {
         getHistory();
     }, [history]);
-    return (React.createElement("div", { className: "history bg-white/30 backdrop backdrop-blur-sm p-4 rounded-md" },
-        React.createElement("ul", { className: "list-history p-4 bg-white rounded-md" }, userHistory)));
+    return (React.createElement("div", { className: `${classes}` },
+        React.createElement("ul", { className: "list-history p-4" }, userHistory)));
 }
 export default History;
