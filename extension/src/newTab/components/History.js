@@ -6,8 +6,26 @@ function History({ classes }) {
         console.log("Save:", page);
     }
     function deleteItem(url) {
-        chrome.history.deleteUrl(url, callBack);
+        chrome.history.deleteUrl(url);
     }
+    function onRemoved(removeInfo) {
+        if (removeInfo.urls.length) {
+            console.log(`Removed: ${removeInfo.urls[0]}`);
+        }
+    }
+    chrome.history.onVisitRemoved.addListener(onRemoved);
+    function onGot(results) {
+        if (results.length) {
+            console.log(`Removing: ${results[0].url}`);
+            chrome.history.deleteUrl({ url: results[0].url });
+        }
+    }
+    let searching = chrome.history.search({
+        text: "",
+        startTime: 0,
+        maxResults: 1
+    });
+    searching.then(onGot);
     function getHistory() {
         chrome.history.search({ text: '', maxResults: 10 }, (data) => {
             const history = data.map((page) => {
