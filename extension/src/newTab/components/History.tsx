@@ -11,17 +11,20 @@ function History({classes}) {
 	}
 
 	function deleteItem(url){
-		
-		console.log("Delete: ", url);
+		chrome.history.deleteUrl(url, callBack)
 		
 	}
 	
 	function getHistory(){
 		chrome.history.search({text: '', maxResults: 10}, (data) => {
 			const history = data.map((page) => {
+				let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain="+page.url
 				return (
 					<li key={page.id} className="flex justify-between overflow-ellipsis">
-						<a href={page.url} className="text-base text-white hover:text-slate-400" target="_self" title={page.title}>{page.title}</a>
+						<a href={page.url} className="text-base text-white hover:text-slate-400 mb-1 truncate" target="_self" title={page.title}>
+							<img src={faviconUrl} className="favicon inline-block mr-2" alt={page.title} />
+							{page.title}
+						</a>
 						<span>
 							<button onClick={() => {
 								// console.log("This is to be deleted:", page.url)
@@ -43,8 +46,8 @@ function History({classes}) {
 				)
 			})
 			setUserHistory(history)
-			console.log("History is:", history);
-			console.table(history);
+			// console.log("History is:", history);
+			// console.table(history);
 		})
 	}
 

@@ -30,8 +30,8 @@ function NewTab() {
 					<Route path="/about" element={<About />} />
 				</Routes>
 			</main>
-			<footer>
-				<p>Footer Stuff</p>
+			<footer className="flex justify-center">
+				<p className="text-slate-400 text-medium">Footer Stuff</p>
 			</footer>
 			<SettingsButton />
 		</div>

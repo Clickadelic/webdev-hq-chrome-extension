@@ -20,8 +20,8 @@ function NewTab() {
             React.createElement(Routes, null,
                 React.createElement(Route, { path: "/", element: React.createElement(History, { classes: "bg-white/10 backdrop backdrop-blur md:w-[600px] m-auto" }) }),
                 React.createElement(Route, { path: "/about", element: React.createElement(About, null) }))),
-        React.createElement("footer", null,
-            React.createElement("p", null, "Footer Stuff")),
+        React.createElement("footer", { className: "flex justify-center" },
+            React.createElement("p", { className: "text-slate-400 text-medium" }, "Footer Stuff")),
         React.createElement(SettingsButton, null)));
 }
 export default NewTab;
