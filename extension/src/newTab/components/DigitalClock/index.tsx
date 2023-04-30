@@ -14,7 +14,7 @@ function DigitalClock({label, textClasses, backgroundClasses}) {
 	setInterval(UpdateTime)
 	return (
 		<div className={"flex justify-center " + `${textClasses} ${backgroundClasses}`}>
-			<span className="current-time inline-block mr-2">{currentTime}</span><span className="clock-label">{label}</span>
+			<span className="current-time inline-block mr-2">{currentTime}</span><span className="clock-label text-small">{label}</span>
 		</div>
 	)
 }

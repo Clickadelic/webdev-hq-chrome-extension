@@ -1,8 +1,6 @@
 import React from 'react'
 import DigitalClock from '../DigitalClock'
 
-
-
 function NavBar() {
 	
 	return (

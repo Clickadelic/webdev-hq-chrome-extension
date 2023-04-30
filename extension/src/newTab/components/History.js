@@ -2,39 +2,21 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 function History({ classes }) {
     const [userHistory, setUserHistory] = useState([]);
-    function saveItem(page) {
-        console.log("Save:", page);
+    function saveItem(url) {
+        console.log("Save:", url);
     }
     function deleteItem(url) {
-        chrome.history.deleteUrl(url);
+        console.log("Delete:", url);
     }
-    function onRemoved(removeInfo) {
-        if (removeInfo.urls.length) {
-            console.log(`Removed: ${removeInfo.urls[0]}`);
-        }
-    }
-    chrome.history.onVisitRemoved.addListener(onRemoved);
-    function onGot(results) {
-        if (results.length) {
-            console.log(`Removing: ${results[0].url}`);
-            chrome.history.deleteUrl({ url: results[0].url });
-        }
-    }
-    let searching = chrome.history.search({
-        text: "",
-        startTime: 0,
-        maxResults: 1
-    });
-    searching.then(onGot);
     function getHistory() {
         chrome.history.search({ text: '', maxResults: 10 }, (data) => {
             const history = data.map((page) => {
                 let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain=" + page.url;
                 return (React.createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
-                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate", target: "_self", title: page.title },
-                        React.createElement("img", { src: faviconUrl, className: "favicon inline-block mr-2", alt: page.title }),
+                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate w-full", target: "_self", title: page.title },
+                        React.createElement("img", { src: faviconUrl, className: "favicon inline-flex mr-6", alt: page.title }),
                         page.title),
-                    React.createElement("span", null,
+                    React.createElement("span", { className: "inline-flex" },
                         React.createElement("button", { onClick: () => {
                                 // console.log("This is to be deleted:", page.url)
                                 deleteItem(page.url);
