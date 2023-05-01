@@ -10,7 +10,7 @@ function DigitalClock({ label, textClasses, backgroundClasses }) {
         setCurrentTime(time);
     };
     setInterval(UpdateTime);
-    return (React.createElement("div", { className: "flex justify-center " + `${textClasses} ${backgroundClasses}` },
+    return (React.createElement("div", { className: `${textClasses} ${backgroundClasses}` },
         React.createElement("span", { className: "current-time inline-block mr-2" }, currentTime),
         React.createElement("span", { className: "clock-label text-small" }, label)));
 }
