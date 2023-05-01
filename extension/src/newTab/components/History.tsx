@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-function History() {
+function History({classes}) {
 
 	const [userHistory, setUserHistory] = useState([])
 
@@ -11,7 +11,7 @@ function History() {
 
 	function deleteItem(url){
 		chrome.history.deleteUrl({url}, () =>{
-			console.log("Deleted")
+			return
 		})
 	}
 	
@@ -21,7 +21,7 @@ function History() {
 				let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain="+page.url
 				return (
 					<li key={page.id} className="flex justify-between overflow-ellipsis">
-						<a href={page.url} className="text-base text-white hover:text-slate-400 mb-1 truncate w-full" target="_self" title={page.title}>
+						<a href={page.url} className="text-base text-white hover:text-slate-400 mb-1" target="_self" title={page.title}>
 							<img src={faviconUrl} className="favicon inline-flex mr-6" alt={page.title} />
 							{page.title}
 						</a>
@@ -57,9 +57,11 @@ function History() {
 	}, [userHistory])
 
 	return (
-		<ul className="list-history">
-			{userHistory}
-		</ul>
+		<div className={`${classes}`}>
+			<ul className="list-history p-1">
+				{userHistory}
+			</ul>
+		</div>
 	)
 }
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-function History() {
+function History({ classes }) {
     const [userHistory, setUserHistory] = useState([]);
     function saveItem(url) {
         console.log("Save:", url);
     }
     function deleteItem(url) {
         chrome.history.deleteUrl({ url }, () => {
-            console.log("Deleted");
+            return;
         });
     }
     function getHistory() {
@@ -15,7 +15,7 @@ function History() {
             const history = data.map((page) => {
                 let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain=" + page.url;
                 return (React.createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
-                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate w-full", target: "_self", title: page.title },
+                    React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1", target: "_self", title: page.title },
                         React.createElement("img", { src: faviconUrl, className: "favicon inline-flex mr-6", alt: page.title }),
                         page.title),
                     React.createElement("span", { className: "inline-flex" },
@@ -40,6 +40,7 @@ function History() {
     useEffect(() => {
         getHistory();
     }, [userHistory]);
-    return (React.createElement("ul", { className: "list-history" }, userHistory));
+    return (React.createElement("div", { className: `${classes}` },
+        React.createElement("ul", { className: "list-history p-1" }, userHistory)));
 }
 export default History;

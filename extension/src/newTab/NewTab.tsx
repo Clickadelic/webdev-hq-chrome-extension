@@ -72,9 +72,9 @@ function NewTab() {
 					</ul>
 				</nav>
 			</div>
-			<main className="flex m-auto md:w-[600px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2">
+			<main className="flex justify-between">
 				<Routes>
-					<Route path="/" element={<History />} />
+					<Route path="/" element={<History classes="flex m-auto md:w-[600px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 					<Route path="/downloads" element={<Downloads />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/about" element={<About />} />
