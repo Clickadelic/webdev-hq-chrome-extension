@@ -58,7 +58,7 @@ function History({classes}) {
 
 	return (
 		<div className={`${classes}`}>
-			<ul className="list-history p-1">
+			<ul className="list-history p-1 w-full">
 				{userHistory}
 			</ul>
 		</div>

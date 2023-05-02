@@ -6,9 +6,9 @@ function NavBar() {
 	return (
 		<nav className="w-full">
 			<ul className="navbar-grid">
-				<li><a href="/" className="p-2 block text-2xl">a</a></li>
-				<li><a href="/" className="p-2 block text-2xl">b</a></li>
-				<li><a href="/" className="p-2 block text-2xl">c</a></li>
+				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
+				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
+				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li>
 					<DigitalClock
 						label="Uhr"
@@ -17,8 +17,8 @@ function NavBar() {
 					/>
 				
 				</li>
-				<li><a href="/" className="p-2 block text-2xl">d</a></li>
-				<li><a href="/" className="p-2 block text-2xl">e</a></li>
+				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
+				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li>
 					<div className="block">
 						<a href="auth/google/">Login with Google</a>

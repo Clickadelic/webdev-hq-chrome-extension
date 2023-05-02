@@ -41,6 +41,6 @@ function History({ classes }) {
         getHistory();
     }, [userHistory]);
     return (React.createElement("div", { className: `${classes}` },
-        React.createElement("ul", { className: "list-history p-1" }, userHistory)));
+        React.createElement("ul", { className: "list-history p-1 w-full" }, userHistory)));
 }
 export default History;

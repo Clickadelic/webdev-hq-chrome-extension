@@ -10,5 +10,25 @@
 	"search": {
 		"message": "Suche",
 		"description": "Suchfeld Text"
+	},
+	"history": {
+		"message": "Verlauf",
+		"description": "Browser-Verlauf"
+	},
+	"tabgroups": {
+		"message": "Tab-Gruppen",
+		"description": "Tab-Gruppen des Users"
+	},
+	"downloads": {
+		"message": "Downloads",
+		"description": "Browser-Downloads"
+	},
+	"settings": {
+		"message": "Einstellungen",
+		"description": "Browser-Einstellungen"
+	},
+	"deleteAllHistory": {
+		"message": "gesamten Verlauf löschen",
+		"description": "Den gesamten Verlauf löschen"
 	}
 }
