@@ -27,7 +27,7 @@
 		"message": "Settings",
 		"description": "Browser-Einstellungen"
 	},
-	"deleteAllHistory": {
+	"deleteHistory": {
 		"message": "delete history",
 		"description": "Delete all items of history"
 	}

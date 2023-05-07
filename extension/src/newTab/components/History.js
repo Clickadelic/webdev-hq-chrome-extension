@@ -47,6 +47,6 @@ function History({ classes }) {
         React.createElement("ul", { className: "list-history p-1 w-full min-h-[20px]" }, userHistory),
         React.createElement("ul", { className: "list-history-actions flex justify-center w-full border-t border-slate-400" },
             React.createElement("li", null,
-                React.createElement("button", { onClick: deleteHistory, className: "px-2 py-3 text-white text-base" }, "Delete History")))));
+                React.createElement("button", { onClick: deleteHistory, className: "px-2 py-3 text-white text-base" }, chrome.i18n.getMessage("deleteHistory"))))));
 }
 export default History;

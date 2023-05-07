@@ -27,8 +27,8 @@
 		"message": "Einstellungen",
 		"description": "Browser-Einstellungen"
 	},
-	"deleteAllHistory": {
-		"message": "gesamten Verlauf löschen",
+	"deleteHistory": {
+		"message": "Verlauf löschen",
 		"description": "Den gesamten Verlauf löschen"
 	}
 }

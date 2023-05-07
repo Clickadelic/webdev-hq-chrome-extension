@@ -66,7 +66,7 @@ function History({classes}) {
 				{userHistory}
 			</ul>
 			<ul className="list-history-actions flex justify-center w-full border-t border-slate-400">
-				<li><button onClick={deleteHistory} className="px-2 py-3 text-white text-base">Delete History</button></li>
+				<li><button onClick={deleteHistory} className="px-2 py-3 text-white text-base">{chrome.i18n.getMessage("deleteHistory")}</button></li>
 			</ul>
 		</div>
 	)
