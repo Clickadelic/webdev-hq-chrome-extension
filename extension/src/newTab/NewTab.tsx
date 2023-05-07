@@ -26,8 +26,8 @@ function NewTab() {
 					<FormSearchBar />
 				</div>
 			</div>
-			<div className="flex m-auto md:w-[600px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2">
-				<nav className="w-full border-b-[1px] p-3">
+			<div className="flex m-auto mb-4 md:w-[600px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2">
+				<nav className="w-full p-3">
 					<ul className="flex justify-between">
 						<li>
 							<Link to="/" className="flex justify-between text-white text-base hover:text-slate-300" target="_self">
@@ -87,7 +87,7 @@ function NewTab() {
 			</div>
 			<main className="flex justify-between">
 				<Routes>
-					<Route path="/" element={<History classes="flex m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
+					<Route path="/" element={<History classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 					<Route path="/downloads" element={<Downloads />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/about" element={<About />} />

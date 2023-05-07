@@ -20,14 +20,14 @@ function History({classes}) {
 			const history = data.map((page) => {
 				let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain="+page.url
 				return (
-					<li key={page.id} className="flex justify-between overflow-ellipsis">
-						<a href={page.url} className="text-base text-white hover:text-slate-400 mb-1" target="_self" title={page.title}>
+					<li key={page.id} className="flex justify-between">
+						<a href={page.url} className="block w-full text-base text-white hover:text-slate-400 mb-1 whitespace-nowrap overflow-hidden" target="_self" title={page.title}>
 							<img src={faviconUrl} className="favicon inline-flex mr-6" alt={page.title} />
 							{page.title}
 						</a>
-						<span className="inline-flex">
+						<span className="inline-flex ml-2 pl-2">
 							<button onClick={() => {
-								// console.log("This is to be deleted:", page.url)
+								// console.log("This is to be deleted:", page.url)b
 								deleteItem(page.url)
 							}} className="text-slate-400 hover:text-rose-600 mr-4">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
@@ -52,14 +52,21 @@ function History({classes}) {
 		})
 	}
 
+	function deleteHistory(){
+		chrome.history.deleteAll()
+	}
+
 	useEffect(() => {
 		getHistory()
 	}, [userHistory])
 
 	return (
 		<div className={`${classes}`}>
-			<ul className="list-history p-1 w-full">
+			<ul className="list-history p-1 w-full min-h-[20px]">
 				{userHistory}
+			</ul>
+			<ul className="list-history-actions flex justify-center w-full border-t border-slate-400">
+				<li><button onClick={deleteHistory} className="px-2 py-3 text-white text-base">Delete History</button></li>
 			</ul>
 		</div>
 	)
