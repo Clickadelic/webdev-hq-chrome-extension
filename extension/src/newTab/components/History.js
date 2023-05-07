@@ -33,8 +33,6 @@ function History({ classes }) {
                                 React.createElement("path", { d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" }))))));
             });
             setUserHistory(history);
-            // console.log("History is:", history);
-            // console.table(history);
         });
     }
     function deleteHistory() {
@@ -47,6 +45,6 @@ function History({ classes }) {
         React.createElement("ul", { className: "list-history p-1 w-full min-h-[20px]" }, userHistory),
         React.createElement("ul", { className: "list-history-actions flex justify-center w-full border-t border-slate-400" },
             React.createElement("li", null,
-                React.createElement("button", { onClick: deleteHistory, className: "px-2 py-3 text-white text-base" }, chrome.i18n.getMessage("deleteHistory"))))));
+                React.createElement("button", { onClick: deleteHistory, className: "px-2 py-3 text-white text-base hover:text-slate-300", title: chrome.i18n.getMessage("deleteHistory") }, chrome.i18n.getMessage("deleteHistory"))))));
 }
 export default History;
