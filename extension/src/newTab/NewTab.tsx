@@ -14,7 +14,7 @@ import {Link} from 'react-router-dom'
 function NewTab() {
 	
 	return (
-		<div className="App h-screen bg-slate-900 bg-mountain-beach">
+		<div className="App h-screen bg-slate-900">
 			<div className="flex m-auto mb-24">
 				<NavBar />
 			</div>
@@ -88,7 +88,7 @@ function NewTab() {
 			<main className="flex justify-between">
 				<Routes>
 					<Route path="/" element={<History classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
-					<Route path="/downloads" element={<Downloads />} />
+					<Route path="/downloads" element={<Downloads classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/settings" element={<Settings />} />

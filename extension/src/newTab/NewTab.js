@@ -11,7 +11,7 @@ import Settings from './components/Settings';
 import SettingsButton from './components/SettingsButton';
 import { Link } from 'react-router-dom';
 function NewTab() {
-    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-mountain-beach" },
+    return (React.createElement("div", { className: "App h-screen bg-slate-900" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, null)),
         React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },
@@ -54,7 +54,7 @@ function NewTab() {
         React.createElement("main", { className: "flex justify-between" },
             React.createElement(Routes, null,
                 React.createElement(Route, { path: "/", element: React.createElement(History, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, null) }),
+                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
                 React.createElement(Route, { path: "/about", element: React.createElement(About, null) }),
                 React.createElement(Route, { path: "/about", element: React.createElement(About, null) }),
                 React.createElement(Route, { path: "/settings", element: React.createElement(Settings, null) }))),

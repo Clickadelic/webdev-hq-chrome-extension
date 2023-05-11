@@ -12,7 +12,7 @@ function NavBar() {
 				<li>
 					<DigitalClock
 						label="Uhr"
-						textClasses="text-slate-400 text-2xl"
+						textClasses="text-white text-2xl"
 						backgroundClasses="p-3"
 					/>
 				

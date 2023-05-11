@@ -10,7 +10,7 @@ function NavBar() {
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement(DigitalClock, { label: "Uhr", textClasses: "text-slate-400 text-2xl", backgroundClasses: "p-3" })),
+                React.createElement(DigitalClock, { label: "Uhr", textClasses: "text-white text-2xl", backgroundClasses: "p-3" })),
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
