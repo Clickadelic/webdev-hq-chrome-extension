@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../assets/css/tailwind.css';
-import Logo from '../Logo';
+import Logo from '../components/Logo';
 import NavBar from './components/NavBar';
-import FormSearchBar from './components/FormSearchBar';
-import History from './components/History';
-import ToDo from './components/ToDo';
-import Downloads from './components/Downloads';
+import FormSearchBar from '../components/FormSearchBar';
+import History from '../components/History';
+import ToDo from '../components/ToDo';
+import Downloads from '../components/Downloads';
 import SettingsButton from './components/SettingsButton';
-import GoogleApps from './components/GoogleApps';
+import GoogleApps from '../components/GoogleApps';
 function NewTab() {
     const [name, setName] = useState([]);
     useEffect(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from "react-dom/client";
 import "../assets/css/tailwind.css";
 import Checkbox from './Checkbox';
-import Logo from '../Logo';
+import Logo from '../components/Logo';
 const Options = (React.createElement("div", { className: "min-h-screen bg-slate-200 " },
     React.createElement("div", { className: "md:w-[800px] m-auto bg-white p-4" },
         React.createElement(Logo, null),

@@ -1,5 +1,5 @@
 import React from 'react';
-import DigitalClock from '../DigitalClock';
+import DigitalClock from '../../../components/DigitalClock';
 function NavBar({ name }) {
     return (React.createElement("nav", { className: "w-full" },
         React.createElement("ul", { className: "navbar-grid" },
@@ -16,7 +16,6 @@ function NavBar({ name }) {
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement("div", { className: "block" },
-                    React.createElement("a", { href: "auth/google/", className: "text-white" }, name ? name : ''))))));
+                React.createElement("a", { href: "auth/google/", className: "text-white" }, name ? name : '')))));
 }
 export default NavBar;

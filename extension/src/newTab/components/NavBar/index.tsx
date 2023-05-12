@@ -1,5 +1,5 @@
 import React from 'react'
-import DigitalClock from '../DigitalClock'
+import DigitalClock from '../../../components/DigitalClock'
 
 function NavBar({name}) {
 	
@@ -9,16 +9,10 @@ function NavBar({name}) {
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
-				<li>
-					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" />
-				</li>
+				<li><DigitalClock label="Uhr" classes="text-white text-2xl p-3" /></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
-				<li>
-					<div className="block">
-						<a href="auth/google/" className="text-white">{name ? name : ''}</a>
-					</div>
-				</li>
+				<li><a href="auth/google/" className="text-white">{name ? name : ''}</a></li>
 			</ul>
 		</nav>
 	)

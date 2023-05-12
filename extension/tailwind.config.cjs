@@ -6,12 +6,6 @@ module.exports = {
 			fontFamily: {
 				'sans': ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
 			}
-		},
-		colors: {
-			transparent: 'transparent',
-			current: 'currentColor',
-			'bermuda': '#78dcca',
-			'crimson': 'crimson'
 		}
 	},
 	plugins: [],
