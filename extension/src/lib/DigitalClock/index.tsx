@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-function DigitalClock({label, textClasses, backgroundClasses}) {
+function DigitalClock({label, classes}) {
 
-	// Instead of options timeStyle: short, use code below
+	// options timeStyle:
 	// {hour: '2-digit', minute:'2-digit', hour12: false}
 	let time  = new Date().toLocaleTimeString([], {timeStyle: 'short'})
 	const [currentTime, setCurrentTime] = useState(time)
@@ -13,8 +13,9 @@ function DigitalClock({label, textClasses, backgroundClasses}) {
 	}
 	setInterval(UpdateTime)
 	return (
-		<div className={`${textClasses} ${backgroundClasses}`}>
-			<span className="current-time inline-block mr-2">{currentTime}</span><span className="clock-label text-small">{label}</span>
+		<div className={`${classes}`}>
+			<span className="current-time inline-block mr-2">{currentTime}</span>
+			<span className="clock-label text-small">{label}</span>
 		</div>
 	)
 }

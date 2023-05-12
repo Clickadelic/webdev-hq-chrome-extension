@@ -30,5 +30,17 @@
 	"deleteHistory": {
 		"message": "Verlauf löschen",
 		"description": "Den gesamten Verlauf löschen"
+	},
+	"todo_s": {
+		"message": "ToDo's",
+		"description": "ToDo List"
+	},
+	"newTodo": {
+		"message": "Neuer Task",
+		"description": "Neuen Task anlegen"
+	},
+	"apps": {
+		"message": "Apps",
+		"description": "Apps"
 	}
 }

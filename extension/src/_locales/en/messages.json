@@ -30,5 +30,17 @@
 	"deleteHistory": {
 		"message": "delete history",
 		"description": "Delete all items of history"
+	},
+	"todo_s": {
+		"message": "ToDo's",
+		"description": "ToDo list"
+	},
+	"newTodo": {
+		"message": "New task",
+		"description": "New todo item"
+	},
+	"apps": {
+		"message": "Apps",
+		"description": "Apps"
 	}
 }

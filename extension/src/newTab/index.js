@@ -9,7 +9,6 @@ function init() {
         throw new Error("Can not find App container");
     }
     const root = createRoot(appContainer);
-    console.log(appContainer);
     root.render(React.createElement(Router, null,
         React.createElement(NewTab, null)));
 }

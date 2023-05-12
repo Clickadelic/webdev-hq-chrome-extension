@@ -1,7 +1,7 @@
 import React from 'react'
 import DigitalClock from '../DigitalClock'
 
-function NavBar() {
+function NavBar({name}) {
 	
 	return (
 		<nav className="w-full">
@@ -10,18 +10,13 @@ function NavBar() {
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li>
-					<DigitalClock
-						label="Uhr"
-						textClasses="text-white text-2xl"
-						backgroundClasses="p-3"
-					/>
-				
+					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" />
 				</li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li><a href="/" className="p-2 block text-2xl">{/*a*/}</a></li>
 				<li>
 					<div className="block">
-						<a href="auth/google/">Login with Google</a>
+						<a href="auth/google/" className="text-white">{name ? name : ''}</a>
 					</div>
 				</li>
 			</ul>
