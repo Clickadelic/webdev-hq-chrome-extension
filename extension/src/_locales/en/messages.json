@@ -15,6 +15,10 @@
 		"message": "History",
 		"description": "Browser-Verlauf"
 	},
+	"tabs": {
+		"message": "Tabs",
+		"description": "Tabs"
+	},
 	"tabgroups": {
 		"message": "Tab-Groups",
 		"description": "Tab-groups of the user"

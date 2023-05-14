@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../assets/css/tailwind.css';
@@ -7,18 +7,27 @@ import Logo from '../components/Logo';
 import NavBar from './components/NavBar';
 import FormSearchBar from '../components/FormSearchBar';
 import History from '../components/History';
-import ToDo from '../components/ToDo';
 import Downloads from '../components/Downloads';
-import SettingsButton from './components/SettingsButton';
+import ActionButton from './components/ActionButton';
 import GoogleApps from '../components/GoogleApps';
 function NewTab() {
     const [name, setName] = useState([]);
-    useEffect(() => {
-        chrome.storage.sync.get(["name"], (res) => {
-            setName(res.name);
-            console.log(res.name);
-        });
-    }, [name]);
+    function logTabs(tabs) {
+        for (const tab of tabs) {
+            // tab.url requires the `tabs` permission or a matching host permission.
+            console.log(tab.url);
+        }
+    }
+    function onError(error) {
+        console.error(`Error: ${error}`);
+    }
+    chrome.tabs.query({}).then(logTabs, onError);
+    // useEffect(()=> {
+    // chrome.storage.sync.get(["name"], (res)=> {
+    // 	setName(res.name)
+    // 	console.log(res.name);
+    // })
+    // }, [name])
     return (React.createElement("div", { className: "App h-screen bg-slate-900" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
@@ -33,11 +42,15 @@ function NewTab() {
                     React.createElement("li", null,
                         React.createElement(Link, { to: "/", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
-                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-list-task", viewBox: "0 0 16 16" },
-                                    React.createElement("path", { "fill-rule": "evenodd", d: "M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z" }),
-                                    React.createElement("path", { d: "M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z" }),
-                                    React.createElement("path", { "fill-rule": "evenodd", d: "M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z" }))),
-                            React.createElement("span", null, chrome.i18n.getMessage("ToDo_s")))),
+                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-app", viewBox: "0 0 16 16" },
+                                    React.createElement("path", { d: "M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" }))),
+                            React.createElement("span", null, chrome.i18n.getMessage("Apps")))),
+                    React.createElement("li", null,
+                        React.createElement(Link, { to: "/google-apps", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                            React.createElement("span", { className: "mt-1 mr-2" },
+                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-segmented-nav", viewBox: "0 0 16 16" },
+                                    React.createElement("path", { d: "M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z" }))),
+                            React.createElement("span", null, chrome.i18n.getMessage("Tabs")))),
                     React.createElement("li", null,
                         React.createElement(Link, { to: "/history", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
@@ -47,13 +60,6 @@ function NewTab() {
                                     React.createElement("path", { d: "M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" }))),
                             React.createElement("span", null, chrome.i18n.getMessage("history")))),
                     React.createElement("li", null,
-                        React.createElement(Link, { to: "/google-apps", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
-                            React.createElement("span", { className: "mt-1 mr-2" },
-                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-download", viewBox: "0 0 16 16" },
-                                    React.createElement("path", { d: "M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" }),
-                                    React.createElement("path", { d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" }))),
-                            React.createElement("span", null, chrome.i18n.getMessage("apps")))),
-                    React.createElement("li", null,
                         React.createElement(Link, { to: "/bookmarks", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
                                 React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-gear", viewBox: "0 0 16 16" },
@@ -62,12 +68,11 @@ function NewTab() {
                             React.createElement("span", null, chrome.i18n.getMessage("Tabgroups"))))))),
         React.createElement("main", { className: "flex justify-between" },
             React.createElement(Routes, null,
-                React.createElement(Route, { path: "/", element: React.createElement(ToDo, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/", element: React.createElement(GoogleApps, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
                 React.createElement(Route, { path: "/history", element: React.createElement(History, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/google-apps", element: React.createElement(GoogleApps, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
                 React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
         React.createElement("footer", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
             React.createElement("button", null, "Actions")),
-        React.createElement(SettingsButton, null)));
+        React.createElement(ActionButton, null)));
 }
 export default NewTab;

@@ -1,41 +1,41 @@
 import React from 'react'
 
-function Bookmarks() {
+// function Bookmarks() {
 
-	function makeIndent(indentLength) {
-		return ".".repeat(indentLength);
-	}
+// 	function makeIndent(indentLength) {
+// 		return ".".repeat(indentLength);
+// 	}
 	
-	function logItems(bookmarkItem, indent) {
-		if (bookmarkItem.url) {
-			console.log(makeIndent(indent) + bookmarkItem.url);
-		} else {
-			console.log(`${makeIndent(indent)}Folder`);
-			indent++;
-		}
-		if (bookmarkItem.children) {
-			for (child of bookmarkItem.children) {
-			logItems(child, indent);
-			}
-		}
-		indent--;
-	}
+// 	function logItems(bookmarkItem, indent) {
+// 		if (bookmarkItem.url) {
+// 			console.log(makeIndent(indent) + bookmarkItem.url);
+// 		} else {
+// 			console.log(`${makeIndent(indent)}Folder`);
+// 			indent++;
+// 		}
+// 		if (bookmarkItem.children) {
+// 			for (child of bookmarkItem.children) {
+// 			logItems(child, indent);
+// 			}
+// 		}
+// 		indent--;
+// 	}
 	
-	function logTree(bookmarkItems) {
-		logItems(bookmarkItems[0], 0);
-	}
+// 	function logTree(bookmarkItems) {
+// 		logItems(bookmarkItems[0], 0);
+// 	}
 	
-	function onRejected(error) {
-		console.log(`An error: ${error}`);
-	}
+// 	function onRejected(error) {
+// 		console.log(`An error: ${error}`);
+// 	}
 	
-	let gettingTree = chrome.bookmarks.getTree();
-	gettingTree.then(logTree, onRejected);
+// 	let gettingTree = chrome.bookmarks.getTree();
+// 	gettingTree.then(logTree, onRejected);
 	  
-	return (
-		<div>Bookmarks</div>
-	)
-}
+// 	return (
+// 		<div>Bookmarks</div>
+// 	)
+// }
 
-export default Bookmarks
+// export default Bookmarks
 
