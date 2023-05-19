@@ -20,7 +20,7 @@ function GoogleApps({classes}) {
 
 	return (
 		<div className={classes}>
-			<ul className="flex justify-between align-baseline p-2 rounded-b">
+			<ul className="flex justify-between align-center p-2 rounded-b">
 				<li><a href="https://docs.google.com/" className="" target="_self"><img src="../../static/icons/google-apps/google-docs.svg" width="16" alt="Google Docs" /></a></li>
 				<li><a href="https://docs.google.com/spreadsheets/" className="" target="_self"><img src="../../static/icons/google-apps/google-sheets.svg" width="16" alt="Google Sheets" /></a></li>
 				<li><a href="https://docs.google.com/slides/" className="" target="_self"><img src="../../static/icons/google-apps/google-slides.svg" width="16" alt="Google Slides" /></a></li>

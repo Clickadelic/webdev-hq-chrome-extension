@@ -14,3 +14,5 @@ chrome.contextMenus.onClicked.addListener((info) => {
 		console.log(url);
 	});
 })
+
+// chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: true});

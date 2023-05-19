@@ -15,7 +15,7 @@ function GoogleApps({ classes }) {
         }
     ];
     return (React.createElement("div", { className: classes },
-        React.createElement("ul", { className: "flex justify-between align-baseline p-2 rounded-b" },
+        React.createElement("ul", { className: "flex justify-between align-center p-2 rounded-b" },
             React.createElement("li", null,
                 React.createElement("a", { href: "https://docs.google.com/", className: "", target: "_self" },
                     React.createElement("img", { src: "../../static/icons/google-apps/google-docs.svg", width: "16", alt: "Google Docs" }))),

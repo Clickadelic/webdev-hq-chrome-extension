@@ -26,11 +26,16 @@
 	"chrome_url_overrides": {
 		"newtab": "newTab.html"
 	},
+	"side_panel": {
+	"default_path": "panel.html",
+	"openPanelOnActionClick": true
+	},
 	"host_permissions": [
 		"https://*.webdev-hq.com/*",
 		"https://developer.chrome.com/*"
 	],
 	"permissions": [
+		"alarms",
 		"identity",
 		"identity.email",
 		"tabs",
