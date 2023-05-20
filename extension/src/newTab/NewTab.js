@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../assets/css/tailwind.css';
@@ -12,22 +12,12 @@ import ActionButton from './components/ActionButton';
 import GoogleApps from '../components/GoogleApps';
 function NewTab() {
     const [name, setName] = useState([]);
-    function logTabs(tabs) {
-        for (const tab of tabs) {
-            // tab.url requires the `tabs` permission or a matching host permission.
-            console.log(tab.url);
-        }
-    }
-    function onError(error) {
-        console.error(`Error: ${error}`);
-    }
-    chrome.tabs.query({}).then(logTabs, onError);
-    // useEffect(()=> {
-    // chrome.storage.sync.get(["name"], (res)=> {
-    // 	setName(res.name)
-    // 	console.log(res.name);
-    // })
-    // }, [name])
+    useEffect(() => {
+        chrome.storage.sync.get(["name"], (res) => {
+            setName(res.name);
+            console.log(res.name);
+        });
+    }, [name]);
     return (React.createElement("div", { className: "App h-screen bg-slate-900" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),

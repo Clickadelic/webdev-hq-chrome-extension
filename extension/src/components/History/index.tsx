@@ -1,12 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+
 function History({ classes }) {
     const [userHistory, setUserHistory] = useState([]);
+
     function saveItem(url) {
         console.log("Save:", url);
     }
+
     function deleteItem(url) {
-        chrome.history.deleteUrl({ url }, () => {
+        chrome.history.deleteUrl({url}, () => {
             return;
         });
     }

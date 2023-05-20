@@ -15,26 +15,13 @@ import GoogleApps from '../components/GoogleApps'
 
 function NewTab() {
 	const [name, setName] = useState([])
-
-	function logTabs(tabs) {
-		for (const tab of tabs) {
-		  // tab.url requires the `tabs` permission or a matching host permission.
-		  console.log(tab.url);
-		}
-	  }
-	  
-	  function onError(error) {
-		console.error(`Error: ${error}`);
-	  }
-	  
-	  chrome.tabs.query({}).then(logTabs, onError);
 	
-	// useEffect(()=> {
-		// chrome.storage.sync.get(["name"], (res)=> {
-		// 	setName(res.name)
-		// 	console.log(res.name);
-		// })
-	// }, [name])
+	useEffect(()=> {
+		chrome.storage.sync.get(["name"], (res)=> {
+			setName(res.name)
+			console.log(res.name);
+		})
+	}, [name])
 
 	return (
 		<div className="App h-screen bg-slate-900">
