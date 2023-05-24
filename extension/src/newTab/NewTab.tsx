@@ -24,7 +24,7 @@ function NewTab() {
 	}, [name])
 
 	return (
-		<div className="App h-screen bg-slate-900">
+		<div className="App h-screen bg-slate-900 bg-color-curves">
 			<div className="flex m-auto mb-24">
 				<NavBar name={name} />
 			</div>

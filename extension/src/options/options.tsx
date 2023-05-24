@@ -5,10 +5,9 @@ import Checkbox from './Checkbox';
 import Logo from '../components/Logo';
 
 const Options = (
-	<div className="min-h-screen bg-slate-200 ">
-		<div className="md:w-[800px] m-auto bg-white p-4">
-			<Logo classes="text-2xl text-slate-900 hover:text-slate-300" />
-
+	<div className="bg-slate-200 ">
+		<div className="md:w-[800px] min-h-screen m-auto bg-white p-4">
+			<Logo classes="text-2xl text-slate-900 hover:text-slate-300 block my-12" />
 			<div className="tobysrow">
 				<Checkbox />
 			</div>

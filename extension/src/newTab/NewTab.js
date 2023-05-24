@@ -18,7 +18,7 @@ function NewTab() {
             console.log(res.name);
         });
     }, [name]);
-    return (React.createElement("div", { className: "App h-screen bg-slate-900" },
+    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-color-curves" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
         React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },

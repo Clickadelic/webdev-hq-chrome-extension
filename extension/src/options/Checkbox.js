@@ -2,7 +2,7 @@ import React from 'react';
 function Checkbox() {
     return (React.createElement("div", { className: "grid grid-cols-7 justify-between p-4" },
         React.createElement("div", { className: "col-span-6" },
-            React.createElement("p", { className: "text-base" }, "Do you want do save the settings?")),
+            React.createElement("p", { className: "text-base" }, "Do you want to save the settings?")),
         React.createElement("div", { className: "col-span-1 flex items-center mr-4 mb-2" },
             React.createElement("input", { type: "checkbox", id: "yes", name: "confirmation", value: "yes", className: "opacity-0 absolute h-6 w-6" }),
             React.createElement("div", { className: "bg-white border-2 rounded-md border-blue-400 w-6 h-6 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500" },
