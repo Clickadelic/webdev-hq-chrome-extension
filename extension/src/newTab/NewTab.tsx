@@ -29,7 +29,7 @@ function NewTab() {
 				<NavBar name={name} />
 			</div>
 			<div className="flex m-auto md:w-[600px] justify-center mb-12">
-				<Logo />
+				<Logo classes="text-2xl text-white hover:text-slate-300" />
 			</div>
 			<div className="flex m-auto md:w-[600px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2">
 				<div className="bg-white p-3 w-full rounded">

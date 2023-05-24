@@ -22,7 +22,7 @@ function NewTab() {
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
         React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },
-            React.createElement(Logo, null)),
+            React.createElement(Logo, { classes: "text-2xl text-white hover:text-slate-300" })),
         React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2" },
             React.createElement("div", { className: "bg-white p-3 w-full rounded" },
                 React.createElement(FormSearchBar, null))),
