@@ -11,7 +11,6 @@ const Options = (
 			<div className="tobysrow">
 				<Checkbox />
 			</div>
-
 		</div>
 	</div>
 )

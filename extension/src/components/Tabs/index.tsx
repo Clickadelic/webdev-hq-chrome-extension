@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Tabs() {
-
+function Tabs({classes}) {
+	
 	function logTabs(tabs) {
 		for (const tab of tabs) {
 			// tab.url requires the `tabs` permission or a matching host permission.

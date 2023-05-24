@@ -9,7 +9,7 @@ import Logo from '../components/Logo'
 import NavBar from './components/NavBar'
 import FormSearchBar from '../components/FormSearchBar'
 import History from '../components/History'
-import Downloads from '../components/Downloads'
+import Tabs from '../components/Tabs'
 import ActionButton from './components/ActionButton'
 import GoogleApps from '../components/GoogleApps'
 
@@ -24,7 +24,7 @@ function NewTab() {
 	}, [name])
 
 	return (
-		<div className="App h-screen bg-slate-900 bg-color-curves">
+		<div className="App h-screen bg-slate-900 bg-mountain-beach">
 			<div className="flex m-auto mb-24">
 				<NavBar name={name} />
 			</div>
@@ -96,8 +96,8 @@ function NewTab() {
 			<main className="flex justify-between">
 				<Routes>
 					<Route path="/" element={<GoogleApps classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
+					<Route path="/tabs" element={<Tabs classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 					<Route path="/history" element={<History classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
-					<Route path="/downloads" element={<Downloads classes="m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 				</Routes>
 			</main>
 			<footer className="absolute bottom-2 left-0 right-0 flex justify-center">

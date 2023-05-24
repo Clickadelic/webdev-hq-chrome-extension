@@ -7,7 +7,7 @@ import Logo from '../components/Logo';
 import NavBar from './components/NavBar';
 import FormSearchBar from '../components/FormSearchBar';
 import History from '../components/History';
-import Downloads from '../components/Downloads';
+import Tabs from '../components/Tabs';
 import ActionButton from './components/ActionButton';
 import GoogleApps from '../components/GoogleApps';
 function NewTab() {
@@ -18,7 +18,7 @@ function NewTab() {
             console.log(res.name);
         });
     }, [name]);
-    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-color-curves" },
+    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-mountain-beach" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
         React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },
@@ -59,8 +59,8 @@ function NewTab() {
         React.createElement("main", { className: "flex justify-between" },
             React.createElement(Routes, null,
                 React.createElement(Route, { path: "/", element: React.createElement(GoogleApps, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/history", element: React.createElement(History, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
+                React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/history", element: React.createElement(History, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
         React.createElement("footer", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
             React.createElement("button", null, "Actions")),
         React.createElement(ActionButton, null)));
