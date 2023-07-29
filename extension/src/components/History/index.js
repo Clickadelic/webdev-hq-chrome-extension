@@ -6,6 +6,10 @@ function History({ classes }) {
         chrome.history.deleteUrl({ url });
         getHistory();
     }
+    function deleteHistory() {
+        chrome.history.deleteAll();
+        getHistory();
+    }
     function getVisits({ url }) {
         chrome.history.getVisits({ url });
     }
@@ -40,6 +44,6 @@ function History({ classes }) {
     }, [userHistory]);
     return (React.createElement("div", { className: `${classes}` },
         React.createElement("ul", { className: "list-history p-4" }, userHistory),
-        React.createElement("button", { className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, "Verlauf l\u00F6schen")));
+        React.createElement("button", { onClick: deleteHistory, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, "Verlauf l\u00F6schen")));
 }
 export default History;

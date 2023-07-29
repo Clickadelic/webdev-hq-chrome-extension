@@ -9,6 +9,11 @@ function History({classes}) {
 		chrome.history.deleteUrl({url})
 		getHistory()
 	}
+
+	function deleteHistory(){
+		chrome.history.deleteAll()
+		getHistory()
+	}
 	
 	function getVisits({url}){
 		chrome.history.getVisits({url})
@@ -60,7 +65,7 @@ function History({classes}) {
 			<ul className="list-history p-4">
 				{userHistory}
 			</ul>
-			<button className="flex text-white m-auto p-3 text-base hover:text-slate-400">Verlauf l&ouml;schen</button>
+			<button onClick={deleteHistory} className="flex text-white m-auto p-3 text-base hover:text-slate-400">Verlauf l&ouml;schen</button>
 		</div>
 	)
 }
