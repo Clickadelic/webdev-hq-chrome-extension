@@ -1,19 +1,23 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
- 
 function History({classes}) {
 
 	const [userHistory, setUserHistory] = useState([])
 
-	function saveItem(page){
-		console.log("Save:", page)
-	}
-
 	function deleteItem(url){
-		return url;
+		chrome.history.deleteUrl({url})
+		getHistory()
 	}
 	
+	function getVisits({url}){
+		chrome.history.getVisits({url})
+	}
+
+	function saveItem(url){
+		alert (url);
+	}
+
 	function getHistory(){
 		chrome.history.search({text: '', maxResults: 10}, (data) => {
 			const history = data.map((page) => {
@@ -24,7 +28,7 @@ function History({classes}) {
 							<img src={faviconUrl} className="favicon inline-block mr-2" alt={page.title} />
 							{page.title}
 						</a>
-						<span>
+						<span className="flex justify-between ml-3">
 							<button onClick={() => {
 								deleteItem(page.url)
 							}} className="text-slate-400 hover:text-rose-600 mr-4">
@@ -33,8 +37,8 @@ function History({classes}) {
 								</svg>
 							</button>
 							<button onClick={() => {
-								console.log("This is to be saved:", page.url)
-							}} className="text-blue-600 mr-4">
+								saveItem(page.url)
+							}} className="text-blue-600">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark" viewBox="0 0 16 16">
 									<path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/>
 								</svg>
@@ -56,6 +60,7 @@ function History({classes}) {
 			<ul className="list-history p-4">
 				{userHistory}
 			</ul>
+			<button className="flex text-white m-auto p-3 text-base hover:text-slate-400">Verlauf l&ouml;schen</button>
 		</div>
 	)
 }
