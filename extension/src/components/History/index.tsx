@@ -62,10 +62,10 @@ function History({classes}) {
 
 	return (
 		<div className={`${classes}`}>
-			<ul className="list-history p-4">
+			<ul className="list-history pt-2 pl-2 pr-2">
 				{userHistory}
 			</ul>
-			<button onClick={deleteHistory} className="flex text-white m-auto p-3 text-base hover:text-slate-400">Verlauf l&ouml;schen</button>
+			<button onClick={deleteHistory} className="flex text-white m-auto p-3 text-base hover:text-slate-400">{chrome.i18n.getMessage("deleteHistory")}</button>
 		</div>
 	)
 }
