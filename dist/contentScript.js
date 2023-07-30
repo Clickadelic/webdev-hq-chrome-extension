@@ -1,0 +1,1 @@
+(()=>{class e{constructor(){this.createStyleTag()}createStyleTag(){const e=document.createElement("style");e.setAttribute("type","text/css"),e.setAttribute("id","webdev-hq-btn-css"),document.head.appendChild(e)}createElements(){const e=document.createElement("button");e.innerText="Save",document.body.appendChild(e)}}window.onload=()=>{new e}})();
