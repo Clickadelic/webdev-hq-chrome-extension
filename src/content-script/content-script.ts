@@ -1,10 +1,10 @@
 class WebDevHQButton {
 
 	constructor(){
-		this.createStyleTag()
+		this.createStyleTagWithStyles()
 		this.createElements()
 	}
-	createStyleTag(){
+	createStyleTagWithStyles(){
 		const css = `
 			.webdev-hq__button {
 				position: fixed;
