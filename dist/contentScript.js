@@ -1,1 +1,47 @@
-(()=>{class t{constructor(){this.createStyleTagWithStyles(),this.createElements()}createStyleTagWithStyles(){const t=document.createElement("style");t.setAttribute("type","text/css"),t.setAttribute("id","webdev-hq-btn-css"),t.innerHTML="\n\t\t\t.webdev-hq__button {\n\t\t\t\tposition: fixed;\n\t\t\t\tright: 30px;\n\t\t\t\tbottom: 30px;\n\t\t\t\tborder-radius: 4px;\n\t\t\t\tbackground-color: blue;\n\t\t\t\tcolor: white;\n\t\t\t\tpadding: 1rem;\n\t\t\t}\n\t\t",document.head.appendChild(t)}createElements(){const t=document.createElement("button");t.innerText="Save",t.classList.add("webdev-hq__button"),t.addEventListener("click",(()=>{alert("Button clicked")})),document.body.appendChild(t)}}window.onload=()=>{new t}})();
+/******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!**********************************************!*\
+  !*** ./src/content-script/content-script.ts ***!
+  \**********************************************/
+class WebDevHQButton {
+
+	constructor(){
+		this.createStyleTagWithStyles()
+		this.createElements()
+	}
+	createStyleTagWithStyles(){
+		const css = `
+			.webdev-hq__button {
+				position: fixed;
+				right: 30px;
+				bottom: 30px;
+				border-radius: 4px;
+				background-color: blue;
+				color: white;
+				padding: 1rem;
+			}
+		`;
+		const style = document.createElement('style')
+		style.setAttribute('type', 'text/css')
+		style.setAttribute('id', 'webdev-hq-btn-css')
+		style.innerHTML = css
+		document.head.appendChild(style)
+	}
+	createElements(){
+		const button = document.createElement("button")
+		button.innerText = "Save"
+		button.classList.add("webdev-hq__button")
+		button.addEventListener('click', () => {
+			// const url = fetch('https://api.tobias-hopp.de/common/v1/links/')
+			alert("Button clicked")
+		})
+		document.body.appendChild(button)
+	}
+}
+
+window.onload = () => {
+	const webdevhqbtn = new WebDevHQButton()
+}
+/******/ })()
+;
+//# sourceMappingURL=contentScript.js.map
