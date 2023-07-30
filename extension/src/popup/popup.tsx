@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
-
+import Logo from "../components/Logo";
+import FormRegister from "../components/FormRegister";
 const handleSubmit = (e) => {
 	
 	e.preventDefault()
@@ -19,11 +20,9 @@ const Popup = () => {
 	}, [])
 
     return (
-        <div className="w-[760px] m-auto">
-			<form onSubmit={handleSubmit} className="flex justify-center items-center py-44">
-				<input type="text" name="name" className="bg-gray ring-black p-4" placeholder="Enter a word" />
-				<button className="p-3 m-2 bg-green-200">Submit</button>
-			</form>
+        <div className="w-[760px] m-auto p-3">
+			<Logo classes="text-2xl text-slate-900 hover:text-slate-300" />
+			<FormRegister />
 		</div>
     )
 };

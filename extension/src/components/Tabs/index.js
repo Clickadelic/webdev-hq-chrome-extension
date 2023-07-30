@@ -9,6 +9,6 @@ function Tabs({ classes }) {
         React.createElement("ul", { className: "list-tabs p-4" },
             React.createElement("li", null,
                 React.createElement("input", { type: "checkbox", name: "tabname" }),
-                React.createElement("a", { href: "" }, "Tabs")))));
+                React.createElement("a", { href: "/" }, "Tabs")))));
 }
 export default Tabs;

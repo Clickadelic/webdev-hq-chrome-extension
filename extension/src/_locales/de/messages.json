@@ -43,8 +43,24 @@
 		"message": "Neuer Task",
 		"description": "Neuen Task anlegen"
 	},
-	"apps": {
-		"message": "Apps",
+	"Register": {
+		"message": "Registrieren",
+		"description": "Usersystem"
+	},
+	"Username": {
+		"message": "Benutzername",
+		"description": "Usersystem"
+	},
+	"Password": {
+		"message": "Passwort",
+		"description": "Usersystem"
+	},
+	"Submit": {
+		"message": "Registrierung absenden",
 		"description": "Apps"
+	},
+	"Login": {
+		"message": "Login",
+		"description": "Usersystem"
 	}
 }

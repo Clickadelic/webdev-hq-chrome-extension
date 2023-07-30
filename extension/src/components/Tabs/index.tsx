@@ -11,7 +11,7 @@ function Tabs({classes}) {
 	return (
 		<div className={`${classes}`}>
 			<ul className="list-tabs p-4">
-				<li><input type="checkbox" name="tabname" /><a href="">Tabs</a></li>
+				<li><input type="checkbox" name="tabname" /><a href="/">Tabs</a></li>
 			</ul>
 		</div>
 	)
