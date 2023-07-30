@@ -1,8 +1,0 @@
-const passport = require('passport')
-const GoogleStrategy = require('passport-google-oauth20')
-
-passport.use(new GoogleStrategy({
-	clientId: '',
-	clientSecret: '',
-	callbackURL: 'api/v1/auth/google/callback'
-}))
