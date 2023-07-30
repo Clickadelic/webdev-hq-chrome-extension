@@ -25,6 +25,10 @@ class WebDevHQButton {
         const button = document.createElement("button");
         button.innerText = "Save";
         button.classList.add("webdev-hq__button");
+        button.addEventListener('click', () => {
+            // const url = fetch('https://api.tobias-hopp.de/common/v1/links/')
+            alert("Button clicked");
+        });
         document.body.appendChild(button);
     }
 }
