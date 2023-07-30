@@ -1,6 +1,7 @@
 class WebDevHQButton {
     constructor() {
         this.createStyleTag();
+        this.createElements();
     }
     createStyleTag() {
         const css = `
@@ -11,7 +12,7 @@ class WebDevHQButton {
 				border-radius: 4px;
 				background-color: blue;
 				color: white;
-				padding: 2rem;
+				padding: 1rem;
 			}
 		`;
         const style = document.createElement('style');
