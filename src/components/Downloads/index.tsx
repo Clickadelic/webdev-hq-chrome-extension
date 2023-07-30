@@ -6,11 +6,20 @@ function Downloads({classes}) {
 	const [userDownloads, setUserDownloads] = useState([])
 	
 	function getDownloads(){
-		alert("Loading downloads")
+		chrome.downloads.search({limit: 10}, (downloads) => {
+			const downloadList = downloads.map((item) => {
+				return <li key={item.id} className="text-white text-base">{item.filename}</li>
+			})
+			setUserDownloads(downloadList)
+		})
 	}
 
 	function deleteDownloads(){
 		alert("Deleting downloads")
+	}
+
+	function openDownloadFolder(){
+		chrome.downloads.showDefaultFolder()
 	}
 
 	useEffect(() => {
@@ -19,12 +28,10 @@ function Downloads({classes}) {
 
 	return (
 		<div className={`${classes}`}>
-			<ul className="list-downloads p-1 w-full min-h-[20px]">
+			<ul className="list-downloads p-2">
 				{userDownloads}
 			</ul>
-			<ul className="list-history-actions flex justify-center w-full border-t border-slate-400">
-				<li><button onClick={deleteDownloads} className="px-2 py-3 text-white text-base hover:text-slate-300" title={chrome.i18n.getMessage("deleteDownloads")}>{chrome.i18n.getMessage("deleteDownloads")}</button></li>
-			</ul>
+			<button onClick={openDownloadFolder} className="flex text-white m-auto p-3 text-base hover:text-slate-400">{chrome.i18n.getMessage("openDownloadsFolder")}</button>
 		</div>
 	)
 }

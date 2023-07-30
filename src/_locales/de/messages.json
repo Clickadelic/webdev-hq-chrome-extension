@@ -66,5 +66,9 @@
 	"Todos": {
 		"message": "Todos",
 		"description": "Usersystem"
+	},
+	"openDownloadsFolder": {
+		"message": "öffne Download-Ordner",
+		"description": "Browser-Downloads"
 	}
 }
