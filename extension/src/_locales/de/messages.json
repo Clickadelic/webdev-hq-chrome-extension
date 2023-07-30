@@ -57,10 +57,14 @@
 	},
 	"Submit": {
 		"message": "Registrierung absenden",
-		"description": "Apps"
+		"description": "Usersystem"
 	},
 	"Login": {
 		"message": "Login",
+		"description": "Usersystem"
+	},
+	"Todos": {
+		"message": "Todos",
 		"description": "Usersystem"
 	}
 }

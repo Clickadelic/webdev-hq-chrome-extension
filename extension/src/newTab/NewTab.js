@@ -6,10 +6,13 @@ import '../assets/css/tailwind.css';
 import Logo from '../components/Logo';
 import NavBar from './components/NavBar';
 import FormSearchBar from '../components/FormSearchBar';
-import History from '../components/History';
-import Tabs from '../components/Tabs';
-import ActionButton from './components/ActionButton';
+// Routes
 import GoogleApps from '../components/GoogleApps';
+import Tabs from '../components/Tabs';
+import History from '../components/History';
+import Todos from '../components/Todos';
+import Downloads from '../components/Downloads';
+import ActionButton from './components/ActionButton';
 function NewTab() {
     const [name, setName] = useState([]);
     useEffect(() => {
@@ -18,25 +21,31 @@ function NewTab() {
             console.log(res.name);
         });
     }, [name]);
-    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-mountain-beach" },
+    return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-eye-rainbow" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
-        React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-12" },
+        React.createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
             React.createElement(Logo, { classes: "text-2xl text-white hover:text-slate-300" })),
-        React.createElement("div", { className: "flex m-auto md:w-[600px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2" },
+        React.createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2" },
             React.createElement("div", { className: "bg-white p-3 w-full rounded" },
                 React.createElement(FormSearchBar, null))),
-        React.createElement("div", { className: "flex m-auto mb-4 md:w-[600px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2" },
+        React.createElement("div", { className: "flex m-auto mb-4 md:w-[760px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2" },
             React.createElement("nav", { className: "w-full p-3" },
                 React.createElement("ul", { className: "flex justify-between" },
                     React.createElement("li", null,
-                        React.createElement(Link, { to: "/", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        React.createElement(Link, { to: "/todos", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                            React.createElement("span", { className: "mt-1 mr-2" },
+                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-list-check", viewBox: "0 0 16 16" },
+                                    React.createElement("path", { fillRule: "evenodd", d: "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" }))),
+                            React.createElement("span", null, chrome.i18n.getMessage("Todos")))),
+                    React.createElement("li", null,
+                        React.createElement(Link, { to: "/google-apps", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
                                 React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-app", viewBox: "0 0 16 16" },
                                     React.createElement("path", { d: "M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" }))),
                             React.createElement("span", null, chrome.i18n.getMessage("Apps")))),
                     React.createElement("li", null,
-                        React.createElement(Link, { to: "/google-apps", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        React.createElement(Link, { to: "/tabs", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
                                 React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-segmented-nav", viewBox: "0 0 16 16" },
                                     React.createElement("path", { d: "M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z" }))),
@@ -50,17 +59,19 @@ function NewTab() {
                                     React.createElement("path", { d: "M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" }))),
                             React.createElement("span", null, chrome.i18n.getMessage("history")))),
                     React.createElement("li", null,
-                        React.createElement(Link, { to: "/bookmarks", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        React.createElement(Link, { to: "/downloads", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             React.createElement("span", { className: "mt-1 mr-2" },
-                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-gear", viewBox: "0 0 16 16" },
-                                    React.createElement("path", { d: "M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" }),
-                                    React.createElement("path", { d: "M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" }))),
-                            React.createElement("span", null, chrome.i18n.getMessage("Tabgroups"))))))),
+                                React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-download", viewBox: "0 0 16 16" },
+                                    React.createElement("path", { d: "M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" }),
+                                    React.createElement("path", { d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" }))),
+                            React.createElement("span", null, chrome.i18n.getMessage("Downloads"))))))),
         React.createElement("main", { className: "flex justify-between" },
             React.createElement(Routes, null,
-                React.createElement(Route, { path: "/", element: React.createElement(GoogleApps, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
-                React.createElement(Route, { path: "/history", element: React.createElement(History, { classes: "m-auto md:w-[600px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
+                React.createElement(Route, { path: "/todos", element: React.createElement(Todos, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/google-apps", element: React.createElement(GoogleApps, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/history", element: React.createElement(History, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }),
+                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
         React.createElement("footer", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
             React.createElement("button", null, "Actions")),
         React.createElement(ActionButton, null)));

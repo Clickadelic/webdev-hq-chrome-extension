@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-function ToDo({ classes }) {
+function Todos({ classes }) {
     const [todos, setTodos] = useState([]);
     function renderList() {
     }
@@ -8,7 +8,7 @@ function ToDo({ classes }) {
     });
     return (React.createElement("div", { className: "todo-app " + `${classes}` },
         React.createElement("ul", { className: "todo-list" },
-            React.createElement("li", { className: "bg-white rounded flex justify-between" },
+            React.createElement("li", { className: "bg-white-10 rounded flex justify-between" },
                 React.createElement("div", { className: "p-1" },
                     React.createElement("div", { className: "flex items-center mr-4" },
                         React.createElement("input", { type: "checkbox", id: "A3-yes", name: "A3-confirmation", value: "yes", className: "opacity-0 absolute h-8 w-8" }),
@@ -27,4 +27,4 @@ function ToDo({ classes }) {
                         React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus", viewBox: "0 0 16 16" },
                             React.createElement("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" }))))))));
 }
-export default ToDo;
+export default Todos;

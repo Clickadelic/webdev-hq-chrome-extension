@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-function ToDo({classes}) {
+function Todos({classes}) {
 
 	const [todos, setTodos] = useState([])
 	
@@ -16,7 +16,7 @@ function ToDo({classes}) {
 	return (
 		<div className={"todo-app "+`${classes}`}>
 			<ul className="todo-list">
-				<li className="bg-white rounded flex justify-between">
+				<li className="bg-white-10 rounded flex justify-between">
 					<div className="p-1">  
 						<div className="flex items-center mr-4">  
 							<input type="checkbox" id="A3-yes" name="A3-confirmation" value="yes" className="opacity-0 absolute h-8 w-8" />  
@@ -57,4 +57,4 @@ function ToDo({classes}) {
 	)
 }
 
-export default ToDo
+export default Todos
