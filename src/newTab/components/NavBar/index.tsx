@@ -3,6 +3,27 @@ import DigitalClock from '../../../components/DigitalClock'
 
 function NavBar({name}) {
 	
+	async function getTheFile() {
+		const pickerOpts = {
+		  types: [
+			{
+			  description: "Images",
+			  accept: {
+				"image/*": [".png", ".gif", ".jpeg", ".jpg"],
+			  },
+			},
+		  ],
+		  excludeAcceptAllOption: true,
+		  multiple: false,
+		};
+	  
+		// open file picker
+		const [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+		// get file contents
+		const fileData = await fileHandle.getFile();
+		return fileData;
+	}
+
 	return (
 		<nav className="w-full">
 			<ul className="navbar-grid">

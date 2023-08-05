@@ -7,6 +7,7 @@ function FormSearchBar() {
 
 	function handleChange(e){
 		setEngine(e.target.value)
+		chrome.storage.sync.set(e.target.value)
 	}
 
 	return (

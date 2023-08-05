@@ -22,7 +22,6 @@ function NewTab() {
 	useEffect(()=> {
 		chrome.storage.sync.get(["name"], (res)=> {
 			setName(res.name)
-			console.log(res.name);
 		})
 	}, [name])
 

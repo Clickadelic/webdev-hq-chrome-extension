@@ -205,9 +205,6 @@ function History({ classes }) {
         chrome.history.deleteAll();
         getHistory();
     }
-    function getVisits({ url }) {
-        chrome.history.getVisits({ url });
-    }
     function saveItem(url) {
         alert(url);
     }
@@ -331,30 +328,30 @@ function Todos({ classes }) {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "todo-app " + `${classes}` },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "bg-white-10 rounded flex justify-between" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "p-1" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex items-center" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", id: "A3-yes", name: "A3-confirmation", value: "yes", className: "opacity-0 absolute h-8 w-8" }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-white border-2 rounded-md border-blue-400 w-8 h-8 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { className: "fill-current hidden w-3 h-3 text-blue-600 pointer-events-none", version: "1.1", viewBox: "0 0 17 12", xmlns: "http://www.w3.org/2000/svg" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { fill: "none", fillRule: "evenodd" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { transform: "translate(-9 -11)", fill: "#1F73F1", fillRule: "nonzero" },
-                                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "m25.576 11.414c0.56558 0.55188 0.56558 1.4439 0 1.9961l-9.404 9.176c-0.28213 0.27529-0.65247 0.41385-1.0228 0.41385-0.37034 0-0.74068-0.13855-1.0228-0.41385l-4.7019-4.588c-0.56584-0.55188-0.56584-1.4442 0-1.9961 0.56558-0.55214 1.4798-0.55214 2.0456 0l3.679 3.5899 8.3812-8.1779c0.56558-0.55214 1.4798-0.55214 2.0456 0z" }))))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "A3-yes", className: "select-none hidden" }, "Yes"))),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "new-todo", id: "new-todo", className: "p-2 text-base rounded w-full mr-4", onChange: handleTodoChange, placeholder: chrome.i18n.getMessage('newTodo') }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-flex justify-between" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => {
-                            deleteTodo();
-                        }, className: "text-slate-400 hover:text-rose-600 mx-2" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-trash", viewBox: "0 0 16 16" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" }),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" }))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => {
-                            addTodo();
-                        }, className: "text-slate-400 hover:text-blue-600 mx-2" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus-lg", viewBox: "0 0 16 16" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" }))))))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "bg-white-10 rounded flex justify-between", onSubmit: addTodo },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "p-1" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex items-center" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", id: "A3-yes", name: "A3-confirmation", value: "yes", className: "opacity-0 absolute h-8 w-8" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-white border-2 rounded-md border-blue-400 w-8 h-8 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-blue-500" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { className: "fill-current hidden w-3 h-3 text-blue-600 pointer-events-none", version: "1.1", viewBox: "0 0 17 12", xmlns: "http://www.w3.org/2000/svg" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { fill: "none", fillRule: "evenodd" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("g", { transform: "translate(-9 -11)", fill: "#1F73F1", fillRule: "nonzero" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "m25.576 11.414c0.56558 0.55188 0.56558 1.4439 0 1.9961l-9.404 9.176c-0.28213 0.27529-0.65247 0.41385-1.0228 0.41385-0.37034 0-0.74068-0.13855-1.0228-0.41385l-4.7019-4.588c-0.56584-0.55188-0.56584-1.4442 0-1.9961 0.56558-0.55214 1.4798-0.55214 2.0456 0l3.679 3.5899 8.3812-8.1779c0.56558-0.55214 1.4798-0.55214 2.0456 0z" }))))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "A3-yes", className: "select-none hidden" }, "Yes"))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "new-todo", id: "new-todo", className: "p-2 text-base rounded w-full mr-4", onChange: handleTodoChange, placeholder: chrome.i18n.getMessage('newTodo') }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-flex justify-between" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => {
+                        deleteTodo();
+                    }, className: "text-slate-400 hover:text-rose-600 mx-2" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-trash", viewBox: "0 0 16 16" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" }))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => {
+                        addTodo();
+                    }, className: "text-slate-400 hover:text-blue-600 mx-2" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus-lg", viewBox: "0 0 16 16" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" }))))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" })));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Todos);
 
@@ -405,7 +402,6 @@ function NewTab() {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         chrome.storage.sync.get(["name"], (res) => {
             setName(res.name);
-            console.log(res.name);
         });
     }, [name]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-900 bg-eye-rainbow" },
@@ -508,9 +504,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/DigitalClock */ "./src/components/DigitalClock/index.tsx");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 
 
 function NavBar({ name }) {
+    function getTheFile() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const pickerOpts = {
+                types: [
+                    {
+                        description: "Images",
+                        accept: {
+                            "image/*": [".png", ".gif", ".jpeg", ".jpg"],
+                        },
+                    },
+                ],
+                excludeAcceptAllOption: true,
+                multiple: false,
+            };
+            // open file picker
+            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
+            // get file contents
+            const fileData = yield fileHandle.getFile();
+            return fileData;
+        });
+    }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,

@@ -4,6 +4,7 @@ function FormSearchBar() {
     const [engine, setEngine] = useState("https://www.google.com/search");
     function handleChange(e) {
         setEngine(e.target.value);
+        chrome.storage.sync.set(e.target.value);
     }
     return (React.createElement("form", { method: "GET", className: "flex justify-between", action: engine, id: "multi-search" },
         React.createElement("input", { type: "text", className: "w-full text-2xl pl-3 focus-visible:outline-0", name: "q", id: "q", placeholder: chrome.i18n.getMessage("search") }),

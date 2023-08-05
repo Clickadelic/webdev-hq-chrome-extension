@@ -18,7 +18,6 @@ function NewTab() {
     useEffect(() => {
         chrome.storage.sync.get(["name"], (res) => {
             setName(res.name);
-            console.log(res.name);
         });
     }, [name]);
     return (React.createElement("div", { className: "App h-screen bg-slate-900 bg-eye-rainbow" },

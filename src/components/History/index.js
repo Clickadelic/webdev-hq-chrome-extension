@@ -10,9 +10,6 @@ function History({ classes }) {
         chrome.history.deleteAll();
         getHistory();
     }
-    function getVisits({ url }) {
-        chrome.history.getVisits({ url });
-    }
     function saveItem(url) {
         alert(url);
     }
