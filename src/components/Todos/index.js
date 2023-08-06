@@ -9,6 +9,7 @@ function Todos() {
     }
     ;
     function addTodo(e) {
+        e.preventDefault();
         console.log(e);
     }
     useEffect(() => {

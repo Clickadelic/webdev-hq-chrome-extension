@@ -27,7 +27,7 @@ function Downloads() {
 	}, [userDownloads])
 
 	return (
-		<div className="flex">
+		<div className="flex m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2">
 			<ul className="list-downloads p-2">
 				{userDownloads}
 			</ul>

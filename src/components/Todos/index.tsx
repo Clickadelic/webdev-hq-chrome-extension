@@ -14,7 +14,8 @@ function Todos() {
 	};
 
 	function addTodo(e){
-		console.log(e)
+		e.preventDefault();
+		console.log(e);
 	}
 
 	useEffect(() => {

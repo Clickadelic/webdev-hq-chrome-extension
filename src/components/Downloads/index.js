@@ -19,7 +19,7 @@ function Downloads() {
     useEffect(() => {
         getDownloads();
     }, [userDownloads]);
-    return (React.createElement("div", { className: "flex" },
+    return (React.createElement("div", { className: "flex m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         React.createElement("ul", { className: "list-downloads p-2" }, userDownloads),
         React.createElement("button", { onClick: openDownloadFolder, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("openDownloadsFolder"))));
 }
