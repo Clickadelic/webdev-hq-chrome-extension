@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-function History({classes}) {
+function History() {
 
 	const [userHistory, setUserHistory] = useState([])
 
@@ -57,8 +57,10 @@ function History({classes}) {
 	}, [userHistory])
 
 	return (
-		<div className={`${classes}`}>
-			<ul className="list-history p-2">
+		<div className="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2">
+			<h2 className="flex text-base justify-center text-white m-auto p-2">{chrome.i18n.getMessage('history')}</h2>
+			<hr className="mx-2" />
+			<ul className="list-history p-2 mb-2">
 				{userHistory}
 			</ul>
 			<button onClick={deleteHistory} className="flex text-white m-auto p-3 text-base hover:text-slate-400">{chrome.i18n.getMessage("deleteHistory")}</button>

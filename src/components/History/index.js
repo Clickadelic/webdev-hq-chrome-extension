@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-function History({ classes }) {
+function History() {
     const [userHistory, setUserHistory] = useState([]);
     function deleteItem(url) {
         chrome.history.deleteUrl({ url });
@@ -39,8 +39,10 @@ function History({ classes }) {
     useEffect(() => {
         getHistory();
     }, [userHistory]);
-    return (React.createElement("div", { className: `${classes}` },
-        React.createElement("ul", { className: "list-history p-2" }, userHistory),
+    return (React.createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
+        React.createElement("h2", { className: "flex text-base justify-center text-white m-auto p-2" }, chrome.i18n.getMessage('history')),
+        React.createElement("hr", { className: "mx-2" }),
+        React.createElement("ul", { className: "list-history p-2 mb-2" }, userHistory),
         React.createElement("button", { onClick: deleteHistory, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("deleteHistory"))));
 }
 export default History;

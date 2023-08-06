@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function GoogleApps({classes}) {
+function GoogleApps() {
 
 	const apps = [
 		{
@@ -19,7 +19,7 @@ function GoogleApps({classes}) {
 	]
 
 	return (
-		<div className={classes}>
+		<div className="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2">
 			<ul className="grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b">
 				<li>
 					<a href="https://docs.google.com/" className="block p-2 w-[32px] h-[32px] bg-white rounded-full" target="_self">

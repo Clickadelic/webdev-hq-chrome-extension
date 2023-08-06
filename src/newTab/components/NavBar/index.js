@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import React from 'react';
 import DigitalClock from '../../../components/DigitalClock';
 function NavBar({ name }) {
+    // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
     function getTheFile() {
         return __awaiter(this, void 0, void 0, function* () {
             const pickerOpts = {
@@ -17,7 +18,7 @@ function NavBar({ name }) {
                     {
                         description: "Images",
                         accept: {
-                            "image/*": [".png", ".gif", ".jpeg", ".jpg"],
+                            "image/*": [".png", ".jpeg", ".jpg", ".webp"],
                         },
                     },
                 ],
@@ -28,13 +29,18 @@ function NavBar({ name }) {
             const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
             // get file contents
             const fileData = yield fileHandle.getFile();
+            console.log(fileData.name);
             return fileData;
         });
     }
     return (React.createElement("nav", { className: "w-full" },
         React.createElement("ul", { className: "navbar-grid" },
             React.createElement("li", null,
-                React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+                React.createElement("button", { onClick: getTheFile, className: "p-2 block text-2xl" },
+                    React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "white", className: "bi bi-image", viewBox: "0 0 16 16" },
+                        React.createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" }),
+                        React.createElement("path", { d: "M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" })),
+                    chrome.i18n.getMessage("BackgroundImage"))),
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
@@ -46,6 +52,6 @@ function NavBar({ name }) {
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement("a", { href: "auth/google/", className: "text-white" }, name ? name : '')))));
+                React.createElement("a", { href: "/", className: "p-2 block text-2xl" })))));
 }
 export default NavBar;

@@ -1,5 +1,5 @@
 import React from 'react';
-function GoogleApps({ classes }) {
+function GoogleApps() {
     const apps = [
         {
             id: 'gmail',
@@ -14,7 +14,7 @@ function GoogleApps({ classes }) {
             icon: 'google-docs.svg'
         }
     ];
-    return (React.createElement("div", { className: classes },
+    return (React.createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         React.createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" },
             React.createElement("li", null,
                 React.createElement("a", { href: "https://docs.google.com/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },

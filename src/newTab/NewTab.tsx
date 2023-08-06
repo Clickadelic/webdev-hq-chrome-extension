@@ -109,10 +109,10 @@ function NewTab() {
 			</div>
 			<main className="flex justify-between">
 				<Routes>
-					<Route path="/" element={<Todos classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
-					<Route path="/google-apps" element={<GoogleApps classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
-					<Route path="/tabs" element={<Tabs classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
-					<Route path="/history" element={<History classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
+					<Route path="/" element={<Todos />} />
+					<Route path="/google-apps" element={<GoogleApps />} />
+					<Route path="/tabs" element={<Tabs />} />
+					<Route path="/history" element={<History />} />
 					<Route path="/downloads" element={<Downloads classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
 				</Routes>
 			</main>
