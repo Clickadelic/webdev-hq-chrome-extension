@@ -1,14 +1,14 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 
-function Downloads({classes}) {
+function Downloads() {
 
 	const [userDownloads, setUserDownloads] = useState([])
 	
 	function getDownloads(){
 		chrome.downloads.search({limit: 10}, (downloads) => {
 			const downloadList = downloads.map((item) => {
-				return <li key={item.id} className="text-white text-base">{item.filename}</li>
+				return <li key={item.id} className="text-white text-base hover:text-slate-400">{item.filename}</li>
 			})
 			setUserDownloads(downloadList)
 		})
@@ -27,7 +27,7 @@ function Downloads({classes}) {
 	}, [userDownloads])
 
 	return (
-		<div className={`${classes}`}>
+		<div className="flex">
 			<ul className="list-downloads p-2">
 				{userDownloads}
 			</ul>

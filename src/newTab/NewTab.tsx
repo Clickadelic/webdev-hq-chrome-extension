@@ -113,7 +113,7 @@ function NewTab() {
 					<Route path="/google-apps" element={<GoogleApps />} />
 					<Route path="/tabs" element={<Tabs />} />
 					<Route path="/history" element={<History />} />
-					<Route path="/downloads" element={<Downloads classes="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" />} />
+					<Route path="/downloads" element={<Downloads />} />
 				</Routes>
 			</main>
 			<footer className="absolute bottom-2 left-0 right-0 flex justify-center">

@@ -70,7 +70,7 @@ function NewTab() {
                 React.createElement(Route, { path: "/google-apps", element: React.createElement(GoogleApps, null) }),
                 React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, null) }),
                 React.createElement(Route, { path: "/history", element: React.createElement(History, null) }),
-                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, { classes: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" }) }))),
+                React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, null) }))),
         React.createElement("footer", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
             React.createElement("button", null, "Actions")),
         React.createElement(ActionButton, null)));
