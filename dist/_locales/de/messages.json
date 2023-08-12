@@ -70,5 +70,9 @@
 	"openDownloadsFolder": {
 		"message": "öffne Download-Ordner",
 		"description": "Browser-Downloads"
+	},
+	"BackgroundImage": {
+		"message": "Hintergrundbild",
+		"description": "Hintergrundbild"
 	}
 }
