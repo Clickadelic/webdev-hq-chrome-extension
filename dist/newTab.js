@@ -316,28 +316,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Todos() {
+    const [todoList, setTodoList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     const [inputs, setInputs] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
     function handleChange(e) {
         const name = e.target.name;
         const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
         setInputs((prevState) => (Object.assign(Object.assign({}, prevState), { [name]: value })));
+        console.log(inputs);
     }
     ;
     function addTodo(e) {
         e.preventDefault();
-        console.log(e);
+        todoList.push(inputs);
+        setTodoList(todoList);
+        renderTodoList(todoList);
+        console.log(todoList);
+    }
+    function renderTodoList(todoList) {
+        todoList.forEach(item => {
+            return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: item.index }, item.todo);
+        });
     }
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    }, []);
+        renderTodoList(todoList);
+    }, [todoList]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "todo-app m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "bg-white-10 rounded flex justify-between mb-2", onSubmit: addTodo },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "new-todo", id: "new-todo", className: "p-2 pl-4 text-base rounded w-full mr-2", onChange: handleChange, placeholder: chrome.i18n.getMessage("newTodo") }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "todo", id: "todo", className: "p-2 pl-4 text-base rounded w-full mr-2", onChange: handleChange, placeholder: chrome.i18n.getMessage("newTodo") }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-flex justify-between" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: addTodo, className: "bg-blue-600 text-white rounded p-3 hover:bg-blue-500" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onSubmit: addTodo, className: "bg-blue-600 text-white rounded p-3 hover:bg-blue-500" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus-lg", viewBox: "0 0 16 16" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" }))))),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null, "Todo Item"))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" }, todoList)));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Todos);
 
