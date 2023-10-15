@@ -26,7 +26,7 @@ function NewTab() {
 	}, [name])
 
 	return (
-		<div className="App h-screen bg-slate-900 bg-eye-rainbow">
+		<div className="App h-screen bg-slate-900">
 			<div className="flex m-auto mb-24">
 				<NavBar name={name} />
 			</div>
@@ -44,24 +44,24 @@ function NewTab() {
 						<li>
 							<Link to="/" className="flex justify-between text-white text-base hover:text-slate-300" target="_self">
 								<span className="mt-1 mr-2">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list-check" viewBox="0 0 16 16">
-										<path fillRule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
-									</svg>
-								</span>
-								<span>
-									{chrome.i18n.getMessage("Todos")}
-								</span>
-							</Link>
-						</li>
-						<li>
-							<Link to="/google-apps" className="flex justify-between text-white text-base hover:text-slate-300" target="_self">
-								<span className="mt-1 mr-2">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-app" viewBox="0 0 16 16">
 										<path d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z"/>
 									</svg>
 								</span>
 								<span>
 									{chrome.i18n.getMessage("Apps")}
+								</span>
+							</Link>
+						</li>
+						<li>
+							<Link to="/todos" className="flex justify-between text-white text-base hover:text-slate-300" target="_self">
+								<span className="mt-1 mr-2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list-check" viewBox="0 0 16 16">
+										<path fillRule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+									</svg>
+								</span>
+								<span>
+									{chrome.i18n.getMessage("Todos")}
 								</span>
 							</Link>
 						</li>
@@ -109,8 +109,8 @@ function NewTab() {
 			</div>
 			<main className="flex justify-between">
 				<Routes>
-					<Route path="/" element={<Todos />} />
-					<Route path="/google-apps" element={<GoogleApps />} />
+					<Route path="/" element={<GoogleApps />} />
+					<Route path="/todos" element={<Todos />} />
 					<Route path="/tabs" element={<Tabs />} />
 					<Route path="/history" element={<History />} />
 					<Route path="/downloads" element={<Downloads />} />

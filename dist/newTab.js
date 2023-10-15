@@ -126,55 +126,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 function GoogleApps() {
+    const path = "../../static/icons/google-apps/";
     const apps = [
         {
             id: 'gmail',
             title: 'G-Mail',
-            url: 'https://mail.google.com/',
-            icon: 'google-svg.svg'
+            href: 'https://mail.google.com/',
+            icon: '../../static/icons/google-icons/google-svg.svg'
         },
         {
             id: 'docs',
             title: 'Docs',
-            url: 'https://docs.google.com/document/u/0/',
+            href: 'https://docs.google.com/document/u/0/',
             icon: 'google-docs.svg'
         }
     ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://docs.google.com/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-docs.svg", width: "16", alt: "Google Docs" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://docs.google.com/spreadsheets/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-sheets.svg", width: "16", alt: "Google Sheets" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://docs.google.com/slides/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-slides.svg", width: "16", alt: "Google Slides" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://docs.google.com/forms/u/0/?tgif=d", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-forms.svg", width: "16", alt: "Google Slides" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://mail.google.com/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-gmail.svg", width: "22", alt: "G-Mail" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://drive.google.com/drive/my-drive", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-drive.svg", width: "22", alt: "Google Drive" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://calendar.google.com/calendar/u/0/r", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-calendar.svg", width: "22", alt: "Google Calendar" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://www.youtube.com/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/youtube-color-icon.svg", width: "22", alt: "YouTube" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://search.google.com/search-console/about", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-search-console.svg", width: "22", alt: "Google Search Console" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://domains.google/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/google-domains.svg", width: "22", alt: "Google Domains" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://toolbox.googleapps.com/apps/checkmx/", className: "block p-2 w-[32px] h-[32px] bg-white rounded-full", target: "_self" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../../static/icons/google-apps/g-logo.svg", width: "22", alt: "Google MX Check" }))))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" }, apps.map((app, index) => {
+            return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: index, className: "bg-slate-100 rounded" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.icon));
+        }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
@@ -400,7 +371,7 @@ function NewTab() {
             setName(res.name);
         });
     }, [name]);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-900 bg-eye-rainbow" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-900" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], { name: name })),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
@@ -414,15 +385,15 @@ function NewTab() {
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-list-check", viewBox: "0 0 16 16" },
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" }))),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Todos")))),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/google-apps", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-app", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Apps")))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/todos", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
+                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-list-check", viewBox: "0 0 16 16" },
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" }))),
+                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Todos")))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/tabs", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
@@ -446,8 +417,8 @@ function NewTab() {
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Downloads"))))))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", { className: "flex justify-between" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Todos__WEBPACK_IMPORTED_MODULE_8__["default"], null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/google-apps", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoogleApps__WEBPACK_IMPORTED_MODULE_5__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoogleApps__WEBPACK_IMPORTED_MODULE_5__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/todos", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Todos__WEBPACK_IMPORTED_MODULE_8__["default"], null) }),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/tabs", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Tabs__WEBPACK_IMPORTED_MODULE_6__["default"], null) }),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/history", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_History__WEBPACK_IMPORTED_MODULE_7__["default"], null) }),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/downloads", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Downloads__WEBPACK_IMPORTED_MODULE_9__["default"], null) }))),
