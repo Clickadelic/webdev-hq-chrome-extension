@@ -125,26 +125,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function GoogleApps() {
+const apps = [
+    {
+        id: "gmail",
+        title: "G-Mail",
+        href: "https://mail.google.com/",
+        icon: "../../static/icons/google-icons/google-svg.svg"
+    },
+    {
+        id: "docs",
+        title: "Docs",
+        href: "https://docs.google.com/document/u/0/",
+        icon: "google-docs.svg"
+    }
+];
+function GoogleApps(apps) {
     const path = "../../static/icons/google-apps/";
-    const apps = [
-        {
-            id: 'gmail',
-            title: 'G-Mail',
-            href: 'https://mail.google.com/',
-            icon: '../../static/icons/google-icons/google-svg.svg'
-        },
-        {
-            id: 'docs',
-            title: 'Docs',
-            href: 'https://docs.google.com/document/u/0/',
-            icon: 'google-docs.svg'
-        }
-    ];
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" }, apps.map((app, index) => {
-            return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: index, className: "bg-slate-100 rounded" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.icon));
+            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: index, className: "bg-slate-100 rounded" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.icon)));
         }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
@@ -367,7 +367,7 @@ __webpack_require__.r(__webpack_exports__);
 function NewTab() {
     const [name, setName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        chrome.storage.sync.get(["name"], (res) => {
+        chrome.storage.sync.get(["name"], res => {
             setName(res.name);
         });
     }, [name]);
