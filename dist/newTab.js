@@ -125,27 +125,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const apps = [
-    {
-        id: "gmail",
-        title: "G-Mail",
-        href: "https://mail.google.com/",
-        icon: "../../static/icons/google-icons/google-svg.svg"
-    },
-    {
-        id: "docs",
-        title: "Docs",
-        href: "https://docs.google.com/document/u/0/",
-        icon: "google-docs.svg"
-    }
-];
-function GoogleApps(apps) {
+function GoogleApps() {
     const path = "../../static/icons/google-apps/";
+    const apps = [
+        {
+            id: "gmail",
+            title: "G-Mail",
+            href: "https://mail.google.com/"
+        },
+        {
+            id: "docs",
+            title: "Docs",
+            href: "https://docs.google.com/document/u/0/"
+        }
+    ];
+    const currentApps = apps.map(app => {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "bg-slate-100 rounded p-3 w-[32px]" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.title)));
+    });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" }, apps.map((app, index) => {
-            return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: index, className: "bg-slate-100 rounded" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.icon)));
-        }))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" }, currentApps)));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
@@ -286,41 +285,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function Todos() {
-    const [todoList, setTodoList] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    const [inputs, setInputs] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({});
+function TodoList() {
+    const [todos, setTodos] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+    const [inputValue, setInputValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+    const handleDelete = index => {
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+    };
     function handleChange(e) {
-        const name = e.target.name;
-        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-        setInputs((prevState) => (Object.assign(Object.assign({}, prevState), { [name]: value })));
-        console.log(inputs);
+        setInputValue(e.target.value);
     }
-    ;
-    function addTodo(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        todoList.push(inputs);
-        setTodoList(todoList);
-        renderTodoList(todoList);
-        console.log(todoList);
+        setTodos([...todos, inputValue]);
+        setInputValue("");
     }
-    function renderTodoList(todoList) {
-        todoList.forEach(item => {
-            return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: item.index }, item.todo);
-        });
-    }
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        renderTodoList(todoList);
-    }, [todoList]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "todo-app m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "bg-white-10 rounded flex justify-between mb-2", onSubmit: addTodo },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "todo", id: "todo", className: "p-2 pl-4 text-base rounded w-full mr-2", onChange: handleChange, placeholder: chrome.i18n.getMessage("newTodo") }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { className: "bg-white-10 rounded flex justify-between mb-2" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", value: inputValue, onChange: handleChange, className: "p-2 pl-4 text-base rounded w-full mr-2", placeholder: chrome.i18n.getMessage("newTodo") }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-flex justify-between" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onSubmit: addTodo, className: "bg-blue-600 text-white rounded p-3 hover:bg-blue-500" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: handleSubmit, className: "bg-blue-600 text-white rounded p-3 hover:bg-blue-500" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus-lg", viewBox: "0 0 16 16" },
                         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" }))))),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" }, todoList)));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "todo-list" }, todos.map(todo => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { className: "flex justify-between bg-white rounded-sm", key: todo },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, todo),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => handleDelete(index) }, "Delete")))))));
 }
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Todos);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TodoList);
 
 
 /***/ }),

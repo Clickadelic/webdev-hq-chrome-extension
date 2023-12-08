@@ -15,12 +15,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
+
 function FormRegister() {
+    const [username, setUser] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+    const [password, setPassword] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
     function handleRegister() {
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "w-56 h-[300px] p-2 mt-8 mx-auto" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-2xl text-slate-900 mb-4" }, chrome.i18n.getMessage("Register")),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { onSubmit: handleRegister },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "mb-4 text-base" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", { htmlFor: "username" }, chrome.i18n.getMessage("Username")),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", name: "username", id: "username", placeholder: chrome.i18n.getMessage("Username"), className: "bg-slate-100 rounded-md p-3 mt-2" })),
