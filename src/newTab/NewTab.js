@@ -13,6 +13,7 @@ import History from "../components/History";
 import Todos from "../components/Todos";
 import Downloads from "../components/Downloads";
 import ActionButton from "./components/ActionButton";
+import MiniDashboard from "../components/MiniDashboard";
 function NewTab() {
     const [name, setName] = useState([]);
     useEffect(() => {
@@ -71,8 +72,7 @@ function NewTab() {
                 React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, null) }),
                 React.createElement(Route, { path: "/history", element: React.createElement(History, null) }),
                 React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, null) }))),
-        React.createElement("footer", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
-            React.createElement("button", null, "Actions")),
+        React.createElement(MiniDashboard, null),
         React.createElement(ActionButton, null)));
 }
 export default NewTab;
