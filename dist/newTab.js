@@ -275,12 +275,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MiniDashboard() {
-    const [open, setOPen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const toggle = () => {
-        setOPen(!open);
+        setOpen(!open);
+        console.log(toggle);
     };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute bottom-2 left-0 right-0 flex justify-center" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: toggle }, "Actions")));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { role: "button", onClick: toggle, className: "absolute bottom-0 left-0 right-0 flex justify-center bg-white hover:bg-slate-200 mx-auto w-96 p-2 rounded-t-md" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-base font-medium text-neutral-500" }, "Mini Dashboard")));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiniDashboard);
 
