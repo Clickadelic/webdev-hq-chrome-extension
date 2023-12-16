@@ -1,7 +1,7 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import "../assets/css/tailwind.css"
-import Popup from "./popup"
+import { Sidepanel } from "./Sidepanel"
 
 function init() {
 	const appContainer = document.createElement("div")
@@ -10,7 +10,7 @@ function init() {
 		throw new Error("Can not find AppContainer")
 	}
 	const root = createRoot(appContainer)
-	root.render(<Popup />)
+	root.render(<Sidepanel />)
 }
 
 init()

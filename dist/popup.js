@@ -80,7 +80,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function init() {
-    const appContainer = document.createElement('div');
+    const appContainer = document.createElement("div");
     document.body.appendChild(appContainer);
     if (!appContainer) {
         throw new Error("Can not find AppContainer");

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React from "react";
+import { useState, useEffect } from "react";
 function History() {
     const [userHistory, setUserHistory] = useState([]);
     function deleteItem(url) {
@@ -14,8 +14,8 @@ function History() {
         alert(url);
     }
     function getHistory() {
-        chrome.history.search({ text: '', maxResults: 10 }, (data) => {
-            const history = data.map((page) => {
+        chrome.history.search({ text: "", maxResults: 10 }, data => {
+            const history = data.map(page => {
                 let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain=" + page.url;
                 return (React.createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
                     React.createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate", target: "_self", title: page.title },
@@ -40,7 +40,7 @@ function History() {
         getHistory();
     }, [userHistory]);
     return (React.createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        React.createElement("h2", { className: "flex text-base justify-center text-white m-auto p-2" }, chrome.i18n.getMessage('history')),
+        React.createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("history")),
         React.createElement("hr", { className: "mx-2" }),
         React.createElement("ul", { className: "list-history p-2 mb-2" }, userHistory),
         React.createElement("button", { onClick: deleteHistory, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("deleteHistory"))));

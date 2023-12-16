@@ -79,9 +79,9 @@ __webpack_require__.r(__webpack_exports__);
 function Downloads() {
     const [userDownloads, setUserDownloads] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
     function getDownloads() {
-        chrome.downloads.search({ limit: 10 }, (downloads) => {
-            const downloadList = downloads.map((item) => {
-                return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: item.id, className: "text-white text-base hover:text-slate-400" }, item.filename);
+        chrome.downloads.search({ limit: 10 }, downloads => {
+            const downloadList = downloads.map(item => {
+                return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: item.id, className: "text-white text-base hover:text-slate-400" }, item.filename));
             });
             setUserDownloads(downloadList);
         });
@@ -95,7 +95,9 @@ function Downloads() {
     (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
         getDownloads();
     }, [userDownloads]);
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex flex-col m-auto md:w-[760px] rounded bg-white/10 backdrop backdrop-blur p-2" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("downloads")),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", { className: "mx-2" }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "list-downloads p-2" }, userDownloads),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: openDownloadFolder, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("openDownloadsFolder"))));
 }
@@ -196,8 +198,8 @@ function History() {
         alert(url);
     }
     function getHistory() {
-        chrome.history.search({ text: '', maxResults: 10 }, (data) => {
-            const history = data.map((page) => {
+        chrome.history.search({ text: "", maxResults: 10 }, data => {
+            const history = data.map(page => {
                 let faviconUrl = "https://s2.googleusercontent.com/s2/favicons?domain=" + page.url;
                 return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: page.id, className: "flex justify-between overflow-ellipsis" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: page.url, className: "text-base text-white hover:text-slate-400 mb-1 truncate", target: "_self", title: page.title },
@@ -222,7 +224,7 @@ function History() {
         getHistory();
     }, [userHistory]);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "flex text-base justify-center text-white m-auto p-2" }, chrome.i18n.getMessage('history')),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("history")),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", { className: "mx-2" }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "list-history p-2 mb-2" }, userHistory),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: deleteHistory, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("deleteHistory"))));
@@ -378,6 +380,8 @@ function Tabs() {
         console.log("Tabs are:", Tabs, "Urls are:", url);
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("tabs")),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", { className: "mx-2" }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "list-tabs p-4" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", name: "tabname" }),
