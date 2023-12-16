@@ -42,11 +42,18 @@
 		"contextMenus",
 		"history"
 	],
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "js": ["contentScript.js"]
-        }
-    ],
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"contentScript.js"
+			]
+		}
+	],
+	"side_panel": {
+		"default_path": "sidepanel.html"
+	},
 	"devtools_page": "./views/devtools.html"
 }

@@ -1,31 +1,25 @@
-import React from "react"
-import { useState, useEffect } from "react"
-import { Routes, Route } from "react-router-dom"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "../assets/css/tailwind.css"
+import "../assets/css/tailwind.css";
 
-import Logo from "../components/Logo"
-import NavBar from "./components/NavBar"
-import FormSearchBar from "../components/FormSearchBar"
-// Routes
-import GoogleApps from "../components/GoogleApps"
-import Tabs from "../components/Tabs"
-import History from "../components/History"
-import Todos from "../components/Todos"
-import Downloads from "../components/Downloads"
+import Logo from "../components/Logo";
+import NavBar from "../components/NavBar";
+import FormSearchBar from "../components/FormSearchBar";
+import GoogleApps from "../components/GoogleApps";
+import Tabs from "../components/Tabs";
+import History from "../components/History";
+import Todos from "../components/Todos";
+import Downloads from "../components/Downloads";
 
-import ActionButton from "./components/ActionButton"
-import MiniDashboard from "../components/MiniDashboard"
+import ActionButton from "../components/ActionButton";
+import MiniDashboard from "../components/MiniDashboard";
 
 function NewTab() {
-	const [name, setName] = useState([])
-
-	useEffect(() => {
-		chrome.storage.sync.get(["name"], res => {
-			setName(res.name)
-		})
-	}, [name])
+	chrome.storage.sync.get(["fileData"], res => {
+		console.log(res);
+	});
 
 	return (
 		<div className="App h-screen bg-slate-900">
@@ -114,7 +108,7 @@ function NewTab() {
 			<MiniDashboard />
 			<ActionButton />
 		</div>
-	)
+	);
 }
 
-export default NewTab
+export default NewTab;

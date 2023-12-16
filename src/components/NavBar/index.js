@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import React from 'react';
-import DigitalClock from '../../../components/DigitalClock';
+import React from "react";
+import DigitalClock from "../DigitalClock";
 function NavBar({ name }) {
     // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
     function getTheFile() {
@@ -18,19 +18,18 @@ function NavBar({ name }) {
                     {
                         description: "Images",
                         accept: {
-                            "image/*": [".png", ".jpeg", ".jpg", ".webp"],
-                        },
-                    },
+                            "image/*": [".png", ".jpeg", ".jpg", ".webp"]
+                        }
+                    }
                 ],
                 excludeAcceptAllOption: true,
-                multiple: false,
+                multiple: false
             };
             // open file picker
             const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
             // get file contents
             const fileData = yield fileHandle.getFile();
-            console.log(fileData.name);
-            return fileData;
+            chrome.storage.sync.set({ fileData: fileData });
         });
     }
     return (React.createElement("nav", { className: "w-full" },

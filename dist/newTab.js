@@ -2,6 +2,33 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/ActionButton/index.tsx":
+/*!***********************************************!*\
+  !*** ./src/components/ActionButton/index.tsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function ActionButton() {
+    function pushOut() {
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute right-12 bottom-12" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-white text-3xl" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus", viewBox: "0 0 16 16" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" }))),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "w-10 h-10" }, "asd")));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ActionButton);
+
+
+/***/ }),
+
 /***/ "./src/components/DigitalClock/index.tsx":
 /*!***********************************************!*\
   !*** ./src/components/DigitalClock/index.tsx ***!
@@ -124,27 +151,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants/index.ts");
+
 
 function GoogleApps() {
-    const path = "../../static/icons/google-apps/";
-    const apps = [
-        {
-            id: "gmail",
-            title: "G-Mail",
-            href: "https://mail.google.com/"
-        },
-        {
-            id: "docs",
-            title: "Docs",
-            href: "https://docs.google.com/document/u/0/"
-        }
-    ];
-    const currentApps = apps.map(app => {
-        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "bg-slate-100 rounded p-3 w-[32px]" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href }, app.title)));
+    const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.apps.map(app => {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-16 h-16 flex justify-center items-center bg-slate-200 hover:bg-white hover:glow rounded-lg" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8", alt: app.title }))));
     });
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-12 gap-4 content-center items-center p-2 rounded-b" }, currentApps)));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-10 gap-4 content-center items-center rounded-b" }, currentApps)));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
@@ -268,6 +285,79 @@ function MiniDashboard() {
 
 /***/ }),
 
+/***/ "./src/components/NavBar/index.tsx":
+/*!*****************************************!*\
+  !*** ./src/components/NavBar/index.tsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DigitalClock */ "./src/components/DigitalClock/index.tsx");
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+function NavBar({ name }) {
+    // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
+    function getTheFile() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const pickerOpts = {
+                types: [
+                    {
+                        description: "Images",
+                        accept: {
+                            "image/*": [".png", ".jpeg", ".jpg", ".webp"]
+                        }
+                    }
+                ],
+                excludeAcceptAllOption: true,
+                multiple: false
+            };
+            // open file picker
+            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
+            // get file contents
+            const fileData = yield fileHandle.getFile();
+            chrome.storage.sync.set({ fileData: fileData });
+        });
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-800" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "text-white", className: "bi bi-image mt-2 mr-2", viewBox: "0 0 16 16" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" }),
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" })),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
+
+
+/***/ }),
+
 /***/ "./src/components/Tabs/index.tsx":
 /*!***************************************!*\
   !*** ./src/components/Tabs/index.tsx ***!
@@ -367,14 +457,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _assets_css_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/css/tailwind.css */ "./src/assets/css/tailwind.css");
 /* harmony import */ var _components_Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Logo */ "./src/components/Logo/index.tsx");
-/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/NavBar */ "./src/newTab/components/NavBar/index.tsx");
+/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/NavBar */ "./src/components/NavBar/index.tsx");
 /* harmony import */ var _components_FormSearchBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/FormSearchBar */ "./src/components/FormSearchBar/index.tsx");
 /* harmony import */ var _components_GoogleApps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/GoogleApps */ "./src/components/GoogleApps/index.tsx");
 /* harmony import */ var _components_Tabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Tabs */ "./src/components/Tabs/index.tsx");
 /* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/History */ "./src/components/History/index.tsx");
 /* harmony import */ var _components_Todos__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Todos */ "./src/components/Todos/index.tsx");
 /* harmony import */ var _components_Downloads__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Downloads */ "./src/components/Downloads/index.tsx");
-/* harmony import */ var _components_ActionButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/ActionButton */ "./src/newTab/components/ActionButton/index.tsx");
+/* harmony import */ var _components_ActionButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/ActionButton */ "./src/components/ActionButton/index.tsx");
 /* harmony import */ var _components_MiniDashboard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/MiniDashboard */ "./src/components/MiniDashboard/index.tsx");
 
 
@@ -384,8 +474,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// Routes
-
 
 
 
@@ -393,12 +481,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function NewTab() {
-    const [name, setName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        chrome.storage.sync.get(["name"], res => {
-            setName(res.name);
-        });
-    }, [name]);
+    chrome.storage.sync.get(["fileData"], res => {
+        console.log(res);
+    });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-900" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], { name: name })),
@@ -458,107 +543,6 @@ function NewTab() {
 
 /***/ }),
 
-/***/ "./src/newTab/components/ActionButton/index.tsx":
-/*!******************************************************!*\
-  !*** ./src/newTab/components/ActionButton/index.tsx ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-function ActionButton() {
-    function pushOut() {
-    }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute right-12 bottom-12" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-white text-3xl" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-plus", viewBox: "0 0 16 16" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" }))),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "w-10 h-10" }, "asd")));
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ActionButton);
-
-
-/***/ }),
-
-/***/ "./src/newTab/components/NavBar/index.tsx":
-/*!************************************************!*\
-  !*** ./src/newTab/components/NavBar/index.tsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/DigitalClock */ "./src/components/DigitalClock/index.tsx");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-
-function NavBar({ name }) {
-    // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
-    function getTheFile() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const pickerOpts = {
-                types: [
-                    {
-                        description: "Images",
-                        accept: {
-                            "image/*": [".png", ".jpeg", ".jpg", ".webp"],
-                        },
-                    },
-                ],
-                excludeAcceptAllOption: true,
-                multiple: false,
-            };
-            // open file picker
-            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
-            // get file contents
-            const fileData = yield fileHandle.getFile();
-            console.log(fileData.name);
-            return fileData;
-        });
-    }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-800" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "text-white", className: "bi bi-image mt-2 mr-2", viewBox: "0 0 16 16" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" })),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })))));
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
-
-
-/***/ }),
-
 /***/ "./src/newTab/index.tsx":
 /*!******************************!*\
   !*** ./src/newTab/index.tsx ***!
@@ -586,6 +570,71 @@ function init() {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_NewTab__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 }
 init();
+
+
+/***/ }),
+
+/***/ "./src/constants/index.ts":
+/*!********************************!*\
+  !*** ./src/constants/index.ts ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "apps": () => (/* binding */ apps)
+/* harmony export */ });
+const apps = [
+	{
+		id: "youtube",
+		title: "YouTube",
+		icon: "../static/icons/google-apps/youtube-color-icon.svg",
+		href: "https://youtube.com",
+		target: "_blank"
+	},
+	{
+		id: "drive",
+		title: "Drive",
+		icon: "../static/icons/google-apps/google-drive.svg",
+		href: "https://www.google.com/drive/",
+		target: "_blank"
+	},
+	{
+		id: "gmail",
+		title: "G-Mail",
+		icon: "../static/icons/google-apps/google-gmail.svg",
+		href: "https://mail.google.com/",
+		target: "_blank"
+	},
+	{
+		id: "docs",
+		title: "Docs",
+		icon: "../static/icons/google-apps/google-docs.svg",
+		href: "https://docs.google.com/document/u/0/",
+		target: "_blank"
+	},
+	{
+		id: "sheets",
+		title: "Sheets",
+		icon: "../static/icons/google-apps/google-sheets.svg",
+		href: "https://docs.google.com/spreadsheets/u/0/",
+		target: "_blank"
+	},
+	{
+		id: "presentations",
+		title: "Presentations",
+		icon: "../static/icons/google-apps/google-slides.svg",
+		href: "https://docs.google.com/presentation/u/0/",
+		target: "_blank"
+	},
+	{
+		id: "calendar",
+		title: "Calendar",
+		icon: "../static/icons/google-apps/google-calendar.svg",
+		href: "https://calendar.google.com/calendar/u/0/r",
+		target: "_blank"
+	}
+];
 
 
 /***/ })
