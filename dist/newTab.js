@@ -280,8 +280,10 @@ function MiniDashboard() {
         setOpen(!open);
         console.log(toggle);
     };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { role: "button", onClick: toggle, className: "absolute bottom-0 left-0 right-0 flex justify-center bg-white hover:bg-slate-200 mx-auto w-96 p-2 rounded-t-md" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-base font-medium text-neutral-500" }, "Mini Dashboard")));
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute bottom-0 left-0 right-0 flex justify-center bg-white hover:bg-slate-200 mx-auto w-96 p-2 rounded-t-md", role: "button", onClick: () => {
+            chrome.tabs.create({ url: "dashboard.html" });
+        } },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-base font-medium text-neutral-500" }, "Mini-Dashboard")));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiniDashboard);
 
@@ -378,15 +380,12 @@ function Tabs() {
     chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
         let url = tabs[0].url;
         // use `url` here inside the callback because it's asynchronous!
-        console.log("Tabs are:", Tabs, "Urls are:", url);
+        console.log(url);
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("tabs")),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("hr", { className: "mx-2" }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "list-tabs p-4" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", name: "tabname" }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/" }, "Tabs")))));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "list-tabs p-4" }, "asd")));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tabs);
 
@@ -486,10 +485,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function NewTab() {
-    chrome.storage.sync.get(["fileData"], res => {
+    const file = chrome.storage.sync.get(["fileData"], res => {
         console.log(res);
     });
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-900" },
+    console.log(file);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App bg-eye-rainbow h-screen bg-slate-900" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_3__["default"], { name: name })),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
@@ -638,8 +638,15 @@ const apps = [
 		icon: "../static/icons/google-apps/google-calendar.svg",
 		href: "https://calendar.google.com/calendar/u/0/r",
 		target: "_blank"
+	},
+	{
+		id: "passwords",
+		title: "Passwords",
+		icon: "../static/icons/google-apps/google-passwords.svg",
+		href: "https://passwords.google.com",
+		target: "_blank"
 	}
-];
+]
 
 
 /***/ })

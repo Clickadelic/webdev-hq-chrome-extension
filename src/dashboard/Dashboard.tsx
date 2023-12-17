@@ -1,14 +1,14 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import "../assets/css/tailwind.css";
-import HeaderSidebar from "./components/HeaderSidebar";
-import Home from "./components/Home";
-import About from "./components/About";
-import Breadcrumbs from "./components/Breadcrumbs";
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import "../assets/css/tailwind.css"
+import HeaderSidebar from "./components/HeaderSidebar"
+import Home from "./components/Home"
+import About from "./components/About"
+import Breadcrumbs from "./components/Breadcrumbs"
 
 function Dashboard() {
 	return (
-		<div className="bg-white">
+		<div className="backdrop-blur-sm bg-white/30">
 			<div className="App bg-slate-100 min-h-screen">
 				<aside className="App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r">
 					<div className="App-sidebar-logo hidden md:flex justify-center px-2 py-3">
@@ -30,7 +30,7 @@ function Dashboard() {
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-speedometer2 mt-1 mr-2" viewBox="0 0 16 16">
 											<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
 											<path
-												fill-rule="evenodd"
+												fillRule="evenodd"
 												d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"
 											/>
 										</svg>
@@ -38,7 +38,7 @@ function Dashboard() {
 									</span>
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-up mt-1" viewBox="0 0 16 16">
-											<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+											<path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
 										</svg>
 									</span>
 								</a>
@@ -69,7 +69,7 @@ function Dashboard() {
 									</span>
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-up mt-1" viewBox="0 0 16 16">
-											<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+											<path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
 										</svg>
 									</span>
 								</a>
@@ -99,7 +99,7 @@ function Dashboard() {
 									</span>
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-up mt-1" viewBox="0 0 16 16">
-											<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+											<path fillRule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
 										</svg>
 									</span>
 								</a>
@@ -235,7 +235,7 @@ function Dashboard() {
 								<button className="hover:bg-slate-100 mt-1 mx-1 inline-flex p-2 rounded">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrows-fullscreen" viewBox="0 0 16 16">
 										<path
-											fill-rule="evenodd"
+											fillRule="evenodd"
 											d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"
 										/>
 									</svg>
@@ -253,7 +253,7 @@ function Dashboard() {
 								<button className="hover:bg-slate-100 mx-2 inline-flex p-2 rounded">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle mt-1 mr-2" viewBox="0 0 16 16">
 										<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-										<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+										<path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
 									</svg>
 									<span>Username</span>
 								</button>
@@ -316,7 +316,7 @@ function Dashboard() {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
-export default Dashboard;
+export default Dashboard

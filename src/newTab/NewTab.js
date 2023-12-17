@@ -13,10 +13,11 @@ import Downloads from "../components/Downloads";
 import ActionButton from "../components/ActionButton";
 import MiniDashboard from "../components/MiniDashboard";
 function NewTab() {
-    chrome.storage.sync.get(["fileData"], res => {
+    const file = chrome.storage.sync.get(["fileData"], res => {
         console.log(res);
     });
-    return (React.createElement("div", { className: "App h-screen bg-slate-900" },
+    console.log(file);
+    return (React.createElement("div", { className: "App bg-eye-rainbow h-screen bg-slate-900" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, { name: name })),
         React.createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },

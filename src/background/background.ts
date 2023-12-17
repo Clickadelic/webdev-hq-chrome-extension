@@ -4,15 +4,16 @@ chrome.runtime.onInstalled.addListener(() => {
 		title: "Save this page",
 		type: "normal",
 		contexts: ["all"]
-	});
-});
+	})
+})
 
 chrome.contextMenus.onClicked.addListener(info => {
 	chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-		let url = tabs[0].url;
+		let url = tabs[0].url
 		// use `url` here inside the callback because it's asynchronous!
-		console.log(url);
-	});
-});
+		const tabList = tabs
+		console.log(tabs)
+	})
+})
 
 // chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: true});

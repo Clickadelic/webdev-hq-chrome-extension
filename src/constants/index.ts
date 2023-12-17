@@ -47,5 +47,12 @@ export const apps = [
 		icon: "../static/icons/google-apps/google-calendar.svg",
 		href: "https://calendar.google.com/calendar/u/0/r",
 		target: "_blank"
+	},
+	{
+		id: "passwords",
+		title: "Passwords",
+		icon: "../static/icons/google-apps/google-passwords.svg",
+		href: "https://passwords.google.com",
+		target: "_blank"
 	}
-];
+]
