@@ -18,8 +18,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Dashboard() {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "backdrop-blur-sm bg-white/30" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App bg-slate-100 min-h-screen" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-white/10 backdrop backdrop-blur" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App bg-eye-rainbow min-h-screen" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("aside", { className: "App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App-sidebar-logo hidden md:flex justify-center px-2 py-3" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null,

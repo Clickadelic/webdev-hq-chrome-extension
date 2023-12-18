@@ -8,8 +8,8 @@ import Breadcrumbs from "./components/Breadcrumbs"
 
 function Dashboard() {
 	return (
-		<div className="backdrop-blur-sm bg-white/30">
-			<div className="App bg-slate-100 min-h-screen">
+		<div className="bg-white/10 backdrop backdrop-blur">
+			<div className="App bg-eye-rainbow min-h-screen">
 				<aside className="App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r">
 					<div className="App-sidebar-logo hidden md:flex justify-center px-2 py-3">
 						<h1>
