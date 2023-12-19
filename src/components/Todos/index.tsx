@@ -50,7 +50,7 @@ function TodoList() {
 				{todos.map((todo, index) => (
 					<li key={index} className="flex justify-between mt-2">
 						<div className="flex w-full text-base text-slate-800 bg-white rounded p-2 mr-2">
-							<input type="checkbox" className="m-1 ml-2" onChange={() => setIsChecked(prev => !prev)} checked={isChecked} />
+							<input type="checkbox" id="done" name="done" className="m-1 ml-2" onChange={() => setIsChecked(prev => !prev)} checked={isChecked} />
 							<p className={isChecked ? "line-through" : null}>{todo}</p>
 						</div>
 						<button className="bg-red-500 text-white rounded p-3 max-h-[45px] hover:bg-red-600" onClick={() => handleDelete(index)}>

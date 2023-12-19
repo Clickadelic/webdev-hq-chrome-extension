@@ -452,7 +452,7 @@ function TodoList() {
             isLoading && react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Loading..."),
             todos.map((todo, index) => (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: index, className: "flex justify-between mt-2" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex w-full text-base text-slate-800 bg-white rounded p-2 mr-2" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", className: "m-1 ml-2", onChange: () => setIsChecked(prev => !prev), checked: isChecked }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "checkbox", id: "done", name: "done", className: "m-1 ml-2", onChange: () => setIsChecked(prev => !prev), checked: isChecked }),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", { className: isChecked ? "line-through" : null }, todo)),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "bg-red-500 text-white rounded p-3 max-h-[45px] hover:bg-red-600", onClick: () => handleDelete(index) },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-trash3", viewBox: "0 0 16 16" },

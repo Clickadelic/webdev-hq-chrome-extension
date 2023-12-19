@@ -38,7 +38,7 @@ function TodoList() {
             isLoading && React.createElement("span", null, "Loading..."),
             todos.map((todo, index) => (React.createElement("li", { key: index, className: "flex justify-between mt-2" },
                 React.createElement("div", { className: "flex w-full text-base text-slate-800 bg-white rounded p-2 mr-2" },
-                    React.createElement("input", { type: "checkbox", className: "m-1 ml-2", onChange: () => setIsChecked(prev => !prev), checked: isChecked }),
+                    React.createElement("input", { type: "checkbox", id: "done", name: "done", className: "m-1 ml-2", onChange: () => setIsChecked(prev => !prev), checked: isChecked }),
                     React.createElement("p", { className: isChecked ? "line-through" : null }, todo)),
                 React.createElement("button", { className: "bg-red-500 text-white rounded p-3 max-h-[45px] hover:bg-red-600", onClick: () => handleDelete(index) },
                     React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-trash3", viewBox: "0 0 16 16" },
