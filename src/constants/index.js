@@ -65,8 +65,8 @@ export const apps = [
     {
         id: "passwords",
         title: "Passwords",
-        icon: "../static/icons/google-apps/google-passwords.svg",
-        href: "https://passwords.google.com",
+        icon: "../static/icons/google-apps/google-password.svg",
+        href: "https://password.google.com",
         target: "_self"
     }
 ];

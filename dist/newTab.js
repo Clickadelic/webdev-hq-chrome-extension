@@ -288,7 +288,7 @@ function MiniDashboard() {
         setOpen(!open);
         console.log(toggle);
     };
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute bottom-0 mx-auto bg-white/10 backdrop backdrop-blur flex justify-center hover:bg-slate-200 w-96 p-2 rounded-t-md", role: "button", onClick: () => {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute bottom-0 left-96 right-96 mx-auto bg-white/10 backdrop backdrop-blur flex justify-center hover:bg-slate-200 w-96 p-2 rounded-t-md", role: "button", onClick: () => {
             chrome.tabs.create({ url: "dashboard.html" });
         } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-base font-medium text-white" }, "Mini-Dashboard")));
@@ -674,11 +674,11 @@ const apps = [
 	{
 		id: "passwords",
 		title: "Passwords",
-		icon: "../static/icons/google-apps/google-passwords.svg",
-		href: "https://passwords.google.com",
+		icon: "../static/icons/google-apps/google-password.svg",
+		href: "https://password.google.com",
 		target: "_self"
 	}
-];
+]
 
 
 /***/ })

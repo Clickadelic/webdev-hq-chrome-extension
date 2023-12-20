@@ -1,6 +1,5 @@
 import React from "react"
 import { useState } from "react"
-import Checkbox from "../Checkbox"
 function TodoList() {
 	const [todos, setTodos] = useState([])
 	const [inputValue, setInputValue] = useState("")
