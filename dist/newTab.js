@@ -286,7 +286,7 @@ function MiniDashboard() {
     const [open, setOpen] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
     const toggle = () => {
         setOpen(!open);
-        console.log(toggle);
+        console.log("MiniDB is:", toggle);
     };
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "absolute bottom-0 left-96 right-96 mx-auto bg-white/10 backdrop backdrop-blur flex justify-center hover:bg-slate-200 w-96 p-2 rounded-t-md", role: "button", onClick: () => {
             chrome.tabs.create({ url: "dashboard.html" });
@@ -668,7 +668,7 @@ const apps = [
 		id: "contacts",
 		title: "Contacts",
 		icon: "../static/icons/google-apps/google-contacts.svg",
-		href: "https://passwords.google.com",
+		href: "https://contacts.google.com",
 		target: "_self"
 	},
 	{

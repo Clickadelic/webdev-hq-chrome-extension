@@ -59,7 +59,7 @@ export const apps = [
 		id: "contacts",
 		title: "Contacts",
 		icon: "../static/icons/google-apps/google-contacts.svg",
-		href: "https://passwords.google.com",
+		href: "https://contacts.google.com",
 		target: "_self"
 	},
 	{

@@ -5,7 +5,7 @@ function MiniDashboard() {
 	const [open, setOpen] = useState(false)
 	const toggle = () => {
 		setOpen(!open)
-		console.log(toggle)
+		console.log("MiniDB is:", toggle)
 	}
 
 	return (
