@@ -35,8 +35,8 @@ export const apps = [
         target: "_self"
     },
     {
-        id: "presentations",
-        title: "Presentations",
+        id: "slides",
+        title: "Slides",
         icon: "../static/icons/google-apps/google-slides.svg",
         href: "https://docs.google.com/presentation/u/0/",
         target: "_self"
@@ -63,8 +63,8 @@ export const apps = [
         target: "_self"
     },
     {
-        id: "passwords",
-        title: "Passwords",
+        id: "password",
+        title: "Password",
         icon: "../static/icons/google-apps/google-password.svg",
         href: "https://password.google.com",
         target: "_self"

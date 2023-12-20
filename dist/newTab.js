@@ -167,8 +167,9 @@ __webpack_require__.r(__webpack_exports__);
 function GoogleApps() {
     const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.apps.map(app => {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-16 h-16 flex justify-center items-center bg-slate-200 hover:bg-white hover:glow rounded-lg" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8", alt: app.title }))));
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-16 h-16 flex flex-col justify-center items-center backdrop-blur-sm bg-white/30 hover:bg-white hover:glow rounded-lg" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8", alt: app.title }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-sm mt-1 text-white hover:text-slate-600" }, app.title))));
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-10 gap-4 content-center items-center rounded-b" }, currentApps)));
@@ -644,8 +645,8 @@ const apps = [
 		target: "_self"
 	},
 	{
-		id: "presentations",
-		title: "Presentations",
+		id: "slides",
+		title: "Slides",
 		icon: "../static/icons/google-apps/google-slides.svg",
 		href: "https://docs.google.com/presentation/u/0/",
 		target: "_self"
@@ -672,13 +673,13 @@ const apps = [
 		target: "_self"
 	},
 	{
-		id: "passwords",
-		title: "Passwords",
+		id: "password",
+		title: "Password",
 		icon: "../static/icons/google-apps/google-password.svg",
 		href: "https://password.google.com",
 		target: "_self"
 	}
-]
+];
 
 
 /***/ })
