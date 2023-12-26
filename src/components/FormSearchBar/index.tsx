@@ -6,7 +6,7 @@ function FormSearchBar() {
 
 	function handleChange(e) {
 		setEngine(e.target.value);
-		chrome.storage.sync.set({ searchEngine: e.target.value });
+		chrome.storage.sync.set(["engine", engine]);
 	}
 
 	return (

@@ -132,7 +132,7 @@ function FormSearchBar() {
     const [engine, setEngine] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("https://www.google.com/search");
     function handleChange(e) {
         setEngine(e.target.value);
-        chrome.storage.sync.set({ searchEngine: e.target.value });
+        chrome.storage.sync.set(["engine", engine]);
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { method: "GET", className: "flex justify-between", action: engine, id: "multi-search" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", className: "w-full text-2xl pl-3 focus-visible:outline-0", name: "q", id: "q", placeholder: chrome.i18n.getMessage("search") }),
