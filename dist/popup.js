@@ -50,8 +50,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function Logo({ classes }) {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "md:block w-56 m-auto" },
+function Logo({ headingClasses, classes }) {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: headingClasses },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://webdev-hq.com/", className: classes },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-light" },
@@ -110,21 +110,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const name = e.target[0].value;
-    chrome.storage.sync.set({ name }, () => {
-        console.log(`Name is set to ${name}`);
-    });
-};
 const Popup = () => {
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-        chrome.storage.sync.get(["name"], (res) => {
-            console.log(res.name);
-        });
-    }, []);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "w-[480px] h-[460px] m-auto p-3" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], { classes: "text-2xl text-slate-900 hover:text-slate-300" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_1__["default"], { headingClasses: "md:block w-56 m-auto pt-6", classes: "text-2xl text-slate-900 hover:text-slate-300" }),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormRegister__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Popup);

@@ -15,8 +15,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function Logo({ classes }) {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "md:block w-56 m-auto" },
+function Logo({ headingClasses, classes }) {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: headingClasses },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://webdev-hq.com/", className: classes },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-light" },
@@ -79,10 +79,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const Options = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-slate-200 " },
     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "md:w-[800px] min-h-screen m-auto bg-white p-4" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], { classes: "text-2xl text-slate-900 hover:text-slate-300 block my-12" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], { headingClasses: "mt-4", classes: "text-2xl text-slate-900 hover:text-slate-300 block my-12" }),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tobysrow" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"], null)),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "tobysrow" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Checkbox__WEBPACK_IMPORTED_MODULE_3__["default"], null)))));
-const container = document.createElement('div');
+const container = document.createElement("div");
 document.body.appendChild(container);
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
 root.render(Options);

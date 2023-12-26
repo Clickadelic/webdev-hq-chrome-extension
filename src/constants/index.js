@@ -68,5 +68,19 @@ export const apps = [
         icon: "../static/icons/google-apps/google-password.svg",
         href: "https://password.google.com",
         target: "_self"
+    },
+    {
+        id: "maps",
+        title: "Maps",
+        icon: "../static/icons/google-apps/google-maps.svg",
+        href: "https://maps.google.com",
+        target: "_self"
+    },
+    {
+        id: "search-console",
+        title: "Search Console",
+        icon: "../static/icons/google-apps/google-search-console.svg",
+        href: "https://search.google.com/search-console/about",
+        target: "_self"
     }
 ];

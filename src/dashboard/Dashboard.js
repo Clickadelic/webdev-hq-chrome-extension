@@ -1,16 +1,12 @@
 import React from "react";
 import "../assets/css/tailwind.css";
+import Logo from "../components/Logo";
 function Dashboard() {
     return (React.createElement("div", { className: "bg-white/10 backdrop backdrop-blur" },
         React.createElement("div", { className: "App bg-eye-rainbow min-h-screen" },
             React.createElement("aside", { className: "App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r" },
                 React.createElement("div", { className: "App-sidebar-logo hidden md:flex justify-center px-2 py-3" },
-                    React.createElement("h1", null,
-                        React.createElement("a", { href: "/", className: "flex justify-between mt-2 text-slate-900 hover:opacity-75" },
-                            React.createElement("img", { src: "../public/Dashboard.svg", className: "logo inline mr-2 -mt-1 h-8 w-8", alt: "Tailwind Dashboard" }),
-                            React.createElement("span", null,
-                                React.createElement("span", { className: "font-medium mr-1" }, "Tailwind"),
-                                "Dashboard")))),
+                    React.createElement(Logo, { classes: "text-slate-700" })),
                 React.createElement("section", { className: "sidebar-section mt-10 mb-6" },
                     React.createElement("span", { className: "text-slate-500 text-sm inline-block ml-4 mb-2" }, "Dashboard"),
                     React.createElement("ul", { className: "sidebar-nav mb-2" },

@@ -4,15 +4,15 @@ import { apps } from "../../constants";
 function GoogleApps() {
 	const currentApps = apps.map(app => {
 		return (
-			<li key={app.id}>
+			<li key={app.id} className="group">
 				<a
 					href={app.href}
 					title={app.title}
 					target={app.target}
-					className="w-16 h-16 flex flex-col justify-center items-center backdrop-blur-sm bg-white/30 hover:bg-white hover:glow rounded-lg"
+					className="w-20 h-20 flex flex-col justify-center items-center  text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg"
 				>
-					<img src={app.icon} className="w-8 h-8" alt={app.title} />
-					<span className="text-sm mt-1 text-white hover:text-slate-600">{app.title}</span>
+					<img src={app.icon} className="w-8 h-8 p-1" alt={app.title} />
+					<span className="text-sm m-1 text-white group-hover:text-slate-600">{app.title}</span>
 				</a>
 			</li>
 		);
@@ -20,7 +20,7 @@ function GoogleApps() {
 
 	return (
 		<div className="m-auto md:w-[760px] justify-between">
-			<ul className="grid grid-cols-10 gap-4 content-center items-center rounded-b">{currentApps}</ul>
+			<ul className="grid grid-cols-8 gap-4 content-center items-center rounded-b">{currentApps}</ul>
 		</div>
 	);
 }

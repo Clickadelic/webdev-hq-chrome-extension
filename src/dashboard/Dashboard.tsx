@@ -1,10 +1,7 @@
-import React from "react"
-import { Routes, Route } from "react-router-dom"
-import "../assets/css/tailwind.css"
-import HeaderSidebar from "./components/HeaderSidebar"
-import Home from "./components/Home"
-import About from "./components/About"
-import Breadcrumbs from "./components/Breadcrumbs"
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import "../assets/css/tailwind.css";
+import Logo from "../components/Logo";
 
 function Dashboard() {
 	return (
@@ -12,14 +9,7 @@ function Dashboard() {
 			<div className="App bg-eye-rainbow min-h-screen">
 				<aside className="App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r">
 					<div className="App-sidebar-logo hidden md:flex justify-center px-2 py-3">
-						<h1>
-							<a href="/" className="flex justify-between mt-2 text-slate-900 hover:opacity-75">
-								<img src="../public/Dashboard.svg" className="logo inline mr-2 -mt-1 h-8 w-8" alt="Tailwind Dashboard" />
-								<span>
-									<span className="font-medium mr-1">Tailwind</span>Dashboard
-								</span>
-							</a>
-						</h1>
+						<Logo classes="text-slate-700" />
 					</div>
 					<section className="sidebar-section mt-10 mb-6">
 						<span className="text-slate-500 text-sm inline-block ml-4 mb-2">Dashboard</span>
@@ -316,7 +306,7 @@ function Dashboard() {
 				</div>
 			</div>
 		</div>
-	)
+	);
 }
 
-export default Dashboard
+export default Dashboard;

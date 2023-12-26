@@ -2,6 +2,32 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/Logo/index.tsx":
+/*!***************************************!*\
+  !*** ./src/components/Logo/index.tsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+function Logo({ headingClasses, classes }) {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: headingClasses },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://webdev-hq.com/", className: classes },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-light" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "web" }, "Web"),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "dev-hq font-medium" }, "Dev HQ")))));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
+
+
+/***/ }),
+
 /***/ "./src/dashboard/Dashboard.tsx":
 /*!*************************************!*\
   !*** ./src/dashboard/Dashboard.tsx ***!
@@ -15,6 +41,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _assets_css_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/css/tailwind.css */ "./src/assets/css/tailwind.css");
+/* harmony import */ var _components_Logo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Logo */ "./src/components/Logo/index.tsx");
+
 
 
 function Dashboard() {
@@ -22,12 +50,7 @@ function Dashboard() {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App bg-eye-rainbow min-h-screen" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("aside", { className: "App-sidebar hidden fixed md:block top-0 left-0 w-64 min-h-screen bg-white border-r" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App-sidebar-logo hidden md:flex justify-center px-2 py-3" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "flex justify-between mt-2 text-slate-900 hover:opacity-75" },
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../public/Dashboard.svg", className: "logo inline mr-2 -mt-1 h-8 w-8", alt: "Tailwind Dashboard" }),
-                            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null,
-                                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-medium mr-1" }, "Tailwind"),
-                                "Dashboard")))),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_2__["default"], { classes: "text-slate-700" })),
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", { className: "sidebar-section mt-10 mb-6" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-slate-500 text-sm inline-block ml-4 mb-2" }, "Dashboard"),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "sidebar-nav mb-2" },

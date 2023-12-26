@@ -132,10 +132,13 @@ function FormSearchBar() {
     const [engine, setEngine] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("https://www.google.com/search");
     function handleChange(e) {
         setEngine(e.target.value);
+        chrome.storage.sync.set({ searchEngine: e.target.value });
     }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("form", { method: "GET", className: "flex justify-between", action: engine, id: "multi-search" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("input", { type: "text", className: "w-full text-2xl pl-3 focus-visible:outline-0", name: "q", id: "q", placeholder: chrome.i18n.getMessage("search") }),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { onChange: (e) => { handleChange(e); }, value: engine, name: "search-engine", id: "search-engine", className: "p-3 text-2xl text-slate-400" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("select", { onChange: e => {
+                handleChange(e);
+            }, value: engine, name: "search-engine", id: "search-engine", className: "p-3 text-2xl text-slate-400" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "https://search.brave.com/search", className: "brave" }, "Brave"),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "https://www.google.com/search", className: "google" }, "Google"),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("option", { value: "https://www.bing.com/search", className: "bing" }, "Bing"),
@@ -166,13 +169,13 @@ __webpack_require__.r(__webpack_exports__);
 
 function GoogleApps() {
     const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.apps.map(app => {
-        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-16 h-16 flex flex-col justify-center items-center backdrop-blur-sm bg-white/30 hover:bg-white hover:glow rounded-lg" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8", alt: app.title }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-sm mt-1 text-white hover:text-slate-600" }, app.title))));
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "group" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-20 h-20 flex flex-col justify-center items-center  text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8 p-1", alt: app.title }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-sm m-1 text-white group-hover:text-slate-600" }, app.title))));
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-10 gap-4 content-center items-center rounded-b" }, currentApps)));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-8 gap-4 content-center items-center rounded-b" }, currentApps)));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
@@ -256,8 +259,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function Logo({ classes }) {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "md:block w-56 m-auto" },
+function Logo({ headingClasses, classes }) {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: headingClasses },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://webdev-hq.com/", className: classes },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-light" },
@@ -312,6 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DigitalClock */ "./src/components/DigitalClock/index.tsx");
+/* harmony import */ var _StopWatch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../StopWatch */ "./src/components/StopWatch/index.tsx");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -321,6 +325,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+
 
 
 function NavBar({ name }) {
@@ -346,13 +351,10 @@ function NavBar({ name }) {
             chrome.storage.sync.set({ fileData: fileData });
         });
     }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full bg-black/10 backdrop backdrop-blur" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-800" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "text-white", className: "bi bi-image mt-2 mr-2", viewBox: "0 0 16 16" },
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" }),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-300" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
@@ -361,13 +363,76 @@ function NavBar({ name }) {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_StopWatch__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })))));
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Tobias Hopp"))))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
+
+
+/***/ }),
+
+/***/ "./src/components/StopWatch/index.tsx":
+/*!********************************************!*\
+  !*** ./src/components/StopWatch/index.tsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+const playIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-play", viewBox: "0 0 16 16" },
+    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" })));
+const stopIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-stop", viewBox: "0 0 16 16" },
+    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M3.5 5A1.5 1.5 0 0 1 5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11zM5 4.5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5z" })));
+const StopWatch = () => {
+    // state to store time
+    const [time, setTime] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
+    // state to check stopwatch running or not
+    const [isRunning, setIsRunning] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+        let intervalId;
+        if (isRunning) {
+            // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
+            intervalId = setInterval(() => setTime(time + 1), 10);
+        }
+        return () => clearInterval(intervalId);
+    }, [isRunning, time]);
+    // Hours calculation
+    const hours = Math.floor(time / 360000);
+    // Minutes calculation
+    const minutes = Math.floor((time % 360000) / 6000);
+    // Seconds calculation
+    const seconds = Math.floor((time % 6000) / 100);
+    // Milliseconds calculation
+    const milliseconds = time % 100;
+    // Method to start and stop timer
+    const startAndStop = () => {
+        setIsRunning(!isRunning);
+    };
+    // Method to reset timer back to 0
+    const reset = () => {
+        setTime(0);
+    };
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex justify-center" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-2xl mr-2 text-white hover:text-slate-300", onClick: reset },
+            hours,
+            ":",
+            minutes.toString().padStart(2, "0"),
+            ":",
+            seconds.toString().padStart(2, "0"),
+            ":",
+            milliseconds.toString().padStart(2, "0")),
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-sm mt-1 ml-2 text-white hover:text-slate-300", onClick: startAndStop }, isRunning ? stopIcon : playIcon)));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (StopWatch);
 
 
 /***/ }),
@@ -677,6 +742,20 @@ const apps = [
 		title: "Password",
 		icon: "../static/icons/google-apps/google-password.svg",
 		href: "https://password.google.com",
+		target: "_self"
+	},
+	{
+		id: "maps",
+		title: "Maps",
+		icon: "../static/icons/google-apps/google-maps.svg",
+		href: "https://maps.google.com",
+		target: "_self"
+	},
+	{
+		id: "search-console",
+		title: "Search Console",
+		icon: "../static/icons/google-apps/google-search-console.svg",
+		href: "https://search.google.com/search-console/about",
 		target: "_self"
 	}
 ];
