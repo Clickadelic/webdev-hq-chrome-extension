@@ -1,32 +1,25 @@
-import React from "react"
-import { Routes, Route } from "react-router-dom"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import "../assets/css/tailwind.css"
+import "../../assets/css/tailwind.css";
 
-import Logo from "../components/Logo"
-import NavBar from "../components/NavBar"
-import FormSearchBar from "../components/FormSearchBar"
-import GoogleApps from "../components/GoogleApps"
-import Tabs from "../components/Tabs"
-import History from "../components/History"
-import Todos from "../components/Todos"
-import Downloads from "../components/Downloads"
+import ActionButton from "../../components/ActionButton";
+import AppPanel from "../../components/AppPanel";
+import Logo from "../../components/Logo";
+import NavBar from "../../components/NavBar";
+import FormSearchBar from "../../components/FormSearchBar";
+import GoogleApps from "../../components/GoogleApps";
+import Tabs from "../../components/Tabs";
+import History from "../../components/History";
+import Todos from "../../components/Todos";
+import Downloads from "../../components/Downloads";
 
-import ActionButton from "../components/ActionButton"
-import MiniDashboard from "../components/MiniDashboard"
-
-function NewTab() {
-	const file = chrome.storage.sync.get(["fileData"], res => {
-		console.log(res)
-	})
-
-	console.log(file)
-
+const NewTab = () => {
 	return (
-		<div className="App bg-eye-rainbow h-screen bg-slate-900">
+		<div className="App h-screen bg-slate-800">
 			<div className="flex m-auto mb-24">
-				<NavBar name={name} />
+				<NavBar />
 			</div>
 			<div className="flex m-auto md:w-[760px] justify-center mb-12">
 				<Logo classes="text-2xl text-white hover:text-slate-300" />
@@ -107,10 +100,10 @@ function NewTab() {
 					<Route path="/downloads" element={<Downloads />} />
 				</Routes>
 			</main>
-			<MiniDashboard />
+			<AppPanel />
 			<ActionButton />
 		</div>
-	)
-}
+	);
+};
 
-export default NewTab
+export default NewTab;

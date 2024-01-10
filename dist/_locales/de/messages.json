@@ -3,6 +3,10 @@
 		"message": "WebDev HQ",
 		"description": "Extension name"
 	},
+	"apps": {
+		"message": "Apps",
+		"description": "Extension app section"
+	},
 	"hello": {
 		"message": "Hallo",
 		"description": "Begrüßung"

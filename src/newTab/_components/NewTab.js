@@ -1,25 +1,21 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../assets/css/tailwind.css";
-import Logo from "../components/Logo";
-import NavBar from "../components/NavBar";
-import FormSearchBar from "../components/FormSearchBar";
-import GoogleApps from "../components/GoogleApps";
-import Tabs from "../components/Tabs";
-import History from "../components/History";
-import Todos from "../components/Todos";
-import Downloads from "../components/Downloads";
-import ActionButton from "../components/ActionButton";
-import MiniDashboard from "../components/MiniDashboard";
-function NewTab() {
-    const file = chrome.storage.sync.get(["fileData"], res => {
-        console.log(res);
-    });
-    console.log(file);
-    return (React.createElement("div", { className: "App bg-eye-rainbow h-screen bg-slate-900" },
+import "../../assets/css/tailwind.css";
+import ActionButton from "../../components/ActionButton";
+import AppPanel from "../../components/AppPanel";
+import Logo from "../../components/Logo";
+import NavBar from "../../components/NavBar";
+import FormSearchBar from "../../components/FormSearchBar";
+import GoogleApps from "../../components/GoogleApps";
+import Tabs from "../../components/Tabs";
+import History from "../../components/History";
+import Todos from "../../components/Todos";
+import Downloads from "../../components/Downloads";
+const NewTab = () => {
+    return (React.createElement("div", { className: "App h-screen bg-slate-800" },
         React.createElement("div", { className: "flex m-auto mb-24" },
-            React.createElement(NavBar, { name: name })),
+            React.createElement(NavBar, null)),
         React.createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
             React.createElement(Logo, { classes: "text-2xl text-white hover:text-slate-300" })),
         React.createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2" },
@@ -68,7 +64,7 @@ function NewTab() {
                 React.createElement(Route, { path: "/tabs", element: React.createElement(Tabs, null) }),
                 React.createElement(Route, { path: "/history", element: React.createElement(History, null) }),
                 React.createElement(Route, { path: "/downloads", element: React.createElement(Downloads, null) }))),
-        React.createElement(MiniDashboard, null),
+        React.createElement(AppPanel, null),
         React.createElement(ActionButton, null)));
-}
+};
 export default NewTab;

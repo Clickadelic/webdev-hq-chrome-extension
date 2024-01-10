@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "../assets/css/tailwind.css";
-import { Sidepanel } from "./Sidepanel";
+import { Sidepanel } from "./_components/Sidepanel";
 function init() {
     const appContainer = document.createElement("div");
     document.body.appendChild(appContainer);

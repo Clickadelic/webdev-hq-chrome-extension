@@ -10,6 +10,7 @@ module.exports = {
 		options: path.resolve("./src/options/options.tsx"),
 		background: path.resolve("./src/background/background.ts"),
 		sidepanel: path.resolve("./src/sidepanel/index.tsx"),
+		onboarding: path.resolve("./src/onboarding/index.tsx"),
 		contentScript: path.resolve("./src/content-script/content-script.ts"),
 		dashboard: path.resolve("./src/dashboard/index.tsx"),
 		newTab: path.resolve("./src/newTab/index.tsx")
@@ -68,7 +69,7 @@ module.exports = {
 				{ from: path.resolve("src/_locales"), to: path.resolve("dist/_locales") }
 			]
 		}),
-		...getHtmlPlugins(["popup", "options", "sidepanel", "dashboard", "newTab"])
+		...getHtmlPlugins(["popup", "options", "sidepanel", "dashboard", "newTab", "onboarding"])
 	],
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"]

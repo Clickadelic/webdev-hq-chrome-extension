@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import React from "react";
 import DigitalClock from "../DigitalClock";
 import StopWatch from "../StopWatch";
-function NavBar({ name }) {
+const NavBar = () => {
     // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
     function getTheFile() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -49,7 +49,7 @@ function NavBar({ name }) {
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement("a", { href: "/", className: "p-2 block text-2xl" },
+                React.createElement("a", { href: "/", className: "p-2 block text-2xl text-white" },
                     React.createElement("span", null, "Tobias Hopp"))))));
-}
+};
 export default NavBar;

@@ -1,4 +1,17 @@
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(rea => {
+    if (rea.reason == "install") {
+        chrome.tabs.create({
+            url: "onboarding.html"
+        });
+    }
+    chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+        if (changeInfo.url) {
+            // chrome.tabs.executeScript({
+            // 	file: "content-script.js"
+            // });
+            alert("Changed some info" + changeInfo);
+        }
+    });
     chrome.contextMenus.create({
         id: "webdev-hq",
         title: "Save this page",

@@ -15,7 +15,7 @@ function TodoList() {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        if (inputValue == "" || inputValue == undefined || inputValue.length <= 2) {
+        if (inputValue == "" || inputValue == undefined || inputValue.length <= 1) {
             return;
         }
         setIsLoading(true);

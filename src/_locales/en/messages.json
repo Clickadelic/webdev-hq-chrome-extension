@@ -3,6 +3,10 @@
 		"message": "WebDev HQ",
 		"description": "Extension name"
 	},
+	"apps": {
+		"message": "Apps",
+		"description": "Extension app section"
+	},
 	"hello": {
 		"message": "Hello",
 		"description": "Salutation"
@@ -42,9 +46,5 @@
 	"newTodo": {
 		"message": "New task",
 		"description": "New todo item"
-	},
-	"apps": {
-		"message": "Apps",
-		"description": "Apps"
 	}
 }

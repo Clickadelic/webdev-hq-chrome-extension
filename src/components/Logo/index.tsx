@@ -5,7 +5,7 @@ interface LogoProps {
 	classes?: string;
 }
 
-function Logo({ headingClasses, classes }: LogoProps) {
+const Logo = ({ headingClasses, classes }: LogoProps) => {
 	return (
 		<h1 className={headingClasses}>
 			<a href="https://webdev-hq.com/" className={classes}>
@@ -17,6 +17,6 @@ function Logo({ headingClasses, classes }: LogoProps) {
 			</a>
 		</h1>
 	);
-}
+};
 
 export default Logo;

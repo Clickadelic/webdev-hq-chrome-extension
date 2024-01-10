@@ -1,35 +1,36 @@
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { useState } from "react";
+
 function TodoList() {
-	const [todos, setTodos] = useState([])
-	const [inputValue, setInputValue] = useState("")
-	const [isChecked, setIsChecked] = useState(false)
-	const [isLoading, setIsLoading] = useState(false)
+	const [todos, setTodos] = useState([]);
+	const [inputValue, setInputValue] = useState("");
+	const [isChecked, setIsChecked] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const handleDelete = index => {
-		const newTodos = [...todos]
-		newTodos.splice(index, 1)
-		setTodos(newTodos)
-	}
+		const newTodos = [...todos];
+		newTodos.splice(index, 1);
+		setTodos(newTodos);
+	};
 
 	function handleChange(e) {
-		setInputValue(e.target.value)
+		setInputValue(e.target.value);
 	}
 
 	function handleSubmit(e) {
-		e.preventDefault()
-		if (inputValue == "" || inputValue == undefined || inputValue.length <= 2) {
-			return
+		e.preventDefault();
+		if (inputValue == "" || inputValue == undefined || inputValue.length <= 1) {
+			return;
 		}
-		setIsLoading(true)
-		setTodos([...todos, inputValue])
-		setInputValue("")
-		setIsLoading(false)
+		setIsLoading(true);
+		setTodos([...todos, inputValue]);
+		setInputValue("");
+		setIsLoading(false);
 	}
 
 	function toggleDone(e) {
-		e.preventDefault()
-		console.log(inputValue)
+		e.preventDefault();
+		console.log(inputValue);
 	}
 
 	return (
@@ -61,7 +62,7 @@ function TodoList() {
 				))}
 			</ul>
 		</div>
-	)
+	);
 }
 
-export default TodoList
+export default TodoList;

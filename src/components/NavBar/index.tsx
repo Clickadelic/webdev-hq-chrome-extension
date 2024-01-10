@@ -2,7 +2,7 @@ import React from "react";
 import DigitalClock from "../DigitalClock";
 import StopWatch from "../StopWatch";
 
-function NavBar({ name }) {
+const NavBar = () => {
 	// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
 	async function getTheFile() {
 		const pickerOpts = {
@@ -55,13 +55,13 @@ function NavBar({ name }) {
 					</a>
 				</li>
 				<li>
-					<a href="/" className="p-2 block text-2xl">
+					<a href="/" className="p-2 block text-2xl text-white">
 						<span>Tobias Hopp</span>
 					</a>
 				</li>
 			</ul>
 		</nav>
 	);
-}
+};
 
 export default NavBar;

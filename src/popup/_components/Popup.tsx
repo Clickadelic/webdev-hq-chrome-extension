@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import Logo from "../components/Logo";
-import FormRegister from "../components/FormRegister";
+import Logo from "../../components/Logo";
+import FormRegister from "../../components/FormRegister";
 
 const Popup = () => {
 	return (
