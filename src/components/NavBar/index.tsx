@@ -43,7 +43,7 @@ const NavBar = () => {
 					</a>
 				</li>
 				<li>
-					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" currentTimeStyle="long" />
+					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" currentTimeStyle="short" />
 				</li>
 				<li>
 					<StopWatch />

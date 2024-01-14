@@ -43,7 +43,7 @@ const NavBar = () => {
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement(DigitalClock, { label: "Uhr", classes: "text-white text-2xl p-3", currentTimeStyle: "long" })),
+                React.createElement(DigitalClock, { label: "Uhr", classes: "text-white text-2xl p-3", currentTimeStyle: "short" })),
             React.createElement("li", null,
                 React.createElement(StopWatch, null)),
             React.createElement("li", null,
