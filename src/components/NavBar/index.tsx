@@ -1,6 +1,7 @@
 import React from "react";
 import DigitalClock from "../DigitalClock";
 import StopWatch from "../StopWatch";
+import BackgroundSelector from "../BackgroundSelector";
 
 const NavBar = () => {
 	// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
@@ -29,9 +30,7 @@ const NavBar = () => {
 		<nav className="w-full bg-black/10 backdrop backdrop-blur">
 			<ul className="navbar-grid">
 				<li>
-					<button onClick={getTheFile} className="p-2 flex text-base text-white hover:text-slate-300">
-						<span className="mt-1">{chrome.i18n.getMessage("BackgroundImage")}</span>
-					</button>
+					<BackgroundSelector />
 				</li>
 				<li>
 					<a href="/" className="p-2 block text-2xl">
@@ -44,7 +43,7 @@ const NavBar = () => {
 					</a>
 				</li>
 				<li>
-					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" />
+					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" currentTimeStyle="long" />
 				</li>
 				<li>
 					<StopWatch />

@@ -15,8 +15,6 @@ import Todos from "../../components/Todos";
 import Downloads from "../../components/Downloads";
 
 const NewTab = () => {
-	const displayInfo = chrome.system.display.getInfo;
-	console.log(displayInfo);
 	return (
 		<div className="App h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-emerald-900">
 			<div className="flex m-auto mb-24">

@@ -4,15 +4,14 @@ import { useState } from "react";
 interface DigitalClockProps {
 	label?: string;
 	classes?: string;
+	currentTimeStyle?: "full" | "long" | "medium" | "short";
 }
 
-const DigitalClock = ({ label, classes }: DigitalClockProps) => {
-	// options timeStyle:
-	// {hour: '2-digit', minute:'2-digit', hour12: false}
-	let time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+const DigitalClock = ({ label, classes, currentTimeStyle }: DigitalClockProps) => {
+	let time = new Date().toLocaleTimeString([], { timeStyle: currentTimeStyle });
 	const [currentTime, setCurrentTime] = useState(time);
 	const UpdateTime = () => {
-		time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+		time = new Date().toLocaleTimeString([], { timeStyle: currentTimeStyle });
 		setCurrentTime(time);
 	};
 	setInterval(UpdateTime);

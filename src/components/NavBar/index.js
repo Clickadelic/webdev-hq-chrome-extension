@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 import React from "react";
 import DigitalClock from "../DigitalClock";
 import StopWatch from "../StopWatch";
+import BackgroundSelector from "../BackgroundSelector";
 const NavBar = () => {
     // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
     function getTheFile() {
@@ -36,14 +37,13 @@ const NavBar = () => {
     return (React.createElement("nav", { className: "w-full bg-black/10 backdrop backdrop-blur" },
         React.createElement("ul", { className: "navbar-grid" },
             React.createElement("li", null,
-                React.createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-300" },
-                    React.createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))),
+                React.createElement(BackgroundSelector, null)),
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
                 React.createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             React.createElement("li", null,
-                React.createElement(DigitalClock, { label: "Uhr", classes: "text-white text-2xl p-3" })),
+                React.createElement(DigitalClock, { label: "Uhr", classes: "text-white text-2xl p-3", currentTimeStyle: "long" })),
             React.createElement("li", null,
                 React.createElement(StopWatch, null)),
             React.createElement("li", null,

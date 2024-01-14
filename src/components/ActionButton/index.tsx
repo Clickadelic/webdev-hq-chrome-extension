@@ -1,6 +1,6 @@
 import React from "react";
 
-function ActionButton() {
+const ActionButton = () => {
 	// chrome.readingList.addEntry({
 	// 	title: "New to the web platform in September | web.dev",
 	// 	url: "https://developer.chrome.com/",
@@ -22,6 +22,6 @@ function ActionButton() {
 			</svg>
 		</div>
 	);
-}
+};
 
 export default ActionButton;

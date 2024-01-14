@@ -15,7 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-function ActionButton() {
+const ActionButton = () => {
     // chrome.readingList.addEntry({
     // 	title: "New to the web platform in September | web.dev",
     // 	url: "https://developer.chrome.com/",
@@ -30,7 +30,7 @@ function ActionButton() {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: "currentColor", className: "h-4 w-4 bi bi-plus-circle", viewBox: "0 0 16 16" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" }))));
-}
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ActionButton);
 
 
@@ -68,6 +68,84 @@ const AppPanel = () => {
 
 /***/ }),
 
+/***/ "./src/components/BackgroundSelector/index.tsx":
+/*!*****************************************************!*\
+  !*** ./src/components/BackgroundSelector/index.tsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+const BackgroundSelector = () => {
+    const pickerOpts = {
+        types: [
+            {
+                description: "Images",
+                accept: {
+                    "image/*": [".png", ".gif", ".jpeg", ".jpg"]
+                }
+            }
+        ],
+        excludeAcceptAllOption: true,
+        multiple: false
+    };
+    function returnPathDirectories(directoryHandle) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Get a file handle by showing a file picker:
+            const [handle] = yield self.showOpenFilePicker();
+            if (!handle) {
+                // User cancelled, or otherwise failed to open a file.
+                return;
+            }
+            // Check if handle exists inside our directory handle
+            const relativePaths = yield directoryHandle.resolve(handle);
+            if (relativePaths === null) {
+                // Not inside directory handle
+            }
+            else {
+                // relativePaths is an array of names, giving the relative path
+                for (const name of relativePaths) {
+                    // log each entry
+                    console.log(name);
+                }
+            }
+        });
+    }
+    function getTheFile() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // Open file picker and destructure the result the first handle
+            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
+            // get file contents
+            const fileData = yield fileHandle.getFile();
+        });
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-white flex h-8 w-8 p-1 text-base", onClick: getTheFile },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-block mr-3" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "32", height: "32", fill: "currentColor", className: "bi bi-card-image", viewBox: "0 0 16 16" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" }),
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z" }))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BackgroundSelector);
+
+
+/***/ }),
+
 /***/ "./src/components/DigitalClock/index.tsx":
 /*!***********************************************!*\
   !*** ./src/components/DigitalClock/index.tsx ***!
@@ -82,13 +160,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-const DigitalClock = ({ label, classes }) => {
-    // options timeStyle:
-    // {hour: '2-digit', minute:'2-digit', hour12: false}
-    let time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+const DigitalClock = ({ label, classes, currentTimeStyle }) => {
+    let time = new Date().toLocaleTimeString([], { timeStyle: currentTimeStyle });
     const [currentTime, setCurrentTime] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(time);
     const UpdateTime = () => {
-        time = new Date().toLocaleTimeString([], { timeStyle: "short" });
+        time = new Date().toLocaleTimeString([], { timeStyle: currentTimeStyle });
         setCurrentTime(time);
     };
     setInterval(UpdateTime);
@@ -195,7 +271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../constants */ "./src/constants/index.ts");
 
 
-function GoogleApps() {
+const GoogleApps = () => {
     const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.googleapps.map(app => {
         return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "flex flex-col group items-center justify-center" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-20 h-20 flex flex-col justify-center items-center text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg" },
@@ -204,7 +280,7 @@ function GoogleApps() {
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-8 gap-3 content-center items-center rounded-b" }, currentApps)));
-}
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
 
@@ -283,6 +359,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DigitalClock */ "./src/components/DigitalClock/index.tsx");
 /* harmony import */ var _StopWatch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../StopWatch */ "./src/components/StopWatch/index.tsx");
+/* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../BackgroundSelector */ "./src/components/BackgroundSelector/index.tsx");
 var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -292,6 +369,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+
 
 
 
@@ -321,14 +399,13 @@ const NavBar = () => {
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full bg-black/10 backdrop backdrop-blur" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: getTheFile, className: "p-2 flex text-base text-white hover:text-slate-300" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_BackgroundSelector__WEBPACK_IMPORTED_MODULE_3__["default"], null)),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3", currentTimeStyle: "long" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_StopWatch__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
@@ -534,8 +611,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const NewTab = () => {
-    const displayInfo = chrome.system.display.getInfo;
-    console.log(displayInfo);
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-emerald-900" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
@@ -664,7 +739,7 @@ const googleapps = [
 	{
 		id: "acount",
 		title: "Account",
-		icon: basepath + "/google-apps/google-accounts.svg",
+		icon: basepath + "/google-apps/google-account.svg",
 		href: "https://myaccount.google.com",
 		target: "_self"
 	},
@@ -727,7 +802,7 @@ const googleapps = [
 	{
 		id: "dns-tools",
 		title: "DNS Tools",
-		icon: basepath + "/google-apps/DNS-Tools.svg",
+		icon: basepath + "/google-apps/google-dns-tools.svg",
 		href: "https://toolbox.googleapps.com/apps/dig/",
 		target: "_self"
 	},
@@ -765,6 +840,13 @@ const videoplatforms = [
 	{
 		id: "rumble",
 		title: "Rumble",
+		icon: basepath + "rumble-icon.svg",
+		href: "https://rumble.com",
+		target: "_self"
+	},
+	{
+		id: "bitchute",
+		title: "BitChute",
 		icon: basepath + "rumble-icon.svg",
 		href: "https://rumble.com",
 		target: "_self"

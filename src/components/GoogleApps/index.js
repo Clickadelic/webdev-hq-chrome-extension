@@ -1,6 +1,6 @@
 import React from "react";
 import { googleapps } from "../../constants";
-function GoogleApps() {
+const GoogleApps = () => {
     const currentApps = googleapps.map(app => {
         return (React.createElement("li", { key: app.id, className: "flex flex-col group items-center justify-center" },
             React.createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-20 h-20 flex flex-col justify-center items-center text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg" },
@@ -9,5 +9,5 @@ function GoogleApps() {
     });
     return (React.createElement("div", { className: "m-auto md:w-[760px] justify-between" },
         React.createElement("ul", { className: "grid grid-cols-8 gap-3 content-center items-center rounded-b" }, currentApps)));
-}
+};
 export default GoogleApps;

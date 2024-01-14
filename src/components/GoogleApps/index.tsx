@@ -1,7 +1,7 @@
 import React from "react";
 import { googleapps } from "../../constants";
 
-function GoogleApps() {
+const GoogleApps = () => {
 	const currentApps = googleapps.map(app => {
 		return (
 			<li key={app.id} className="flex flex-col group items-center justify-center">
@@ -23,6 +23,6 @@ function GoogleApps() {
 			<ul className="grid grid-cols-8 gap-3 content-center items-center rounded-b">{currentApps}</ul>
 		</div>
 	);
-}
+};
 
 export default GoogleApps;

@@ -24,7 +24,7 @@ export const googleapps = [
     {
         id: "acount",
         title: "Account",
-        icon: basepath + "/google-apps/google-accounts.svg",
+        icon: basepath + "/google-apps/google-account.svg",
         href: "https://myaccount.google.com",
         target: "_self"
     },
@@ -87,7 +87,7 @@ export const googleapps = [
     {
         id: "dns-tools",
         title: "DNS Tools",
-        icon: basepath + "/google-apps/DNS-Tools.svg",
+        icon: basepath + "/google-apps/google-dns-tools.svg",
         href: "https://toolbox.googleapps.com/apps/dig/",
         target: "_self"
     },
@@ -124,6 +124,13 @@ export const videoplatforms = [
     {
         id: "rumble",
         title: "Rumble",
+        icon: basepath + "rumble-icon.svg",
+        href: "https://rumble.com",
+        target: "_self"
+    },
+    {
+        id: "bitchute",
+        title: "BitChute",
         icon: basepath + "rumble-icon.svg",
         href: "https://rumble.com",
         target: "_self"

@@ -12,8 +12,6 @@ import History from "../../components/History";
 import Todos from "../../components/Todos";
 import Downloads from "../../components/Downloads";
 const NewTab = () => {
-    const displayInfo = chrome.system.display.getInfo;
-    console.log(displayInfo);
     return (React.createElement("div", { className: "App h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-emerald-900" },
         React.createElement("div", { className: "flex m-auto mb-24" },
             React.createElement(NavBar, null)),
