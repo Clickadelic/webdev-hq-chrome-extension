@@ -45,7 +45,8 @@
 		"system.cpu",
 		"system.display",
 		"system.memory",
-		"system.storage"
+		"system.storage",
+		"wallpaper"
 	],
 	"content_scripts": [
 		{

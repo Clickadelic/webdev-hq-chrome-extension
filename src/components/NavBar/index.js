@@ -38,13 +38,13 @@ const NavBar = () => {
         provideCpuInfo(info);
     });
     chrome.system.display.getInfo(info => {
-        console.log(info);
+        provideDisplayInfo(info);
     });
     chrome.system.memory.getInfo(info => {
-        console.log(info);
+        provideMemoryInfo(info);
     });
     chrome.system.storage.getInfo(info => {
-        console.log(info);
+        provideStorageInfo(info);
     });
     function provideCpuInfo(info) {
         console.log(info.modelName);
