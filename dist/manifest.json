@@ -41,7 +41,11 @@
 		"downloads",
 		"readingList",
 		"contextMenus",
-		"history"
+		"history",
+		"system.cpu",
+		"system.display",
+		"system.memory",
+		"system.storage"
 	],
 	"content_scripts": [
 		{

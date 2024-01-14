@@ -26,6 +26,32 @@ const NavBar = () => {
 		chrome.storage.sync.set({ fileData: fileData });
 	}
 
+	chrome.system.cpu.getInfo(info => {
+		provideCpuInfo(info);
+	});
+	chrome.system.display.getInfo(info => {
+		console.log(info);
+	});
+	chrome.system.memory.getInfo(info => {
+		console.log(info);
+	});
+	chrome.system.storage.getInfo(info => {
+		console.log(info);
+	});
+
+	function provideCpuInfo(info) {
+		console.log(info.modelName);
+	}
+	function provideDisplayInfo(info) {
+		console.log(info);
+	}
+	function provideMemoryInfo(info) {
+		console.log(info);
+	}
+	function provideStorageInfo(info) {
+		console.log(info);
+	}
+
 	return (
 		<nav className="w-full bg-black/10 backdrop backdrop-blur">
 			<ul className="navbar-grid">

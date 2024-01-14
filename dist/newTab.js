@@ -396,6 +396,30 @@ const NavBar = () => {
             chrome.storage.sync.set({ fileData: fileData });
         });
     }
+    chrome.system.cpu.getInfo(info => {
+        provideCpuInfo(info);
+    });
+    chrome.system.display.getInfo(info => {
+        console.log(info);
+    });
+    chrome.system.memory.getInfo(info => {
+        console.log(info);
+    });
+    chrome.system.storage.getInfo(info => {
+        console.log(info);
+    });
+    function provideCpuInfo(info) {
+        console.log(info.modelName);
+    }
+    function provideDisplayInfo(info) {
+        console.log(info);
+    }
+    function provideMemoryInfo(info) {
+        console.log(info);
+    }
+    function provideStorageInfo(info) {
+        console.log(info);
+    }
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full bg-black/10 backdrop backdrop-blur" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
