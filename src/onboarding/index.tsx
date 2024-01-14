@@ -1,7 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter as Router } from "react-router-dom";
+
 import Onboarding from "./_components/Onboarding";
+
 function init() {
 	const appContainer = document.createElement("div");
 	document.body.appendChild(appContainer);

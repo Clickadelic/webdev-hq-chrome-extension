@@ -125,9 +125,6 @@ function Downloads() {
             setUserDownloads(downloadList);
         });
     }
-    function deleteDownloads() {
-        alert("Deleting downloads");
-    }
     function openDownloadFolder() {
         chrome.downloads.showDefaultFolder();
     }
@@ -199,14 +196,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function GoogleApps() {
-    const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.apps.map(app => {
-        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "group" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-20 h-20 flex flex-col justify-center items-center  text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-8 h-8 p-1", alt: app.title }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-sm m-1 text-white group-hover:text-slate-600" }, app.title))));
+    const currentApps = _constants__WEBPACK_IMPORTED_MODULE_1__.googleapps.map(app => {
+        return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: app.id, className: "flex flex-col group items-center justify-center" },
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: app.href, title: app.title, target: app.target, className: "w-20 h-20 flex flex-col justify-center items-center text-center backdrop-blur-sm bg-white/10 group-hover:bg-white rounded-lg" },
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: app.icon, className: "w-10 h-10 p-1", alt: app.title }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-sm mt-1 text-white group-hover:text-slate-800 break-normal" }, app.title))));
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-8 gap-4 content-center items-center rounded-b" }, currentApps)));
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "grid grid-cols-8 gap-3 content-center items-center rounded-b" }, currentApps)));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GoogleApps);
 
@@ -237,9 +234,6 @@ function History() {
         chrome.history.deleteAll();
         getHistory();
     }
-    function saveItem(url) {
-        alert(url);
-    }
     function getHistory() {
         chrome.history.search({ text: "", maxResults: 10 }, data => {
             const history = data.map(page => {
@@ -254,9 +248,7 @@ function History() {
                             }, className: "text-slate-400 hover:text-rose-600 mr-4" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-x", viewBox: "0 0 16 16" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" }))),
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: () => {
-                                saveItem(page.url);
-                            }, className: "text-blue-600" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-blue-600" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-bookmark", viewBox: "0 0 16 16" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" }))))));
             });
@@ -273,32 +265,6 @@ function History() {
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { onClick: deleteHistory, className: "flex text-white m-auto p-3 text-base hover:text-slate-400" }, chrome.i18n.getMessage("deleteHistory"))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (History);
-
-
-/***/ }),
-
-/***/ "./src/components/Logo/index.tsx":
-/*!***************************************!*\
-  !*** ./src/components/Logo/index.tsx ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-const Logo = ({ headingClasses, classes }) => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: headingClasses },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "https://webdev-hq.com/", className: classes },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", { src: "../static/icons/extension/icon-32.png", className: "logo inline mr-2 -mt-1", alt: "WebDev HQ Logo" }),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "font-light" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "web" }, "Web"),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "dev-hq font-medium" }, "Dev HQ")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Logo);
 
 
 /***/ }),
@@ -542,20 +508,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _assets_css_tailwind_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/css/tailwind.css */ "./src/assets/css/tailwind.css");
 /* harmony import */ var _components_ActionButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/ActionButton */ "./src/components/ActionButton/index.tsx");
 /* harmony import */ var _components_AppPanel__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/AppPanel */ "./src/components/AppPanel/index.tsx");
-/* harmony import */ var _components_Logo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Logo */ "./src/components/Logo/index.tsx");
-/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/NavBar */ "./src/components/NavBar/index.tsx");
-/* harmony import */ var _components_FormSearchBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/FormSearchBar */ "./src/components/FormSearchBar/index.tsx");
-/* harmony import */ var _components_GoogleApps__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/GoogleApps */ "./src/components/GoogleApps/index.tsx");
-/* harmony import */ var _components_Tabs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/Tabs */ "./src/components/Tabs/index.tsx");
-/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/History */ "./src/components/History/index.tsx");
-/* harmony import */ var _components_Todos__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/Todos */ "./src/components/Todos/index.tsx");
-/* harmony import */ var _components_Downloads__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/Downloads */ "./src/components/Downloads/index.tsx");
-
+/* harmony import */ var _components_NavBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/NavBar */ "./src/components/NavBar/index.tsx");
+/* harmony import */ var _components_FormSearchBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/FormSearchBar */ "./src/components/FormSearchBar/index.tsx");
+/* harmony import */ var _components_GoogleApps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/GoogleApps */ "./src/components/GoogleApps/index.tsx");
+/* harmony import */ var _components_Tabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Tabs */ "./src/components/Tabs/index.tsx");
+/* harmony import */ var _components_History__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/History */ "./src/components/History/index.tsx");
+/* harmony import */ var _components_Todos__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/Todos */ "./src/components/Todos/index.tsx");
+/* harmony import */ var _components_Downloads__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/Downloads */ "./src/components/Downloads/index.tsx");
 
 
 
@@ -570,37 +534,39 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const NewTab = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-800" },
+    const displayInfo = chrome.system.display.getInfo;
+    console.log(displayInfo);
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-emerald-900" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_5__["default"], null)),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Logo__WEBPACK_IMPORTED_MODULE_4__["default"], { classes: "text-2xl text-white hover:text-slate-300" })),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", { className: "text-white text-2xl" })),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-4 rounded bg-white/10 backdrop backdrop-blur p-2" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-white p-3 w-full rounded" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormSearchBar__WEBPACK_IMPORTED_MODULE_6__["default"], null))),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_FormSearchBar__WEBPACK_IMPORTED_MODULE_5__["default"], null))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-4 md:w-[760px] justify-center rounded bg-white/10 backdrop backdrop-blur p-2" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full p-3" },
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "flex justify-between" },
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, { to: "/", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-app", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Apps")))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, { to: "/todos", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/todos", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-list-check", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { fillRule: "evenodd", d: "M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Todos")))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, { to: "/tabs", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/tabs", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-segmented-nav", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Tabs")))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, { to: "/history", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/history", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-clock-history", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" }),
@@ -608,19 +574,19 @@ const NewTab = () => {
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("history")))),
                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, { to: "/downloads", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
+                        react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, { to: "/downloads", className: "flex justify-between text-white text-base hover:text-slate-300", target: "_self" },
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1 mr-2" },
                                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "16", fill: "currentColor", className: "bi bi-download", viewBox: "0 0 16 16" },
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" }),
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" }))),
                             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, chrome.i18n.getMessage("Downloads"))))))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", { className: "flex justify-between" },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoogleApps__WEBPACK_IMPORTED_MODULE_7__["default"], null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, { path: "/todos", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Todos__WEBPACK_IMPORTED_MODULE_10__["default"], null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, { path: "/tabs", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Tabs__WEBPACK_IMPORTED_MODULE_8__["default"], null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, { path: "/history", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_History__WEBPACK_IMPORTED_MODULE_9__["default"], null) }),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, { path: "/downloads", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Downloads__WEBPACK_IMPORTED_MODULE_11__["default"], null) }))),
+            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, null,
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_GoogleApps__WEBPACK_IMPORTED_MODULE_6__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/todos", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Todos__WEBPACK_IMPORTED_MODULE_9__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/tabs", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Tabs__WEBPACK_IMPORTED_MODULE_7__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/history", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_History__WEBPACK_IMPORTED_MODULE_8__["default"], null) }),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, { path: "/downloads", element: react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_Downloads__WEBPACK_IMPORTED_MODULE_10__["default"], null) }))),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_AppPanel__WEBPACK_IMPORTED_MODULE_3__["default"], null),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_ActionButton__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
@@ -668,91 +634,139 @@ init();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "apps": () => (/* binding */ apps)
+/* harmony export */   "googleapps": () => (/* binding */ googleapps),
+/* harmony export */   "videoplatforms": () => (/* binding */ videoplatforms)
 /* harmony export */ });
-const apps = [
+const basepath = "../static/icons";
+
+const googleapps = [
 	{
-		id: "youtube",
-		title: "YouTube",
-		icon: "../static/icons/google-apps/youtube-color-icon.svg",
-		href: "https://youtube.com",
+		id: "gmail",
+		title: "G-Mail",
+		icon: basepath + "/google-apps/google-gmail.svg",
+		href: "https://mail.google.com/",
 		target: "_self"
 	},
 	{
 		id: "drive",
 		title: "Drive",
-		icon: "../static/icons/google-apps/google-drive.svg",
+		icon: basepath + "/google-apps/google-drive.svg",
 		href: "https://www.google.com/drive/",
 		target: "_self"
 	},
 	{
-		id: "gmail",
-		title: "G-Mail",
-		icon: "../static/icons/google-apps/google-gmail.svg",
-		href: "https://mail.google.com/",
+		id: "calendar",
+		title: "Calendar",
+		icon: basepath + "/google-apps/google-calendar.svg",
+		href: "https://calendar.google.com/calendar/u/0/r",
+		target: "_self"
+	},
+	{
+		id: "acount",
+		title: "Account",
+		icon: basepath + "/google-apps/google-accounts.svg",
+		href: "https://myaccount.google.com",
+		target: "_self"
+	},
+	{
+		id: "passwords",
+		title: "Passwords",
+		icon: basepath + "/google-apps/google-password.svg",
+		href: "https://passwords.google.com",
+		target: "_self"
+	},
+	{
+		id: "contacts",
+		title: "Contacts",
+		icon: basepath + "/google-apps/google-contacts.svg",
+		href: "https://contacts.google.com",
 		target: "_self"
 	},
 	{
 		id: "docs",
 		title: "Docs",
-		icon: "../static/icons/google-apps/google-docs.svg",
+		icon: basepath + "/google-apps/google-docs.svg",
 		href: "https://docs.google.com/document/u/0/",
 		target: "_self"
 	},
 	{
 		id: "sheets",
 		title: "Sheets",
-		icon: "../static/icons/google-apps/google-sheets.svg",
+		icon: basepath + "/google-apps/google-sheets.svg",
 		href: "https://docs.google.com/spreadsheets/u/0/",
 		target: "_self"
 	},
 	{
 		id: "slides",
 		title: "Slides",
-		icon: "../static/icons/google-apps/google-slides.svg",
+		icon: basepath + "/google-apps/google-slides.svg",
 		href: "https://docs.google.com/presentation/u/0/",
 		target: "_self"
 	},
 	{
 		id: "forms",
 		title: "Forms",
-		icon: "../static/icons/google-apps/google-forms.svg",
+		icon: basepath + "/google-apps/google-forms.svg",
 		href: "https://docs.google.com/forms/u/0/",
-		target: "_self"
-	},
-	{
-		id: "calendar",
-		title: "Calendar",
-		icon: "../static/icons/google-apps/google-calendar.svg",
-		href: "https://calendar.google.com/calendar/u/0/r",
-		target: "_self"
-	},
-	{
-		id: "contacts",
-		title: "Contacts",
-		icon: "../static/icons/google-apps/google-contacts.svg",
-		href: "https://contacts.google.com",
-		target: "_self"
-	},
-	{
-		id: "password",
-		title: "Password",
-		icon: "../static/icons/google-apps/google-password.svg",
-		href: "https://password.google.com",
 		target: "_self"
 	},
 	{
 		id: "maps",
 		title: "Maps",
-		icon: "../static/icons/google-apps/google-maps.svg",
+		icon: basepath + "/google-apps/google-maps.svg",
 		href: "https://maps.google.com",
 		target: "_self"
 	},
 	{
 		id: "search-console",
-		title: "Search Console",
-		icon: "../static/icons/google-apps/google-search-console.svg",
+		title: "Console",
+		icon: basepath + "/google-apps/google-search-console.svg",
 		href: "https://search.google.com/search-console/about",
+		target: "_self"
+	},
+	{
+		id: "dns-tools",
+		title: "DNS Tools",
+		icon: basepath + "/google-apps/DNS-Tools.svg",
+		href: "https://toolbox.googleapps.com/apps/dig/",
+		target: "_self"
+	},
+	{
+		id: "cloud-console",
+		title: "Cloud",
+		icon: basepath + "/google-apps/google-cloud.svg",
+		href: "https://console.cloud.google.com/",
+		target: "_self"
+	},
+	{
+		id: "tag-manager",
+		title: "Tag Man",
+		icon: basepath + "/google-apps/google-tag-manager.svg",
+		href: "https://tagmanager.google.com/",
+		target: "_self"
+	},
+	{
+		id: "alert",
+		title: "Alerts",
+		icon: basepath + "/google-apps/google-alerts.svg",
+		href: "https://alerts.google.com/",
+		target: "_self"
+	}
+];
+
+const videoplatforms = [
+	{
+		id: "youtube",
+		title: "YouTube",
+		icon: basepath + "youtube-color-icon.svg",
+		href: "https://youtube.com",
+		target: "_self"
+	},
+	{
+		id: "rumble",
+		title: "Rumble",
+		icon: basepath + "rumble-icon.svg",
+		href: "https://rumble.com",
 		target: "_self"
 	}
 ];

@@ -11,10 +11,7 @@ chrome.runtime.onInstalled.addListener(rea => {
 	}
 	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		if (changeInfo.url) {
-			// chrome.tabs.executeScript({
-			// 	file: "content-script.js"
-			// });
-			alert("Changed some info" + changeInfo);
+			// TODO: RustyZone Tutorial
 		}
 	});
 	chrome.contextMenus.create({

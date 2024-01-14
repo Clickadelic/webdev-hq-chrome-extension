@@ -10,9 +10,6 @@ function Downloads() {
             setUserDownloads(downloadList);
         });
     }
-    function deleteDownloads() {
-        alert("Deleting downloads");
-    }
     function openDownloadFolder() {
         chrome.downloads.showDefaultFolder();
     }

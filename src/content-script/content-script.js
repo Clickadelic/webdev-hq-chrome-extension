@@ -7,17 +7,17 @@ class WebDevHQButton {
         const css = `
 			.webdev-hq__button {
 				position: fixed;
-				right: 30px;
-				bottom: 30px;
-				border-radius: 4px;
-				background-color: blue;
+				right: 0px;
+				bottom: 0px;
+				border-top-left-radius: 4px;
+				background-color: #ccc;
 				color: white;
 				padding: 1rem;
 			}
 		`;
-        const style = document.createElement('style');
-        style.setAttribute('type', 'text/css');
-        style.setAttribute('id', 'webdev-hq-btn-css');
+        const style = document.createElement("style");
+        style.setAttribute("type", "text/css");
+        style.setAttribute("id", "webdev-hq-btn-css");
         style.innerHTML = css;
         document.head.appendChild(style);
     }
@@ -25,10 +25,9 @@ class WebDevHQButton {
         const button = document.createElement("button");
         button.innerText = "Save";
         button.classList.add("webdev-hq__button");
-        button.addEventListener('click', () => {
-            // const url = fetch('https://api.tobias-hopp.de/common/v1/links/')
-            alert("Button clicked");
-        });
+        // button.addEventListener("click", () => {
+        // TODO: Button Action
+        // });
         document.body.appendChild(button);
     }
 }

@@ -1,8 +1,8 @@
-import React from "react"
-import { useState, useEffect } from "react"
+import React from "react";
+import { useState, useEffect } from "react";
 
 function Downloads() {
-	const [userDownloads, setUserDownloads] = useState([])
+	const [userDownloads, setUserDownloads] = useState([]);
 
 	function getDownloads() {
 		chrome.downloads.search({ limit: 10 }, downloads => {
@@ -11,23 +11,19 @@ function Downloads() {
 					<li key={item.id} className="text-white text-base hover:text-slate-400">
 						{item.filename}
 					</li>
-				)
-			})
-			setUserDownloads(downloadList)
-		})
-	}
-
-	function deleteDownloads() {
-		alert("Deleting downloads")
+				);
+			});
+			setUserDownloads(downloadList);
+		});
 	}
 
 	function openDownloadFolder() {
-		chrome.downloads.showDefaultFolder()
+		chrome.downloads.showDefaultFolder();
 	}
 
 	useEffect(() => {
-		getDownloads()
-	}, [userDownloads])
+		getDownloads();
+	}, [userDownloads]);
 
 	return (
 		<div className="flex flex-col m-auto md:w-[760px] rounded bg-white/10 backdrop backdrop-blur p-2">
@@ -38,7 +34,7 @@ function Downloads() {
 				{chrome.i18n.getMessage("openDownloadsFolder")}
 			</button>
 		</div>
-	)
+	);
 }
 
-export default Downloads
+export default Downloads;
