@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const NewTab = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-800" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
