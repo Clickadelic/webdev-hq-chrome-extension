@@ -2,13 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './backgrounds.css';
-@import './navbar-grid.css';
-
 /* Checkbox */
-input:checked + div {  
-	@apply border-blue-500;  
-}  
-input:checked + div svg {  
-	@apply block;  
+input:checked + div {
+	@apply border-blue-500;
+}
+input:checked + div svg {
+	@apply block;
 }

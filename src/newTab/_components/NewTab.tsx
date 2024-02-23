@@ -16,7 +16,7 @@ import Downloads from "../../components/Downloads";
 
 const NewTab = () => {
 	return (
-		<div className="App h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-500 to-blue-900">
+		<div className="App h-screen">
 			<div className="flex m-auto mb-24">
 				<NavBar />
 			</div>

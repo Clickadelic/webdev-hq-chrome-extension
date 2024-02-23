@@ -50,7 +50,7 @@ const StopWatch = () => {
 		setTime(0);
 	};
 	return (
-		<div className="flex justify-center">
+		<div className="flex justify-center p-2">
 			<button className="text-lg mr-2 text-white hover:text-slate-300" onClick={reset}>
 				{hours}:{minutes.toString().padStart(2, "0")}:{seconds.toString().padStart(2, "0")}:{milliseconds.toString().padStart(2, "0")}
 			</button>
