@@ -1,11 +1,9 @@
-import React from "react"
+import React from "react";
 
 function Tabs() {
 	chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-		let url = tabs[0].url
-		// use `url` here inside the callback because it's asynchronous!
-		console.log(url)
-	})
+		console.log(tabs);
+	});
 
 	return (
 		<div className="m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2">
@@ -13,7 +11,7 @@ function Tabs() {
 			<hr className="mx-2" />
 			<ul className="list-tabs p-4">asd</ul>
 		</div>
-	)
+	);
 }
 
-export default Tabs
+export default Tabs;

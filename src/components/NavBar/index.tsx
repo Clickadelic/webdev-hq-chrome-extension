@@ -4,28 +4,6 @@ import StopWatch from "../StopWatch";
 import BackgroundSelector from "../BackgroundSelector";
 
 const NavBar = () => {
-	// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
-	async function getTheFile() {
-		const pickerOpts = {
-			types: [
-				{
-					description: "Images",
-					accept: {
-						"image/*": [".png", ".jpeg", ".jpg", ".webp"]
-					}
-				}
-			],
-			excludeAcceptAllOption: true,
-			multiple: false
-		};
-
-		// open file picker
-		const [fileHandle] = await window.showOpenFilePicker(pickerOpts);
-		// get file contents
-		const fileData = await fileHandle.getFile();
-		chrome.storage.sync.set({ fileData: fileData });
-	}
-
 	chrome.system.cpu.getInfo(info => {
 		provideCpuInfo(info);
 	});
@@ -50,13 +28,16 @@ const NavBar = () => {
 	}
 	function provideStorageInfo(info) {
 		console.log(info);
+		return info;
 	}
 
 	return (
-		<nav className="w-full bg-black/10 backdrop backdrop-blur">
+		<nav className="w-full">
 			<ul className="navbar-grid">
 				<li>
-					<BackgroundSelector />
+					<div className="bg-white/30 backdrop-blur rounded-md">
+						<progress>100%</progress>
+					</div>
 				</li>
 				<li>
 					<a href="/" className="p-2 block text-2xl">
@@ -69,7 +50,7 @@ const NavBar = () => {
 					</a>
 				</li>
 				<li>
-					<DigitalClock label="Uhr" classes="text-white text-2xl p-3" currentTimeStyle="short" />
+					<DigitalClock label="Uhr" classes="text-white text-lg p-3" currentTimeStyle="short" />
 				</li>
 				<li>
 					<StopWatch />
@@ -80,8 +61,8 @@ const NavBar = () => {
 					</a>
 				</li>
 				<li>
-					<a href="/" className="p-2 block text-2xl text-white">
-						<span>Tobias Hopp</span>
+					<a href="/" className="p-2 block text-lg text-white">
+						asd
 					</a>
 				</li>
 			</ul>

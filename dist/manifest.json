@@ -45,8 +45,7 @@
 		"system.cpu",
 		"system.display",
 		"system.memory",
-		"system.storage",
-		"wallpaper"
+		"system.storage"
 	],
 	"content_scripts": [
 		{
@@ -60,6 +59,5 @@
 	],
 	"side_panel": {
 		"default_path": "sidepanel.html"
-	},
-	"devtools_page": "./views/devtools.html"
+	}
 }

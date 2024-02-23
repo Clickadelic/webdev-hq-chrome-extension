@@ -26,7 +26,10 @@ const ActionButton = () => {
     // 	// Do something do display the item
     // 	console.log(item)
     // }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { role: "button", className: "absolute right-12 bottom-12 text-white" },
+    function openSidepanel() {
+        alert("Sidepanel");
+    }
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "absolute right-12 bottom-12 text-white", onClick: openSidepanel },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", fill: "currentColor", className: "h-4 w-4 bi bi-plus-circle", viewBox: "0 0 16 16" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" }),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" }))));
@@ -64,84 +67,6 @@ const AppPanel = () => {
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "text-base font-medium text-white" }, chrome.i18n.getMessage("apps")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppPanel);
-
-
-/***/ }),
-
-/***/ "./src/components/BackgroundSelector/index.tsx":
-/*!*****************************************************!*\
-  !*** ./src/components/BackgroundSelector/index.tsx ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
-const BackgroundSelector = () => {
-    const pickerOpts = {
-        types: [
-            {
-                description: "Images",
-                accept: {
-                    "image/*": [".png", ".gif", ".jpeg", ".jpg"]
-                }
-            }
-        ],
-        excludeAcceptAllOption: true,
-        multiple: false
-    };
-    function returnPathDirectories(directoryHandle) {
-        return __awaiter(this, void 0, void 0, function* () {
-            // Get a file handle by showing a file picker:
-            const [handle] = yield self.showOpenFilePicker();
-            if (!handle) {
-                // User cancelled, or otherwise failed to open a file.
-                return;
-            }
-            // Check if handle exists inside our directory handle
-            const relativePaths = yield directoryHandle.resolve(handle);
-            if (relativePaths === null) {
-                // Not inside directory handle
-            }
-            else {
-                // relativePaths is an array of names, giving the relative path
-                for (const name of relativePaths) {
-                    // log each entry
-                    console.log(name);
-                }
-            }
-        });
-    }
-    function getTheFile() {
-        return __awaiter(this, void 0, void 0, function* () {
-            // Open file picker and destructure the result the first handle
-            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
-            // get file contents
-            const fileData = yield fileHandle.getFile();
-        });
-    }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-white flex h-8 w-8 p-1 text-base", onClick: getTheFile },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "inline-block mr-3" },
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "32", height: "32", fill: "currentColor", className: "bi bi-card-image", viewBox: "0 0 16 16" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" }),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z" }))),
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", { className: "mt-1" }, chrome.i18n.getMessage("BackgroundImage")))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BackgroundSelector);
 
 
 /***/ }),
@@ -359,43 +284,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _DigitalClock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DigitalClock */ "./src/components/DigitalClock/index.tsx");
 /* harmony import */ var _StopWatch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../StopWatch */ "./src/components/StopWatch/index.tsx");
-/* harmony import */ var _BackgroundSelector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../BackgroundSelector */ "./src/components/BackgroundSelector/index.tsx");
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-
 
 
 
 const NavBar = () => {
-    // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileHandle
-    function getTheFile() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const pickerOpts = {
-                types: [
-                    {
-                        description: "Images",
-                        accept: {
-                            "image/*": [".png", ".jpeg", ".jpg", ".webp"]
-                        }
-                    }
-                ],
-                excludeAcceptAllOption: true,
-                multiple: false
-            };
-            // open file picker
-            const [fileHandle] = yield window.showOpenFilePicker(pickerOpts);
-            // get file contents
-            const fileData = yield fileHandle.getFile();
-            chrome.storage.sync.set({ fileData: fileData });
-        });
-    }
     chrome.system.cpu.getInfo(info => {
         provideCpuInfo(info);
     });
@@ -419,24 +311,25 @@ const NavBar = () => {
     }
     function provideStorageInfo(info) {
         console.log(info);
+        return info;
     }
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full bg-black/10 backdrop backdrop-blur" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", { className: "w-full" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ul", { className: "navbar-grid" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_BackgroundSelector__WEBPACK_IMPORTED_MODULE_3__["default"], null)),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "bg-white/30 backdrop-blur rounded-md" },
+                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("progress", null, "100%"))),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-2xl p-3", currentTimeStyle: "short" })),
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_DigitalClock__WEBPACK_IMPORTED_MODULE_1__["default"], { label: "Uhr", classes: "text-white text-lg p-3", currentTimeStyle: "short" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_StopWatch__WEBPACK_IMPORTED_MODULE_2__["default"], null)),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
                 react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl" })),
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-2xl text-white" },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Tobias Hopp"))))));
+                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", { href: "/", className: "p-2 block text-lg text-white" }, "asd")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavBar);
 
@@ -456,11 +349,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
-const playIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-play", viewBox: "0 0 16 16" },
-    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" })));
-const stopIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-stop", viewBox: "0 0 16 16" },
-    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M3.5 5A1.5 1.5 0 0 1 5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11zM5 4.5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5z" })));
 const StopWatch = () => {
+    const playIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-play", viewBox: "0 0 16 16" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" })));
+    const stopIcon = (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", fill: "currentColor", className: "bi bi-stop", viewBox: "0 0 16 16" },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("path", { d: "M3.5 5A1.5 1.5 0 0 1 5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11zM5 4.5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V5a.5.5 0 0 0-.5-.5z" })));
     // state to store time
     const [time, setTime] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
     // state to check stopwatch running or not
@@ -490,7 +383,7 @@ const StopWatch = () => {
         setTime(0);
     };
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex justify-center" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-2xl mr-2 text-white hover:text-slate-300", onClick: reset },
+        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { className: "text-lg mr-2 text-white hover:text-slate-300", onClick: reset },
             hours,
             ":",
             minutes.toString().padStart(2, "0"),
@@ -520,9 +413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Tabs() {
     chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-        let url = tabs[0].url;
-        // use `url` here inside the callback because it's asynchronous!
-        console.log(url);
+        console.log(tabs);
     });
     return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "m-auto md:w-[760px] justify-between rounded bg-white/10 backdrop backdrop-blur p-2" },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", { className: "text-base text-white m-auto p-2" }, chrome.i18n.getMessage("tabs")),
