@@ -610,8 +610,8 @@ init();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "googleapps": () => (/* binding */ googleapps),
-/* harmony export */   "videoplatforms": () => (/* binding */ videoplatforms)
+/* harmony export */   googleapps: () => (/* binding */ googleapps),
+/* harmony export */   videoplatforms: () => (/* binding */ videoplatforms)
 /* harmony export */ });
 const basepath = "../static/icons";
 
