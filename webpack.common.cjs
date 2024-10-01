@@ -11,7 +11,7 @@ module.exports = {
 		background: path.resolve("./src/background/background.ts"),
 		sidepanel: path.resolve("./src/sidepanel/index.tsx"),
 		onboarding: path.resolve("./src/onboarding/index.tsx"),
-		contentScript: path.resolve("./src/content-script/content-script.ts"),
+		contentScript: path.resolve("./src/constants/content-script/content-script.ts"),
 		dashboard: path.resolve("./src/dashboard/index.tsx"),
 		newTab: path.resolve("./src/newTab/index.tsx")
 	},
