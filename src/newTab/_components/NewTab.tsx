@@ -16,7 +16,7 @@ import Downloads from "../../components/Downloads";
 
 const NewTab = () => {
 	return (
-		<div className="App h-screen bg-slate-800">
+		<div className="App h-screen bg-sky-600">
 			<div className="flex m-auto mb-24">
 				<NavBar />
 			</div>
