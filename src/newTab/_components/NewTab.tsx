@@ -16,7 +16,7 @@ import Downloads from "../../components/Downloads";
 
 const NewTab = () => {
 	return (
-		<div className="App h-screen bg-sky-600" style={{ backgroundColor: "#1e1e1e" }}>
+		<div className="App h-screen bg-slate-700" style={{ backgroundColor: "#1e1e1e" }}>
 			<div className="flex m-auto mb-24">
 				<NavBar />
 			</div>

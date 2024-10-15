@@ -1,7 +1,6 @@
 import React from "react";
 import DigitalClock from "../DigitalClock";
 import StopWatch from "../StopWatch";
-import BackgroundSelector from "../BackgroundSelector";
 
 const NavBar = () => {
 	chrome.system.cpu.getInfo(info => {

@@ -512,7 +512,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const NewTab = () => {
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-800" },
+    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "App h-screen bg-slate-700", style: { backgroundColor: "#1e1e1e" } },
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto mb-24" },
             react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_NavBar__WEBPACK_IMPORTED_MODULE_4__["default"], null)),
         react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { className: "flex m-auto md:w-[760px] justify-center mb-12" },
@@ -610,8 +610,8 @@ init();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   googleapps: () => (/* binding */ googleapps),
-/* harmony export */   videoplatforms: () => (/* binding */ videoplatforms)
+/* harmony export */   "googleapps": () => (/* binding */ googleapps),
+/* harmony export */   "videoplatforms": () => (/* binding */ videoplatforms)
 /* harmony export */ });
 const basepath = "../static/icons";
 

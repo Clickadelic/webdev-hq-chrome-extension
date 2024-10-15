@@ -4,7 +4,9 @@ import classNames from "classnames";
 
 const AppPanel = () => {
 	const cn = classNames;
+	
 	const [isOpen, setIsopen] = useState(false);
+
 	const ToggleAppPanel = () => {
 		isOpen === true ? setIsopen(false) : setIsopen(true);
 	};
