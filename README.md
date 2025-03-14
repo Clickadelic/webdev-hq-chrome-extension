@@ -1,3 +1,3 @@
-# WXT + React
+# WebDev HQ - Chrome Extension - powered by WXT
 
-This template should help get you started developing with React in WXT.
+A daily Chrome Extension for WebDevelopers and alike.
