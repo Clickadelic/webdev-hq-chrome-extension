@@ -22,7 +22,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Default Popup Title",
+    "default_title": "WebDev HQ Chrome-Extension",
     "default_popup": "popup.html"
   },
   "host_permissions": [
