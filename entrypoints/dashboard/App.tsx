@@ -2,9 +2,9 @@ import HeaderSidebar from "@/components/custom/HeaderSidebar.tsx";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-slate-200">
+    <>
       <HeaderSidebar />
-    </div>
+    </>
   );
 };
 
