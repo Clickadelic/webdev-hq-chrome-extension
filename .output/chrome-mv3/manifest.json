@@ -21,6 +21,9 @@
   "background": {
     "service_worker": "background.js"
   },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
   "action": {
     "default_title": "WebDev HQ Chrome-Extension",
     "default_popup": "popup.html"
