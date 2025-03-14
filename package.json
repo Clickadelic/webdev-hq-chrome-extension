@@ -1,6 +1,6 @@
 {
-  "name": "wxt-react-starter",
-  "description": "manifest.json description",
+  "name": "WebDev HQ Chrome-Extension",
+  "description": "WebDeveloper NewTab Extension",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -19,9 +19,9 @@
     "@tailwindcss/vite": "^4.0.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.14",
     "tailwindcss-animate": "^1.0.7"

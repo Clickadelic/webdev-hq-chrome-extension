@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+import { FaUser } from "react-icons/fa";
+import { BsTextIndentRight } from "react-icons/bs";
+import { BsTextIndentLeft } from "react-icons/bs";
+import { HiMenuAlt3 } from "react-icons/hi";
+
 const HeaderSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -13,7 +18,9 @@ const HeaderSidebar = () => {
         )}
       >
         <div className="sidebar-logo hidden md:flex justify-center px-2 py-3">
-          <h1>Logo</h1>
+          <h1>
+            <a href="/">Logo</a>
+          </h1>
         </div>
         <section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">
           MenuLeft
