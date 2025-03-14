@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button.tsx";
+import Logo from "@/components/custom/Logo";
 
 const App = () => {
   return (
-    <div className="w-96 h-96 bg-slate-200">
-      <Button>Button</Button>
+    <div className="size-[600px] bg-slate-100 p-3">
+      <Logo />
     </div>
   );
 };
