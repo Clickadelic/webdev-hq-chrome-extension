@@ -2,13 +2,13 @@ import Logo from "@/components/custom/Logo";
 
 const App = () => {
   return (
-    <div className="size-[600px] bg-slate-100 p-3">
-      <Logo wrapperClasses="w-[165px] mx-auto mt-8" />
-      <div className="rounded-md p-4">
+    <div className="size-[450px] bg-slate-100 pt-12">
+      <div className="bg-white w-96 rounded-md p-6 mx-auto">
+        <Logo wrapperClasses="w-[165px] mx-auto mt-3" />
         <h2 className="text-2xl font-light text-center mt-3 mb-6 text-slate-900">
           Login
         </h2>
-        <form className="bg-white p-12 rounded-md w-96 flex flex-col space-y-3 mx-auto">
+        <form className="flex flex-col space-y-3 mx-auto">
           <input
             type="text"
             className="block border w-full p-2 text-xl rounded-md"

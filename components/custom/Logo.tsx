@@ -1,5 +1,8 @@
 import logoUrl from "@/assets/icons/extension/icon-32.png";
 import { cn } from "@/lib/utils";
+import { i18n } from "#i18n";
+
+i18n.t("helloWorld"); // "Hello world!"
 
 const img = document.createElement("img");
 img.src = logoUrl;
@@ -19,7 +22,7 @@ const Logo = ({
 }: LogoProps) => {
   return (
     <div className={cn("flex items-center", wrapperClasses)}>
-      <h1 className={cn("flex text-2xl text-white", headingClasses)}>
+      <h1 className={cn("flex text-2xl", headingClasses)}>
         <a href="/" className={cn("flex text-slate-800", linkClasses)}>
           <img
             src={logoUrl}
