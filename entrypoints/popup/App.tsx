@@ -24,7 +24,7 @@ const App = () => {
           </button>
         </form>
         <a
-          href="https://webdev-hq.com/auth/forgot-password"
+          href={import.meta.env.WXT_FORGOT_PASSWORD_URL}
           className="block mt-3 mx-auto text-center text-slate-500 hover:text-blue-600"
           target="_blank"
         >
