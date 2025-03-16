@@ -1,5 +1,5 @@
-import logoUrl from "~/assets/icons/extension/icon-32.png";
-import { cn } from "~/lib/utils";
+import logoUrl from "@/assets/icons/extension/icon-32.png";
+import { cn } from "@/lib/utils";
 
 const img = document.createElement("img");
 img.src = logoUrl;
