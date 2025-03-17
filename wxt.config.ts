@@ -10,5 +10,7 @@ export default defineConfig({
   }),
   manifest: {
     default_locale: "en",
+    host_permissions: ["<all_urls>"],
+    permissions: ["tabs", "storage", "contextMenus"],
   },
 });
