@@ -1,4 +1,3 @@
-import Logo from "@/components/custom/Logo"
 import AppIcon from "@/components/custom/AppIcon"
 
 const App = () => {
