@@ -1,18 +1,13 @@
+const contentMatch = new MatchPattern(CONTENT_SCRIPT_MATCHES)
+
 export default defineBackground(() => {
-  console.log("Hello background!", { id: browser.runtime.id });
-});
-
-const tldLocales = {
-  "com.de": "Germany",
-};
-
-chrome.runtime.onInstalled.addListener(async () => {
-  for (let [tld, locale] of Object.entries(tldLocales)) {
-    chrome.contextMenus.create({
-      id: tld,
-      title: locale,
-      type: "normal",
-      contexts: ["selection"],
-    });
-  }
-});
+	;(browser.action ?? browser.browserAction).onClicked.addListener(async tab => {
+		if (tab.id && tab.url && contentMatch.includes(tab.url)) {
+			const res = await browser.scripting.executeScript({
+				target: { tabId: tab.id },
+				files: ["/content-scripts/content.js"]
+			})
+			console.log("result", res)
+		}
+	})
+})

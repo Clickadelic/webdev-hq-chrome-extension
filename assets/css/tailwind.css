@@ -125,3 +125,7 @@
 @theme {
 	--background-image-blue-fractals: url("../images/ash-edmonds-gcINRBbUxl0-unsplash.jpg");
 }
+
+.bg-bing {
+	background: url("../icons/search-engines/Bing.svg") top center no-repeat;
+}
