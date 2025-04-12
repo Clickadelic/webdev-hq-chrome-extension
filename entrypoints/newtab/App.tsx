@@ -1,10 +1,8 @@
 import { AiOutlineSearch } from "react-icons/ai"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 import { dailySalutation } from "@/utils"
 import iconSrc from "@/assets/icons/weather/cloudy-sunny.svg"
@@ -24,15 +22,18 @@ const App = () => {
 			deadline: "Yesterday"
 		}
 	]
-
+	
 	const salutation = dailySalutation()
+	const currentUser = userName()
+	console.log(currentUser)
+
 	return (
 		<div className="min-h-screen bg-blue-fractals bg-white/30 bg-cover p-0">
 			<div className="min-h-screen backdrop-blur">
 				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64">
 					<h1 className="flex gap-4 text-4xl font-light text-white mb-4">
 						<img src={iconSrc} className="size-12 mt-1.5" alt="Weather Icon" />
-						{salutation}, Username
+						{salutation}
 					</h1>
 				</div>
 				<form className="max-w-[680px] mx-auto mb-2 bg-white backdrop rounded relative top-64 flex flex-row p-1 rounded">
@@ -48,7 +49,7 @@ const App = () => {
 						<AiOutlineSearch size={24} />
 					</button>
 				</form>
-				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 flex flex-row">
+				<div className="max-w-[680px] mx-auto backdrop relative top-64 flex flex-row">
 					<Tabs defaultValue="apps" className="w-full">
 						<TabsList className="grid w-full grid-cols-5">
 							<TabsTrigger value="apps">Apps</TabsTrigger>

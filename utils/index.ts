@@ -9,3 +9,11 @@ export const dailySalutation = () => {
 		return "Good Evening"
 	}
 }
+
+export const userName = () => {
+	chrome.identity.getProfileUserInfo(userInfo => {
+		console.log(userInfo.email); // z.B. "max.mustermann@gmail.com"
+		console.log(userInfo.id); 
+		return userInfo   // z.B. "123456789012345678901"
+	});
+}
