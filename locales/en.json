@@ -1,4 +1,24 @@
 {
+	"apps": {
+		"message": "Apps",
+		"description": "Tab Apps."
+	},
+	"todos": {
+		"message": "Todos",
+		"description": "Todos Tab."
+	},
+	"tabs": {
+		"message": "Tabs",
+		"description": "Todos Tab."
+	},
+	"history": {
+		"message": "History",
+		"description": "History Tab"
+	},
+	"downloads": {
+		"message": "Downloads",
+		"description": "Downloads Tab"
+	},
 	"search_placeholder": {
 		"message": "Search",
 		"description": "Search input placeholder."
