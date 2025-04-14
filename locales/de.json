@@ -1,6 +1,10 @@
 {
-    "goodMorning": {
-      "message": "Guten Morgen",
-      "description": "Begrüßung des Benutzers am Morgen."
-    }
-  }
+	"search_placeholder": {
+		"message": "Suche",
+		"description": "Suchfeld Placeholder-Text."
+	},
+	"goodMorning": {
+		"message": "Guten Morgen",
+		"description": "Begrüßung des Benutzers am Morgen."
+	}
+}

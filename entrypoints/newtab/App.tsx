@@ -8,6 +8,7 @@ import { dailySalutation } from "@/utils"
 import iconSrc from "@/assets/icons/weather/cloudy-sunny.svg"
 
 const App = () => {
+	const searchPlaceholder = chrome.i18n.getMessage("search_placeholder")
 	const todos = [
 		{
 			invoice: "INV001",
@@ -22,7 +23,7 @@ const App = () => {
 			deadline: "Yesterday"
 		}
 	]
-	
+
 	const salutation = dailySalutation()
 	const currentUser = userName()
 	console.log(currentUser)
@@ -37,7 +38,7 @@ const App = () => {
 					</h1>
 				</div>
 				<form className="max-w-[680px] mx-auto mb-2 bg-white backdrop rounded relative top-64 flex flex-row p-1 rounded">
-					<input type="text" className="w-full px-4 py-4 text-xl focus:outline-none" placeholder="Search..." />
+					<input type="text" className="w-full px-4 py-4 text-xl focus:outline-none" placeholder={searchPlaceholder} />
 					<select className="search-engines p-4 text-xl text-slate-900 focus:outline-none">
 						<option value="bing">Bing</option>
 						<option value="brave">Brave</option>

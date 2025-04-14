@@ -1,6 +1,10 @@
 {
-  "goodMorning": {
-    "message": "Good morning",
-    "description": "Salutation of the user in the morning."
-  }
+	"search_placeholder": {
+		"message": "Search",
+		"description": "Search input placeholder."
+	},
+	"goodMorning": {
+		"message": "Good morning",
+		"description": "Salutation of the user in the morning."
+	}
 }
