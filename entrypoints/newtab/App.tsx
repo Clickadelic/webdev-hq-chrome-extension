@@ -3,17 +3,25 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { getUserInfo, dailySalutation, getUserHistory } from "@/utils/index"
+import { getUserInfo, dailySalutation } from "@/utils/index"
 
-import iconSrc from "@/assets/icons/weather/cloudy-sunny.svg"
-import youtTubeSrc from "@/assets/icons/weather/cloudy-sunny.svg"
 import { AiOutlineSearch } from "react-icons/ai"
+import { GoGear } from "react-icons/go"
+import { Plus } from "lucide-react"
+
+import { apps } from "@/fake-data/apps"
+
+interface TodosProps {
+	id: string
+	name: string
+	done: boolean
+}
 
 const App = () => {
 	// Strings
 	const salutation: string = dailySalutation()
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
+	const newTodoPlaceholder: string = chrome.i18n.getMessage("new_todo_placeholder")
 
 	// Tabslabel
 	const appsLabel: string = chrome.i18n.getMessage("apps")
@@ -23,15 +31,33 @@ const App = () => {
 	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
 
 	const [searchEngine, setSearchEngine] = useState<string>("")
-
+	const [todos, setTodos] = useState<TodosProps[]>([])
 	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
+
+	const handleTodoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		const formData = new FormData(e.currentTarget)
+		const todoName = formData.get("todo") as string
+		const newTodo = { id: crypto.randomUUID(), name: todoName, done: false }
+		setTodos([...todos, newTodo])
+		e.currentTarget.reset()
+	}
+
+	const renderTodoList = ({ todos }: { todos: TodosProps[] }) => {
+		return todos.map(todo => (
+			<li key={todo.id}>
+				<input type="checkbox" />
+				{todo.name}
+			</li>
+		))
+	}
 
 	useEffect(() => {
 		getUserInfo().then(userInfo => setUser(userInfo))
-	}, [])
+	}, [todos])
 
 	return (
-		<div className="min-h-screen bg-color-curves bg-white/30 bg-cover p-0">
+		<div className="min-h-screen bg-slate-900 bg-color-curves bg-cover p-0">
 			<div className="min-h-screen backdrop-blur">
 				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64">
 					<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
@@ -59,10 +85,32 @@ const App = () => {
 							<TabsTrigger value="downloads">{downloadsLabel}</TabsTrigger>
 						</TabsList>
 						<TabsContent value="apps">
-							<Card className="px-3 py-0">Appslist</Card>
+							<ul className="flex flex-row flex-wrap gap-2">
+								<li>
+									<Button className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
+										<Plus className="text-slate-800" />
+									</Button>
+								</li>
+								{apps.map(app => (
+									<li key={app.id} className="bg-white p-2 w-[64px] rounded">
+										<a href={app.url} target="_blank" className="flex flex-col gap-1 items-center place-content-center" rel="noopener noreferrer">
+											<img src={app.icon} alt={app.name} className="size-6" />
+											<span className="text-slate-800">{app.name}</span>
+										</a>
+									</li>
+								))}
+							</ul>
 						</TabsContent>
 						<TabsContent value="todos">
-							<Card className="px-3 py-0">Todoslist</Card>
+							<Card className="px-3 py-0">
+								<form className="flex flex-row" onSubmit={handleTodoSubmit}>
+									<input type="text" className="w-full p-2 text-md border focus:outline-none" placeholder={newTodoPlaceholder} />
+									<Button size="sm" className="bg-blue-500 text-white size-16 rounded hover:cursor-pointer">
+										<Plus />
+									</Button>
+								</form>
+								<ul>{renderTodoList({ todos })}</ul>
+							</Card>
 						</TabsContent>
 						<TabsContent value="tabs">
 							<Card className="px-3 py-0">Tabslist</Card>
@@ -70,9 +118,12 @@ const App = () => {
 						<TabsContent value="history">
 							<Card>
 								<ul>
-									{history.map(item => (
-										<li key={item.url}>{item.url}</li>
-									))}
+									<li>HistoryItems</li>
+									<li>HistoryItems</li>
+									<li>HistoryItems</li>
+									<li>HistoryItems</li>
+									<li>HistoryItems</li>
+									<li>HistoryItems</li>
 								</ul>
 							</Card>
 						</TabsContent>
@@ -82,6 +133,11 @@ const App = () => {
 					</Tabs>
 				</div>
 				<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Icognito"}</div>
+				<div className="absolute bottom-4 right-4 text-white">
+					<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>
+						<GoGear />
+					</Button>
+				</div>
 			</div>
 		</div>
 	)

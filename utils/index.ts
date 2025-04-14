@@ -3,6 +3,8 @@ export const dailySalutation = () => {
 	const hours = date.getHours()
 	if (hours < 12) {
 		return "Good Morning"
+	} else if (hours < 1) {
+		return "Hey, Nightowl"
 	} else if (hours < 18) {
 		return "Good Afternoon"
 	} else {
