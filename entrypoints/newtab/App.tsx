@@ -1,14 +1,20 @@
-import { AiOutlineSearch } from "react-icons/ai"
+import { useEffect, useState } from "react"
+
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { getUserInfo } from "@/utils/index"
 
-import { dailySalutation } from "@/utils"
 import iconSrc from "@/assets/icons/weather/cloudy-sunny.svg"
+import youtTubeSrc from "@/assets/icons/weather/cloudy-sunny.svg"
+import { AiOutlineSearch } from "react-icons/ai"
 
 const App = () => {
-	const searchPlaceholder = chrome.i18n.getMessage("search_placeholder")
+	// Strings
+	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
+	const salutation: string = dailySalutation()
+	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
 	const todos = [
 		{
 			invoice: "INV001",
@@ -24,9 +30,9 @@ const App = () => {
 		}
 	]
 
-	const salutation = dailySalutation()
-	const currentUser = userName()
-	console.log(currentUser)
+	useEffect(() => {
+		getUserInfo().then(userInfo => setUser(userInfo))
+	}, [])
 
 	return (
 		<div className="min-h-screen bg-blue-fractals bg-white/30 bg-cover p-0">
@@ -37,7 +43,7 @@ const App = () => {
 						{salutation}
 					</h1>
 				</div>
-				<form className="max-w-[680px] mx-auto mb-2 bg-white backdrop rounded relative top-64 flex flex-row p-1 rounded">
+				<form className="max-w-[680px] mx-auto mb-2 bg-white backdrop relative top-64 flex flex-row p-1 rounded">
 					<input type="text" className="w-full px-4 py-4 text-xl focus:outline-none" placeholder={searchPlaceholder} />
 					<select className="search-engines p-4 text-xl text-slate-900 focus:outline-none">
 						<option value="bing">Bing</option>
@@ -60,8 +66,8 @@ const App = () => {
 							<TabsTrigger value="downloads">Downloads</TabsTrigger>
 						</TabsList>
 						<TabsContent value="apps">
-							<Card>
-								<div className="header">asd</div>
+							<Card className="shadow-none rounded size-[72px] p-2 flex flex-col items-center justify-center bg-white/30 border-0">
+								<img src={youtTubeSrc} className="size-12" alt="YouTube Icon" />
 							</Card>
 						</TabsContent>
 						<TabsContent value="todos">
@@ -104,6 +110,7 @@ const App = () => {
 						</TabsContent>
 					</Tabs>
 				</div>
+				<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Guest"}</div>
 			</div>
 		</div>
 	)

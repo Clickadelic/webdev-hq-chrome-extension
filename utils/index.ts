@@ -10,10 +10,10 @@ export const dailySalutation = () => {
 	}
 }
 
-export const userName = () => {
-	chrome.identity.getProfileUserInfo(userInfo => {
-		console.log(userInfo.email); // z.B. "max.mustermann@gmail.com"
-		console.log(userInfo.id); 
-		return userInfo   // z.B. "123456789012345678901"
-	});
+export const getUserInfo = (): Promise<chrome.identity.UserInfo> => {
+	return new Promise(resolve => {
+		chrome.identity.getProfileUserInfo(userInfo => {
+			resolve(userInfo)
+		})
+	})
 }
