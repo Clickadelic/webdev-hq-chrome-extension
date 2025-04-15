@@ -5,3 +5,7 @@ src/*/*.js
 package-lock.json
 .wxt
 .output
+.env
+.env.local
+.env.prod
+.env.publish

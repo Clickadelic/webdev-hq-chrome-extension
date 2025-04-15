@@ -1,0 +1,42 @@
+{
+	"apps": {
+		"message": "Apps",
+		"description": "Apps Tab."
+	},
+	"todos": {
+		"message": "Todos",
+		"description": "Todos Tab."
+	},
+	"new_todo_placeholder": {
+		"message": "Neues todo",
+		"description": "New todo placeholder."
+	},
+	"tabs": {
+		"message": "Tabs",
+		"description": "Tabs Tab."
+	},
+	"history": {
+		"message": "Verlauf",
+		"description": "Verlaufs Tab"
+	},
+	"delete_history": {
+		"message": "Verlauf löschen",
+		"description": "Verlaufs Tab"
+	},
+	"no_history_found": {
+		"message": "Kein Verlauf vorhanden",
+		"description": "Verlaufs Tab"
+	},
+	"downloads": {
+		"message": "Downloads",
+		"description": "Downloads Tab"
+	},
+	"search_placeholder": {
+		"message": "Suche",
+		"description": "Suchfeld Placeholder-Text."
+	},
+	"goodMorning": {
+		"message": "Guten Morgen",
+		"description": "Begrüßung des Benutzers am Morgen."
+	}
+}

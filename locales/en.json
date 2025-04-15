@@ -1,0 +1,42 @@
+{
+	"apps": {
+		"message": "Apps",
+		"description": "Tab Apps."
+	},
+	"todos": {
+		"message": "Todos",
+		"description": "Todos Tab."
+	},
+	"new_todo_placeholder": {
+		"message": "New todo",
+		"description": "New todo placeholder."
+	},
+	"tabs": {
+		"message": "Tabs",
+		"description": "Todos Tab."
+	},
+	"history": {
+		"message": "History",
+		"description": "History Tab"
+	},
+	"delete_history": {
+		"message": "Delete history",
+		"description": "History Tab"
+	},
+	"no_history_found": {
+		"message": "No history available",
+		"description": "History Tab"
+	},
+	"downloads": {
+		"message": "Downloads",
+		"description": "Downloads Tab"
+	},
+	"search_placeholder": {
+		"message": "Search",
+		"description": "Search input placeholder."
+	},
+	"goodMorning": {
+		"message": "Good morning",
+		"description": "Salutation of the user in the morning."
+	}
+}
