@@ -3,6 +3,10 @@
 		"message": "Apps",
 		"description": "Apps Tab."
 	},
+	"add_app": {
+		"message": "App hinzufügen",
+		"description": "App hinzufügen Button."
+	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."

@@ -63,24 +63,20 @@ const App = () => {
 							<UserApps />
 						</TabsContent>
 						<TabsContent value="todos">
-							<Card className="px-3 py-0">
-								<UserTodos />
-							</Card>
+							<UserTodos />
 						</TabsContent>
 						<TabsContent value="tabs">
 							<Card className="px-3 py-0">Tabslist</Card>
 						</TabsContent>
 						<TabsContent value="history">
-							<Card className="p-2">
-								<UserHistory />
-							</Card>
+							<UserHistory />
 						</TabsContent>
 						<TabsContent value="downloads">
 							<Card className="px-3 py-0">DownloadsList</Card>
 						</TabsContent>
 					</Tabs>
 				</div>
-				<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Icognito"}</div>
+				<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Incognito"}</div>
 				<div className="absolute bottom-4 right-4 text-white">
 					<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>
 						<GoGear />

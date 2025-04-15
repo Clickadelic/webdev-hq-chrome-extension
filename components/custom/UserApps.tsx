@@ -1,10 +1,28 @@
+import { useEffect, useState } from "react"
+
 import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
+
 import { apps } from "@/fake-data/apps"
+
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 
 const UserApps = () => {
+	const addAppLabel = chrome.i18n.getMessage("add_app")
+
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		const formData = new FormData(e.currentTarget)
+		const appName = formData.get("appName") as string
+		const appUrl = formData.get("appUrl") as string
+		const appIcon = formData.get("appIcon") as string
+		const newApp = { id: crypto.randomUUID(), name: appName, url: appUrl, icon: appIcon }
+		apps.push(newApp)
+		e.currentTarget.reset()
+	}
+
 	return (
 		<ul className="w-full grid grid-cols-1 md:grid-cols-9 gap-2">
 			{apps.map(app => (
@@ -17,17 +35,29 @@ const UserApps = () => {
 			))}
 			<li>
 				<Dialog>
-					<DialogTrigger className="flex flex-col gap-1 items-center place-content-center bg-white p-2 w-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
+					<DialogTrigger className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
 						<Plus />
 					</DialogTrigger>
 					<DialogContent>
 						<DialogHeader>
-							<DialogTitle>
+							<DialogTitle className="flex items-start gap-2">
 								<BsApp />
-								New App
+								{addAppLabel}
 							</DialogTitle>
-							<DialogDescription>This action cannot be undone. This will permanently delete your account and remove your data from our servers.</DialogDescription>
+							<DialogDescription>Add a new App to your New Tab.</DialogDescription>
 						</DialogHeader>
+						<div className="flex">
+							<form
+								onSubmit={() => {
+									handleSubmit(e)
+								}}
+							>
+								<Input name="name" placeholder="AppName" />
+								<Input name="url" placeholder="https://" />
+								<Button type="submit">{addAppLabel}</Button>
+							</form>
+						</div>
+						<DialogFooter>asd</DialogFooter>
 					</DialogContent>
 				</Dialog>
 			</li>
