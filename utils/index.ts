@@ -20,7 +20,7 @@ export const getUserInfo = (): Promise<chrome.identity.UserInfo> => {
 	})
 }
 
-export const getUserHistory = ({ maxResults = 10, startTime = 0 }) => {
+export const getUserHistory = ({ maxResults = 15, startTime = 0 }) => {
 	return new Promise((resolve, reject) => {
 		if (!chrome.history) {
 			reject(new Error("chrome.history API is not available"))
@@ -48,4 +48,13 @@ export const getUserHistory = ({ maxResults = 10, startTime = 0 }) => {
 			}
 		)
 	})
+}
+
+export function getFaviconUrl(websiteUrl: string, size = 32): string | undefined {
+	try {
+		const url = new URL(websiteUrl)
+		return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
+	} catch {
+		return undefined // nicht null!
+	}
 }

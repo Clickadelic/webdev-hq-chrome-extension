@@ -10,6 +10,7 @@ import { GoGear } from "react-icons/go"
 import { Plus } from "lucide-react"
 
 import { apps } from "@/fake-data/apps"
+import UserHistory from "@/components/custom/UserHistory"
 
 interface TodosProps {
 	id: string
@@ -57,12 +58,12 @@ const App = () => {
 	}, [todos])
 
 	return (
-		<div className="min-h-screen bg-slate-900 bg-color-curves bg-cover p-0">
+		<div className="min-h-screen bg-slate-900 bg-color-fog bg-cover p-0">
 			<div className="min-h-screen backdrop-blur">
-				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64">
+				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 mb-4">
 					<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
 				</div>
-				<form method="GET" action={searchEngine} className="max-w-[680px] mx-auto mb-2 bg-white backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
+				<form method="GET" action={searchEngine} className="max-w-[680px] mx-auto mb-4 bg-white backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
 					<input type="text" className="w-full px-4 py-4 text-xl focus:outline-none" placeholder={searchPlaceholder} />
 					<select onChange={e => setSearchEngine(e.target.value)} className="search-engines p-4 text-xl text-slate-600 focus:outline-none">
 						<option value="bing">Bing</option>
@@ -77,7 +78,7 @@ const App = () => {
 				</form>
 				<div className="max-w-[680px] mx-auto backdrop relative top-64 flex flex-row">
 					<Tabs defaultValue="apps" className="w-full">
-						<TabsList className="grid w-full grid-cols-5">
+						<TabsList className="grid w-full grid-cols-5 text-slate-600">
 							<TabsTrigger value="apps">{appsLabel}</TabsTrigger>
 							<TabsTrigger value="todos">{todosLabel}</TabsTrigger>
 							<TabsTrigger value="tabs">{tabsLabel}</TabsTrigger>
@@ -85,14 +86,14 @@ const App = () => {
 							<TabsTrigger value="downloads">{downloadsLabel}</TabsTrigger>
 						</TabsList>
 						<TabsContent value="apps">
-							<ul className="flex flex-row flex-wrap gap-2">
+							<ul className="w-full grid grid-cols-1 md:grid-cols-9 gap-2">
 								<li>
 									<Button className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
 										<Plus className="text-slate-800" />
 									</Button>
 								</li>
 								{apps.map(app => (
-									<li key={app.id} className="bg-white p-2 w-[64px] rounded">
+									<li key={app.id} className="bg-white p-2 w-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
 										<a href={app.url} target="_blank" className="flex flex-col gap-1 items-center place-content-center" rel="noopener noreferrer">
 											<img src={app.icon} alt={app.name} className="size-6" />
 											<span className="text-slate-800">{app.name}</span>
@@ -116,15 +117,8 @@ const App = () => {
 							<Card className="px-3 py-0">Tabslist</Card>
 						</TabsContent>
 						<TabsContent value="history">
-							<Card>
-								<ul>
-									<li>HistoryItems</li>
-									<li>HistoryItems</li>
-									<li>HistoryItems</li>
-									<li>HistoryItems</li>
-									<li>HistoryItems</li>
-									<li>HistoryItems</li>
-								</ul>
+							<Card className="p-3">
+								<UserHistory />
 							</Card>
 						</TabsContent>
 						<TabsContent value="downloads">
