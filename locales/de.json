@@ -19,6 +19,14 @@
 		"message": "Verlauf",
 		"description": "Verlaufs Tab"
 	},
+	"delete_history": {
+		"message": "Verlauf löschen",
+		"description": "Verlaufs Tab"
+	},
+	"no_history_found": {
+		"message": "Kein Verlauf vorhanden",
+		"description": "Verlaufs Tab"
+	},
 	"downloads": {
 		"message": "Downloads",
 		"description": "Downloads Tab"

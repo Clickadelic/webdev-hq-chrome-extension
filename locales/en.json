@@ -19,6 +19,14 @@
 		"message": "History",
 		"description": "History Tab"
 	},
+	"delete_history": {
+		"message": "Delete history",
+		"description": "History Tab"
+	},
+	"no_history_found": {
+		"message": "No history available",
+		"description": "History Tab"
+	},
 	"downloads": {
 		"message": "Downloads",
 		"description": "Downloads Tab"

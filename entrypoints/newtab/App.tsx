@@ -7,22 +7,15 @@ import { getUserInfo, dailySalutation } from "@/utils/index"
 
 import { AiOutlineSearch } from "react-icons/ai"
 import { GoGear } from "react-icons/go"
-import { Plus } from "lucide-react"
 
-import { apps } from "@/fake-data/apps"
 import UserHistory from "@/components/custom/UserHistory"
-
-interface TodosProps {
-	id: string
-	name: string
-	done: boolean
-}
+import UserApps from "@/components/custom/UserApps"
+import UserTodos from "@/components/custom/UserTodos"
 
 const App = () => {
 	// Strings
 	const salutation: string = dailySalutation()
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
-	const newTodoPlaceholder: string = chrome.i18n.getMessage("new_todo_placeholder")
 
 	// Tabslabel
 	const appsLabel: string = chrome.i18n.getMessage("apps")
@@ -32,30 +25,11 @@ const App = () => {
 	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
 
 	const [searchEngine, setSearchEngine] = useState<string>("")
-	const [todos, setTodos] = useState<TodosProps[]>([])
 	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
-
-	const handleTodoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		const formData = new FormData(e.currentTarget)
-		const todoName = formData.get("todo") as string
-		const newTodo = { id: crypto.randomUUID(), name: todoName, done: false }
-		setTodos([...todos, newTodo])
-		e.currentTarget.reset()
-	}
-
-	const renderTodoList = ({ todos }: { todos: TodosProps[] }) => {
-		return todos.map(todo => (
-			<li key={todo.id}>
-				<input type="checkbox" />
-				{todo.name}
-			</li>
-		))
-	}
 
 	useEffect(() => {
 		getUserInfo().then(userInfo => setUser(userInfo))
-	}, [todos])
+	}, [])
 
 	return (
 		<div className="min-h-screen bg-slate-900 bg-color-fog bg-cover p-0">
@@ -86,38 +60,18 @@ const App = () => {
 							<TabsTrigger value="downloads">{downloadsLabel}</TabsTrigger>
 						</TabsList>
 						<TabsContent value="apps">
-							<ul className="w-full grid grid-cols-1 md:grid-cols-9 gap-2">
-								<li>
-									<Button className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
-										<Plus className="text-slate-800" />
-									</Button>
-								</li>
-								{apps.map(app => (
-									<li key={app.id} className="bg-white p-2 w-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
-										<a href={app.url} target="_blank" className="flex flex-col gap-1 items-center place-content-center" rel="noopener noreferrer">
-											<img src={app.icon} alt={app.name} className="size-6" />
-											<span className="text-slate-800">{app.name}</span>
-										</a>
-									</li>
-								))}
-							</ul>
+							<UserApps />
 						</TabsContent>
 						<TabsContent value="todos">
 							<Card className="px-3 py-0">
-								<form className="flex flex-row" onSubmit={handleTodoSubmit}>
-									<input type="text" className="w-full p-2 text-md border focus:outline-none" placeholder={newTodoPlaceholder} />
-									<Button size="sm" className="bg-blue-500 text-white size-16 rounded hover:cursor-pointer">
-										<Plus />
-									</Button>
-								</form>
-								<ul>{renderTodoList({ todos })}</ul>
+								<UserTodos />
 							</Card>
 						</TabsContent>
 						<TabsContent value="tabs">
 							<Card className="px-3 py-0">Tabslist</Card>
 						</TabsContent>
 						<TabsContent value="history">
-							<Card className="p-3">
+							<Card className="p-2">
 								<UserHistory />
 							</Card>
 						</TabsContent>
