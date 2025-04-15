@@ -9,7 +9,6 @@ import googleDocsIcon from "@/assets/icons/google-apps/google-docs.svg"
 import googleDriveIcon from "@/assets/icons/google-apps/google-drive.svg"
 import googleGMailIcon from "@/assets/icons/google-apps/google-gmail.svg"
 
-import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 import googleSheetsIcon from "@/assets/icons/google-apps/google-sheets.svg"
 import googleMapsIcon from "@/assets/icons/google-apps/google-maps.svg"
 
@@ -17,6 +16,8 @@ import googleSearchIcon from "@/assets/icons/google-apps/google-logo.svg"
 import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
 import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
 import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
+import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
+import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
 export const apps = [
 	{
@@ -72,6 +73,12 @@ export const apps = [
 		name: "Slides",
 		icon: googleSlidesIcon,
 		url: "https://docs.google.com/presentation/u/0/?ec=wgc-slides-[module]-goto"
+	},
+	{
+		id: crypto.randomUUID(),
+		name: "Translate",
+		icon: googleTranslateIcon,
+		url: "https://translate.google.com"
 	},
 	{
 		id: crypto.randomUUID(),

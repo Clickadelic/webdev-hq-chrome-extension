@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getUserInfo, dailySalutation } from "@/utils/index"
-
 import { AiOutlineSearch } from "react-icons/ai"
 import { GoGear } from "react-icons/go"
 
+// Tab content modules
 import UserHistory from "@/components/custom/UserHistory"
 import UserApps from "@/components/custom/UserApps"
 import UserTodos from "@/components/custom/UserTodos"
+import UserTabs from "@/components/custom/UserTabs"
+import UserDownloads from "@/components/custom/UserDownloads"
 
 const App = () => {
 	// Strings
@@ -19,6 +20,7 @@ const App = () => {
 
 	// Tabslabel
 	const appsLabel: string = chrome.i18n.getMessage("apps")
+	const addAppDescription: string = chrome.i18n.getMessage("add_app_description")
 	const todosLabel: string = chrome.i18n.getMessage("todos")
 	const tabsLabel: string = chrome.i18n.getMessage("tabs")
 	const historyLabel: string = chrome.i18n.getMessage("history")
@@ -66,13 +68,13 @@ const App = () => {
 							<UserTodos />
 						</TabsContent>
 						<TabsContent value="tabs">
-							<Card className="px-3 py-0">Tabslist</Card>
+							<UserTabs />
 						</TabsContent>
 						<TabsContent value="history">
 							<UserHistory />
 						</TabsContent>
 						<TabsContent value="downloads">
-							<Card className="px-3 py-0">DownloadsList</Card>
+							<UserDownloads />
 						</TabsContent>
 					</Tabs>
 				</div>
