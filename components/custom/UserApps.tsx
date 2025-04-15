@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 
 const UserApps = () => {
 	const addAppLabel = chrome.i18n.getMessage("add_app")
+	const addAppDescription = chrome.i18n.getMessage("add_app_description")
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -44,13 +45,14 @@ const UserApps = () => {
 								<BsApp />
 								{addAppLabel}
 							</DialogTitle>
-							<DialogDescription>Add a new App to your New Tab.</DialogDescription>
+							<DialogDescription>{addAppDescription}</DialogDescription>
 						</DialogHeader>
 						<div className="flex">
 							<form
 								onSubmit={() => {
 									handleSubmit(e)
 								}}
+								className="w-full flex flex-col gap-2"
 							>
 								<Input name="name" placeholder="AppName" />
 								<Input name="url" placeholder="https://" />

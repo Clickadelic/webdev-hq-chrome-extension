@@ -7,6 +7,10 @@
 		"message": "Add App",
 		"description": "Add App Button."
 	},
+	"add_app_description": {
+		"message": "Add a new app to improve your tab.",
+		"description": "Add app text."
+	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."

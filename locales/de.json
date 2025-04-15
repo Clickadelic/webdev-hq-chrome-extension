@@ -7,6 +7,10 @@
 		"message": "App hinzufügen",
 		"description": "App hinzufügen Button."
 	},
+	"add_app_description": {
+		"message": "Füge eine neue App hinzu, um Deinen Tab zu verbessern.",
+		"description": "App hinzufügen Text."
+	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."

@@ -20,6 +20,7 @@ const App = () => {
 
 	// Tabslabel
 	const appsLabel: string = chrome.i18n.getMessage("apps")
+	const addAppDescription: string = chrome.i18n.getMessage("add_app_description")
 	const todosLabel: string = chrome.i18n.getMessage("todos")
 	const tabsLabel: string = chrome.i18n.getMessage("tabs")
 	const historyLabel: string = chrome.i18n.getMessage("history")
