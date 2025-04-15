@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getUserInfo, dailySalutation } from "@/utils/index"
-
 import { AiOutlineSearch } from "react-icons/ai"
 import { GoGear } from "react-icons/go"
 
+// Tab content modules
 import UserHistory from "@/components/custom/UserHistory"
 import UserApps from "@/components/custom/UserApps"
 import UserTodos from "@/components/custom/UserTodos"
+import UserTabs from "@/components/custom/UserTabs"
+import UserDownloads from "@/components/custom/UserDownloads"
 
 const App = () => {
 	// Strings
@@ -66,13 +67,13 @@ const App = () => {
 							<UserTodos />
 						</TabsContent>
 						<TabsContent value="tabs">
-							<Card className="px-3 py-0">Tabslist</Card>
+							<UserTabs />
 						</TabsContent>
 						<TabsContent value="history">
 							<UserHistory />
 						</TabsContent>
 						<TabsContent value="downloads">
-							<Card className="px-3 py-0">DownloadsList</Card>
+							<UserDownloads />
 						</TabsContent>
 					</Tabs>
 				</div>

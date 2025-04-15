@@ -11,6 +11,10 @@
 		"message": "Todos",
 		"description": "Todos Tab."
 	},
+	"create_your_first_task": {
+		"message": "Create your first task",
+		"description": "Todos Tab."
+	},
 	"new_todo_placeholder": {
 		"message": "New todo",
 		"description": "New todo placeholder."
