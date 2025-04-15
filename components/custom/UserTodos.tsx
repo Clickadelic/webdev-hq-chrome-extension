@@ -28,7 +28,7 @@ const UserTodos = () => {
 		<div className="flex flex-col bg-white/30 backdrop-blur p-2 rounded">
 			<form className="flex flex-row w-full gap-2" onSubmit={handleTodoSubmit}>
 				<input type="text" name="name" className="px-2 w-full bg-white rounded focus:outline-none" placeholder={newTodoPlaceholder} />
-				<Button size="sm" className="bg-blue-500 text-white rounded hover:cursor-pointer">
+				<Button className="bg-blue-500 text-white rounded size-[36px] hover:cursor-pointer">
 					<Plus />
 				</Button>
 			</form>
