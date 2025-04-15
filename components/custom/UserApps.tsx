@@ -6,7 +6,7 @@ import { BsApp } from "react-icons/bs"
 import { apps } from "@/fake-data/apps"
 
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 
 const UserApps = () => {
@@ -59,7 +59,6 @@ const UserApps = () => {
 								<Button type="submit">{addAppLabel}</Button>
 							</form>
 						</div>
-						<DialogFooter>asd</DialogFooter>
 					</DialogContent>
 				</Dialog>
 			</li>
