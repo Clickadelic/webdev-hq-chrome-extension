@@ -31,8 +31,8 @@ const UserHistory = () => {
 				<>
 					<ul className="w-full space-y-2">
 						{history.map(entry => (
-							<li key={entry.id} className="flex items-center justify-between gap-2">
-								<a href={entry.url} className="flex items-center gap-2 p-1 rounded text-md w-full hover:bg-slate-200" target="_blank" rel="noopener noreferrer">
+							<li key={entry.id} className="flex flex-row flex-start gap-2 hover:bg-slate-200">
+								<a href={entry.url} className="flex items-center gap-2 p-1 rounded text-md w-full" target="_blank" rel="noopener noreferrer">
 									{entry.url && (
 										<img
 											src={getFaviconUrl(entry.url)}
@@ -54,7 +54,7 @@ const UserHistory = () => {
 											})
 										}
 									}}
-									className="p-2 rounded bg-rose-500 text-white hover:cursor-pointer hover:bg-rose-600"
+									className="p-2 rounded text-rose-500 hover:cursor-pointer hover:text-rose-600"
 								>
 									<BsTrash3 className="size-3" />
 								</button>
