@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getUserInfo, dailySalutation } from "@/utils/index"
 import { AiOutlineSearch } from "react-icons/ai"
 import { GoGear } from "react-icons/go"
+// import HeaderSidebar from "@/components/custom/HeaderSidebar"
 
 // Tab content modules
 import UserHistory from "@/components/custom/UserHistory"
@@ -37,6 +38,7 @@ const App = () => {
 	return (
 		<div className="min-h-screen bg-slate-900 bg-color-fog bg-cover p-0">
 			<div className="min-h-screen backdrop-blur">
+				{/*  <HeaderSidebar /> */}
 				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 mb-4">
 					<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
 				</div>

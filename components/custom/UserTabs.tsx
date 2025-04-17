@@ -42,7 +42,6 @@ const UserTabs = () => {
 			{tabs.map(tab => {
 				const domain = extractDomain(tab.url)
 				const favicon = getFaviconUrl(domain)
-
 				return (
 					<li key={tab.id} onClick={() => focusTab(tab)} className="flex items-center gap-2 border p-2 rounded shadow-sm cursor-pointer bg-white hover:bg-gray-100 transition">
 						<img src={favicon} alt="favicon" width={16} height={16} className="shrink-0" />
