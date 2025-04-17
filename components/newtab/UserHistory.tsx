@@ -24,12 +24,14 @@ const UserHistory = () => {
 	return (
 		<>
 			{history.length === 0 ? (
-				<p className="text-center text-md text-slate-800">{noHistoryFoundLabel}</p>
+				<div className="bg-white/30 backdrop p-2 rounded">
+					<p className="text-center text-md text-white">{noHistoryFoundLabel}</p>
+				</div>
 			) : (
-				<>
+				<div className="bg-white/30 backdrop p-1 rounded">
 					<ul className="w-full space-y-2">
 						{history.map(entry => (
-							<li key={entry.id} className="flex flex-row flex-start gap-2 hover:bg-slate-200">
+							<li key={entry.id} className="flex flex-row flex-start gap-2 rounded bg-white hover:bg-slate-200">
 								<a href={entry.url} className="flex items-center gap-2 p-1 rounded text-md w-full" target="_blank" rel="noopener noreferrer">
 									{entry.url && (
 										<img
@@ -64,12 +66,12 @@ const UserHistory = () => {
 							await deleteUserHistory()
 							setHistory([]) // UI leeren
 						}}
-						variant="subtle"
-						className="mt-4"
+						variant="ghost"
+						className="w-full mt-4 rounded hover:cursor-pointer"
 					>
 						{deleteHistoryLabel}
 					</Button>
-				</>
+				</div>
 			)}
 		</>
 	)

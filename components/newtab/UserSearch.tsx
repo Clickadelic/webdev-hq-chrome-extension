@@ -11,10 +11,10 @@ import duckduckgoSearchIconUrl from "@/assets/icons/search-engines/duck-duck-go-
 import yahooSearchIconUrl from "@/assets/icons/search-engines/yahoo-logo.svg"
 
 const engines = [
-	{ name: "Google", url: "https://www.google.com/search?q=", icon: <img src={googleSearchIconUrl} className="size-7" alt="Google Logo" /> },
-	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-7" alt="Bing Logo" /> },
 	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: <img src={braveSearchIconUrl} className="size-7" alt="Brave Logo" /> },
+	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-7" alt="Bing Logo" /> },
 	{ name: "DuckDuckGo", url: "https://www.duckduckgo.com/?q=", icon: <img src={duckduckgoSearchIconUrl} className="size-7" alt="DuckDuckGo Logo" /> },
+	{ name: "Google", url: "https://www.google.com/search?q=", icon: <img src={googleSearchIconUrl} className="size-7" alt="Google Logo" /> },
 	{ name: "Yahoo", url: "https://search.yahoo.com/search?p=", icon: <img src={yahooSearchIconUrl} className="size-7" alt="Yahoo Logo" /> }
 ]
 
