@@ -6,8 +6,6 @@ import { getFaviconUrl, deleteUserHistory } from "@/utils"
 
 const fallbackFavicon = "/assets/icons/default-website-favicon.png" // Stelle sicher, dass dieses Bild in deinem `public`-Ordner liegt
 
-console.log(fallbackFavicon)
-
 const UserHistory = () => {
 	const deleteHistoryLabel = chrome.i18n.getMessage("delete_history")
 	const noHistoryFoundLabel = chrome.i18n.getMessage("no_history_found")
