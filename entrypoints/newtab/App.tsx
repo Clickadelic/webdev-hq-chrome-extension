@@ -40,7 +40,7 @@ const App = () => {
 			<UserSearch />
 			<div className="max-w-[680px] mx-auto backdrop relative top-64 flex flex-row">
 				<Tabs defaultValue="apps" className="w-full">
-					<div className="bg-white/30 p-2 rounded">
+					<div className="bg-white/30 p-1 rounded">
 						<TabsList className="grid w-full grid-cols-5 text-slate-600">
 							<TabsTrigger value="apps">{appsLabel}</TabsTrigger>
 							<TabsTrigger value="todos">{todosLabel}</TabsTrigger>

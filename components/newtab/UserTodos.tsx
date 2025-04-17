@@ -36,15 +36,15 @@ const UserTodos = () => {
 	}
 
 	return (
-		<div className="flex flex-col bg-white/30 backdrop-blur p-2 rounded">
-			<form className="flex flex-row w-full gap-2" onSubmit={handleTodoSubmit}>
+		<div className="flex flex-col bg-white/30 backdrop-blur p-1 rounded">
+			<form className="flex flex-row w-full gap-1" onSubmit={handleTodoSubmit}>
 				<input type="text" name="title" className="px-2 w-full bg-white rounded focus:outline-none" placeholder={newTodoPlaceholder} />
 				<Button className="bg-blue-500 text-white rounded size-[36px] hover:cursor-pointer">
 					<Plus />
 				</Button>
 			</form>
 			<ul className="w-full flex flex-col space-y-3 mt-3">
-				{currentTodos.length === 0 && <p className="text-center text-md text-white">{createFirstTask}</p>}
+				{currentTodos.length === 0 && <p className="text-center text-md text-white mb-2">{createFirstTask}</p>}
 				{currentTodos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start bg-white rounded p-1">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4" />
