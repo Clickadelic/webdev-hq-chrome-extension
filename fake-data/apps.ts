@@ -8,10 +8,8 @@ import googleDnsToolsIcon from "@/assets/icons/google-apps/google-dns-tools.svg"
 import googleDocsIcon from "@/assets/icons/google-apps/google-docs.svg"
 import googleDriveIcon from "@/assets/icons/google-apps/google-drive.svg"
 import googleGMailIcon from "@/assets/icons/google-apps/google-gmail.svg"
-
 import googleSheetsIcon from "@/assets/icons/google-apps/google-sheets.svg"
 import googleMapsIcon from "@/assets/icons/google-apps/google-maps.svg"
-
 import googleSearchIcon from "@/assets/icons/google-apps/google-logo.svg"
 import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
 import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
@@ -19,7 +17,7 @@ import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
 import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
-export const apps = [
+export const googleApps = [
 	{
 		id: crypto.randomUUID(),
 		name: "YouTube",

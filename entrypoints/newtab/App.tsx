@@ -3,7 +3,12 @@ import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
+import { BsApp } from "react-icons/bs"
 import { GoGear } from "react-icons/go"
+import { BsListCheck } from "react-icons/bs"
+import { PiClockCountdown } from "react-icons/pi"
+import { CgTab } from "react-icons/cg"
+import { GoDownload } from "react-icons/go"
 
 import AppIcon from "@/components/custom/AppIcon"
 // Tab content modules
@@ -42,11 +47,26 @@ const App = () => {
 				<Tabs defaultValue="apps" className="w-full">
 					<div className="bg-white/30 p-1 rounded">
 						<TabsList className="grid w-full grid-cols-5 text-slate-600">
-							<TabsTrigger value="apps">{appsLabel}</TabsTrigger>
-							<TabsTrigger value="todos">{todosLabel}</TabsTrigger>
-							<TabsTrigger value="tabs">{tabsLabel}</TabsTrigger>
-							<TabsTrigger value="history">{historyLabel}</TabsTrigger>
-							<TabsTrigger value="downloads">{downloadsLabel}</TabsTrigger>
+							<TabsTrigger value="apps">
+								<BsApp />
+								{appsLabel}
+							</TabsTrigger>
+							<TabsTrigger value="todos">
+								<BsListCheck />
+								{todosLabel}
+							</TabsTrigger>
+							<TabsTrigger value="tabs">
+								<CgTab />
+								{tabsLabel}
+							</TabsTrigger>
+							<TabsTrigger value="history">
+								<PiClockCountdown />
+								{historyLabel}
+							</TabsTrigger>
+							<TabsTrigger value="downloads">
+								<GoDownload />
+								{downloadsLabel}
+							</TabsTrigger>
 						</TabsList>
 					</div>
 					<TabsContent value="apps">

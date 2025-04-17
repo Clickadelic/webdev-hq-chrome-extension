@@ -1,6 +1,6 @@
 export default defineBackground(() => {
 	chrome.runtime.onInstalled.addListener(() => {
-		console.log("Chrome Extension installiert!")
+		console.log(chrome.i18n.getMessage("console_log_on_installed"))
 	})
 
 	chrome.runtime.onInstalled.addListener(() => {
@@ -23,14 +23,6 @@ export default defineBackground(() => {
 		})
 	})
 
-	function getHistory() {
-		return new Promise((resolve, reject) => {
-			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
-				resolve(results)
-			})
-		})
-	}
-
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getHistory") {
 			getHistory().then(history => {
@@ -39,4 +31,23 @@ export default defineBackground(() => {
 		}
 		return true // Asynchronous response
 	})
+
+	chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+		if (msg.type === "getHardwareInfo") {
+			Promise.all([chrome.system.cpu.getInfo(), chrome.system.memory.getInfo(), chrome.system.storage.getInfo()]).then(([cpu, memory, storage]) => {
+				sendResponse({ cpu, memory, storage })
+			})
+
+			// Async response
+			return true
+		}
+	})
+
+	function getHistory() {
+		return new Promise((resolve, reject) => {
+			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
+				resolve(results)
+			})
+		})
+	}
 })

@@ -11,11 +11,11 @@ import duckduckgoSearchIconUrl from "@/assets/icons/search-engines/duck-duck-go-
 import yahooSearchIconUrl from "@/assets/icons/search-engines/yahoo-logo.svg"
 
 const engines = [
-	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: <img src={braveSearchIconUrl} className="size-7" alt="Brave Logo" /> },
-	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-7" alt="Bing Logo" /> },
-	{ name: "DuckDuckGo", url: "https://www.duckduckgo.com/?q=", icon: <img src={duckduckgoSearchIconUrl} className="size-7" alt="DuckDuckGo Logo" /> },
-	{ name: "Google", url: "https://www.google.com/search?q=", icon: <img src={googleSearchIconUrl} className="size-7" alt="Google Logo" /> },
-	{ name: "Yahoo", url: "https://search.yahoo.com/search?p=", icon: <img src={yahooSearchIconUrl} className="size-7" alt="Yahoo Logo" /> }
+	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: <img src={braveSearchIconUrl} className="size-6" alt="Brave Logo" /> },
+	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-6" alt="Bing Logo" /> },
+	{ name: "DuckDuckGo", url: "https://www.duckduckgo.com/?q=", icon: <img src={duckduckgoSearchIconUrl} className="size-6" alt="DuckDuckGo Logo" /> },
+	{ name: "Google", url: "https://www.google.com/search?q=", icon: <img src={googleSearchIconUrl} className="size-6" alt="Google Logo" /> },
+	{ name: "Yahoo", url: "https://search.yahoo.com/search?p=", icon: <img src={yahooSearchIconUrl} className="size-6" alt="Yahoo Logo" /> }
 ]
 
 const UserSearch = () => {
@@ -65,12 +65,7 @@ const UserSearch = () => {
 				{dropdownOpen && (
 					<div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg z-10">
 						{engines.map(engine => (
-							<button
-								key={engine.name}
-								type="button"
-								className={`flex items-center gap-2 w-full py-2 px-4 rounded-md text-left hover:bg-gray-200 ${engine.url === searchEngine ? "bg-gray-100" : ""}`}
-								onClick={() => handleEngineChange(engine.url)}
-							>
+							<button key={engine.name} type="button" className="flex items-center gap-2 w-full py-2 px-4 text-left hover:bg-gray-200" onClick={() => handleEngineChange(engine.url)}>
 								{engine.icon}
 								{engine.name}
 							</button>
