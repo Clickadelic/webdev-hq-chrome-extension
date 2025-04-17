@@ -61,19 +61,19 @@ const App = () => {
 							<TabsTrigger value="history">{historyLabel}</TabsTrigger>
 							<TabsTrigger value="downloads">{downloadsLabel}</TabsTrigger>
 						</TabsList>
-						<TabsContent value="apps">
+						<TabsContent className="pt-1" value="apps">
 							<UserApps />
 						</TabsContent>
-						<TabsContent value="todos">
+						<TabsContent className="pt-1" value="todos">
 							<UserTodos />
 						</TabsContent>
-						<TabsContent value="tabs">
+						<TabsContent className="pt-1" value="tabs">
 							<UserTabs />
 						</TabsContent>
-						<TabsContent value="history">
+						<TabsContent className="pt-1" value="history">
 							<UserHistory />
 						</TabsContent>
-						<TabsContent value="downloads">
+						<TabsContent className="pt-1" value="downloads">
 							<UserDownloads />
 						</TabsContent>
 					</Tabs>

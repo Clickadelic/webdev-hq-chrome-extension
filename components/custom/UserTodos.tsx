@@ -4,7 +4,7 @@ import { Plus } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { BsTrash3 } from "react-icons/bs"
 
-interface TodosProps {
+type TodosProps = {
 	id: string
 	name: string
 	done: boolean
@@ -18,6 +18,7 @@ const UserTodos = () => {
 		e.preventDefault()
 		const formData: FormData = new FormData(e.currentTarget)
 		const todoName: string = formData.get("name") as string
+		if (todoName === "") return
 		const newTodo = { id: crypto.randomUUID(), name: todoName, done: false }
 		setTodos([...todos, newTodo])
 		e.currentTarget.reset()
@@ -36,7 +37,7 @@ const UserTodos = () => {
 				{todos.length === 0 && <p className="text-center text-md text-slate-800">{createFirstTask}</p>}
 				{todos.map(todo => (
 					<li key={todo.id} className="flex justify-start bg-white rounded p-1">
-						<Input type="checkbox" className="m-1 size-4" />
+						<Input type="checkbox" className="mt-1 size-4" />
 						<span className="w-full">{todo.name}</span>
 						<Button variant="delete" size="sm">
 							<BsTrash3 />

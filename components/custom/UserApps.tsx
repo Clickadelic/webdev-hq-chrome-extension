@@ -25,11 +25,11 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-1 md:grid-cols-9 gap-2">
+		<ul className="w-full grid grid-cols-9 gap-2">
 			{apps.map(app => (
-				<li key={app.id} className="bg-white p-2 w-[64px] rounded hover:bg-white/70 hover:cursor-pointer">
-					<a href={app.url} target="_blank" className="flex flex-col gap-1 items-center place-content-center" rel="noopener noreferrer">
-						<img src={app.icon} alt={app.name} className="size-6" />
+				<li key={app.id} className="bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
+					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[70px]" rel="noopener noreferrer">
+						<img src={app.icon} alt={app.name} className="size-6 mt-1" />
 						<span className="text-slate-800">{app.name}</span>
 					</a>
 				</li>
@@ -56,7 +56,9 @@ const UserApps = () => {
 							>
 								<Input name="name" placeholder="AppName" />
 								<Input name="url" placeholder="https://" />
-								<Button type="submit">{addAppLabel}</Button>
+								<Button type="submit" variant="primary">
+									{addAppLabel}
+								</Button>
 							</form>
 						</div>
 					</DialogContent>
