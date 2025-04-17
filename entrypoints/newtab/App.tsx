@@ -39,7 +39,7 @@ const App = () => {
 				<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 mb-4">
 					<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
 				</div>
-				<form method="GET" action={searchEngine} className="max-w-[680px] mx-auto mb-4 bg-white backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
+				<form method="GET" action={searchEngine} className="max-w-[680px] mx-auto mb-3 bg-white backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
 					<input type="text" className="w-full px-4 py-4 text-xl focus:outline-none" placeholder={searchPlaceholder} />
 					<select onChange={e => setSearchEngine(e.target.value)} className="search-engines p-4 text-xl text-slate-600 focus:outline-none">
 						<option value="bing">Bing</option>
