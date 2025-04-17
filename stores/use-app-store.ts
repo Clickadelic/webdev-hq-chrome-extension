@@ -11,6 +11,7 @@ export type AppType = {
 type AppStore = {
 	apps: AppType[]
 	addApp: (app: AppType) => void
+	editApp: (app: AppType) => void
 	removeApp: (id: string) => void
 }
 
@@ -19,6 +20,10 @@ export const useAppStore = create<AppStore>()(
 		set => ({
 			apps: [],
 			addApp: app =>
+				set(state => ({
+					apps: [...state.apps, app]
+				})),
+			editApp: app =>
 				set(state => ({
 					apps: [...state.apps, app]
 				})),

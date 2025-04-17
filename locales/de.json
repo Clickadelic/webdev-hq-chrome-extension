@@ -1,4 +1,8 @@
 {
+	"console_log_on_installed": {
+		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank!",
+		"description": "Konsolennachricht nach der Installation."
+	},
 	"apps": {
 		"message": "Apps",
 		"description": "Apps Tab."
@@ -16,7 +20,7 @@
 		"description": "Todos Tab."
 	},
 	"create_your_first_task": {
-		"message": "Erstelle Dein erstes Todo",
+		"message": "Erstelle Dein erstes Todo.",
 		"description": "Todos Tab."
 	},
 	"new_todo_placeholder": {
@@ -36,11 +40,15 @@
 		"description": "Verlaufs Tab"
 	},
 	"no_history_found": {
-		"message": "Kein Verlauf vorhanden",
+		"message": "Kein Verlauf vorhanden.",
 		"description": "Verlaufs Tab"
 	},
 	"downloads": {
 		"message": "Downloads",
+		"description": "Downloads Tab"
+	},
+	"no_downloads_found": {
+		"message": "Keine Downloads vorhanden.",
 		"description": "Downloads Tab"
 	},
 	"search_placeholder": {

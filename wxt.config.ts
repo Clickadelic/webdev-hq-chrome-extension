@@ -11,6 +11,21 @@ export default defineConfig({
 	manifest: {
 		default_locale: "en",
 		host_permissions: ["<all_urls>"],
-		permissions: ["identity", "identity.email", "tabs", "storage", "contextMenus", "history", "downloads", "scripting"]
+		permissions: [
+			"activeTab",
+			"tabs",
+			"management",
+			"cookies",
+			"identity",
+			"identity.email",
+			"storage",
+			"contextMenus",
+			"history",
+			"downloads",
+			"scripting",
+			"system.cpu",
+			"system.memory",
+			"system.storage"
+		]
 	}
 })

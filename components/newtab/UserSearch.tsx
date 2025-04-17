@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useSearchEngineStore } from "@/stores/use-search-engine-store"
+
 import { Button } from "@/components/ui/button"
 import { AiOutlineSearch } from "react-icons/ai"
 
@@ -9,41 +10,43 @@ import braveSearchIconUrl from "@/assets/icons/search-engines/brave-logo.svg"
 import duckduckgoSearchIconUrl from "@/assets/icons/search-engines/duck-duck-go-logo.svg"
 import yahooSearchIconUrl from "@/assets/icons/search-engines/yahoo-logo.svg"
 
-const googleIcon = <img src={googleSearchIconUrl} className="size-7" alt="Google Logo" />
-const bingIcon = <img src={bingSearchIconUrl} className="size-7" alt="Bing Logo" />
-const braveIcon = <img src={braveSearchIconUrl} className="size-7" alt="Brave Logo" />
-const duckduckgoIcon = <img src={duckduckgoSearchIconUrl} className="size-7" alt="DuckDuckGo Logo" />
-const yahooIcon = <img src={yahooSearchIconUrl} className="size-7" alt="Yahoo Logo" />
-
 const engines = [
-	{ name: "Google", url: "https://www.google.com/search?q=", icon: googleIcon },
-	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: bingIcon },
-	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: braveIcon },
-	{ name: "DuckDuckGo", url: "https://www.duckduckgo.com/?q=", icon: duckduckgoIcon },
-	{ name: "Yahoo", url: "https://search.yahoo.com/search?p=", icon: yahooIcon }
+	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: <img src={braveSearchIconUrl} className="size-6" alt="Brave Logo" /> },
+	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-6" alt="Bing Logo" /> },
+	{ name: "DuckDuckGo", url: "https://www.duckduckgo.com/?q=", icon: <img src={duckduckgoSearchIconUrl} className="size-6" alt="DuckDuckGo Logo" /> },
+	{ name: "Google", url: "https://www.google.com/search?q=", icon: <img src={googleSearchIconUrl} className="size-6" alt="Google Logo" /> },
+	{ name: "Yahoo", url: "https://search.yahoo.com/search?p=", icon: <img src={yahooSearchIconUrl} className="size-6" alt="Yahoo Logo" /> }
 ]
 
 const UserSearch = () => {
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
+	const dropdownRef = useRef<HTMLDivElement>(null)
 
-	const currentEngine = engines.find(e => e.url === searchEngine)
+	const currentEngine = engines.find(e => e.url === searchEngine) ?? engines[0]
 
 	const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(e.target.value)
 	}
 
-	const handleEngineChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		setSearchEngine(e.target.value)
+	const handleEngineChange = (url: string) => {
+		setSearchEngine(url)
 		setDropdownOpen(false)
 	}
 
 	useEffect(() => {
-		document.addEventListener("click", () => {
-			setDropdownOpen(false)
-		})
-	})
+		const handleClickOutside = (event: MouseEvent) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+				setDropdownOpen(false)
+			}
+		}
+
+		document.addEventListener("mousedown", handleClickOutside)
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside)
+		}
+	}, [])
 
 	return (
 		<form
@@ -53,24 +56,16 @@ const UserSearch = () => {
 		>
 			<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="w-full px-4 py-2 text-xl focus:outline-none" placeholder={searchPlaceholder} />
 
-			{/* 🔽 Custom Dropdown */}
-			<div className="relative">
-				<Button type="button" className="hover:cursor-pointer" variant="ghost" onClick={() => setDropdownOpen(!dropdownOpen)}>
-					{currentEngine?.icon}
-					<span className="hidden md:inline">{currentEngine?.name}</span>
+			<div className="relative" ref={dropdownRef}>
+				<Button type="button" className="flex items-center gap-2 hover:cursor-pointer" variant="ghost" onClick={() => setDropdownOpen(prev => !prev)}>
+					{currentEngine.icon}
+					<span className="hidden md:inline">{currentEngine.name}</span>
 				</Button>
+
 				{dropdownOpen && (
 					<div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg z-10">
 						{engines.map(engine => (
-							<button
-								key={engine.name}
-								type="button"
-								className={`flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100 hover:cursor-pointer ${engine.url === searchEngine ? "bg-gray-100" : ""}`}
-								onClick={() => {
-									handleEngineChange()
-									setDropdownOpen(false)
-								}}
-							>
+							<button key={engine.name} type="button" className="flex items-center gap-2 w-full py-2 px-4 text-left hover:bg-gray-200" onClick={() => handleEngineChange(engine.url)}>
 								{engine.icon}
 								{engine.name}
 							</button>

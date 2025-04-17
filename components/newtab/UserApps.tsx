@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-
+import { getFaviconUrl } from "@/lib/utils"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
@@ -12,10 +12,11 @@ import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 
 const UserApps = () => {
-	const { apps, addApp, removeApp } = useAppStore()
+	const { apps, addApp, editApp, removeApp } = useAppStore()
 
 	const addAppLabel = chrome.i18n.getMessage("add_app")
 	const addAppDescription = chrome.i18n.getMessage("add_app_description")
+	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -28,12 +29,13 @@ const UserApps = () => {
 		}
 		const newApp: AppType = {
 			id: crypto.randomUUID(),
-			name: name,
+			title: name,
 			url: url,
 			icon: getFaviconUrl(url) || ""
 		}
 		addApp(newApp)
 		e.currentTarget.reset()
+		setIsModalOpen(false)
 	}
 
 	const onDelete = (id: string) => {
@@ -41,24 +43,29 @@ const UserApps = () => {
 	}
 
 	const onEdit = (id: string) => {
-		alert("Edit " + id)
+		setIsModalOpen(true)
+		const currentApp = apps.find(app => app.id === id)
+		if (currentApp) {
+			const { title, url, icon } = currentApp
+			console.log("Editing app", title, url, icon)
+		}
 	}
 
 	return (
 		<ul className="w-full grid grid-cols-9 gap-2">
 			{apps.map(app => (
-				<li key={app.id} className="relative bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
-					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[72px]" rel="noopener noreferrer">
-						<img src={app.icon} alt={app.name} className="size-6 mt-1 rounded-xs" />
-						<span className="text-slate-800">{app.name}</span>
+				<li key={app.id} className="relative bg-white rounded pt-1 hover:bg-white/70 hover:cursor-pointer">
+					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
+						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
+						<span className="text-slate-800 inline-block truncate max-w-[56px]">{app.title}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>
-							<button className="absolute top-1 right-[2px] text-slate-500 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer">
-								<HiOutlineDotsVertical className="size-5" />
+							<button className="absolute top-1 right-[1px] text-slate-500 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer">
+								<HiOutlineDotsVertical className="size-4" />
 							</button>
 						</DropdownMenuTrigger>
-						<DropdownMenuContent side="right" align="start">
+						<DropdownMenuContent side="right" align="start" className="rounded">
 							<DropdownMenuItem>
 								<button onClick={() => onEdit(app.id)} className="flex justify-between">
 									<AiOutlineEdit className="mt-1 mr-2" />
@@ -75,8 +82,11 @@ const UserApps = () => {
 				</li>
 			))}
 			<li>
-				<Dialog>
-					<DialogTrigger className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[70px] rounded hover:bg-white/70 hover:cursor-pointer">
+				<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+					<DialogTrigger
+						onClick={() => setIsModalOpen(true)}
+						className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[70px] rounded hover:bg-white/70 hover:cursor-pointer"
+					>
 						<Plus />
 					</DialogTrigger>
 					<DialogContent className="rounded">

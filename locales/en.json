@@ -1,4 +1,8 @@
 {
+	"console_log_on_installed": {
+		"message": "WebDev HQ Chrome Extension installed! Thank You!",
+		"description": "Console message after extension installation."
+	},
 	"apps": {
 		"message": "Apps",
 		"description": "Tab Apps."
@@ -41,6 +45,10 @@
 	},
 	"downloads": {
 		"message": "Downloads",
+		"description": "Downloads Tab"
+	},
+	"no_downloads_found": {
+		"message": "No downloads found.",
 		"description": "Downloads Tab"
 	},
 	"search_placeholder": {
