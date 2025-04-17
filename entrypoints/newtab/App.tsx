@@ -26,6 +26,7 @@ const App = () => {
 	const historyLabel: string = chrome.i18n.getMessage("history")
 	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
 
+	// https://www.bing.com/search?q=string
 	const [searchEngine, setSearchEngine] = useState<string>("")
 	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
 

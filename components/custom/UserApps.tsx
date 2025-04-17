@@ -51,7 +51,7 @@ const UserApps = () => {
 		<ul className="w-full grid grid-cols-9 gap-2">
 			{userApps.map(userApp => (
 				<li key={userApp.id} className="relative bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
-					<a href={userApp.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[70px]" rel="noopener noreferrer">
+					<a href={userApp.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[72px]" rel="noopener noreferrer">
 						<img src={userApp.icon} alt={userApp.name} className="size-6 mt-1 rounded-xs" />
 						<span className="text-slate-800">{userApp.name}</span>
 					</a>
