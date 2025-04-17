@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware"
 
 type Todo = {
 	id: string
-	name: string
+	title: string
 	done: boolean
 }
 
@@ -18,8 +18,8 @@ export const useTodoStore = create<TodoStore>()(
 	persist(
 		(set, get) => ({
 			todos: [],
-			addTodo: name => {
-				const newTodo = { id: crypto.randomUUID(), name, done: false }
+			addTodo: title => {
+				const newTodo = { id: crypto.randomUUID(), title, done: false }
 				set({ todos: [...get().todos, newTodo] })
 			},
 			toggleTodo: id => {

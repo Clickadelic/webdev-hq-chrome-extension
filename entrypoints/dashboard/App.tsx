@@ -1,4 +1,4 @@
-import HeaderSidebar from "@/components/custom/HeaderSidebar.tsx";
+import HeaderSidebar from "@/components/newtab/HeaderSidebar";
 
 const App = () => {
   return (

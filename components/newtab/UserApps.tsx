@@ -1,9 +1,9 @@
-import { useUserAppsStore, UserAppType } from "@/stores/use-user-apps" // Pfad anpassen!
+import { useAppStore, AppType } from "@/stores/use-app-store"
 
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
@@ -12,7 +12,7 @@ import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 
 const UserApps = () => {
-	const { userApps, addApp } = useUserAppsStore()
+	const { apps, addApp, removeApp } = useAppStore()
 
 	const addAppLabel = chrome.i18n.getMessage("add_app")
 	const addAppDescription = chrome.i18n.getMessage("add_app_description")
@@ -20,40 +20,37 @@ const UserApps = () => {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const formData = new FormData(e.currentTarget)
-		const appName = formData.get("name") as string
-		const appUrl = formData.get("url") as string
-		if (appName === "" || appUrl === "") {
+		const name = formData.get("name") as string
+		const url = formData.get("url") as string
+		if (name === "" || url === "") {
 			alert("Please fill all fields")
 			return
 		}
-		const newApp: UserAppType = {
+		const newApp: AppType = {
 			id: crypto.randomUUID(),
-			name: appName,
-			url: appUrl,
-			icon: getFaviconUrl(appUrl) || ""
+			name: name,
+			url: url,
+			icon: getFaviconUrl(url) || ""
 		}
 		addApp(newApp)
 		e.currentTarget.reset()
 	}
 
 	const onDelete = (id: string) => {
-		useUserAppsStore.getState().removeApp(id)
+		useAppStore.getState().removeApp(id)
 	}
 
 	const onEdit = (id: string) => {
-		const app = userApps.find(app => app.id === id)
-		if (app) {
-			setApps(app)
-		}
+		alert("Edit " + id)
 	}
 
 	return (
 		<ul className="w-full grid grid-cols-9 gap-2">
-			{userApps.map(userApp => (
-				<li key={userApp.id} className="relative bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
-					<a href={userApp.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[72px]" rel="noopener noreferrer">
-						<img src={userApp.icon} alt={userApp.name} className="size-6 mt-1 rounded-xs" />
-						<span className="text-slate-800">{userApp.name}</span>
+			{apps.map(app => (
+				<li key={app.id} className="relative bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
+					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[72px]" rel="noopener noreferrer">
+						<img src={app.icon} alt={app.name} className="size-6 mt-1 rounded-xs" />
+						<span className="text-slate-800">{app.name}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>
@@ -63,13 +60,13 @@ const UserApps = () => {
 						</DropdownMenuTrigger>
 						<DropdownMenuContent side="right" align="start">
 							<DropdownMenuItem>
-								<button onClick={() => onEdit(userApp.id)} className="flex justify-between">
+								<button onClick={() => onEdit(app.id)} className="flex justify-between">
 									<AiOutlineEdit className="mt-1 mr-2" />
 									bearbeiten
 								</button>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<button onClick={() => onDelete(userApp.id)} className="flex justify-between text-red-500 hover:text-red-700">
+								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700">
 									<BsTrash className="mt-1 mr-2" /> löschen
 								</button>
 							</DropdownMenuItem>
