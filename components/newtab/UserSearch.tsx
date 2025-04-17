@@ -68,7 +68,7 @@ const UserSearch = () => {
 							<button
 								key={engine.name}
 								type="button"
-								className={`flex items-center gap-2 w-full px-4 py-2 text-left hover:bg-gray-100 ${engine.url === searchEngine ? "bg-gray-100" : ""}`}
+								className={`flex items-center gap-2 w-full py-2 px-4 rounded-md text-left hover:bg-gray-200 ${engine.url === searchEngine ? "bg-gray-100" : ""}`}
 								onClick={() => handleEngineChange(engine.url)}
 							>
 								{engine.icon}

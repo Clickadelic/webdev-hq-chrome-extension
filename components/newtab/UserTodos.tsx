@@ -43,10 +43,10 @@ const UserTodos = () => {
 					<Plus />
 				</Button>
 			</form>
-			<ul className="w-full flex flex-col space-y-3 mt-3">
+			<ul className="w-full flex flex-col space-y-2 mt-2">
 				{currentTodos.length === 0 && <p className="text-center text-md text-white mb-2">{createFirstTask}</p>}
 				{currentTodos.map(todo => (
-					<li key={todo.id} className="flex justify-start items-start bg-white rounded p-1">
+					<li key={todo.id} className="flex justify-start items-start bg-white rounded p-.5">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4" />
 						<span className={cn("w-full flex-grow mt-1.5", todo.done && "line-through text-slate-500")}>{todo.title}</span>
 						<Button variant="delete" size="sm" onClick={() => deleteTodo(todo.id)}>
