@@ -20,8 +20,8 @@
 		"description": "Todos Tab."
 	},
 	"new_todo_placeholder": {
-		"message": "Neues todo",
-		"description": "New todo placeholder."
+		"message": "Neues Todo",
+		"description": "New Todo placeholder."
 	},
 	"tabs": {
 		"message": "Tabs",

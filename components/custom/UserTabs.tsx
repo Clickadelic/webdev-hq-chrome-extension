@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+// TODO: Zusammenfassen, Types, Favicon funktion
 type TabInfo = {
 	id?: number
 	title?: string
