@@ -43,6 +43,10 @@
 		"message": "Downloads",
 		"description": "Downloads Tab"
 	},
+	"no_downloads_found": {
+		"message": "No downloads found.",
+		"description": "Downloads Tab"
+	},
 	"search_placeholder": {
 		"message": "Search",
 		"description": "Search input placeholder."

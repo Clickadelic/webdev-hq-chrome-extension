@@ -28,7 +28,7 @@ const UserApps = () => {
 		}
 		const newApp: AppType = {
 			id: crypto.randomUUID(),
-			name: name,
+			title: name,
 			url: url,
 			icon: getFaviconUrl(url) || ""
 		}
@@ -49,8 +49,8 @@ const UserApps = () => {
 			{apps.map(app => (
 				<li key={app.id} className="relative bg-white p-0 rounded hover:bg-white/70 hover:cursor-pointer">
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 size-[72px]" rel="noopener noreferrer">
-						<img src={app.icon} alt={app.name} className="size-6 mt-1 rounded-xs" />
-						<span className="text-slate-800">{app.name}</span>
+						<img src={app.icon} alt={app.title} className="size-6 mt-1 rounded-xs" />
+						<span className="text-slate-800">{app.title}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>

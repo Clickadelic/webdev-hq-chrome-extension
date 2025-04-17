@@ -14,6 +14,7 @@ interface DownloadItem {
 const UserDownloads = () => {
 	const [downloads, setDownloads] = useState<DownloadItem[]>([])
 
+	const noDownloadsFoundLabel = chrome.i18n.getMessage("no_downloads_found")
 	const fetchDownloads = () => {
 		if (!chrome?.downloads?.search) return
 
@@ -45,11 +46,13 @@ const UserDownloads = () => {
 	}
 
 	return (
-		<div className="max-w-[680px] mx-auto p-1 bg-white/30 rounded">
+		<div className="max-w-[680px] mx-auto">
 			{downloads.length === 0 ? (
-				<p className="text-gray-500 text-sm">Keine Downloads gefunden.</p>
+				<div className="bg-white/30 backdrop p-2 rounded">
+					<p className="text-center text-md text-white">{noDownloadsFoundLabel}</p>
+				</div>
 			) : (
-				<ul className="space-y-2">
+				<ul className="p-1 bg-white/30 rounded space-y-2">
 					{downloads.map(d => (
 						<li key={d.id} className="p-3 border rounded flex flex-col gap-2 bg-white md:flex-row md:items-center md:justify-between">
 							<div className="flex flex-col md:max-w-[75%] overflow-hidden">

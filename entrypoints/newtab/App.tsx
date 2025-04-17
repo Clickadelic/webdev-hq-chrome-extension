@@ -14,7 +14,7 @@ import UserTodos from "@/components/newtab/UserTodos"
 import UserTabs from "@/components/newtab/UserTabs"
 import UserDownloads from "@/components/newtab/UserDownloads"
 
-import { getUserInfo, dailySalutation } from "@/utils/index"
+import { getUserInfo, dailySalutation } from "@/lib/utils"
 
 const App = () => {
 	const salutation: string = dailySalutation()
