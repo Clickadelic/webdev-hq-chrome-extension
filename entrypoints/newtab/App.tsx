@@ -21,6 +21,7 @@ import UserDownloads from "@/components/newtab/UserDownloads"
 
 import HardwareGrid from "@/components/global/HardwareGrid"
 
+import Clock from "@/components/newtab/Clock"
 // import { useTranslation } from "react-i18next"
 import LinkList from "@/components/global/LinkList"
 
@@ -44,6 +45,9 @@ const App = () => {
 	return (
 		<div className="min-h-screen bg-slate-900 bg-rotterdam bg-cover">
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4" target="_blank" />
+
+			<Clock wrapperClasses="relative top-4 w-32 mx-auto" middleClasses="asd" innerClasses="asdasd" />
+
 			<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 mb-4">
 				<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
 			</div>

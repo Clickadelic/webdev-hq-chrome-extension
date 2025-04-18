@@ -3,6 +3,10 @@
 		"message": "WebDev HQ Chrome Extension installed! Thank You!",
 		"description": "Console message after extension installation."
 	},
+	"o_clock": {
+		"message": "h",
+		"description": "Uhr Tab."
+	},
 	"apps": {
 		"message": "Apps",
 		"description": "Tab Apps."
