@@ -57,7 +57,7 @@ const UserApps = () => {
 				<li key={app.id} className="relative bg-white rounded pt-1 hover:bg-white/70 hover:cursor-pointer">
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 inline-block truncate max-w-[56px]">{app.title}</span>
+						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>

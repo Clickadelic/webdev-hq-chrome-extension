@@ -13,7 +13,9 @@ export default defineBackground(() => {
 
 	chrome.contextMenus.onClicked.addListener((info, tab) => {
 		const url = info.linkUrl || info.pageUrl
-		if (!url) return
+		if (!url) {
+			alert("Keine URL gefunden")
+		}
 		chrome.storage.sync.get(["readingList"], result => {
 			const list: string[] = result.readingList || []
 			if (!list.includes(url)) {

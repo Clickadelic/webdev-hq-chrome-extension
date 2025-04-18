@@ -1,4 +1,4 @@
-import Logo from "@/components/custom/Logo";
+import Logo from "@/components/global/Logo";
 
 const App = () => {
   return (

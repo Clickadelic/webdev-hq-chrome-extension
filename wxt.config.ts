@@ -26,6 +26,9 @@ export default defineConfig({
 			"system.cpu",
 			"system.memory",
 			"system.storage"
-		]
+		],
+		background: {
+			service_worker: "background.js"
+		}
 	}
 })
