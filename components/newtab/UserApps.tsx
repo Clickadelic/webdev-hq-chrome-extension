@@ -56,7 +56,10 @@ const UserApps = () => {
 	return (
 		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded">
 			{googleApps.map(app => (
-				<li key={app.id} className="relative bg-white rounded pt-1 border-transparent hover:border-mantis-primary hover:cursor-pointer">
+				<li
+					key={app.id}
+					className="relative bg-white rounded pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				>
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
 						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
@@ -64,7 +67,10 @@ const UserApps = () => {
 				</li>
 			))}
 			{apps.map(app => (
-				<li key={app.id} className="relative bg-white rounded pt-1 border-transparent hover:border-mantis-primary hover:cursor-pointer">
+				<li
+					key={app.id}
+					className="relative bg-white rounded pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				>
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
 						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
