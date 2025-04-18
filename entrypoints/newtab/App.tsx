@@ -10,7 +10,7 @@ import { PiClockCountdown } from "react-icons/pi"
 import { CgTab } from "react-icons/cg"
 import { GoDownload } from "react-icons/go"
 
-import AppIcon from "@/components/custom/AppIcon"
+import AppIcon from "@/components/global/AppIcon"
 // Tab content modules
 import UserSearch from "@/components/newtab/UserSearch"
 import UserApps from "@/components/newtab/UserApps"
@@ -18,6 +18,11 @@ import UserHistory from "@/components/newtab/UserHistory"
 import UserTodos from "@/components/newtab/UserTodos"
 import UserTabs from "@/components/newtab/UserTabs"
 import UserDownloads from "@/components/newtab/UserDownloads"
+
+import HardwareGrid from "@/components/global/HardwareGrid"
+
+// import { useTranslation } from "react-i18next"
+import LinkList from "@/components/global/LinkList"
 
 import { getUserInfo, dailySalutation } from "@/lib/utils"
 
@@ -75,9 +80,7 @@ const App = () => {
 					<TabsContent value="todos">
 						<UserTodos />
 					</TabsContent>
-					<TabsContent value="tabs">
-						<UserTabs />
-					</TabsContent>
+					<TabsContent value="tabs">Tabs?{/* <UserTabs /> */}</TabsContent>
 					<TabsContent value="history">
 						<UserHistory />
 					</TabsContent>
@@ -86,6 +89,7 @@ const App = () => {
 					</TabsContent>
 				</Tabs>
 			</div>
+
 			<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Incognito"}</div>
 			<div className="absolute bottom-4 right-4 text-white">
 				<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>

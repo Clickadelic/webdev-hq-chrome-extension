@@ -4,12 +4,14 @@ import { useSearchEngineStore } from "@/stores/use-search-engine-store"
 import { Button } from "@/components/ui/button"
 import { AiOutlineSearch } from "react-icons/ai"
 
+// TODO: Externalize me
 import googleSearchIconUrl from "@/assets/icons/search-engines/google-logo.svg"
 import bingSearchIconUrl from "@/assets/icons/search-engines/bing-logo.svg"
 import braveSearchIconUrl from "@/assets/icons/search-engines/brave-logo.svg"
 import duckduckgoSearchIconUrl from "@/assets/icons/search-engines/duck-duck-go-logo.svg"
 import yahooSearchIconUrl from "@/assets/icons/search-engines/yahoo-logo.svg"
 
+// TODO: Externalize me
 const engines = [
 	{ name: "Brave", url: "https://www.brave.com/search?q=", icon: <img src={braveSearchIconUrl} className="size-6" alt="Brave Logo" /> },
 	{ name: "Bing", url: "https://www.bing.com/search?q=", icon: <img src={bingSearchIconUrl} className="size-6" alt="Bing Logo" /> },
