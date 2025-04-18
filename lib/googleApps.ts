@@ -20,110 +20,104 @@ import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 export const googleApps = [
 	{
 		id: crypto.randomUUID(),
-		name: "YouTube",
-		icon: youTubeIcon,
-		url: "https://www.youtube.com"
-	},
-	{
-		id: crypto.randomUUID(),
-		name: "G-Mail",
+		title: "G-Mail",
 		icon: googleGMailIcon,
 		url: "https://mail.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Drive",
+		title: "Drive",
 		icon: googleDriveIcon,
 		url: "https://drive.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Account",
+		title: "Account",
 		icon: googleAccountIcon,
 		url: "https://myaccount.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Contacts",
+		title: "Contacts",
 		icon: googleContactsIcon,
 		url: "https://contacts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Calendar",
+		title: "Calendar",
 		icon: googleCalendarIcon,
 		url: "https://www.google.com/calendar"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Docs",
+		title: "Docs",
 		icon: googleDocsIcon,
 		url: "https://docs.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Sheets",
+		title: "Sheets",
 		icon: googleSheetsIcon,
 		url: "https://docs.google.com/spreadsheets"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Slides",
+		title: "Slides",
 		icon: googleSlidesIcon,
 		url: "https://docs.google.com/presentation/u/0/?ec=wgc-slides-[module]-goto"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Translate",
+		title: "Translate",
 		icon: googleTranslateIcon,
 		url: "https://translate.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Search",
+		title: "Search",
 		icon: googleSearchIcon,
 		url: "https://www.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Alerts",
+		title: "Alerts",
 		icon: googleAlertsIcon,
 		url: "https://alerts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Maps",
+		title: "Maps",
 		icon: googleMapsIcon,
 		url: "https://www.google.com/maps"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Passwords",
+		title: "Passwords",
 		icon: googlePasswordsIcon,
 		url: "https://passwords.google.com/?pli=1"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Cloud",
+		title: "Cloud",
 		icon: googleCloudIcon,
 		url: "https://cloud.google.com"
 	},
 
 	{
 		id: crypto.randomUUID(),
-		name: "Developers",
+		title: "Developers",
 		icon: googleDevelopersIcon,
 		url: "https://developers.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "DNS",
+		title: "DNS",
 		icon: googleDnsToolsIcon,
 		url: "https://toolbox.googleapps.com/apps/dig/"
 	},
 	{
 		id: crypto.randomUUID(),
-		name: "Console",
+		title: "Console",
 		icon: googleSearchConsoleIcon,
 		url: "https://search.google.com/search-console"
 	}
