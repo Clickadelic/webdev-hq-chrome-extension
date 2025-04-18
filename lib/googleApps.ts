@@ -15,7 +15,7 @@ import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
 import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
 import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
 import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
-import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
+// import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
 export const googleApps = [
 	{
