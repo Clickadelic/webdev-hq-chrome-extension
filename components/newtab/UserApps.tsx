@@ -58,7 +58,7 @@ const UserApps = () => {
 			{googleApps.map(app => (
 				<li
 					key={app.id}
-					className="relative bg-white rounded pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+					className="relative bg-white pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 				>
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
@@ -69,7 +69,7 @@ const UserApps = () => {
 			{apps.map(app => (
 				<li
 					key={app.id}
-					className="relative bg-white rounded pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+					className="relative bg-white pt-1 rounded border-1 transition-colors delay-150 duration-300 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 				>
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
