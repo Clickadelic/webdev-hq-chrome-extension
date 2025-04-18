@@ -58,5 +58,13 @@
 	"goodMorning": {
 		"message": "Guten Morgen",
 		"description": "Begrüßung des Benutzers am Morgen."
+	},
+	"edit": {
+		"message": "bearbeiten",
+		"description": "Bearbeiten Button."
+	},
+	"delete": {
+		"message": "löschen",
+		"description": "Löschen Button."
 	}
 }

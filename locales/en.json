@@ -58,5 +58,13 @@
 	"goodMorning": {
 		"message": "Good morning",
 		"description": "Salutation of the user in the morning."
+	},
+	"edit": {
+		"message": "edit",
+		"description": "Edit Button."
+	},
+	"delete": {
+		"message": "delete",
+		"description": "Delete Button."
 	}
 }
