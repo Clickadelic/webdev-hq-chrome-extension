@@ -10,7 +10,7 @@ import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
-import { googleApps } from "@/lib/googleApps"
+import { googleApps } from "@/lib/google-apps"
 
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
