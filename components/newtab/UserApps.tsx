@@ -52,7 +52,7 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-9 gap-2">
+		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded">
 			{apps.map(app => (
 				<li key={app.id} className="relative bg-white rounded pt-1 hover:bg-white/70 hover:cursor-pointer">
 					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
