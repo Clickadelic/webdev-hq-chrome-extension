@@ -44,7 +44,7 @@ const UserTodos = () => {
 				</Button>
 			</form>
 			<ul className="w-full flex flex-col space-y-2 mt-2 bg-white rounded p-1">
-				{currentTodos.length === 0 && <p className="text-center text-md bg-white rounded text-white mb-2">{createFirstTask}</p>}
+				{currentTodos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-1">{createFirstTask}</p>}
 				{currentTodos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />

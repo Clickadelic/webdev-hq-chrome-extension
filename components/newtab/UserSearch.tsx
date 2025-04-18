@@ -3,7 +3,7 @@ import { useSearchEngineStore } from "@/stores/use-search-engine-store"
 
 import { Button } from "@/components/ui/button"
 import { AiOutlineSearch } from "react-icons/ai"
-
+import { BsChevronDown } from "react-icons/bs"
 // TODO: Externalize me
 import googleSearchIconUrl from "@/assets/icons/search-engines/google-logo.svg"
 import bingSearchIconUrl from "@/assets/icons/search-engines/bing-logo.svg"
@@ -62,6 +62,9 @@ const UserSearch = () => {
 				<Button type="button" className="flex items-center gap-2 hover:cursor-pointer" variant="ghost" onClick={() => setDropdownOpen(prev => !prev)}>
 					{currentEngine.icon}
 					<span className="hidden md:inline">{currentEngine.name}</span>
+					<span className="text-slate-400 hidden md:inline">
+						<BsChevronDown />
+					</span>
 				</Button>
 
 				{dropdownOpen && (
