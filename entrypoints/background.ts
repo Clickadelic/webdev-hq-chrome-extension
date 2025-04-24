@@ -9,6 +9,29 @@ export default defineBackground(() => {
 			title: "Zur Reading List hinzufügen",
 			contexts: ["page", "link"]
 		})
+
+		chrome.contextMenus.onClicked.addListener((info, tab) => {
+			if (info.menuItemId === "addToReadingList") {
+				const urlToSend = info.linkUrl || info.pageUrl
+
+				fetch("https://example.com/api/reading-list", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({ url: urlToSend })
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw new Error("Network response was not ok")
+						}
+						console.log("URL erfolgreich gesendet:", urlToSend)
+					})
+					.catch(error => {
+						console.error("Fehler beim Senden der URL:", error)
+					})
+			}
+		})
 	})
 
 	chrome.contextMenus.onClicked.addListener((info, tab) => {
@@ -51,5 +74,33 @@ export default defineBackground(() => {
 				resolve(results)
 			})
 		})
+	}
+
+	// Wenn eine Gruppe erstellt, geändert oder verschoben wird
+	chrome.tabGroups.onUpdated.addListener(async group => {
+		const saved = await getSavedGroups()
+		const updatedGroup = {
+			title: group.title,
+			color: group.color
+		}
+
+		const alreadyExists = saved.some(g => g.title === updatedGroup.title && g.color === updatedGroup.color)
+
+		if (!alreadyExists) {
+			const newGroups = [...saved, updatedGroup]
+			chrome.storage.local.set({ savedGroups: newGroups })
+			console.log("Neue Gruppe gespeichert:", updatedGroup)
+		}
+	})
+
+	// Optional: Wenn Gruppe gelöscht wird, könnten wir sie trotzdem behalten
+	chrome.tabGroups.onRemoved.addListener(async groupId => {
+		console.log("Gruppe wurde geschlossen:", groupId)
+		// Optional: Entferne sie NICHT aus dem Speicher
+	})
+
+	// Hilfsfunktion zum Laden
+	async function getSavedGroups(): Promise<{ title?: string; color: string }[]> {
+		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
 	}
 })

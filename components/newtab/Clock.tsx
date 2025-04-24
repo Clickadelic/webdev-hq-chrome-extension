@@ -11,7 +11,7 @@ interface ClockProps {
 	innerClasses?: string
 }
 
-const Clock: React.FC = ({ wrapperClasses, middleClasses, innerClasses }: ClockProps) => {
+const Clock: React.FC<ClockProps> = ({ wrapperClasses, middleClasses, innerClasses }: ClockProps) => {
 	const [time, setTime] = useState<string>("")
 
 	const oClockLabel = chrome.i18n.getMessage("o_clock")

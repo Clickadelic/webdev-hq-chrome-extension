@@ -22,8 +22,7 @@ import UserDownloads from "@/components/newtab/UserDownloads"
 import HardwareGrid from "@/components/global/HardwareGrid"
 
 import Clock from "@/components/newtab/Clock"
-// import { useTranslation } from "react-i18next"
-import LinkList from "@/components/global/LinkList"
+import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 
 import { getUserInfo, dailySalutation } from "@/lib/utils"
 
@@ -93,7 +92,9 @@ const App = () => {
 					</TabsContent>
 				</Tabs>
 			</div>
-
+			<div className="max-w-[680px] mx-auto backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
+				<TabGroupBadges />
+			</div>
 			<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Incognito"}</div>
 			<div className="absolute bottom-4 right-4 text-white">
 				<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>
