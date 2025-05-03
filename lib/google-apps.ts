@@ -20,6 +20,12 @@ import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg
 export const googleApps = [
 	{
 		id: crypto.randomUUID(),
+		title: "Search",
+		icon: googleSearchIcon,
+		url: "https://www.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "G-Mail",
 		icon: googleGMailIcon,
 		url: "https://mail.google.com"
@@ -71,12 +77,6 @@ export const googleApps = [
 		title: "Translate",
 		icon: googleTranslateIcon,
 		url: "https://translate.google.com"
-	},
-	{
-		id: crypto.randomUUID(),
-		title: "Search",
-		icon: googleSearchIcon,
-		url: "https://www.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
