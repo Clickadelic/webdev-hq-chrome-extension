@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { useSearchEngineStore } from "@/stores/use-search-engine-store"
 
 import { Button } from "@/components/ui/button"
+import { RiCloseFill } from "react-icons/ri"
 import { AiOutlineSearch } from "react-icons/ai"
 import { BsChevronDown } from "react-icons/bs"
 
@@ -14,8 +15,8 @@ const UserSearch = () => {
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const dropdownRef = useRef<HTMLDivElement>(null)
-
-	const currentEngine = engines.find(e => e.url === searchEngine) ?? engines[0]
+	// engines 3 = google default
+	const currentEngine = engines.find(e => e.url === searchEngine) ?? engines[3]
 
 	const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setSearchQuery(e.target.value)
@@ -23,6 +24,12 @@ const UserSearch = () => {
 
 	const handleEngineChange = (url: string) => {
 		setSearchEngine(url)
+		setDropdownOpen(false)
+	}
+
+	const clearInputField = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault()
+		setSearchQuery("")
 		setDropdownOpen(false)
 	}
 
@@ -46,6 +53,13 @@ const UserSearch = () => {
 			className="max-w-[680px] mx-auto mb-3 bg-white backdrop relative top-64 flex flex-row gap-1 p-1 rounded items-center"
 		>
 			<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="w-full pl-3 pr-2 py-1 text-xl focus:outline-none" placeholder={searchPlaceholder} />
+			{searchQuery.length >= 1 && (
+				<div className="relative">
+					<Button className="hover:cursor-pointer" variant="ghost" onClick={clearInputField}>
+						<RiCloseFill />
+					</Button>
+				</div>
+			)}
 
 			<div className="relative" ref={dropdownRef}>
 				<Button type="button" className="flex items-center gap-2 hover:cursor-pointer" variant="ghost" onClick={() => setDropdownOpen(prev => !prev)}>
