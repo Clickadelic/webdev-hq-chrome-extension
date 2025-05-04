@@ -18,13 +18,14 @@ import UserHistory from "@/components/newtab/UserHistory"
 import UserTodos from "@/components/newtab/UserTodos"
 import UserTabs from "@/components/newtab/UserTabs"
 import UserDownloads from "@/components/newtab/UserDownloads"
+import UserAccountMenu from "@/components/newtab/UserAccountMenu"
 
 import HardwareGrid from "@/components/global/HardwareGrid"
 
 import Clock from "@/components/newtab/Clock"
 import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 
-import { getUserInfo, dailySalutation } from "@/lib/utils"
+import { dailySalutation } from "@/lib/utils"
 
 const App = () => {
 	const salutation: string = dailySalutation()
@@ -35,18 +36,11 @@ const App = () => {
 	const historyLabel: string = chrome.i18n.getMessage("history")
 	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
 
-	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
-
-	useEffect(() => {
-		getUserInfo().then(userInfo => setUser(userInfo))
-	}, [])
-
 	return (
 		<div className="min-h-screen bg-slate-900 bg-rotterdam bg-cover">
-			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4" target="_blank" />
-
-			<Clock wrapperClasses="relative top-4 w-32 mx-auto" middleClasses="asd" innerClasses="asdasd" />
-
+			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
+			<UserAccountMenu classNames="absolute top-4 right-4" />
+			<Clock wrapperClasses="relative top-5 w-32 mx-auto" digits="text-white font-light" />
 			<div className="max-w-[680px] mx-auto backdrop rounded-md relative top-64 mb-4">
 				<h1 className="flex gap-4 text-4xl font-light text-white mb-4">{salutation}</h1>
 			</div>
@@ -95,7 +89,7 @@ const App = () => {
 			<div className="max-w-[680px] mx-auto backdrop relative top-64 flex flex-row gap-3 p-1 rounded">
 				<TabGroupBadges />
 			</div>
-			<div className="absolute top-4 right-4 text-white">{user?.email ? user.email : "Incognito"}</div>
+
 			<div className="absolute bottom-4 right-4 text-white">
 				<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>
 					<GoGear />

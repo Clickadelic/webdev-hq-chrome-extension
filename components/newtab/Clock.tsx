@@ -1,17 +1,16 @@
 // components/Clock.tsx
 
 import React, { useEffect, useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
+
 import { cn } from "@/lib/utils"
 
 // TODO: Naming is bad, improve it
 interface ClockProps {
 	wrapperClasses?: string
-	middleClasses?: string
-	innerClasses?: string
+	digits?: string
 }
 
-const Clock: React.FC<ClockProps> = ({ wrapperClasses, middleClasses, innerClasses }: ClockProps) => {
+const Clock: React.FC<ClockProps> = ({ wrapperClasses, digits }: ClockProps) => {
 	const [time, setTime] = useState<string>("")
 
 	const oClockLabel = chrome.i18n.getMessage("o_clock")
@@ -32,13 +31,9 @@ const Clock: React.FC<ClockProps> = ({ wrapperClasses, middleClasses, innerClass
 	}, [])
 
 	return (
-		<div className={cn("w-28 bg-white/30 backdrop-blur rounded p-1", wrapperClasses)}>
-			<Card className={cn("rounded py-1 shadow-none", middleClasses)}>
-				<CardContent className={cn("p-0 text-center space-x-1 text-lg text-slate-600 font-light", innerClasses)}>
-					<span>{time}</span>
-					<span>{oClockLabel}</span>
-				</CardContent>
-			</Card>
+		<div className={cn("w-28 flex gap-2", wrapperClasses)}>
+			<span className={cn("text-4xl", digits)}>{time}</span>
+			<span className={cn("text-4xl", digits)}>{oClockLabel}</span>
 		</div>
 	)
 }
