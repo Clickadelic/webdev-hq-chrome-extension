@@ -67,6 +67,10 @@
 		"message": "No downloads found.",
 		"description": "Downloads Tab"
 	},
+	"settings": {
+		"message": "Settings",
+		"description": "Settings Tab"
+	},
 	"search_placeholder": {
 		"message": "Search",
 		"description": "Search input placeholder."

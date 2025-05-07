@@ -24,8 +24,10 @@ const UserHistory = () => {
 	return (
 		<>
 			{history.length === 0 ? (
-				<div className="bg-white/30 backdrop p-2 rounded">
-					<p className="text-center text-md text-white">{noHistoryFoundLabel}</p>
+				<div className="bg-white/30 backdrop p-1 rounded">
+					<div className="bg-white rounded p-2">
+						<p className="text-center text-md text-slate-500">{noHistoryFoundLabel}</p>
+					</div>
 				</div>
 			) : (
 				<div className="bg-white/30 backdrop p-1 rounded">

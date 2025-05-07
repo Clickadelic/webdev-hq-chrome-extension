@@ -67,6 +67,10 @@
 		"message": "Keine Downloads vorhanden.",
 		"description": "Downloads Tab"
 	},
+	"settings": {
+		"message": "Einstellungen",
+		"description": "Einstellungen Tab"
+	},
 	"search_placeholder": {
 		"message": "Suche",
 		"description": "Suchfeld Placeholder-Text."

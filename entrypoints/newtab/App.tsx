@@ -7,6 +7,8 @@ import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
 
 const App = () => {
+	const extensionId = chrome.runtime.id
+	console.log("Extension ID:", extensionId)
 	return (
 		<div className="min-h-screen relative flex flex-col flex-start bg-rotterdam bg-slate-900 bg-cover">
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
