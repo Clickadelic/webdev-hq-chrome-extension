@@ -51,9 +51,25 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 			}
 		}
 
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				setDropdownOpen(false)
+			}
+
+			if (event.key === "Enter") {
+				const activeElement = document.activeElement
+				if (activeElement instanceof HTMLInputElement) {
+					activeElement.form?.requestSubmit()
+				}
+			}
+		}
+
 		document.addEventListener("mousedown", handleClickOutside)
+		document.addEventListener("keydown", handleKeyDown)
+
 		return () => {
 			document.removeEventListener("mousedown", handleClickOutside)
+			document.removeEventListener("keydown", handleKeyDown)
 		}
 	}, [])
 
