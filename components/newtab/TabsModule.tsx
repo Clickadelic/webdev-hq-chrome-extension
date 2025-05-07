@@ -9,7 +9,6 @@ import Settings from "./Settings"
 import { BsApp } from "react-icons/bs"
 import { BsListCheck } from "react-icons/bs"
 import { PiClockCountdown } from "react-icons/pi"
-import { CgTab } from "react-icons/cg"
 import { GoDownload } from "react-icons/go"
 import { HiOutlineCog8Tooth } from "react-icons/hi2"
 
