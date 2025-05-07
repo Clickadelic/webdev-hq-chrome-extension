@@ -9,8 +9,11 @@ import { BsChevronDown } from "react-icons/bs"
 import { cn } from "@/lib/utils"
 
 import { engines } from "@/lib/search-engines"
+interface MultiSearchProps {
+	classNames?: string
+}
 
-const UserSearch = () => {
+const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -47,12 +50,8 @@ const UserSearch = () => {
 	}, [])
 
 	return (
-		<form
-			method="GET"
-			action={`${searchEngine}${encodeURIComponent(searchQuery)}`}
-			className="max-w-[680px] mx-auto mb-3 bg-white backdrop relative top-64 flex flex-row gap-1 p-1 rounded items-center"
-		>
-			<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="w-full pl-3 pr-2 py-1 text-xl focus:outline-none" placeholder={searchPlaceholder} />
+		<form method="GET" action={`${searchEngine}${encodeURIComponent(searchQuery)}`} className={cn("w-full bg-white backdrop flex flex-row gap-1 p-1 rounded items-center", classNames)}>
+			<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="py-1 pr-2 pl-3 focus:outline-none w-full text-xl" placeholder={searchPlaceholder} />
 			{searchQuery.length >= 1 && (
 				<div className="relative">
 					<Button className="hover:cursor-pointer" variant="ghost" onClick={clearInputField}>
@@ -71,12 +70,12 @@ const UserSearch = () => {
 				</Button>
 
 				{dropdownOpen && (
-					<div className="absolute -left-3 mt-1 w-48 bg-white border rounded shadow-lg z-10">
+					<div className="-left-3 z-10 absolute bg-white shadow-lg mt-1 border rounded w-48">
 						{engines.map(engine => (
 							<button
 								key={engine.name}
 								type="button"
-								className="flex items-center gap-2 w-full py-2 px-4 text-left hover:bg-gray-200 hover:cursor-pointer"
+								className="flex items-center gap-2 hover:bg-gray-200 px-4 py-2 w-full text-left hover:cursor-pointer"
 								onClick={() => handleEngineChange(engine.url)}
 							>
 								{engine.icon}
@@ -87,11 +86,11 @@ const UserSearch = () => {
 				)}
 			</div>
 
-			<Button variant="primary" className="size-9">
+			<Button type="submit" variant="primary" className="size-9">
 				<AiOutlineSearch />
 			</Button>
 		</form>
 	)
 }
 
-export default UserSearch
+export default MultiSearch

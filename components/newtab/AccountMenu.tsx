@@ -2,11 +2,11 @@ import { useEffect, useState } from "react"
 import { getUserInfo } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 
-interface UserAccountMenuProps {
+interface AccountMenuProps {
 	classNames?: string
 }
 
-const UserAccountMenu = ({ classNames }: UserAccountMenuProps) => {
+const AccountMenu = ({ classNames }: AccountMenuProps) => {
 	const [user, setUser] = useState<chrome.identity.UserInfo | null>(null)
 	useEffect(() => {
 		getUserInfo().then(userInfo => setUser(userInfo))
@@ -14,4 +14,4 @@ const UserAccountMenu = ({ classNames }: UserAccountMenuProps) => {
 	return <div className={cn("font-semibold", classNames)}>{user?.email ? user.email : "Incognito"}</div>
 }
 
-export default UserAccountMenu
+export default AccountMenu

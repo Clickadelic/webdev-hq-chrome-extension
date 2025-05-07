@@ -1,16 +1,19 @@
-// components/Clock.tsx
-
-import React, { useEffect, useState } from "react"
-
+import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
 
-// TODO: Naming is bad, improve it
 interface ClockProps {
-	wrapperClasses?: string
-	digits?: string
+	classNames?: string
+	digitStyle?: string
 }
 
-const Clock: React.FC<ClockProps> = ({ wrapperClasses, digits }: ClockProps) => {
+/**
+ * A user-visible clock that updates every minute.
+ *
+ * @param classNames Classes to apply to the outermost element.
+ * @param digitStyle Classes to apply to each digit's span element.
+ */
+
+const Clock: React.FC<ClockProps> = ({ classNames, digitStyle }: ClockProps) => {
 	const [time, setTime] = useState<string>("")
 
 	const oClockLabel = chrome.i18n.getMessage("o_clock")
@@ -31,9 +34,9 @@ const Clock: React.FC<ClockProps> = ({ wrapperClasses, digits }: ClockProps) => 
 	}, [])
 
 	return (
-		<div className={cn("w-28 flex gap-2", wrapperClasses)}>
-			<span className={cn("text-4xl", digits)}>{time}</span>
-			<span className={cn("text-4xl", digits)}>{oClockLabel}</span>
+		<div className={cn("flex", classNames)}>
+			<span className={cn("flex", digitStyle)}>{time}</span>
+			<span className={cn("flex", digitStyle)}>{oClockLabel}</span>
 		</div>
 	)
 }
