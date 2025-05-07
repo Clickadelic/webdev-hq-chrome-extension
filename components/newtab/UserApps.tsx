@@ -10,10 +10,12 @@ import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
+import { googleApps } from "@/lib/google-apps"
 
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
-
+	const deleteLabel = chrome.i18n.getMessage("delete")
+	const editLabel = chrome.i18n.getMessage("edit")
 	const addAppLabel = chrome.i18n.getMessage("add_app")
 	const addAppDescription = chrome.i18n.getMessage("add_app_description")
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -52,10 +54,24 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-9 gap-2">
+		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded">
+			{googleApps.map(app => (
+				<li
+					key={app.id}
+					className="relative bg-white pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				>
+					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
+						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
+						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
+					</a>
+				</li>
+			))}
 			{apps.map(app => (
-				<li key={app.id} className="relative bg-white rounded pt-1 hover:bg-white/70 hover:cursor-pointer">
-					<a href={app.url} target="_blank" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
+				<li
+					key={app.id}
+					className="relative bg-white pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				>
+					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
 						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
 					</a>
@@ -69,12 +85,12 @@ const UserApps = () => {
 							<DropdownMenuItem>
 								<button onClick={() => onEdit(app.id)} className="flex justify-between">
 									<AiOutlineEdit className="mt-1 mr-2" />
-									bearbeiten
+									{editLabel}
 								</button>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
 								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700">
-									<BsTrash className="mt-1 mr-2" /> löschen
+									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {deleteLabel}
 								</button>
 							</DropdownMenuItem>
 						</DropdownMenuContent>
@@ -85,7 +101,7 @@ const UserApps = () => {
 				<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
 					<DialogTrigger
 						onClick={() => setIsModalOpen(true)}
-						className="flex flex-col gap-1 items-center place-content-center bg-white p-2 size-[70px] rounded hover:bg-white/70 hover:cursor-pointer"
+						className="flex flex-col gap-1 items-center place-content-center text-slate-400 bg-white p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 					>
 						<Plus />
 					</DialogTrigger>

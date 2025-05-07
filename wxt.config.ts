@@ -10,10 +10,10 @@ export default defineConfig({
 	}),
 	manifest: {
 		default_locale: "en",
-		host_permissions: ["<all_urls>"],
 		permissions: [
 			"activeTab",
 			"tabs",
+			"tabGroups",
 			"management",
 			"cookies",
 			"identity",
@@ -27,6 +27,7 @@ export default defineConfig({
 			"system.memory",
 			"system.storage"
 		],
+		host_permissions: ["<all_urls>"],
 		background: {
 			service_worker: "background.js"
 		}

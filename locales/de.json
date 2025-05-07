@@ -1,7 +1,11 @@
 {
 	"console_log_on_installed": {
-		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank!",
+		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
+	},
+	"o_clock": {
+		"message": "Uhr",
+		"description": "Uhr Tab."
 	},
 	"apps": {
 		"message": "Apps",
@@ -58,5 +62,13 @@
 	"goodMorning": {
 		"message": "Guten Morgen",
 		"description": "Begrüßung des Benutzers am Morgen."
+	},
+	"edit": {
+		"message": "bearbeiten",
+		"description": "Bearbeiten Button."
+	},
+	"delete": {
+		"message": "löschen",
+		"description": "Löschen Button."
 	}
 }

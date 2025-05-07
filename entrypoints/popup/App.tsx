@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 
+/*
 type Info = {
 	cpu: chrome.system.cpu.CpuInfo
 	memory: chrome.system.memory.MemoryInfo
 	storage: chrome.system.storage.StorageUnitInfo[]
 }
-
 const App = () => {
 	const [info, setInfo] = useState<Info | null>(null)
 
@@ -38,6 +38,15 @@ const App = () => {
 					<p>Kapazität: {(s.capacity / 1024 ** 3).toFixed(2)} GB</p>
 				</div>
 			))}
+		</div>
+	)
+}
+	*/
+
+const App = () => {
+	return (
+		<div className="size-[600px] bg-slate-100 p-3">
+			<h1 className="text-2xl font-light">PopUp</h1>
 		</div>
 	)
 }

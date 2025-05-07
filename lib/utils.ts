@@ -56,6 +56,7 @@ export const getUserHistory = ({ maxResults = 15, startTime = 0 }) => {
 		)
 	})
 }
+
 export const deleteUserHistory = (): Promise<void> => {
 	return new Promise(resolve => {
 		chrome.history.deleteAll(() => {
@@ -69,6 +70,6 @@ export function getFaviconUrl(websiteUrl: string, size = 32): string | undefined
 		const url = new URL(websiteUrl)
 		return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
 	} catch {
-		return undefined // nicht null!
+		return undefined
 	}
 }
