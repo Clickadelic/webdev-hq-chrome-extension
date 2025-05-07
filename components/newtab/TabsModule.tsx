@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import UserApps from "@/components/newtab/UserApps"
 import UserHistory from "@/components/newtab/UserHistory"
-import UserTodos from "@/components/newtab/UserTodos"
+import TodoList from "@/components/newtab/TodoList"
 import UserDownloads from "@/components/newtab/UserDownloads"
 
 import { BsApp } from "react-icons/bs"
@@ -52,7 +52,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 					<UserApps />
 				</TabsContent>
 				<TabsContent value="todos">
-					<UserTodos />
+					<TodoList />
 				</TabsContent>
 				<TabsContent value="free">Free</TabsContent>
 				<TabsContent value="history">

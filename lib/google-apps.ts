@@ -15,6 +15,7 @@ import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
 import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
 import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
 import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
+import googleTasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
 // import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
 export const googleApps = [
@@ -71,6 +72,12 @@ export const googleApps = [
 		title: "Slides",
 		icon: googleSlidesIcon,
 		url: "https://docs.google.com/presentation/u/0/?ec=wgc-slides-[module]-goto"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Tasks",
+		icon: googleTasksIcon,
+		url: "https://tasks.google.com"
 	},
 	{
 		id: crypto.randomUUID(),

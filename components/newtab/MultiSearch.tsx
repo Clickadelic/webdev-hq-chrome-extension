@@ -13,6 +13,14 @@ interface MultiSearchProps {
 	classNames?: string
 }
 
+/**
+ * A component to handle multiple search engines in the new tab.
+ *
+ * @param {Object} props - Component props
+ * @param {string} [props.classNames] - Additional CSS class names
+ *
+ * @return {ReactElement} The rendered component
+ */
 const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()

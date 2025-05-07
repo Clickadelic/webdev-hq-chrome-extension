@@ -1,6 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { GoGear } from "react-icons/go"
-
 import AppIcon from "@/components/global/AppIcon"
 import Clock from "@/components/newtab/Clock"
 import Salutation from "@/components/newtab/Salutation"
@@ -19,11 +16,6 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
-			<div className="right-4 bottom-4 absolute text-white">
-				<Button className="w-full" onClick={() => chrome.runtime.openOptionsPage()}>
-					<GoGear />
-				</Button>
-			</div>
 		</div>
 	)
 }
