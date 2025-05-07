@@ -9,13 +9,11 @@ export const dailySalutation = () => {
 	const date = new Date()
 	const hours = date.getHours()
 	if (hours < 12) {
-		return "Good Morning"
-	} else if (hours < 1) {
-		return "Hey, Nightowl"
+		return chrome.i18n.getMessage("good_morning")
 	} else if (hours < 18) {
-		return "Good Afternoon"
+		return chrome.i18n.getMessage("good_afternoon")
 	} else {
-		return "Good Evening"
+		return chrome.i18n.getMessage("good_evening")
 	}
 }
 

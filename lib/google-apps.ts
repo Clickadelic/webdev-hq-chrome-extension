@@ -15,7 +15,8 @@ import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
 import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
 import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
 import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
-// import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
+import googleTasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
+import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
 export const googleApps = [
 	{
@@ -74,6 +75,12 @@ export const googleApps = [
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Tasks",
+		icon: googleTasksIcon,
+		url: "https://tasks.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "Translate",
 		icon: googleTranslateIcon,
 		url: "https://translate.google.com"
@@ -120,5 +127,11 @@ export const googleApps = [
 		title: "Console",
 		icon: googleSearchConsoleIcon,
 		url: "https://search.google.com/search-console"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "YouTube",
+		icon: youTubeIcon,
+		url: "https://youtube.com"
 	}
 ]

@@ -12,7 +12,14 @@ import { BsTrash3 } from "react-icons/bs"
 import { cn } from "@/lib/utils"
 import { useTodoStore } from "@/stores/use-todo-store"
 
-const UserTodos = () => {
+/**
+ * TodoList
+ *
+ * Component that displays a list of todos and allows the user to add, toggle and delete them.
+ *
+ * @returns The TodoList component.
+ */
+const TodoList = () => {
 	const newTodoPlaceholder = chrome.i18n.getMessage("new_todo_placeholder")
 	const createFirstTask = chrome.i18n.getMessage("create_your_first_task")
 
@@ -59,4 +66,4 @@ const UserTodos = () => {
 	)
 }
 
-export default UserTodos
+export default TodoList

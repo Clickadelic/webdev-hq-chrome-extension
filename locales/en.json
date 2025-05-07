@@ -3,6 +3,18 @@
 		"message": "WebDev HQ Chrome Extension installed! Thank You! For more information visit: https://webdev-hq.com",
 		"description": "Console message after extension installation."
 	},
+	"good_morning": {
+		"message": "Good morning",
+		"description": "Salutation in the morning."
+	},
+	"good_afternoon": {
+		"message": "Good afternoon",
+		"description": "Salutation during the day."
+	},
+	"good_evening": {
+		"message": "Good evening",
+		"description": "Salutation in the evening."
+	},
 	"o_clock": {
 		"message": "h",
 		"description": "Uhr Tab."
@@ -54,6 +66,10 @@
 	"no_downloads_found": {
 		"message": "No downloads found.",
 		"description": "Downloads Tab"
+	},
+	"settings": {
+		"message": "Settings",
+		"description": "Settings Tab"
 	},
 	"search_placeholder": {
 		"message": "Search",
