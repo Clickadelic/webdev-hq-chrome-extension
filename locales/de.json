@@ -3,6 +3,18 @@
 		"message": "WebDev HQ Chrome Extension installiert! Vielen Dank! Für mehr Informationen: https://webdev-hq.com/",
 		"description": "Konsolennachricht nach der Installation."
 	},
+	"good_morning": {
+		"message": "Guten Morgen",
+		"description": "Begrüßung morgens."
+	},
+	"good_afternoon": {
+		"message": "Guten Tag",
+		"description": "Begrüßung nachmittags."
+	},
+	"good_evening": {
+		"message": "Guten Abend",
+		"description": "Begrüßung abends."
+	},
 	"o_clock": {
 		"message": "Uhr",
 		"description": "Uhr Tab."
