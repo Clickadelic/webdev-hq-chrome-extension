@@ -20,7 +20,6 @@ interface TabsModuleProps {
 const TabsModule = ({ classNames }: TabsModuleProps) => {
 	const appsLabel: string = chrome.i18n.getMessage("apps")
 	const todosLabel: string = chrome.i18n.getMessage("todos")
-	const tabsLabel: string = chrome.i18n.getMessage("tabs")
 	const historyLabel: string = chrome.i18n.getMessage("history")
 	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
 	const settingsLabel: string = chrome.i18n.getMessage("settings")
