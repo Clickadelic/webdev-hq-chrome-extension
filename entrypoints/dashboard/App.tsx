@@ -1,11 +1,11 @@
-import HeaderSidebar from "@/components/global/HeaderSidebar";
+import HeaderSidebar from "@/components/global/HeaderSidebar"
 
 const App = () => {
-  return (
-    <>
-      <HeaderSidebar />
-    </>
-  );
-};
+	return (
+		<div className="min-h-dvh bg-slate-100">
+			<HeaderSidebar />
+		</div>
+	)
+}
 
-export default App;
+export default App

@@ -9,6 +9,19 @@ import TabsModule from "@/components/newtab/TabsModule"
 const App = () => {
 	const extensionId = chrome.runtime.id
 	console.log("Extension ID:", extensionId)
+
+	const [response, setResponse] = useState<any[]>([])
+	const getLinkCollection = () => {
+		chrome.runtime.sendMessage({ action: "getLinks" }, res => {
+			console.log(res)
+			setResponse(res.links)
+		})
+	}
+
+	const openDashboard = () => {
+		return chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/dashboard.html` })
+	}
+
 	return (
 		<div className="min-h-screen relative flex flex-col flex-start bg-rotterdam bg-slate-900 bg-cover">
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
@@ -18,6 +31,7 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
+			<button onClick={openDashboard}>Dashboard</button>
 		</div>
 	)
 }

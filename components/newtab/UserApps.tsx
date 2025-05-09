@@ -1,16 +1,23 @@
-import { useAppStore, AppType } from "@/stores/use-app-store"
-
+import * as z from "zod"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { Form } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { getFaviconUrl } from "@/lib/utils"
+
+import { useAppStore, AppType } from "@/stores/use-app-store"
+import { AppSchema } from "@/schemas"
+
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
+
 import { googleApps } from "@/lib/google-apps"
+import { getFaviconUrl } from "@/lib/utils"
 
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
@@ -19,7 +26,10 @@ const UserApps = () => {
 	const addAppLabel = chrome.i18n.getMessage("add_app")
 	const addAppDescription = chrome.i18n.getMessage("add_app_description")
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
+	let form = useForm<z.infer<typeof AppSchema>>({
+		resolver: zodResolver(AppSchema),
+		defaultValues: { title: "", url: "" }
+	})
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const formData = new FormData(e.currentTarget)

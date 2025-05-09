@@ -3,51 +3,6 @@ export default defineBackground(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed"))
 	})
 
-	chrome.runtime.onInstalled.addListener(() => {
-		chrome.contextMenus.create({
-			id: "addToReadingList",
-			title: "Zur Reading List hinzufügen",
-			contexts: ["page", "link"]
-		})
-
-		chrome.contextMenus.onClicked.addListener((info, tab) => {
-			if (info.menuItemId === "addToReadingList") {
-				const urlToSend = info.linkUrl || info.pageUrl
-
-				fetch("https://example.com/api/reading-list", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({ url: urlToSend })
-				})
-					.then(response => {
-						if (!response.ok) {
-							throw new Error("Network response was not ok")
-						}
-						console.log("URL erfolgreich gesendet:", urlToSend)
-					})
-					.catch(error => {
-						console.error("Fehler beim Senden der URL:", error)
-					})
-			}
-		})
-	})
-
-	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		const url = info.linkUrl || info.pageUrl
-		if (!url) {
-			alert("Keine URL gefunden")
-		}
-		chrome.storage.sync.get(["readingList"], result => {
-			const list: string[] = result.readingList || []
-			if (!list.includes(url)) {
-				list.push(url)
-				chrome.storage.sync.set({ readingList: list })
-			}
-		})
-	})
-
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getHistory") {
 			getHistory().then(history => {
@@ -103,4 +58,34 @@ export default defineBackground(() => {
 	async function getSavedGroups(): Promise<{ title?: string; color: string }[]> {
 		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
 	}
+
+	chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+		if (message.action === "getLinks") {
+			const links = await getLinksFromAPI()
+			sendResponse({ links })
+		}
+	})
+	async function getLinksFromAPI() {
+		const response = await fetch("https://cms.tobias-hopp.de/wp-json/wp/v2/links", { method: "GET" })
+		return response.json()
+	}
+
+	chrome.runtime.onInstalled.addListener(() => {
+		chrome.contextMenus.create({
+			id: "trigger-messwerkzeug",
+			title: "Messwerkzeug starten",
+			contexts: ["all"]
+		})
+	})
+
+	chrome.contextMenus.onClicked.addListener((info, tab) => {
+		if (info.menuItemId === "trigger-messwerkzeug") {
+			chrome.scripting.executeScript({
+				target: { tabId: tab?.id || 0 },
+				func: () => {
+					chrome.runtime.sendMessage({ action: "start-messwerkzeug" })
+				}
+			})
+		}
+	})
 })

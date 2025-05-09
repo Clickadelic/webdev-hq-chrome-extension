@@ -28,11 +28,6 @@ const TodoList = () => {
 	const toggleTodo = useTodoStore(state => state.toggleTodo)
 	const deleteTodo = useTodoStore(state => state.deleteTodo)
 
-	let form = useForm<z.infer<typeof AppSchema>>({
-		resolver: zodResolver(AppSchema),
-		defaultValues: { title: "", url: "" }
-	})
-
 	const handleTodoSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		const formData = new FormData(e.currentTarget)

@@ -13,7 +13,6 @@ const UserHistory = () => {
 	const [history, setHistory] = useState<chrome.history.HistoryItem[]>([])
 
 	useEffect(() => {
-		// Abrufen der Historie von der Chrome-Erweiterung
 		chrome.runtime.sendMessage({ action: "getHistory" }, response => {
 			if (response && response.history) {
 				setHistory(response.history)
