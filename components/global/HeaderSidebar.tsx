@@ -13,7 +13,7 @@ import { NotificationButton } from "./NotificationButton"
 import { InboxButton } from "./InboxButton"
 import { FullscreenButton } from "./FullscreenButton"
 import { LangSwitch } from "./LangSwitch"
-
+import { Link } from "react-router-dom"
 import Logo from "./Logo"
 
 const HeaderSidebar = () => {
@@ -25,7 +25,19 @@ const HeaderSidebar = () => {
 				<div className="sidebar-logo hidden md:flex justify-center px-2 py-3">
 					<Logo href="https://webdev-hq.com" isOpen={isSidebarOpen} />
 				</div>
-				<section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">MenuLeft</section>
+				<section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">
+					<ul>
+						<li>
+							<Link to="/">Dashboard</Link>
+						</li>
+						<li>
+							<Link to="/about">About</Link>
+						</li>
+						<li>
+							<Link to="/contact">Contact</Link>
+						</li>
+					</ul>
+				</section>
 			</aside>
 			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen p-3 border-b bg-white z-50", isSidebarOpen ? "md:ml-16" : "md:ml-64")}>
 				<nav className="header-nav flex justify-between w-max">
