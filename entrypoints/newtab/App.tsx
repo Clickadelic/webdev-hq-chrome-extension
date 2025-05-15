@@ -30,7 +30,7 @@ const App = () => {
 
 	return (
 		<div
-			className="min-h-screen relative flex flex-col flex-start bg-rotterdam bg-slate-900 bg-cover"
+			className="min-h-screen relative flex flex-col flex-start bg-slate-900 bg-cover"
 			style={{
 				backgroundImage: image ? `url(${image})` : undefined,
 				backgroundSize: "cover",
