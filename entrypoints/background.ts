@@ -4,6 +4,24 @@ export default defineBackground(() => {
 	})
 
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+		if (message.action === "fetchAndStoreBackgroundImage") {
+			fetch("https://api.webdev-hq.com/common/v1/extension/daily-image")
+				.then(res => res.json())
+				.then(data => {
+					const imageUrl = data.response.urls.regular
+					chrome.storage.local.set({ backgroundImageUrl: imageUrl }, () => {
+						sendResponse({ success: true, imageUrl })
+					})
+				})
+				.catch(err => {
+					console.error("Fehler beim Laden des Bildes:", err)
+					sendResponse({ success: false })
+				})
+			return true
+		}
+	})
+
+	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getHistory") {
 			getHistory().then(history => {
 				sendResponse({ history })

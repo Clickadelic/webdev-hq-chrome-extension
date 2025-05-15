@@ -26,6 +26,7 @@ const UserApps = () => {
 	const addAppLabel = chrome.i18n.getMessage("add_app")
 	const addAppDescription = chrome.i18n.getMessage("add_app_description")
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
 	let form = useForm<z.infer<typeof AppSchema>>({
 		resolver: zodResolver(AppSchema),
 		defaultValues: { title: "", url: "" }
