@@ -94,5 +94,9 @@
 	"on": {
 		"message": "auf",
 		"description": "auf Präposition."
+	},
+	"start_meazure_tool": {
+		"message": "Starte Messwerkzeug",
+		"description": "Startet das Messwerkzeug."
 	}
 }

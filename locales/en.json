@@ -94,5 +94,9 @@
 	"on": {
 		"message": "on",
 		"description": "on preposition."
+	},
+	"start_meazure_tool": {
+		"message": "Start measure tool",
+		"description": "Starts the measure tool."
 	}
 }
