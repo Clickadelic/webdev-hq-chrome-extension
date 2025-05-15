@@ -31,13 +31,13 @@ export default defineConfig({
 		content_scripts: [
 			{
 				css: ["content/style.css"],
-				js: ["content/index.ts"],
+				js: ["content/index.js"],
 				matches: ["*://*/*"]
 			}
 		],
 		host_permissions: ["<all_urls>"],
 		background: {
-			service_worker: "background.ts"
+			service_worker: "background.js"
 		}
 	}
 })

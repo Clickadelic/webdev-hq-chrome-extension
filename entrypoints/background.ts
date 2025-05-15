@@ -53,7 +53,7 @@ export default defineBackground(() => {
 					})
 				} else {
 					try {
-						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/extension/random-image`)
+						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/chrome-extension/random-image`)
 						const json = await res.json()
 
 						// json ist direkt das Bildobjekt, kein json.response!
