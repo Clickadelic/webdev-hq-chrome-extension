@@ -30,8 +30,8 @@ export default defineConfig({
 		],
 		content_scripts: [
 			{
-				css: ["content/style.css"],
-				js: ["content/index.js"],
+				css: ["content-scripts/content.css"],
+				js: ["content-scripts/content.js"],
 				matches: ["*://*/*"]
 			}
 		],

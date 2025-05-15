@@ -1,10 +1,11 @@
 {
 	"name": "webdev-hq-chrome-extension",
-	"description": "WebDeveloper NewTab Extension",
+	"description": "WebDeveloper Tools Chrome Extension",
 	"private": true,
-	"version": "0.0.0",
+	"version": "0.0.5",
 	"type": "module",
 	"scripts": {
+		"debug": "wxt prepare --debug",
 		"dev": "wxt",
 		"dev:firefox": "wxt -b firefox",
 		"build": "wxt build",

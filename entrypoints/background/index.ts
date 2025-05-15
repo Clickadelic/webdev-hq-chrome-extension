@@ -93,17 +93,6 @@ export default defineBackground(() => {
 		return true // Asynchronous response
 	})
 
-	chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-		if (msg.type === "getHardwareInfo") {
-			Promise.all([chrome.system.cpu.getInfo(), chrome.system.memory.getInfo(), chrome.system.storage.getInfo()]).then(([cpu, memory, storage]) => {
-				sendResponse({ cpu, memory, storage })
-			})
-
-			// Async response
-			return true
-		}
-	})
-
 	function getHistory() {
 		return new Promise((resolve, reject) => {
 			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
@@ -142,14 +131,14 @@ export default defineBackground(() => {
 
 	chrome.runtime.onInstalled.addListener(() => {
 		chrome.contextMenus.create({
-			id: "trigger-messwerkzeug",
-			title: "Messwerkzeug starten",
+			id: "meazure_tool",
+			title: chrome.i18n.getMessage("start_meazure_tool"),
 			contexts: ["all"]
 		})
 	})
 
 	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		if (info.menuItemId === "trigger-messwerkzeug") {
+		if (info.menuItemId === "meazure_tool") {
 			chrome.scripting.executeScript({
 				target: { tabId: tab?.id || 0 },
 				func: () => {
