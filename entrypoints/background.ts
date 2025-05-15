@@ -3,21 +3,35 @@ export default defineBackground(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed"))
 	})
 
-	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-		if (message.action === "fetchAndStoreBackgroundImage") {
-			fetch("https://api.webdev-hq.com/common/v1/extension/daily-image")
-				.then(res => res.json())
-				.then(data => {
-					const imageUrl = data.response.urls.regular
-					chrome.storage.local.set({ backgroundImageUrl: imageUrl }, () => {
-						sendResponse({ success: true, imageUrl })
-					})
-				})
-				.catch(err => {
-					console.error("Fehler beim Laden des Bildes:", err)
-					sendResponse({ success: false })
-				})
-			return true
+	chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
+		if (message.action === "getDailyImage") {
+			chrome.storage.local.get(["backgroundImageUrl", "lastFetchedDate"], async data => {
+				const today = new Date().toISOString().split("T")[0]
+
+				if (data.backgroundImageUrl && data.lastFetchedDate === today) {
+					sendResponse({ url: data.backgroundImageUrl })
+				} else {
+					try {
+						const res = await fetch("https://api.webdev-hq.com/common/v1/extension/daily-image")
+						const json = await res.json()
+						const imageUrl = json.response.urls.regular
+
+						chrome.storage.local.set({
+							backgroundImageUrl: imageUrl,
+							lastFetchedDate: today,
+							unsplashUrl: json.response.links.html,
+							author: json.response.user.name,
+							authorUrl: json.response.user.links.html
+						})
+
+						sendResponse({ url: imageUrl })
+					} catch (e) {
+						console.error("Fehler beim Laden:", e)
+						sendResponse({ url: null })
+					}
+				}
+			})
+			return true // async response
 		}
 	})
 

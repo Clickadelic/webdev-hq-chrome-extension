@@ -7,22 +7,24 @@ import MultiSearch from "@/components/newtab/MultiSearch"
 import AccountMenu from "@/components/newtab/AccountMenu"
 import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
-import { get } from "react-hook-form"
+
+import { Card, CardContent } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const App = () => {
-	const [backgroundImage, setBackgroundImage] = useState<string | null>(null)
+	const [image, setImage] = useState<string | null>(null)
+	const [credit, setCredit] = useState<{ author: string; authorUrl: string; unsplashUrl: string } | null>(null)
 
 	useEffect(() => {
-		chrome.storage.local.get("backgroundImageUrl", async result => {
-			if (result.backgroundImageUrl) {
-				console.log("backgroundImageUrl", result.backgroundImageUrl)
-				setBackgroundImage(result.backgroundImageUrl)
-			} else {
-				const response = await chrome.runtime.sendMessage({ action: "fetchAndStoreImage" })
-				if (response?.imageUrl) {
-					setBackgroundImage(response.urls.regular)
-				}
-			}
+		chrome.runtime.sendMessage({ action: "getDailyImage" }, response => {
+			setImage(response.url || null)
+			chrome.storage.local.get(["author", "authorUrl", "unsplashUrl"], data => {
+				setCredit({
+					author: data.author,
+					authorUrl: data.authorUrl,
+					unsplashUrl: data.unsplashUrl
+				})
+			})
 		})
 	}, [])
 
@@ -30,7 +32,9 @@ const App = () => {
 		<div
 			className="min-h-screen relative flex flex-col flex-start bg-rotterdam bg-slate-900 bg-cover"
 			style={{
-				backgroundImage: backgroundImage ? `url(${backgroundImage})` : undefined
+				backgroundImage: image ? `url(${image})` : undefined,
+				backgroundSize: "cover",
+				backgroundPosition: "center"
 			}}
 		>
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
@@ -40,6 +44,20 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
+			{credit && (
+				<div className="absolute bottom-4 left-4 text-white text-sm">
+					<p className="text-xs mt-4">
+						{chrome.i18n.getMessage("photo_by")}{" "}
+						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
+							{credit.author}
+						</a>{" "}
+						auf{" "}
+						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
+							Unsplash
+						</a>
+					</p>
+				</div>
+			)}
 		</div>
 	)
 }
