@@ -1,3 +1,5 @@
+import BackgroundImage from "@/components/newtab/BackgroundImage"
+
 import AppIcon from "@/components/global/AppIcon"
 import Clock from "@/components/newtab/Clock"
 import Salutation from "@/components/newtab/Salutation"
@@ -7,23 +9,8 @@ import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
 
 const App = () => {
-	const extensionId = chrome.runtime.id
-	console.log("Extension ID:", extensionId)
-
-	const [response, setResponse] = useState<any[]>([])
-	const getLinkCollection = () => {
-		chrome.runtime.sendMessage({ action: "getLinks" }, res => {
-			console.log(res)
-			setResponse(res.links)
-		})
-	}
-
-	const openDashboard = () => {
-		return chrome.tabs.create({ url: `chrome-extension://${chrome.runtime.id}/dashboard.html` })
-	}
-
 	return (
-		<div className="min-h-screen relative flex flex-col flex-start bg-rotterdam bg-slate-900 bg-cover">
+		<BackgroundImage>
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
 			<Clock classNames="mt-4 mx-auto" digitStyle="text-4xl text-white font-light" />
 			<AccountMenu classNames="absolute top-4 right-4 text-white" />
@@ -31,8 +18,7 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
-			<button onClick={openDashboard}>Dashboard</button>
-		</div>
+		</BackgroundImage>
 	)
 }
 

@@ -86,5 +86,17 @@
 	"delete": {
 		"message": "delete",
 		"description": "Delete Button."
+	},
+	"photo_by": {
+		"message": "Photo by",
+		"description": "Photo by text."
+	},
+	"on": {
+		"message": "on",
+		"description": "on preposition."
+	},
+	"start_meazure_tool": {
+		"message": "Start measure tool",
+		"description": "Starts the measure tool."
 	}
 }
