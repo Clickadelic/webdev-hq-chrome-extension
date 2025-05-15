@@ -8,12 +8,15 @@ import AccountMenu from "@/components/newtab/AccountMenu"
 import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton"
+interface CreditsProps {
+	author: string
+	authorUrl: string
+	unsplashUrl: string
+}
 
 const App = () => {
 	const [image, setImage] = useState<string | null>(null)
-	const [credit, setCredit] = useState<{ author: string; authorUrl: string; unsplashUrl: string } | null>(null)
+	const [credit, setCredit] = useState<CreditsProps | null>(null)
 
 	useEffect(() => {
 		chrome.runtime.sendMessage({ action: "getDailyImage" }, response => {
@@ -51,7 +54,7 @@ const App = () => {
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
 						</a>{" "}
-						auf{" "}
+						{chrome.i18n.getMessage("on")}{" "}
 						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>
