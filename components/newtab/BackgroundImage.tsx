@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-interface DailyBackgroundImageProps {
+interface RandomBackgroundImageProps {
 	children: React.ReactNode
 }
 
@@ -10,19 +10,24 @@ interface CreditsProps {
 	unsplashUrl: string
 }
 
-const DailyBackgroundImage = ({ children }: DailyBackgroundImageProps) => {
-	const [image, setImage] = useState<string | null>(null)
+const RandomBackgroundImage = ({ children }: RandomBackgroundImageProps) => {
+	const [imageUrl, setImageUrl] = useState<string | null>(null)
 	const [credit, setCredit] = useState<CreditsProps | null>(null)
 
 	useEffect(() => {
-		chrome.runtime.sendMessage({ action: "getDailyImage" }, response => {
-			setImage(response.url || null)
-			chrome.storage.local.get(["author", "authorUrl", "unsplashUrl"], data => {
-				setCredit({
-					author: data.author,
-					authorUrl: data.authorUrl,
-					unsplashUrl: data.unsplashUrl
-				})
+		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
+			if (!response || response.error) {
+				console.error("Fehler beim Laden des Bildes:", response?.error)
+				return
+			}
+			console.log("Bild geladen:", response)
+
+			setImageUrl(response.url)
+
+			setCredit({
+				author: response.author,
+				authorUrl: response.authorUrl,
+				unsplashUrl: response.link
 			})
 		})
 	}, [])
@@ -31,7 +36,7 @@ const DailyBackgroundImage = ({ children }: DailyBackgroundImageProps) => {
 		<div
 			className="min-h-screen relative flex flex-col flex-start bg-slate-900 bg-cover"
 			style={{
-				backgroundImage: image ? `url(${image})` : undefined,
+				backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
 				backgroundSize: "cover",
 				backgroundPosition: "center"
 			}}
@@ -55,4 +60,4 @@ const DailyBackgroundImage = ({ children }: DailyBackgroundImageProps) => {
 	)
 }
 
-export default DailyBackgroundImage
+export default RandomBackgroundImage

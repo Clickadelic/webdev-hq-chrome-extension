@@ -1,37 +1,86 @@
 export default defineBackground(() => {
+	// installation message in console
 	chrome.runtime.onInstalled.addListener(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed"))
 	})
 
+	interface StorageData {
+		backgroundImageUrl?: string
+		lastFetchedDate?: string
+		unsplashUrl?: string
+		author?: string
+		authorUrl?: string
+	}
+	function setToStorage(items: Record<string, any>): Promise<void> {
+		return new Promise((resolve, reject) => {
+			chrome.storage.local.set(items, () => {
+				const err = chrome.runtime.lastError
+				if (err) {
+					reject(err)
+				} else {
+					resolve()
+				}
+			})
+		})
+	}
+
+	function getFromStorage<T>(keys: string[]): Promise<T> {
+		return new Promise((resolve, reject) => {
+			chrome.storage.local.get(keys, items => {
+				const err = chrome.runtime.lastError
+				if (err) {
+					reject(err)
+				} else {
+					resolve(items as T)
+				}
+			})
+		})
+	}
+
 	chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
-		if (message.action === "getDailyImage") {
-			chrome.storage.local.get(["backgroundImageUrl", "lastFetchedDate"], async data => {
+		if (message.action === "getRandomImage") {
+			;(async () => {
 				const today = new Date().toISOString().split("T")[0]
 
+				const data = await getFromStorage<StorageData>(["backgroundImageUrl", "lastFetchedDate"])
+
 				if (data.backgroundImageUrl && data.lastFetchedDate === today) {
-					sendResponse({ url: data.backgroundImageUrl })
+					sendResponse({
+						url: data.backgroundImageUrl,
+						author: data.author,
+						authorUrl: data.authorUrl,
+						link: data.unsplashUrl
+					})
 				} else {
 					try {
-						const res = await fetch("https://api.webdev-hq.com/common/v1/extension/daily-image")
+						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/extension/random-image`)
 						const json = await res.json()
-						const imageUrl = json.response.urls.regular
 
-						chrome.storage.local.set({
+						// json ist direkt das Bildobjekt, kein json.response!
+						const imageUrl = json.url
+
+						await setToStorage({
 							backgroundImageUrl: imageUrl,
 							lastFetchedDate: today,
-							unsplashUrl: json.response.links.html,
-							author: json.response.user.name,
-							authorUrl: json.response.user.links.html
+							unsplashUrl: json.link,
+							author: json.author,
+							authorUrl: json.authorUrl
 						})
 
-						sendResponse({ url: imageUrl })
+						sendResponse({
+							url: imageUrl,
+							author: json.author,
+							authorUrl: json.authorUrl,
+							link: json.link
+						})
 					} catch (e) {
-						console.error("Fehler beim Laden:", e)
+						console.error("Error loading:", e)
 						sendResponse({ url: null })
 					}
 				}
-			})
-			return true // async response
+			})()
+
+			return true
 		}
 	})
 
@@ -89,17 +138,6 @@ export default defineBackground(() => {
 	// Hilfsfunktion zum Laden
 	async function getSavedGroups(): Promise<{ title?: string; color: string }[]> {
 		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
-	}
-
-	chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
-		if (message.action === "getLinks") {
-			const links = await getLinksFromAPI()
-			sendResponse({ links })
-		}
-	})
-	async function getLinksFromAPI() {
-		const response = await fetch("https://cms.tobias-hopp.de/wp-json/wp/v2/links", { method: "GET" })
-		return response.json()
 	}
 
 	chrome.runtime.onInstalled.addListener(() => {

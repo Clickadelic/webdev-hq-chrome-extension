@@ -1,4 +1,4 @@
-import DailyBackgroundImage from "@/components/newtab/DailyBackgroundImage"
+import BackgroundImage from "@/components/newtab/BackgroundImage"
 
 import AppIcon from "@/components/global/AppIcon"
 import Clock from "@/components/newtab/Clock"
@@ -10,7 +10,7 @@ import TabsModule from "@/components/newtab/TabsModule"
 
 const App = () => {
 	return (
-		<DailyBackgroundImage>
+		<BackgroundImage>
 			<AppIcon url="https://webdev-hq.com" classNames="absolute top-4 left-4 text-white z-50" target="_blank" />
 			<Clock classNames="mt-4 mx-auto" digitStyle="text-4xl text-white font-light" />
 			<AccountMenu classNames="absolute top-4 right-4 text-white" />
@@ -18,7 +18,7 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
-		</DailyBackgroundImage>
+		</BackgroundImage>
 	)
 }
 
