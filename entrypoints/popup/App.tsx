@@ -20,7 +20,7 @@ const App = () => {
 
 	return (
 		<div className="p-4">
-			<Button variant="primary" onClick={injectCSS}>
+			<Button variant="primary" size="sm" onClick={injectCSS}>
 				<AiOutlineBug />
 			</Button>
 		</div>

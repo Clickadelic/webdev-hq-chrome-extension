@@ -37,7 +37,7 @@ export default defineBackground(() => {
 		})
 	}
 
-	chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
+	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getRandomImage") {
 			;(async () => {
 				const today = new Date().toISOString().split("T")[0]
@@ -142,7 +142,7 @@ export default defineBackground(() => {
 			chrome.scripting.executeScript({
 				target: { tabId: tab?.id || 0 },
 				func: () => {
-					chrome.runtime.sendMessage({ action: "start-messwerkzeug" })
+					chrome.runtime.sendMessage({ action: "injectStylesheet" })
 				}
 			})
 		}
