@@ -7,6 +7,7 @@ import MultiSearch from "@/components/newtab/MultiSearch"
 import AccountMenu from "@/components/newtab/AccountMenu"
 import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
+import Cockpit from "@/components/newtab/Cockpit"
 
 const App = () => {
 	return (
@@ -18,6 +19,7 @@ const App = () => {
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 			<TabGroupBadges />
+			<Cockpit />
 		</BackgroundImage>
 	)
 }
