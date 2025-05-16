@@ -7,19 +7,15 @@ export default defineContentScript({
 	cssInjectionMode: "ui",
 
 	async main(ctx) {
-		chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-			console.log(sender)
-
-			if (message.command === "injectStylesheet") {
-				if (!isDOM(document.getElementById("webdev-hq-debug-stylesheet"))) {
-					const url = browser.runtime.getURL(message.stylesheet)
-					// console.log("Stylesheet URL:", url) // Add this line to check URL
-					const style = document.createElement("link")
-					style.rel = "stylesheet"
-					style.href = url
-					style.id = "webdev-hq-debug-stylesheet"
-					document.head.appendChild(style)
-				}
+		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+			if (request.command === "injectStylesheet") {
+				const link = document.createElement("link")
+				link.id = "webdev-hq-debug-stylesheet"
+				link.rel = "stylesheet"
+				link.href = chrome.runtime.getURL(request.stylesheet)
+				document.head.appendChild(link)
+			} else if (request.command === "removeStylesheet") {
+				document.getElementById("webdev-hq-debug-stylesheet")?.remove()
 			}
 		})
 	}

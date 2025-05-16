@@ -39,7 +39,6 @@ export default defineConfig({
 		background: {
 			service_worker: "background.js"
 		},
-		staticDir: "assets",
 		web_accessible_resources: [
 			{
 				resources: ["assets/pesticide.css"],

@@ -129,21 +129,11 @@ export default defineBackground(() => {
 		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
 	}
 
-	chrome.runtime.onInstalled.addListener(() => {
-		chrome.contextMenus.create({
-			id: "meazure_tool",
-			title: chrome.i18n.getMessage("start_meazure_tool"),
-			contexts: ["all"]
-		})
-	})
-
-	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		if (info.menuItemId === "meazure_tool") {
+	chrome.action.onClicked.addListener(tab => {
+		if (tab.id) {
 			chrome.scripting.executeScript({
-				target: { tabId: tab?.id || 0 },
-				func: () => {
-					chrome.runtime.sendMessage({ action: "injectStylesheet" })
-				}
+				target: { tabId: tab.id },
+				files: ["meazure-script.js"]
 			})
 		}
 	})

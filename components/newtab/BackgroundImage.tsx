@@ -20,7 +20,6 @@ const BackgroundImage = ({ children }: BackgroundImageProps) => {
 				console.error("Error loading image:", response?.error)
 				return
 			}
-			console.log("Image loaded:", response)
 
 			setImageUrl(response.url)
 
