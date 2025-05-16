@@ -34,17 +34,16 @@ const BackgroundImage = ({ children }: BackgroundImageProps) => {
 
 	return (
 		<div
-			className="min-h-screen relative flex flex-col flex-start bg-slate-900 bg-cover"
+			className="min-h-screen relative flex flex-col flex-start bg-slate-900 bg-cover transition-opacity duration-1000 ease-in-out"
 			style={{
 				backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
-				backgroundSize: "cover",
 				backgroundPosition: "center"
 			}}
 		>
 			{children}
 			{credit && (
 				<div className="absolute bottom-4 left-4">
-					<p className="text-xs">
+					<p className="text-xs text-white">
 						{chrome.i18n.getMessage("photo_by")}{" "}
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}

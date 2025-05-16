@@ -38,6 +38,13 @@ export default defineConfig({
 		host_permissions: ["<all_urls>"],
 		background: {
 			service_worker: "background.js"
-		}
+		},
+		staticDir: "assets",
+		web_accessible_resources: [
+			{
+				resources: ["assets/pesticide.css"],
+				matches: ["<all_urls>"]
+			}
+		]
 	}
 })
