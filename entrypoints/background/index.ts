@@ -37,7 +37,7 @@ export default defineBackground(() => {
 		})
 	}
 
-	chrome.runtime.onMessage.addListener((message, _, sendResponse) => {
+	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getRandomImage") {
 			;(async () => {
 				const today = new Date().toISOString().split("T")[0]
@@ -53,7 +53,7 @@ export default defineBackground(() => {
 					})
 				} else {
 					try {
-						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/extension/random-image`)
+						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/chrome-extension/random-image`)
 						const json = await res.json()
 
 						// json ist direkt das Bildobjekt, kein json.response!
@@ -93,17 +93,6 @@ export default defineBackground(() => {
 		return true // Asynchronous response
 	})
 
-	chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-		if (msg.type === "getHardwareInfo") {
-			Promise.all([chrome.system.cpu.getInfo(), chrome.system.memory.getInfo(), chrome.system.storage.getInfo()]).then(([cpu, memory, storage]) => {
-				sendResponse({ cpu, memory, storage })
-			})
-
-			// Async response
-			return true
-		}
-	})
-
 	function getHistory() {
 		return new Promise((resolve, reject) => {
 			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
@@ -140,21 +129,11 @@ export default defineBackground(() => {
 		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
 	}
 
-	chrome.runtime.onInstalled.addListener(() => {
-		chrome.contextMenus.create({
-			id: "trigger-messwerkzeug",
-			title: "Messwerkzeug starten",
-			contexts: ["all"]
-		})
-	})
-
-	chrome.contextMenus.onClicked.addListener((info, tab) => {
-		if (info.menuItemId === "trigger-messwerkzeug") {
+	chrome.action.onClicked.addListener(tab => {
+		if (tab.id) {
 			chrome.scripting.executeScript({
-				target: { tabId: tab?.id || 0 },
-				func: () => {
-					chrome.runtime.sendMessage({ action: "start-messwerkzeug" })
-				}
+				target: { tabId: tab.id },
+				files: ["meazure-script.js"]
 			})
 		}
 	})

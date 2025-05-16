@@ -71,3 +71,7 @@ export function getFaviconUrl(websiteUrl: string, size = 32): string | undefined
 		return undefined
 	}
 }
+
+export function isDOM(Obj: any): Obj is Element {
+	return Obj instanceof Element
+}
