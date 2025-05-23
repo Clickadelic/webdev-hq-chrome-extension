@@ -1,9 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import UserApps from "@/components/newtab/UserApps"
-import UserHistory from "@/components/newtab/UserHistory"
-import TodoList from "@/components/newtab/TodoList"
-import UserDownloads from "@/components/newtab/UserDownloads"
+import UserApps from "@/components/newtab/tabs-module/UserApps"
+import UserHistory from "@/components/newtab/tabs-module/UserHistory"
+import TodoList from "@/components/newtab/tabs-module/TodoList"
+import UserDownloads from "@/components/newtab/tabs-module/UserDownloads"
 
 import { BsApp } from "react-icons/bs"
 import { BsListCheck } from "react-icons/bs"

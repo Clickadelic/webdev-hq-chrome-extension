@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button"
-
-interface OpenEntrypointButtonProps {
+import { cn } from "@/lib/utils"
+import { SlScreenDesktop } from "react-icons/sl"
+interface EntrypointButtonProps {
 	path: string // z.B. "dashboard.html"
-	translationLabel: string // z.B. "Dashboard"
+	translationLabel: string // i18n translation string e.g. en.json
 	params?: Record<string, string> // z.B. { page: "stats" }
+	btnClasses?: string
 }
 
-const OpenEntrypointButton: React.FC<OpenEntrypointButtonProps> = ({ path, translationLabel, params }) => {
+const EntrypointButton: React.FC<EntrypointButtonProps> = ({ path, translationLabel, params, btnClasses }) => {
 	const handleClick = () => {
 		const url = new URL(chrome.runtime.getURL(path))
 
@@ -20,10 +22,10 @@ const OpenEntrypointButton: React.FC<OpenEntrypointButtonProps> = ({ path, trans
 	}
 
 	return (
-		<Button onClick={handleClick} className="w-36 mt-4 mx-auto px-4 py-2 bg-mantis-primary text-white rounded hover:cursor-pointer hover:border-mantis-primary-hover">
-			{chrome.i18n.getMessage(translationLabel)}
+		<Button onClick={handleClick} className={cn(btnClasses)} title={chrome.i18n.getMessage(translationLabel)}>
+			<SlScreenDesktop />
 		</Button>
 	)
 }
 
-export default OpenEntrypointButton
+export default EntrypointButton
