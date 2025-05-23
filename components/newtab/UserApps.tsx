@@ -1,7 +1,7 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Form } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -16,39 +16,31 @@ import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 
-import { googleApps } from "@/lib/google-apps"
+import { FormError } from "@/components/global/forms/form-error"
+import { FormSuccess } from "@/components/global/forms/form-success"
+
 import { getFaviconUrl } from "@/lib/utils"
 
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
-	const deleteLabel = chrome.i18n.getMessage("delete")
-	const editLabel = chrome.i18n.getMessage("edit")
-	const addAppLabel = chrome.i18n.getMessage("add_app")
-	const addAppDescription = chrome.i18n.getMessage("add_app_description")
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+	const [loading, setLoading] = useState<boolean>(false)
+	const [isEditing, setIsEditing] = useState<boolean>(false)
+	const [error, setError] = useState<string | undefined>("")
+	const [success, setSuccess] = useState<string | undefined>("")
 
 	let form = useForm<z.infer<typeof AppSchema>>({
 		resolver: zodResolver(AppSchema),
 		defaultValues: { title: "", url: "" }
 	})
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault()
-		const formData = new FormData(e.currentTarget)
-		const name = formData.get("name") as string
-		const url = formData.get("url") as string
-		if (name === "" || url === "") {
-			alert("Please fill all fields")
-			return
-		}
-		const newApp: AppType = {
-			id: crypto.randomUUID(),
-			title: name,
-			url: url,
-			icon: getFaviconUrl(url) || ""
-		}
+	const onSubmit = (values: z.infer<typeof AppSchema>) => {
+		setError("")
+		setSuccess("")
+		setLoading(true)
+		const newApp = { id: crypto.randomUUID(), ...values, icon: getFaviconUrl(values.url) }
 		addApp(newApp)
-		e.currentTarget.reset()
 		setIsModalOpen(false)
+		form.reset()
 	}
 
 	const onDelete = (id: string) => {
@@ -66,17 +58,6 @@ const UserApps = () => {
 
 	return (
 		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded">
-			{googleApps.map(app => (
-				<li
-					key={app.id}
-					className="relative bg-white pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
-				>
-					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
-						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
-					</a>
-				</li>
-			))}
 			{apps.map(app => (
 				<li
 					key={app.id}
@@ -96,12 +77,12 @@ const UserApps = () => {
 							<DropdownMenuItem>
 								<button onClick={() => onEdit(app.id)} className="flex justify-between">
 									<AiOutlineEdit className="mt-1 mr-2" />
-									{editLabel}
+									{chrome.i18n.getMessage("edit")}
 								</button>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
 								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700">
-									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {deleteLabel}
+									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {chrome.i18n.getMessage("delete")}
 								</button>
 							</DropdownMenuItem>
 						</DropdownMenuContent>
@@ -120,18 +101,48 @@ const UserApps = () => {
 						<DialogHeader>
 							<DialogTitle className="flex items-start gap-2">
 								<BsApp />
-								{addAppLabel}
+								{chrome.i18n.getMessage("add_app")}
 							</DialogTitle>
-							<DialogDescription>{addAppDescription}</DialogDescription>
+							<DialogDescription>{chrome.i18n.getMessage("add_app_description")}</DialogDescription>
 						</DialogHeader>
 						<div className="flex">
-							<form onSubmit={handleSubmit} className="w-full flex flex-col gap-2">
-								<Input name="name" className="rounded" placeholder="Name" />
-								<Input name="url" className="rounded" placeholder="Url" />
-								<Button type="submit" variant="primary">
-									{addAppLabel}
-								</Button>
-							</form>
+							<Form {...form}>
+								<form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+									<div className="space-y-4">
+										<FormField
+											control={form.control}
+											name="title"
+											render={({ field }) => (
+												<FormItem>
+													<FormLabel>Title:</FormLabel>
+													<FormControl>
+														<Input type="text" {...field} placeholder="My App" />
+													</FormControl>
+													<FormMessage />
+												</FormItem>
+											)}
+										/>
+										<FormField
+											control={form.control}
+											name="url"
+											render={({ field }) => (
+												<FormItem>
+													<FormLabel>Url:</FormLabel>
+													<FormControl>
+														<Input type="url" {...field} placeholder="My App" />
+													</FormControl>
+													<FormMessage />
+												</FormItem>
+											)}
+										/>
+									</div>
+									<FormError message={error} />
+									<FormSuccess message={success} />
+									<Button variant="primary" type="submit" className="w-full rounded">
+										{chrome.i18n.getMessage("add_app")}
+									</Button>
+								</form>
+							</Form>
 						</div>
 					</DialogContent>
 				</Dialog>

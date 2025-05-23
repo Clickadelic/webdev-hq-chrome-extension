@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { getFaviconUrl, deleteUserHistory } from "@/lib/utils"
 
 const fallbackFavicon = "/assets/icons/default-website-favicon.png" // Stelle sicher, dass dieses Bild in deinem `public`-Ordner liegt
-
+import { RiResetLeftLine } from "react-icons/ri"
 const UserHistory = () => {
 	const deleteHistoryLabel = chrome.i18n.getMessage("delete_history")
 	const noHistoryFoundLabel = chrome.i18n.getMessage("no_history_found")
@@ -30,23 +30,35 @@ const UserHistory = () => {
 				</div>
 			) : (
 				<div className="bg-white/30 backdrop p-1 rounded">
-					<ul className="w-full space-y-2">
+					<ul className="w-full bg-white rounded">
 						{history.map(entry => (
-							<li key={entry.id} className="p-3 border rounded flex flex-col gap-2 bg-white md:flex-row md:items-center md:justify-between">
-								<a href={entry.url} className="flex items-center gap-2 p-1 rounded text-md w-full truncate" target="_blank" rel="noopener noreferrer">
-									{entry.url && (
-										<img
-											src={getFaviconUrl(entry.url)}
-											onError={e => {
-												e.currentTarget.src = fallbackFavicon
-											}}
-											alt="Favicon"
-											className="size-4 rounded-sm"
-											referrerPolicy="no-referrer"
-										/>
+							<li key={entry.id} className="flex flex-row justify-between items-start p-.5">
+								<a href={entry.url} className="flex justify-between gap-2 p-2 rounded text-md w-full truncate hover:text-mantis-primary" target="_blank" rel="noopener noreferrer">
+									<div className="flex w-full justify-start gap-2">
+										{entry.url && (
+											<img
+												src={getFaviconUrl(entry.url)}
+												onError={e => {
+													e.currentTarget.src = fallbackFavicon
+												}}
+												alt="Favicon"
+												className="size-4 rounded-sm"
+												referrerPolicy="no-referrer"
+											/>
+										)}
+										{entry.title || entry.url}
+									</div>
+									{entry.lastVisitTime && (
+										<span className="text-xs text-slate-500">
+											{new Intl.DateTimeFormat("de-DE", {
+												dateStyle: "medium",
+												timeStyle: "short"
+											}).format(entry.lastVisitTime)}
+											&nbsp;{chrome.i18n.getMessage("o_clock")}
+										</span>
 									)}
-									{entry.title || entry.url}
 								</a>
+
 								<button
 									onClick={() => {
 										if (entry.url) {
@@ -55,9 +67,9 @@ const UserHistory = () => {
 											})
 										}
 									}}
-									className="p-2 rounded text-rose-500 hover:cursor-pointer hover:text-rose-600"
+									className="p-2 rounded text-rose-500 hover:cursor-pointer hover:text-rose-700"
 								>
-									<BsTrash3 className="size-3" />
+									<BsTrash3 className="mt-1 size-3" />
 								</button>
 							</li>
 						))}
@@ -67,9 +79,10 @@ const UserHistory = () => {
 							await deleteUserHistory()
 							setHistory([]) // UI leeren
 						}}
-						variant="ghost"
-						className="w-full mt-4 rounded hover:cursor-pointer"
+						variant="secondary"
+						className="w-full mt-2 bg-white rounded hover:cursor-pointer"
 					>
+						<RiResetLeftLine className="mr-2 size-3" />
 						{deleteHistoryLabel}
 					</Button>
 				</div>

@@ -16,9 +16,11 @@ import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-co
 import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
 import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
 import googleTasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
+import googleFontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
+import googleGeminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 
-export const googleApps = [
+const defaultApps = [
 	{
 		id: crypto.randomUUID(),
 		title: "Search",
@@ -109,12 +111,17 @@ export const googleApps = [
 		icon: googleCloudIcon,
 		url: "https://cloud.google.com"
 	},
-
 	{
 		id: crypto.randomUUID(),
 		title: "Developers",
 		icon: googleDevelopersIcon,
 		url: "https://developers.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Fonts",
+		icon: googleFontsIcon,
+		url: "https://fonts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
@@ -133,5 +140,13 @@ export const googleApps = [
 		title: "YouTube",
 		icon: youTubeIcon,
 		url: "https://youtube.com"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Gemini",
+		icon: googleGeminiIcon,
+		url: "https://gemini.google.com/"
 	}
 ]
+
+export default defaultApps

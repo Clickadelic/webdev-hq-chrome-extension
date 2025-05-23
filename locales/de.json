@@ -27,6 +27,18 @@
 		"message": "App hinzufügen",
 		"description": "App hinzufügen Button."
 	},
+	"edit_app": {
+		"message": "App bearbeiten",
+		"description": "App bearbeiten Button."
+	},
+	"reset_apps": {
+		"message": "Apps zurücksetzen",
+		"description": "App zurücksetzen Button."
+	},
+	"reset_apps_to_default_settings": {
+		"message": "Apps auf Standard zurücksetzen",
+		"description": "App zurücksetzen Button."
+	},
 	"add_app_description": {
 		"message": "Füge eine neue App hinzu, um Deinen Tab zu verbessern.",
 		"description": "App hinzufügen Text."
@@ -98,5 +110,9 @@
 	"start_meazure_tool": {
 		"message": "Starte Messwerkzeug",
 		"description": "Startet das Messwerkzeug."
+	},
+	"open_dashboard": {
+		"message": "Öffne Dashboard",
+		"description": "Dashboard öffnen"
 	}
 }

@@ -5,9 +5,10 @@ import Clock from "@/components/newtab/Clock"
 import Salutation from "@/components/newtab/Salutation"
 import MultiSearch from "@/components/newtab/MultiSearch"
 import AccountMenu from "@/components/newtab/AccountMenu"
-import TabGroupBadges from "@/components/newtab/TabGroupBadges"
+import EntrypointButton from "@/components/global/EntrypointButton"
 import TabsModule from "@/components/newtab/TabsModule"
 import Cockpit from "@/components/newtab/Cockpit"
+import { FullscreenButton } from "@/components/global/FullscreenButton"
 
 const App = () => {
 	return (
@@ -18,8 +19,9 @@ const App = () => {
 			<Salutation classNames="w-[680px] mt-32 mb-4 mx-auto text-white text-4xl font-light" />
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
-			<TabGroupBadges />
+			<EntrypointButton path="dashboard.html" translationLabel="open_dashboard" />
 			<Cockpit />
+			<FullscreenButton />
 		</BackgroundImage>
 	)
 }
