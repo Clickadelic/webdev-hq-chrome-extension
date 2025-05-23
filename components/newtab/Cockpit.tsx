@@ -3,6 +3,7 @@ import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
 import { ResetAppsButton } from "@/components/newtab/buttons/ResetAppsButton"
 import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
 import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
+import { SidePanelButton } from "@/components/newtab/buttons/SidePanelButton"
 import { cn } from "@/lib/utils"
 
 interface CockpitProps {
@@ -17,6 +18,7 @@ const Cockpit = ({ classNames }: CockpitProps) => {
 				<ImportAppsButton />
 				<ExportAppsButton />
 				<ResetAppsButton />
+				<SidePanelButton />
 				<SettingsButton />
 			</div>
 		</div>
