@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import { SlScreenDesktop } from "react-icons/sl"
 
 export const DashboardButton: React.FC = () => {
@@ -9,8 +8,12 @@ export const DashboardButton: React.FC = () => {
 	}
 
 	return (
-		<Button onClick={handleClick} className={cn("bg-white text-slate-800")} title={chrome.i18n.getMessage("open_dashboard")}>
-			<SlScreenDesktop />
+		<Button
+			onClick={handleClick}
+			className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+			title={chrome.i18n.getMessage("open_dashboard")}
+		>
+			<SlScreenDesktop className="size-4" />
 		</Button>
 	)
 }

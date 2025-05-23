@@ -5,6 +5,7 @@ export const SearchInputSchema = z.object({
 })
 
 export const AppSchema = z.object({
+	// id: z.string().min(1, "Minimum 1 character"),
 	title: z.string().min(1, "Minimum 1 character"),
 	url: z.string().min(1, "A valid url is required")
 })
