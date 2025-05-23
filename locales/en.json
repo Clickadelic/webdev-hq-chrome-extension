@@ -79,6 +79,14 @@
 		"message": "Add a new app to improve your tab.",
 		"description": "Add app text."
 	},
+	"import_apps": {
+		"message": "export apps",
+		"description": "Apps import Buttontext."
+	},
+	"export_apps": {
+		"message": "import apps",
+		"description": "Apps import Buttontext."
+	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."
@@ -150,5 +158,25 @@
 	"open_dashboard": {
 		"message": "Open Dashboard",
 		"description": "Open Dashboard"
+	},
+	"settings_title": {
+		"message": "Settings",
+		"description": "Settings Title."
+	},
+	"settings_description": {
+		"message": "Hier kannst Du Deine Einstellungen für Deinen Tab vornehmen.",
+		"description": "App Einstellungen Beschreibung."
+	},
+	"reset_apps_settings_text": {
+		"message": "Reset apps to default settings.",
+		"description": "Dashboard öffnen"
+	},
+	"import_apps_settings_text": {
+		"message": "Import apps as .json-file.",
+		"description": "Import explaination"
+	},
+	"export_apps_settings_text": {
+		"message": "Export apps as .json-file.",
+		"description": "Export explaination"
 	}
 }

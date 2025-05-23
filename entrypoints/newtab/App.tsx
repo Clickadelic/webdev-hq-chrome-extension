@@ -17,7 +17,7 @@ const App = () => {
 			<Salutation classNames="w-[680px] mt-32 mb-4 mx-auto text-white text-4xl font-light" />
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
-			<Cockpit classNames="w-[680px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 rounded" />
+			<Cockpit classNames="w-[188px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 rounded" />
 		</BackgroundImage>
 	)
 }

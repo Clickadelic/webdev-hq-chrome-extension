@@ -20,7 +20,8 @@ export const ExportAppsButton = () => {
 
 	return (
 		<Button className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer" onClick={handleExport}>
-			<TfiExport className="size-4" />
+			<TfiExport className="mr-2 size-4" />
+			{chrome.i18n.getMessage("export_apps")}
 		</Button>
 	)
 }

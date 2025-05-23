@@ -1,8 +1,6 @@
 import { DashboardButton } from "@/components/newtab/buttons/DashboardButton"
 import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
-import { ResetAppsButton } from "@/components/newtab/buttons/ResetAppsButton"
-import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
-import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
+
 import { SidePanelButton } from "@/components/newtab/buttons/SidePanelButton"
 import { FullscreenButton } from "./buttons/FullscreenButton"
 import { cn } from "@/lib/utils"
@@ -18,9 +16,6 @@ const Cockpit = ({ classNames }: CockpitProps) => {
 				<DashboardButton />
 				<SidePanelButton />
 				<FullscreenButton />
-				<ImportAppsButton />
-				<ExportAppsButton />
-				<ResetAppsButton />
 				<SettingsButton />
 			</div>
 		</div>

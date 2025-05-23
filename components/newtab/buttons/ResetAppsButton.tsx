@@ -6,10 +6,11 @@ export const ResetAppsButton: React.FC = () => {
 	return (
 		<Button
 			onClick={resetApps}
-			className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+			className="border border-transparent text-sm bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
 			title={chrome.i18n.getMessage("reset_apps")}
 		>
-			<SlRefresh className="size-4" />
+			<SlRefresh className="mr-2 size-4" />
+			{chrome.i18n.getMessage("reset_apps")}
 		</Button>
 	)
 }
