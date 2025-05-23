@@ -1,138 +1,179 @@
-import googleAccountIcon from "@/assets/icons/google-apps/google-account.svg"
-import googleAlertsIcon from "@/assets/icons/google-apps/google-alerts.svg"
-import googleCalendarIcon from "@/assets/icons/google-apps/google-calendar.svg"
-import googleCloudIcon from "@/assets/icons/google-apps/google-cloud.svg"
-import googleContactsIcon from "@/assets/icons/google-apps/google-contacts.svg"
-import googleDevelopersIcon from "@/assets/icons/google-apps/google-developers.svg"
-import googleDnsToolsIcon from "@/assets/icons/google-apps/google-dns-tools.svg"
-import googleDocsIcon from "@/assets/icons/google-apps/google-docs.svg"
-import googleDriveIcon from "@/assets/icons/google-apps/google-drive.svg"
-import googleGMailIcon from "@/assets/icons/google-apps/google-gmail.svg"
-import googleSheetsIcon from "@/assets/icons/google-apps/google-sheets.svg"
-import googleMapsIcon from "@/assets/icons/google-apps/google-maps.svg"
-import googleSearchIcon from "@/assets/icons/google-apps/google-logo.svg"
-import googlePasswordsIcon from "@/assets/icons/google-apps/google-password.svg"
-import googleSearchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
-import googleSlidesIcon from "@/assets/icons/google-apps/google-slides.svg"
-import googleTranslateIcon from "@/assets/icons/google-apps/google-translate.svg"
-import googleTasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
-import googleFontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
-import googleGeminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
+import accountIcon from "@/assets/icons/google-apps/google-account.svg"
+import alertsIcon from "@/assets/icons/google-apps/google-alerts.svg"
+import analyticsIcon from "@/assets/icons/google-apps/google-analytics.svg"
+import calendarIcon from "@/assets/icons/google-apps/google-calendar.svg"
+import keepIcon from "@/assets/icons/google-apps/google-keep.svg"
+import meetIcon from "@/assets/icons/google-apps/google-meet.svg"
+import lighthouseIcon from "@/assets/icons/google-apps/google-lighthouse.svg"
+import cloudIcon from "@/assets/icons/google-apps/google-cloud.svg"
+import contactsIcon from "@/assets/icons/google-apps/google-contacts.svg"
+import developersIcon from "@/assets/icons/google-apps/google-developers.svg"
+import dnsToolsIcon from "@/assets/icons/google-apps/google-dns-tools.svg"
+import docsIcon from "@/assets/icons/google-apps/google-docs.svg"
+import driveIcon from "@/assets/icons/google-apps/google-drive.svg"
+import gMailIcon from "@/assets/icons/google-apps/google-gmail.svg"
+import sheetsIcon from "@/assets/icons/google-apps/google-sheets.svg"
+import mapsIcon from "@/assets/icons/google-apps/google-maps.svg"
+import searchIcon from "@/assets/icons/google-apps/google-logo.svg"
+import passwordsIcon from "@/assets/icons/google-apps/google-password.svg"
+import searchConsoleIcon from "@/assets/icons/google-apps/google-search-console.svg"
+import slidesIcon from "@/assets/icons/google-apps/google-slides.svg"
+import translateIcon from "@/assets/icons/google-apps/google-translate.svg"
+import tasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
+import fontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
+import geminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
+import webdevIcon from "@/assets/icons/google-apps/google-webdev.svg"
 
 const defaultApps = [
 	{
 		id: crypto.randomUUID(),
 		title: "Search",
-		icon: googleSearchIcon,
+		icon: searchIcon,
 		url: "https://www.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "G-Mail",
-		icon: googleGMailIcon,
+		icon: gMailIcon,
 		url: "https://mail.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Drive",
-		icon: googleDriveIcon,
+		icon: driveIcon,
 		url: "https://drive.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Account",
-		icon: googleAccountIcon,
+		icon: accountIcon,
 		url: "https://myaccount.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Passwords",
+		icon: passwordsIcon,
+		url: "https://passwords.google.com/?pli=1"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "Contacts",
-		icon: googleContactsIcon,
+		icon: contactsIcon,
 		url: "https://contacts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
-		title: "Calendar",
-		icon: googleCalendarIcon,
-		url: "https://www.google.com/calendar"
-	},
-	{
-		id: crypto.randomUUID(),
 		title: "Docs",
-		icon: googleDocsIcon,
+		icon: docsIcon,
 		url: "https://docs.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Sheets",
-		icon: googleSheetsIcon,
+		icon: sheetsIcon,
 		url: "https://docs.google.com/spreadsheets"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Slides",
-		icon: googleSlidesIcon,
+		icon: slidesIcon,
 		url: "https://docs.google.com/presentation/u/0/?ec=wgc-slides-[module]-goto"
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Meet",
+		icon: meetIcon,
+		url: "https://meet.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Calendar",
+		icon: calendarIcon,
+		url: "https://www.google.com/calendar"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "Tasks",
-		icon: googleTasksIcon,
+		icon: tasksIcon,
 		url: "https://tasks.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Translate",
-		icon: googleTranslateIcon,
+		icon: translateIcon,
 		url: "https://translate.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Keep",
+		icon: keepIcon,
+		url: "https://keep.google.com/"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "G-Saved",
+		icon: searchIcon,
+		url: "https://www.google.com/interests/saved"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Analytics",
+		icon: analyticsIcon,
+		url: "https://developers.google.com/analytics"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Lighthouse",
+		icon: lighthouseIcon,
+		url: "https://pagespeed.web.dev/"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Web.Dev",
+		icon: webdevIcon,
+		url: "https://web.dev/"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "Alerts",
-		icon: googleAlertsIcon,
+		icon: alertsIcon,
 		url: "https://alerts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Maps",
-		icon: googleMapsIcon,
+		icon: mapsIcon,
 		url: "https://www.google.com/maps"
 	},
 	{
 		id: crypto.randomUUID(),
-		title: "Passwords",
-		icon: googlePasswordsIcon,
-		url: "https://passwords.google.com/?pli=1"
-	},
-	{
-		id: crypto.randomUUID(),
 		title: "Cloud",
-		icon: googleCloudIcon,
+		icon: cloudIcon,
 		url: "https://cloud.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Developers",
-		icon: googleDevelopersIcon,
+		icon: developersIcon,
 		url: "https://developers.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Fonts",
-		icon: googleFontsIcon,
+		icon: fontsIcon,
 		url: "https://fonts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "DNS",
-		icon: googleDnsToolsIcon,
+		icon: dnsToolsIcon,
 		url: "https://toolbox.googleapps.com/apps/dig/"
 	},
 	{
 		id: crypto.randomUUID(),
 		title: "Console",
-		icon: googleSearchConsoleIcon,
+		icon: searchConsoleIcon,
 		url: "https://search.google.com/search-console"
 	},
 	{
@@ -144,7 +185,7 @@ const defaultApps = [
 	{
 		id: crypto.randomUUID(),
 		title: "Gemini",
-		icon: googleGeminiIcon,
+		icon: geminiIcon,
 		url: "https://gemini.google.com/"
 	}
 ]

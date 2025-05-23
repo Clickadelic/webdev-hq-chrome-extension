@@ -23,6 +23,30 @@
 		"message": "Apps",
 		"description": "Tab Apps."
 	},
+	"app_title": {
+		"message": "Title",
+		"description": "App input label title."
+	},
+	"app_title_placeholder": {
+		"message": "My app",
+		"description": "App input placeholder title."
+	},
+	"app_url": {
+		"message": "Url",
+		"description": "App input url title."
+	},
+	"app_url_placeholder": {
+		"message": "https://...",
+		"description": "App input url title."
+	},
+	"min_1_character": {
+		"message": "At least 1 character.",
+		"description": "Warning 1 character required"
+	},
+	"valid_url_required": {
+		"message": "A valid url is required.",
+		"description": "Warning a valid url is required."
+	},
 	"add_app": {
 		"message": "Add App",
 		"description": "Add App Button."
@@ -30,6 +54,14 @@
 	"edit_app": {
 		"message": "Edit App",
 		"description": "Edit App Button."
+	},
+	"app_added": {
+		"message": "App has been added.",
+		"description": "App adding message."
+	},
+	"app_edited": {
+		"message": "App has been edited.",
+		"description": "App edit message."
 	},
 	"reset_apps": {
 		"message": "reset apps",

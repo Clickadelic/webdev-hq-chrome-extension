@@ -12,7 +12,7 @@ import { AppSchema } from "@/schemas"
 
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
-import { Plus } from "lucide-react"
+import { LucidePlus, Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 
@@ -24,7 +24,7 @@ import { getFaviconUrl } from "@/lib/utils"
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-	const [loading, setLoading] = useState<boolean>(false)
+	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [isEditing, setIsEditing] = useState<boolean>(false)
 	const [error, setError] = useState<string | undefined>("")
 	const [success, setSuccess] = useState<string | undefined>("")
@@ -36,11 +36,16 @@ const UserApps = () => {
 	const onSubmit = (values: z.infer<typeof AppSchema>) => {
 		setError("")
 		setSuccess("")
-		setLoading(true)
+		setIsLoading(true)
 		const newApp = { id: crypto.randomUUID(), ...values, icon: getFaviconUrl(values.url) }
 		addApp(newApp)
-		setIsModalOpen(false)
+		setSuccess(chrome.i18n.getMessage("app_added"))
 		form.reset()
+		setTimeout(() => {
+			setIsLoading(false)
+			setIsModalOpen(false)
+			setSuccess("")
+		}, 2000)
 	}
 
 	const onDelete = (id: string) => {
@@ -114,9 +119,9 @@ const UserApps = () => {
 											name="title"
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel>Title:</FormLabel>
+													<FormLabel>{chrome.i18n.getMessage("app_title")}:</FormLabel>
 													<FormControl>
-														<Input type="text" {...field} placeholder="My App" />
+														<Input type="text" {...field} placeholder={chrome.i18n.getMessage("app_title_placeholder")} />
 													</FormControl>
 													<FormMessage />
 												</FormItem>
@@ -127,9 +132,9 @@ const UserApps = () => {
 											name="url"
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel>Url:</FormLabel>
+													<FormLabel>{chrome.i18n.getMessage("app_url")}:</FormLabel>
 													<FormControl>
-														<Input type="url" {...field} placeholder="My App" />
+														<Input type="url" {...field} placeholder={chrome.i18n.getMessage("app_url_placeholder")} />
 													</FormControl>
 													<FormMessage />
 												</FormItem>
@@ -138,7 +143,8 @@ const UserApps = () => {
 									</div>
 									<FormError message={error} />
 									<FormSuccess message={success} />
-									<Button variant="primary" type="submit" className="w-full rounded">
+									<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
+										<LucidePlus />
 										{chrome.i18n.getMessage("add_app")}
 									</Button>
 								</form>
