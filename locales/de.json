@@ -55,6 +55,10 @@
 		"message": "App bearbeiten",
 		"description": "App bearbeiten Button."
 	},
+	"edit_app_description": {
+		"message": "Ändere die Einstellungen der App.",
+		"description": "App bearbeiten Beschreibungstext."
+	},
 	"app_added": {
 		"message": "App hinzugefügt.",
 		"description": "App hinzufügen Nachricht."

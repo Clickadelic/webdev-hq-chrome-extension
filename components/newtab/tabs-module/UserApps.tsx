@@ -15,6 +15,7 @@ import { BsTrash } from "react-icons/bs"
 import { LucidePlus, Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
+import { TbEdit } from "react-icons/tb"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
@@ -26,6 +27,7 @@ const UserApps = () => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [isEditing, setIsEditing] = useState<boolean>(false)
+	const [editingAppId, setEditingAppId] = useState<string | null>(null)
 	const [error, setError] = useState<string | undefined>("")
 	const [success, setSuccess] = useState<string | undefined>("")
 
@@ -33,7 +35,7 @@ const UserApps = () => {
 		resolver: zodResolver(AppSchema),
 		defaultValues: { title: "", url: "" }
 	})
-	const onSubmit = (values: z.infer<typeof AppSchema>) => {
+	const onAddSubmit = (values: z.infer<typeof AppSchema>) => {
 		setError("")
 		setSuccess("")
 		setIsLoading(true)
@@ -53,12 +55,44 @@ const UserApps = () => {
 	}
 
 	const onEdit = (id: string) => {
+		setIsEditing(true)
 		setIsModalOpen(true)
+		setEditingAppId(id)
+
 		const currentApp = apps.find(app => app.id === id)
 		if (currentApp) {
-			const { title, url, icon } = currentApp
-			console.log("Editing app", title, url, icon)
+			form.setValue("title", currentApp.title)
+			form.setValue("url", currentApp.url)
 		}
+	}
+
+	const onEditSubmit = (values: z.infer<typeof AppSchema>) => {
+		if (!editingAppId) return
+
+		setError("")
+		setSuccess("")
+		setIsLoading(true)
+
+		const currentApp = apps.find(app => app.id === editingAppId)
+		if (currentApp) {
+			const updatedApp = {
+				id: currentApp.id,
+				title: values.title,
+				url: values.url,
+				icon: getFaviconUrl(values.url)
+			}
+			editApp(updatedApp)
+		}
+
+		setSuccess(chrome.i18n.getMessage("app_edited"))
+		form.reset()
+		setEditingAppId(null)
+		setIsEditing(false)
+		setTimeout(() => {
+			setIsLoading(false)
+			setIsModalOpen(false)
+			setSuccess("")
+		}, 2000)
 	}
 
 	return (
@@ -95,7 +129,17 @@ const UserApps = () => {
 				</li>
 			))}
 			<li>
-				<Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+				<Dialog
+					open={isModalOpen}
+					onOpenChange={open => {
+						setIsModalOpen(open)
+						if (!open) {
+							setIsEditing(false)
+							setEditingAppId(null)
+							form.reset()
+						}
+					}}
+				>
 					<DialogTrigger
 						onClick={() => setIsModalOpen(true)}
 						className="flex flex-col gap-1 items-center place-content-center text-slate-400 bg-white p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
@@ -106,13 +150,13 @@ const UserApps = () => {
 						<DialogHeader>
 							<DialogTitle className="flex items-start gap-2">
 								<BsApp />
-								{chrome.i18n.getMessage("add_app")}
+								{chrome.i18n.getMessage("edit_app")}
 							</DialogTitle>
-							<DialogDescription>{chrome.i18n.getMessage("add_app_description")}</DialogDescription>
+							<DialogDescription>{chrome.i18n.getMessage("edit_app_description")}</DialogDescription>
 						</DialogHeader>
 						<div className="flex">
 							<Form {...form}>
-								<form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
+								<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="w-full space-y-6">
 									<div className="space-y-4">
 										<FormField
 											control={form.control}
@@ -144,8 +188,8 @@ const UserApps = () => {
 									<FormError message={error} />
 									<FormSuccess message={success} />
 									<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
-										<LucidePlus />
-										{chrome.i18n.getMessage("add_app")}
+										{isEditing ? <TbEdit /> : <LucidePlus />}
+										{isEditing ? chrome.i18n.getMessage("edit_app") : chrome.i18n.getMessage("add_app")}
 									</Button>
 								</form>
 							</Form>

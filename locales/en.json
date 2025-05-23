@@ -55,6 +55,10 @@
 		"message": "Edit App",
 		"description": "Edit App Button."
 	},
+	"edit_app_description": {
+		"message": "Change the app values.",
+		"description": "Change app describtion text."
+	},
 	"app_added": {
 		"message": "App has been added.",
 		"description": "App adding message."
