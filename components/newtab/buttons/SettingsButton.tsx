@@ -6,11 +6,6 @@ import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
 import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
 
 export const SettingsButton: React.FC = () => {
-	const handleClick = () => {
-		const url = new URL(chrome.runtime.getURL("/dashboard.html"))
-		chrome.tabs.create({ url: url.toString() })
-	}
-
 	return (
 		<Dialog>
 			<DialogTrigger className="border border-transparent bg-white text-slate-800 rounded py-2 px-3 hover:border-mantis-primary hover:bg-white hover:cursor-pointer" title="Settings">

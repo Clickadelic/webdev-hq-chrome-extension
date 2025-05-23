@@ -1,35 +1,29 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useImageStore } from "@/stores/use-image-store"
 
 interface BackgroundImageProps {
 	children: React.ReactNode
 }
 
-interface CreditsProps {
-	author: string
-	authorUrl: string
-	unsplashUrl: string
-}
-
 const BackgroundImage = ({ children }: BackgroundImageProps) => {
-	const [imageUrl, setImageUrl] = useState<string | null>(null)
-	const [credit, setCredit] = useState<CreditsProps | null>(null)
+	const { imageUrl, credit, setImage } = useImageStore()
 
 	useEffect(() => {
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
+			console.log("Image response:", response) // <--- Füge das hinzu
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
 				return
 			}
 
-			setImageUrl(response.url)
-
-			setCredit({
+			setImage(response.url, {
 				author: response.author,
 				authorUrl: response.authorUrl,
 				unsplashUrl: response.link
 			})
 		})
-	}, [])
+	}, [setImage])
+	console.log("Current credits from store:", credit)
 
 	return (
 		<div
@@ -43,11 +37,11 @@ const BackgroundImage = ({ children }: BackgroundImageProps) => {
 			{credit && (
 				<div className="absolute bottom-4 left-4">
 					<p className="text-xs text-white">
-						{chrome.i18n.getMessage("photo_by")}{" "}
+						Foto von{" "}
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
 						</a>{" "}
-						{chrome.i18n.getMessage("on")}{" "}
+						auf{" "}
 						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>

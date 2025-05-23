@@ -40,8 +40,8 @@
 		"description": "App input url title."
 	},
 	"min_1_character": {
-		"message": "At least 1 character.",
-		"description": "Warning 1 character required"
+		"message": "At least 1 character is required.",
+		"description": "Warning 1 character required."
 	},
 	"valid_url_required": {
 		"message": "A valid url is required.",
@@ -105,27 +105,27 @@
 	},
 	"history": {
 		"message": "History",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"delete_history": {
 		"message": "Delete history",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"no_history_found": {
 		"message": "No history available",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"downloads": {
 		"message": "Downloads",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"no_downloads_found": {
 		"message": "No downloads found.",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"settings": {
 		"message": "Settings",
-		"description": "Settings Tab"
+		"description": "Settings Tab."
 	},
 	"search_placeholder": {
 		"message": "Search",
@@ -157,7 +157,7 @@
 	},
 	"open_dashboard": {
 		"message": "Open Dashboard",
-		"description": "Open Dashboard"
+		"description": "Open Dashboard."
 	},
 	"settings_title": {
 		"message": "Settings",
@@ -173,10 +173,10 @@
 	},
 	"import_apps_settings_text": {
 		"message": "Import apps as .json-file.",
-		"description": "Import explaination"
+		"description": "Import explaination."
 	},
 	"export_apps_settings_text": {
 		"message": "Export apps as .json-file.",
-		"description": "Export explaination"
+		"description": "Export explaination."
 	}
 }

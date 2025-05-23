@@ -40,8 +40,8 @@
 		"description": "App input placeholder Titel."
 	},
 	"min_1_character": {
-		"message": "Mindestens 1 Buchstabe.",
-		"description": "Warning ein Buchstabe ist Pflicht"
+		"message": "Mindestens ein Zeichen ist erforderlich.",
+		"description": "Warnung ein Buchstabe ist Pflicht."
 	},
 	"valid_url_required": {
 		"message": "Eine gültige Url ist notwendig.",
@@ -105,27 +105,27 @@
 	},
 	"history": {
 		"message": "Verlauf",
-		"description": "Verlaufs Tab"
+		"description": "Verlaufs Tab."
 	},
 	"delete_history": {
 		"message": "Verlauf löschen",
-		"description": "Verlaufs Tab"
+		"description": "Verlaufs Tab."
 	},
 	"no_history_found": {
 		"message": "Kein Verlauf vorhanden.",
-		"description": "Verlaufs Tab"
+		"description": "Verlaufs Tab."
 	},
 	"downloads": {
 		"message": "Downloads",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"no_downloads_found": {
 		"message": "Keine Downloads vorhanden.",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"settings": {
 		"message": "Einstellungen",
-		"description": "Einstellungen Tab"
+		"description": "Einstellungen Tab."
 	},
 	"search_placeholder": {
 		"message": "Suche",
@@ -157,7 +157,7 @@
 	},
 	"open_dashboard": {
 		"message": "Öffne Dashboard",
-		"description": "Dashboard öffnen"
+		"description": "Dashboard öffnen."
 	},
 	"settings_title": {
 		"message": "Einstellungen",
@@ -169,14 +169,14 @@
 	},
 	"reset_apps_settings_text": {
 		"message": "Apps auf Standardeinstellungen zurücksetzen.",
-		"description": "Dashboard öffnen"
+		"description": "Dashboard öffnen."
 	},
 	"import_apps_settings_text": {
 		"message": "Apps als .json-Datei importieren.",
-		"description": "Dashboard öffnen"
+		"description": "Apps Import-Button."
 	},
 	"export_apps_settings_text": {
 		"message": "Apps als .json-Datei exportieren.",
-		"description": "Dashboard öffnen"
+		"description": "Apps Export-Button."
 	}
 }
