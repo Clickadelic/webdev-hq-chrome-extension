@@ -55,10 +55,6 @@
 		"message": "Edit App",
 		"description": "Edit App Button."
 	},
-	"edit_app_description": {
-		"message": "Change the app values.",
-		"description": "Change app describtion text."
-	},
 	"app_added": {
 		"message": "App has been added.",
 		"description": "App adding message."
@@ -75,8 +71,20 @@
 		"message": "Reset apps to default settings",
 		"description": "Apps reset Button."
 	},
+	"add_app_title": {
+		"message": "Add app",
+		"description": "App hinzufügen Text."
+	},
 	"add_app_description": {
 		"message": "Add a new app to improve your tab.",
+		"description": "Add app text."
+	},
+	"edit_app_title": {
+		"message": "Edit app",
+		"description": "App hinzufügen Text."
+	},
+	"edit_app_description": {
+		"message": "Edit the current app",
 		"description": "Add app text."
 	},
 	"import_apps": {

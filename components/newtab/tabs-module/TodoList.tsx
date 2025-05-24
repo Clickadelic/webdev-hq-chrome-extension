@@ -120,10 +120,10 @@ const TodoList = () => {
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />
 						<span className={cn("w-full flex-grow mt-1.5", todo.done && "line-through text-slate-500")}>{todo.title}</span>
-						<Button variant="ghost" size="sm" onClick={() => onEdit(todo.id)}>
+						<Button variant="ghost" className="text-slate-400" size="sm" onClick={() => onEdit(todo.id)}>
 							<TbEdit className="size-4" />
 						</Button>
-						<Button variant="ghost" size="sm" className="hover:text-rose-400" onClick={() => onDelete(todo.id)}>
+						<Button variant="ghost" size="sm" className="text-slate-400 hover:text-rose-400" onClick={() => onDelete(todo.id)}>
 							<BsTrash3 className="size-4" />
 						</Button>
 					</li>

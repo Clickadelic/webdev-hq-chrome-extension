@@ -47,7 +47,7 @@ const UserApps = () => {
 			setIsLoading(false)
 			setIsModalOpen(false)
 			setSuccess("")
-		}, 2000)
+		}, 1250)
 	}
 
 	const onDelete = (id: string) => {
@@ -92,7 +92,7 @@ const UserApps = () => {
 			setIsLoading(false)
 			setIsModalOpen(false)
 			setSuccess("")
-		}, 2000)
+		}, 1250)
 	}
 
 	return (
@@ -150,9 +150,9 @@ const UserApps = () => {
 						<DialogHeader>
 							<DialogTitle className="flex items-start gap-2">
 								<BsApp />
-								{chrome.i18n.getMessage("edit_app")}
+								{isEditing ? chrome.i18n.getMessage("edit_app_title") : chrome.i18n.getMessage("add_app_title")}
 							</DialogTitle>
-							<DialogDescription>{chrome.i18n.getMessage("edit_app_description")}</DialogDescription>
+							<DialogDescription>{isEditing ? chrome.i18n.getMessage("edit_app_description") : chrome.i18n.getMessage("add_app_description")}</DialogDescription>
 						</DialogHeader>
 						<div className="flex">
 							<Form {...form}>

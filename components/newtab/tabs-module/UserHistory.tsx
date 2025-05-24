@@ -32,7 +32,7 @@ const UserHistory = () => {
 				<div className="bg-white/30 backdrop p-1 rounded">
 					<ul className="w-full bg-white rounded">
 						{history.map(entry => (
-							<li key={entry.id} className="flex flex-row justify-between items-start p-.5">
+							<li key={entry.id} className="flex flex-row justify-between items-start p-1">
 								<a href={entry.url} className="flex justify-between gap-2 p-2 rounded text-md w-full truncate hover:text-mantis-primary" target="_blank" rel="noopener noreferrer">
 									<div className="flex w-full justify-start gap-2">
 										{entry.url && (
@@ -58,8 +58,7 @@ const UserHistory = () => {
 										</span>
 									)}
 								</a>
-
-								<button
+								<Button
 									onClick={() => {
 										if (entry.url) {
 											chrome.history.deleteUrl({ url: entry.url }, () => {
@@ -67,10 +66,12 @@ const UserHistory = () => {
 											})
 										}
 									}}
-									className="p-2 rounded text-rose-500 hover:cursor-pointer hover:text-rose-700"
+									variant="ghost"
+									size="sm"
+									className="text-slate-400 hover:text-rose-400"
 								>
-									<BsTrash3 className="mt-1 size-3" />
-								</button>
+									<BsTrash3 className="size-4" />
+								</Button>
 							</li>
 						))}
 					</ul>

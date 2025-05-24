@@ -55,10 +55,6 @@
 		"message": "App bearbeiten",
 		"description": "App bearbeiten Button."
 	},
-	"edit_app_description": {
-		"message": "Ändere die Einstellungen der App.",
-		"description": "App bearbeiten Beschreibungstext."
-	},
 	"app_added": {
 		"message": "App hinzugefügt.",
 		"description": "App hinzufügen Nachricht."
@@ -75,9 +71,21 @@
 		"message": "Apps auf Standard zurücksetzen",
 		"description": "App zurücksetzen Button."
 	},
+	"add_app_title": {
+		"message": "App hinzufügen",
+		"description": "App hinzufügen Text."
+	},
 	"add_app_description": {
 		"message": "Füge eine neue App hinzu, um Deinen Tab zu verbessern.",
 		"description": "App hinzufügen Text."
+	},
+	"edit_app_title": {
+		"message": "App bearbeiten",
+		"description": "App bearbeiten Text."
+	},
+	"edit_app_description": {
+		"message": "Bearbeite die aktuelle App",
+		"description": "App bearbeiten Beschreibung."
 	},
 	"import_apps": {
 		"message": "Apps importieren",
