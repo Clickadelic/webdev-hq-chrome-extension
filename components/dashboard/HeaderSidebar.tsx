@@ -13,9 +13,11 @@ import { NotificationButton } from "../dashboard/NotificationButton"
 import { InboxButton } from "../dashboard/InboxButton"
 import { FullscreenButton } from "../dashboard/FullscreenButton"
 import { LangSwitch } from "../dashboard/LangSwitch"
-import { Link } from "react-router-dom"
+
 import Logo from "../global/Logo"
 
+import { SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/components/dashboard/AppSidebar"
 const HeaderSidebar = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
@@ -26,25 +28,15 @@ const HeaderSidebar = () => {
 					<Logo href={`${import.meta.env.WXT_HOMEPAGE_URL}`} isOpen={isSidebarOpen} />
 				</div>
 				<section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">
-					<ul>
-						<li>
-							<Link to="/">Dashboard</Link>
-						</li>
-						<li>
-							<Link to="/about">About</Link>
-						</li>
-						<li>
-							<Link to="/contact">Contact</Link>
-						</li>
-					</ul>
+					<AppSidebar />
 				</section>
 			</aside>
 			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen p-3 border-b bg-white z-50", isSidebarOpen ? "md:ml-16" : "md:ml-64")}>
 				<nav className="header-nav flex justify-between w-max">
 					<div className="inline-flex gap-3">
-						<Button variant="ghost" size="sm" className="rounded-xs" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+						<SidebarTrigger variant="ghost" size="sm" className="rounded-xs" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
 							{isSidebarOpen ? <BsTextIndentLeft /> : <BsTextIndentRight />}
-						</Button>
+						</SidebarTrigger>
 						<form>
 							<input type="search" placeholder="Search" />
 						</form>

@@ -128,6 +128,7 @@ const UserApps = () => {
 					</DropdownMenu>
 				</li>
 			))}
+
 			<li>
 				<Dialog
 					open={isModalOpen}
