@@ -12,7 +12,7 @@ import { AppSchema } from "@/schemas"
 
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsTrash } from "react-icons/bs"
-import { LucidePlus, Plus } from "lucide-react"
+import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
 import { HiOutlineDotsVertical } from "react-icons/hi"
 import { TbEdit } from "react-icons/tb"
@@ -188,7 +188,7 @@ const UserApps = () => {
 									<FormError message={error} />
 									<FormSuccess message={success} />
 									<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
-										{isEditing ? <TbEdit /> : <LucidePlus />}
+										{isEditing ? <TbEdit /> : <Plus />}
 										{isEditing ? chrome.i18n.getMessage("edit_app") : chrome.i18n.getMessage("add_app")}
 									</Button>
 								</form>

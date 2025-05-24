@@ -4,11 +4,11 @@ import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
 import { FullscreenButton } from "./buttons/FullscreenButton"
 import { cn } from "@/lib/utils"
 
-interface CockpitProps {
+interface ButtonBarProps {
 	classNames?: string
 }
 
-const Cockpit = ({ classNames }: CockpitProps) => {
+const ButtonBar = ({ classNames }: ButtonBarProps) => {
 	return (
 		<div className={cn(classNames)}>
 			<div className="w-full flex justify-start gap-1">
@@ -20,4 +20,4 @@ const Cockpit = ({ classNames }: CockpitProps) => {
 	)
 }
 
-export default Cockpit
+export default ButtonBar

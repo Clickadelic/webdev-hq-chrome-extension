@@ -8,3 +8,10 @@ export const AppSchema = z.object({
 	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
 	url: z.string().min(1, chrome.i18n.getMessage("valid_url_required"))
 })
+
+export const TodoSchema = z.object({
+	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
+	description: z.string().optional(),
+	done: z.boolean(),
+	expiryDate: z.date().optional()
+})

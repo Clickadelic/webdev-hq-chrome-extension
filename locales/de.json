@@ -91,9 +91,17 @@
 		"message": "Todos",
 		"description": "Todos Tab."
 	},
-	"create_your_first_task": {
+	"create_your_first_todo": {
 		"message": "Erstelle Dein erstes Todo.",
 		"description": "Todos Tab."
+	},
+	"todo_title": {
+		"message": "Todo",
+		"description": "New Todo placeholder."
+	},
+	"todo_description": {
+		"message": "Füge ein Todo hinzu.",
+		"description": "New Todo placeholder."
 	},
 	"new_todo_placeholder": {
 		"message": "Neues Todo",

@@ -14,7 +14,7 @@ import { InboxButton } from "../dashboard/InboxButton"
 import { FullscreenButton } from "../dashboard/FullscreenButton"
 import { LangSwitch } from "../dashboard/LangSwitch"
 import { Link } from "react-router-dom"
-import Logo from "./Logo"
+import Logo from "../global/Logo"
 
 const HeaderSidebar = () => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -23,7 +23,7 @@ const HeaderSidebar = () => {
 		<>
 			<aside className={cn("App-sidebar hidden fixed md:block top-0 left-0 min-h-screen border-r bg-white", isSidebarOpen ? "w-16" : "w-64")}>
 				<div className="sidebar-logo hidden md:flex justify-center px-2 py-3">
-					<Logo href="https://webdev-hq.com" isOpen={isSidebarOpen} />
+					<Logo href={`${import.meta.env.WXT_HOMEPAGE_URL}`} isOpen={isSidebarOpen} />
 				</div>
 				<section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">
 					<ul>
