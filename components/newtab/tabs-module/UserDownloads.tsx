@@ -54,28 +54,34 @@ const UserDownloads = () => {
 					</div>
 				</div>
 			) : (
-				<ul className="p-1 bg-white/30 rounded space-y-2">
-					{downloads.map(d => (
-						<li key={d.id} className="p-3 border rounded flex flex-col gap-2 bg-white md:flex-row md:items-center md:justify-between">
-							<div className="flex flex-col md:max-w-[75%] overflow-hidden">
-								<button className="font-medium text-sm text-left text-mantis-primary hover:cursor-pointer hover:underline truncate" onClick={() => handleShowInFolder(d.id)}>
-									{d.filename}
-								</button>
-								<p className="text-xs text-gray-500 truncate">{d.url}</p>
-							</div>
+				<div className="bg-white/30 backdrop p-1 rounded">
+					<ul className="p-1 bg-white rounded space-y-2">
+						{downloads.map(d => (
+							<li key={d.id} className="w-full p-1 rounded flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+								<div className="flex flex-col w-full overflow-hidden">
+									<Button
+										variant="link"
+										className="m-0 p-1 pb-0 font-medium justify-start text-sm text-left text-mantis-primary hover:cursor-pointer hover:underline truncate"
+										onClick={() => handleShowInFolder(d.id)}
+									>
+										{d.filename}
+									</Button>
+									<p className="text-xs text-gray-500 truncate">{d.url}</p>
+								</div>
 
-							<div className="flex items-center justify-between md:gap-4 md:justify-end w-full md:w-auto">
-								<p className="text-xs text-gray-600 whitespace-nowrap">
-									{d.state === "in_progress" ? `${Math.round((d.bytesReceived / d.totalBytes) * 100)}%` : d.state === "complete" ? "✅ Abgeschlossen" : "❌ Fehler"}
-								</p>
+								<div className="flex items-center justify-between md:gap-4 md:justify-end w-full md:w-auto">
+									<p className="text-xs text-gray-600 whitespace-nowrap">
+										{d.state === "in_progress" ? `${Math.round((d.bytesReceived / d.totalBytes) * 100)}%` : d.state === "complete" ? "✅" : "❌"}
+									</p>
 
-								<Button variant="delete" size="icon" className="text-red-500 hover:text-red-700" onClick={() => handleDelete(d.id)}>
-									<Trash2 className="w-4 h-4" />
-								</Button>
-							</div>
-						</li>
-					))}
-				</ul>
+									<Button variant="ghost" size="icon" className="text-red-500 hover:text-red-700" onClick={() => handleDelete(d.id)}>
+										<Trash2 className="size-4" />
+									</Button>
+								</div>
+							</li>
+						))}
+					</ul>
+				</div>
 			)}
 		</div>
 	)

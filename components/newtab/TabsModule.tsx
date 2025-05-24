@@ -29,17 +29,17 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 							<BsListCheck />
 							{chrome.i18n.getMessage("todos")}
 						</TabsTrigger>
-						<TabsTrigger value="history">
-							<PiClockCountdown />
-							{chrome.i18n.getMessage("history")}
+						<TabsTrigger value="popular">
+							<HiOutlineCog8Tooth />
+							Popular Sites
 						</TabsTrigger>
 						<TabsTrigger value="downloads">
 							<GoDownload />
 							{chrome.i18n.getMessage("downloads")}
 						</TabsTrigger>
-						<TabsTrigger value="freetab">
-							<HiOutlineCog8Tooth />
-							Freetab
+						<TabsTrigger value="history">
+							<PiClockCountdown />
+							{chrome.i18n.getMessage("history")}
 						</TabsTrigger>
 					</TabsList>
 				</div>
@@ -49,13 +49,13 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 				<TabsContent value="todos">
 					<TodoList />
 				</TabsContent>
-				<TabsContent value="history">
-					<UserHistory />
-				</TabsContent>
+				<TabsContent value="popular">Popular Sites</TabsContent>
 				<TabsContent value="downloads">
 					<UserDownloads />
 				</TabsContent>
-				<TabsContent value="freetab">Freetab</TabsContent>
+				<TabsContent value="history">
+					<UserHistory />
+				</TabsContent>
 			</Tabs>
 		</div>
 	)
