@@ -1,10 +1,9 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import UserApps from "@/components/newtab/UserApps"
-import UserHistory from "@/components/newtab/UserHistory"
-import TodoList from "@/components/newtab/TodoList"
-import UserDownloads from "@/components/newtab/UserDownloads"
-import Settings from "./Settings"
+import UserApps from "@/components/newtab/tabs-module/UserApps"
+import UserHistory from "@/components/newtab/tabs-module/UserHistory"
+import TodoList from "@/components/newtab/tabs-module/TodoList"
+import UserDownloads from "@/components/newtab/tabs-module/UserDownloads"
 
 import { BsApp } from "react-icons/bs"
 import { BsListCheck } from "react-icons/bs"
@@ -17,11 +16,6 @@ interface TabsModuleProps {
 }
 
 const TabsModule = ({ classNames }: TabsModuleProps) => {
-	const appsLabel: string = chrome.i18n.getMessage("apps")
-	const todosLabel: string = chrome.i18n.getMessage("todos")
-	const historyLabel: string = chrome.i18n.getMessage("history")
-	const downloadsLabel: string = chrome.i18n.getMessage("downloads")
-	const settingsLabel: string = chrome.i18n.getMessage("settings")
 	return (
 		<div className={classNames}>
 			<Tabs defaultValue="apps" className="w-full">
@@ -29,23 +23,23 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 					<TabsList className="grid grid-cols-5 w-full text-slate-600">
 						<TabsTrigger value="apps">
 							<BsApp />
-							{appsLabel}
+							{chrome.i18n.getMessage("apps")}
 						</TabsTrigger>
 						<TabsTrigger value="todos">
 							<BsListCheck />
-							{todosLabel}
+							{chrome.i18n.getMessage("todos")}
 						</TabsTrigger>
 						<TabsTrigger value="history">
 							<PiClockCountdown />
-							{historyLabel}
+							{chrome.i18n.getMessage("history")}
 						</TabsTrigger>
 						<TabsTrigger value="downloads">
 							<GoDownload />
-							{downloadsLabel}
+							{chrome.i18n.getMessage("downloads")}
 						</TabsTrigger>
-						<TabsTrigger value="settings">
+						<TabsTrigger value="freetab">
 							<HiOutlineCog8Tooth />
-							{settingsLabel}
+							Freetab
 						</TabsTrigger>
 					</TabsList>
 				</div>
@@ -61,9 +55,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 				<TabsContent value="downloads">
 					<UserDownloads />
 				</TabsContent>
-				<TabsContent value="settings">
-					<Settings />
-				</TabsContent>
+				<TabsContent value="freetab">Freetab</TabsContent>
 			</Tabs>
 		</div>
 	)

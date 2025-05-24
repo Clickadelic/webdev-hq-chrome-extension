@@ -23,11 +23,15 @@ export default defineConfig({
 			"tabs",
 			"tabGroups",
 			"storage",
+			"sidePanel",
 			"scripting",
 			"system.cpu",
 			"system.memory",
 			"system.storage"
 		],
+		side_panel: {
+			default_path: "sidepanel.html"
+		},
 		content_scripts: [
 			{
 				css: ["content-scripts/content.css"],

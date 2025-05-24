@@ -39,50 +39,48 @@ export default defineBackground(() => {
 
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getRandomImage") {
-			;(async () => {
-				const today = new Date().toISOString().split("T")[0]
-
-				const data = await getFromStorage<StorageData>(["backgroundImageUrl", "lastFetchedDate"])
-
-				if (data.backgroundImageUrl && data.lastFetchedDate === today) {
-					sendResponse({
-						url: data.backgroundImageUrl,
-						author: data.author,
-						authorUrl: data.authorUrl,
-						link: data.unsplashUrl
-					})
-				} else {
-					try {
-						const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/chrome-extension/random-image`)
-						const json = await res.json()
-
-						// json ist direkt das Bildobjekt, kein json.response!
-						const imageUrl = json.url
-
-						await setToStorage({
-							backgroundImageUrl: imageUrl,
-							lastFetchedDate: today,
-							unsplashUrl: json.link,
-							author: json.author,
-							authorUrl: json.authorUrl
-						})
-
-						sendResponse({
-							url: imageUrl,
-							author: json.author,
-							authorUrl: json.authorUrl,
-							link: json.link
-						})
-					} catch (e) {
-						console.error("Error loading:", e)
-						sendResponse({ url: null })
-					}
-				}
-			})()
-
-			return true
+			handleRandomImage(sendResponse)
+			return true // Wichtig!
 		}
 	})
+
+	async function handleRandomImage(sendResponse: (response: any) => void) {
+		const today = new Date().toISOString().split("T")[0]
+
+		try {
+			const data = await getFromStorage<StorageData>(["backgroundImageUrl", "lastFetchedDate", "author", "authorUrl", "unsplashUrl"])
+
+			if (data.backgroundImageUrl && data.lastFetchedDate === today) {
+				sendResponse({
+					url: data.backgroundImageUrl,
+					author: data.author,
+					authorUrl: data.authorUrl,
+					link: data.unsplashUrl
+				})
+			} else {
+				const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/chrome-extension/random-image`)
+				const json = await res.json()
+
+				await setToStorage({
+					backgroundImageUrl: json.url,
+					lastFetchedDate: today,
+					unsplashUrl: json.link,
+					author: json.author,
+					authorUrl: json.authorUrl
+				})
+
+				sendResponse({
+					url: json.url,
+					author: json.author,
+					authorUrl: json.authorUrl,
+					link: json.link
+				})
+			}
+		} catch (e) {
+			console.error("Error loading:", e)
+			sendResponse({ error: "fetch_failed" })
+		}
+	}
 
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getHistory") {
@@ -99,34 +97,6 @@ export default defineBackground(() => {
 				resolve(results)
 			})
 		})
-	}
-
-	// Wenn eine Gruppe erstellt, geändert oder verschoben wird
-	chrome.tabGroups.onUpdated.addListener(async group => {
-		const saved = await getSavedGroups()
-		const updatedGroup = {
-			title: group.title,
-			color: group.color
-		}
-
-		const alreadyExists = saved.some(g => g.title === updatedGroup.title && g.color === updatedGroup.color)
-
-		if (!alreadyExists) {
-			const newGroups = [...saved, updatedGroup]
-			chrome.storage.local.set({ savedGroups: newGroups })
-			console.log("Neue Gruppe gespeichert:", updatedGroup)
-		}
-	})
-
-	// Optional: Wenn Gruppe gelöscht wird, könnten wir sie trotzdem behalten
-	chrome.tabGroups.onRemoved.addListener(async groupId => {
-		console.log("Gruppe wurde geschlossen:", groupId)
-		// Optional: Entferne sie NICHT aus dem Speicher
-	})
-
-	// Hilfsfunktion zum Laden
-	async function getSavedGroups(): Promise<{ title?: string; color: string }[]> {
-		return new Promise(resolve => chrome.storage.local.get(["savedGroups"], res => resolve(res.savedGroups || [])))
 	}
 
 	chrome.action.onClicked.addListener(tab => {

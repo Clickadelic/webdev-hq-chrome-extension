@@ -1,5 +1,6 @@
 import { create } from "zustand"
 import { persist } from "zustand/middleware"
+import defaultApps from "@/lib/default-apps"
 
 export type AppType = {
 	id: string
@@ -11,25 +12,32 @@ export type AppType = {
 type AppStore = {
 	apps: AppType[]
 	addApp: (app: AppType) => void
+	getApp: (id: string) => AppType
 	editApp: (app: AppType) => void
 	removeApp: (id: string) => void
+	resetApps: () => void
 }
 
 export const useAppStore = create<AppStore>()(
 	persist(
-		set => ({
-			apps: [],
+		(set, get) => ({
+			apps: defaultApps,
 			addApp: app =>
 				set(state => ({
 					apps: [...state.apps, app]
 				})),
+			getApp: id => get().apps.find(app => app.id === id)!,
 			editApp: app =>
 				set(state => ({
-					apps: [...state.apps, app]
+					apps: state.apps.map(a => (a.id === app.id ? app : a))
 				})),
 			removeApp: id =>
 				set(state => ({
 					apps: state.apps.filter(app => app.id !== id)
+				})),
+			resetApps: () =>
+				set(() => ({
+					apps: [...defaultApps]
 				}))
 		}),
 		{

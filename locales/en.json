@@ -23,20 +23,84 @@
 		"message": "Apps",
 		"description": "Tab Apps."
 	},
+	"app_title": {
+		"message": "Title",
+		"description": "App input label title."
+	},
+	"app_title_placeholder": {
+		"message": "My app",
+		"description": "App input placeholder title."
+	},
+	"app_url": {
+		"message": "Url",
+		"description": "App input url title."
+	},
+	"app_url_placeholder": {
+		"message": "https://...",
+		"description": "App input url title."
+	},
+	"min_1_character": {
+		"message": "At least 1 character is required.",
+		"description": "Warning 1 character required."
+	},
+	"valid_url_required": {
+		"message": "A valid url is required.",
+		"description": "Warning a valid url is required."
+	},
 	"add_app": {
 		"message": "Add App",
 		"description": "Add App Button."
+	},
+	"edit_app": {
+		"message": "Edit App",
+		"description": "Edit App Button."
+	},
+	"app_added": {
+		"message": "App has been added.",
+		"description": "App adding message."
+	},
+	"app_edited": {
+		"message": "App has been edited.",
+		"description": "App edit message."
+	},
+	"reset_apps": {
+		"message": "reset apps",
+		"description": "App reset button."
+	},
+	"reset_apps_to_default_settings": {
+		"message": "Reset apps to default settings",
+		"description": "Apps reset Button."
+	},
+	"add_app_title": {
+		"message": "Add app",
+		"description": "App hinzufügen Text."
 	},
 	"add_app_description": {
 		"message": "Add a new app to improve your tab.",
 		"description": "Add app text."
 	},
+	"edit_app_title": {
+		"message": "Edit app",
+		"description": "App hinzufügen Text."
+	},
+	"edit_app_description": {
+		"message": "Edit the current app",
+		"description": "Add app text."
+	},
+	"import_apps": {
+		"message": "export apps",
+		"description": "Apps import Buttontext."
+	},
+	"export_apps": {
+		"message": "import apps",
+		"description": "Apps import Buttontext."
+	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."
 	},
-	"create_your_first_task": {
-		"message": "Create your first task",
+	"create_your_first_todo": {
+		"message": "Create your first todo",
 		"description": "Todos Tab."
 	},
 	"new_todo_placeholder": {
@@ -49,27 +113,27 @@
 	},
 	"history": {
 		"message": "History",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"delete_history": {
 		"message": "Delete history",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"no_history_found": {
 		"message": "No history available",
-		"description": "History Tab"
+		"description": "History Tab."
 	},
 	"downloads": {
 		"message": "Downloads",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"no_downloads_found": {
 		"message": "No downloads found.",
-		"description": "Downloads Tab"
+		"description": "Downloads Tab."
 	},
 	"settings": {
 		"message": "Settings",
-		"description": "Settings Tab"
+		"description": "Settings Tab."
 	},
 	"search_placeholder": {
 		"message": "Search",
@@ -98,5 +162,29 @@
 	"start_meazure_tool": {
 		"message": "Start measure tool",
 		"description": "Starts the measure tool."
+	},
+	"open_dashboard": {
+		"message": "Open Dashboard",
+		"description": "Open Dashboard."
+	},
+	"settings_title": {
+		"message": "Settings",
+		"description": "Settings Title."
+	},
+	"settings_description": {
+		"message": "Hier kannst Du Deine Einstellungen für Deinen Tab vornehmen.",
+		"description": "App Einstellungen Beschreibung."
+	},
+	"reset_apps_settings_text": {
+		"message": "Reset apps to default settings.",
+		"description": "Dashboard öffnen"
+	},
+	"import_apps_settings_text": {
+		"message": "Import apps as .json-file.",
+		"description": "Import explaination."
+	},
+	"export_apps_settings_text": {
+		"message": "Export apps as .json-file.",
+		"description": "Export explaination."
 	}
 }

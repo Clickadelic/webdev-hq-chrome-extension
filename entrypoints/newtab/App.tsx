@@ -1,12 +1,12 @@
-import BackgroundImage from "@/components/newtab/BackgroundImage"
+import BackgroundImage from "@/components/global/BackgroundImage"
 
 import AppIcon from "@/components/global/AppIcon"
 import Clock from "@/components/newtab/Clock"
 import Salutation from "@/components/newtab/Salutation"
 import MultiSearch from "@/components/newtab/MultiSearch"
 import AccountMenu from "@/components/newtab/AccountMenu"
-import TabGroupBadges from "@/components/newtab/TabGroupBadges"
 import TabsModule from "@/components/newtab/TabsModule"
+import ButtonBar from "@/components/newtab/ButtonBar"
 
 const App = () => {
 	return (
@@ -17,7 +17,7 @@ const App = () => {
 			<Salutation classNames="w-[680px] mt-32 mb-4 mx-auto text-white text-4xl font-light" />
 			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
-			<TabGroupBadges />
+			<ButtonBar classNames="w-[142px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 rounded" />
 		</BackgroundImage>
 	)
 }
