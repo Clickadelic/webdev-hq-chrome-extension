@@ -4,13 +4,14 @@ import UserApps from "@/components/newtab/tabs-module/UserApps"
 import UserHistory from "@/components/newtab/tabs-module/UserHistory"
 import TodoList from "@/components/newtab/tabs-module/TodoList"
 import UserDownloads from "@/components/newtab/tabs-module/UserDownloads"
+import TopSitesList from "@/components/newtab/tabs-module/TopSitesList"
 
 import { BsApp } from "react-icons/bs"
 import { BsListCheck } from "react-icons/bs"
 import { PiClockCountdown } from "react-icons/pi"
 import { GoDownload } from "react-icons/go"
-import { HiOutlineCog8Tooth } from "react-icons/hi2"
 
+import { IoTrendingUpOutline } from "react-icons/io5"
 interface TabsModuleProps {
 	classNames?: string
 }
@@ -30,8 +31,8 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 							{chrome.i18n.getMessage("todos")}
 						</TabsTrigger>
 						<TabsTrigger value="popular">
-							<HiOutlineCog8Tooth />
-							Popular Sites
+							<IoTrendingUpOutline />
+							{chrome.i18n.getMessage("popular_sites")}
 						</TabsTrigger>
 						<TabsTrigger value="downloads">
 							<GoDownload />
@@ -49,7 +50,9 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 				<TabsContent value="todos">
 					<TodoList />
 				</TabsContent>
-				<TabsContent value="popular">Popular Sites</TabsContent>
+				<TabsContent value="popular">
+					<TopSitesList />
+				</TabsContent>
 				<TabsContent value="downloads">
 					<UserDownloads />
 				</TabsContent>

@@ -139,6 +139,10 @@
 		"message": "Keine Downloads vorhanden.",
 		"description": "Downloads Tab."
 	},
+	"popular_sites": {
+		"message": "Häufige Seiten",
+		"description": "Popular Sites Tab."
+	},
 	"settings": {
 		"message": "Einstellungen",
 		"description": "Einstellungen Tab."

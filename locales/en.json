@@ -131,6 +131,10 @@
 		"message": "No downloads found.",
 		"description": "Downloads Tab."
 	},
+	"popular_sites": {
+		"message": "Popular sites",
+		"description": "Popular Sites Tab."
+	},
 	"settings": {
 		"message": "Settings",
 		"description": "Settings Tab."
