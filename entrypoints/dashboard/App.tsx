@@ -12,7 +12,7 @@ import BackgroundImage from "@/components/global/BackgroundImage"
 const App = () => {
 	return (
 		<div className="min-h-dvh bg-slate-100">
-			<BackgroundImage>
+			<BackgroundImage creditsPosition="center">
 				<SidebarProvider>
 					<HeaderSidebar />
 					<main className="md:ml-64 pt-16 p-2">

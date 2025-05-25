@@ -3,9 +3,10 @@ import { useImageStore } from "@/stores/use-image-store"
 
 interface BackgroundImageProps {
 	children: React.ReactNode
+	creditsPosition?: "left" | "center" | "right"
 }
 
-const BackgroundImage = ({ children }: BackgroundImageProps) => {
+const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) => {
 	const { imageUrl, credit, setImage } = useImageStore()
 
 	useEffect(() => {
@@ -35,7 +36,7 @@ const BackgroundImage = ({ children }: BackgroundImageProps) => {
 		>
 			{children}
 			{credit && (
-				<div className="absolute bottom-4 left-4">
+				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 -translate-x-1/2" : "absolute bottom-4 left-4"}>
 					<p className="text-xs text-white">
 						Foto von{" "}
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">

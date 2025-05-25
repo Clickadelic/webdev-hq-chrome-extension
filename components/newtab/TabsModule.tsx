@@ -21,7 +21,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 	return (
 		<div className={classNames}>
 			<Tabs defaultValue="apps" className="w-full">
-				<div className="bg-white/30 p-1 rounded">
+				<div className="bg-white/30 p-1 rounded backdrop-blur">
 					<TabsList className="grid grid-cols-5 w-full text-slate-600 h-[44px]">
 						<TabsTrigger value="apps">
 							<BsApp />

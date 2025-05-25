@@ -87,7 +87,7 @@ const TodoList = () => {
 
 	return (
 		<div className="flex flex-col bg-white/30 backdrop-blur p-1 space-y-1 rounded">
-			<div className="bg-white rounded p-1">
+			<div className="bg-white rounded p-1 backdrop-blur">
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="flex flex-row w-full gap-1">
 						<div className="flex flex-row w-full gap-2">
@@ -114,7 +114,7 @@ const TodoList = () => {
 					</form>
 				</Form>
 			</div>
-			<ul className="w-full flex flex-col space-y-1 bg-white rounded p-1">
+			<ul className="w-full flex flex-col space-y-1 bg-white rounded p-1 backdrop-blur">
 				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-1">{chrome.i18n.getMessage("create_your_first_todo")}</p>}
 				{todos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">

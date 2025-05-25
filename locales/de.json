@@ -119,6 +119,30 @@
 		"message": "Neues Projekt",
 		"description": "Neues Projekt"
 	},
+	"add_project_title": {
+		"message": "Projekt hinzufügen",
+		"description": "Neues Projekt hinzufügen"
+	},
+	"add_project_description": {
+		"message": "Füge ein neues Projekt zu Deiner Sammlung hinzu.",
+		"description": "Projekt hinzufügen Text."
+	},
+	"project_title_label": {
+		"message": "Titel",
+		"description": "Projekttitel."
+	},
+	"project_title_input_placeholder": {
+		"message": "Mein Projekttitel",
+		"description": "Projekt hinzufügen Text."
+	},
+	"edit_project_title": {
+		"message": "Projekt bearbeiten",
+		"description": "Projekt bearbeiten Text"
+	},
+	"edit_project_description": {
+		"message": "Ändere Details des Projekts.",
+		"description": "Projekt bearbeiten Text"
+	},
 	"tabs": {
 		"message": "Tabs",
 		"description": "Tabs Tab."
