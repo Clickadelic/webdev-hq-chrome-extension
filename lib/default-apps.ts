@@ -1,4 +1,5 @@
 import accountIcon from "@/assets/icons/google-apps/google-account.svg"
+import adsIcon from "@/assets/icons/google-apps/google-ads.svg"
 import alertsIcon from "@/assets/icons/google-apps/google-alerts.svg"
 import analyticsIcon from "@/assets/icons/google-apps/google-analytics.svg"
 import calendarIcon from "@/assets/icons/google-apps/google-calendar.svg"
@@ -122,6 +123,12 @@ const defaultApps = [
 		title: "Analytics",
 		icon: analyticsIcon,
 		url: "https://developers.google.com/analytics"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Ads",
+		icon: adsIcon,
+		url: "https://ads.google.com/"
 	},
 	{
 		id: crypto.randomUUID(),
