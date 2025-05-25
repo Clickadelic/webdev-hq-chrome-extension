@@ -74,7 +74,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	}, [])
 
 	return (
-		<div className={cn("w-full bg-white flex flex-row gap-1 p-1 rounded items-center", classNames)}>
+		<div className={cn("w-full z-50 bg-white flex flex-row gap-1 p-1 rounded items-center", classNames)}>
 			<form method="GET" action={`${searchEngine}${encodeURIComponent(searchQuery)}`} className="w-full bg-white flex flex-row gap-1 p-1 rounded items-center">
 				<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="py-1 pr-2 pl-3 focus:outline-none w-full text-xl" placeholder={searchPlaceholder} />
 				{searchQuery.length >= 1 && (
@@ -95,7 +95,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 					</Button>
 
 					{dropdownOpen && (
-						<div className="-left-3 z-10 absolute bg-white shadow-lg mt-1 border rounded w-48">
+						<div className="-left-3 z-50 absolute bg-white shadow-lg mt-1 border rounded w-48">
 							{engines.map(engine => (
 								<button
 									key={engine.name}
