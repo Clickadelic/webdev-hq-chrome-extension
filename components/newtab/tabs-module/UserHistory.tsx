@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { BsTrash3 } from "react-icons/bs"
+import { BsTrash } from "react-icons/bs"
 import { Button } from "@/components/ui/button"
 
 import { getFaviconUrl, deleteUserHistory } from "@/lib/utils"
@@ -25,7 +25,7 @@ const UserHistory = () => {
 			{history.length === 0 ? (
 				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
 					<div className="bg-white rounded p-2">
-						<p className="text-center text-md text-slate-500">{noHistoryFoundLabel}</p>
+						<p className="text-center text-md text-slate-500 my-1.5">{noHistoryFoundLabel}</p>
 					</div>
 				</div>
 			) : (
@@ -70,7 +70,7 @@ const UserHistory = () => {
 									size="sm"
 									className="text-slate-400 hover:text-rose-400"
 								>
-									<BsTrash3 className="size-4" />
+									<BsTrash className="size-4" />
 								</Button>
 							</li>
 						))}

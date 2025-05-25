@@ -1,7 +1,7 @@
 import * as z from "zod"
 
 export const SearchInputSchema = z.object({
-	query: z.string().min(1, chrome.i18n.getMessage("min_1_character"))
+	query: z.string().min(1, chrome.i18n.getMessage("min_1_character", "Min 1 character"))
 })
 
 export const AppSchema = z.object({

@@ -16,36 +16,36 @@
 		"description": "Salutation in the evening."
 	},
 	"o_clock": {
-		"message": "h",
-		"description": "Uhr Tab."
+		"message": "o'clock",
+		"description": "Clock Tab."
 	},
 	"apps": {
 		"message": "Apps",
-		"description": "Tab Apps."
+		"description": "Apps Tab."
 	},
 	"app_title": {
 		"message": "Title",
 		"description": "App input label title."
 	},
 	"app_title_placeholder": {
-		"message": "My app",
+		"message": "My App",
 		"description": "App input placeholder title."
 	},
 	"app_url": {
-		"message": "Url",
-		"description": "App input url title."
+		"message": "URL",
+		"description": "App input label URL."
 	},
 	"app_url_placeholder": {
 		"message": "https://...",
-		"description": "App input url title."
+		"description": "App input placeholder URL."
 	},
 	"min_1_character": {
-		"message": "At least 1 character is required.",
-		"description": "Warning 1 character required."
+		"message": "At least one character is required.",
+		"description": "Warning one character is mandatory."
 	},
 	"valid_url_required": {
-		"message": "A valid url is required.",
-		"description": "Warning a valid url is required."
+		"message": "A valid URL is required.",
+		"description": "Warning a valid URL is required."
 	},
 	"add_app": {
 		"message": "Add App",
@@ -56,100 +56,136 @@
 		"description": "Edit App Button."
 	},
 	"app_added": {
-		"message": "App has been added.",
-		"description": "App adding message."
+		"message": "App added.",
+		"description": "App add message."
 	},
 	"app_edited": {
-		"message": "App has been edited.",
+		"message": "App edited.",
 		"description": "App edit message."
 	},
-	"reset_apps": {
-		"message": "reset apps",
-		"description": "App reset button."
+	"load_google_apps": {
+		"message": "Load Google Apps",
+		"description": "Load Google Apps Button."
 	},
 	"reset_apps_to_default_settings": {
 		"message": "Reset apps to default settings",
-		"description": "Apps reset Button."
+		"description": "Reset apps button."
 	},
 	"add_app_title": {
-		"message": "Add app",
-		"description": "App hinzufügen Text."
+		"message": "Add App",
+		"description": "Add App title."
 	},
 	"add_app_description": {
 		"message": "Add a new app to improve your tab.",
-		"description": "Add app text."
+		"description": "Add App description."
 	},
 	"edit_app_title": {
-		"message": "Edit app",
-		"description": "App hinzufügen Text."
+		"message": "Edit App",
+		"description": "Edit App title."
 	},
 	"edit_app_description": {
-		"message": "Edit the current app",
-		"description": "Add app text."
+		"message": "Edit the current app.",
+		"description": "Edit App description."
 	},
 	"import_apps": {
-		"message": "export apps",
-		"description": "Apps import Buttontext."
+		"message": "Import Apps",
+		"description": "Import Apps button text."
 	},
 	"export_apps": {
-		"message": "import apps",
-		"description": "Apps import Buttontext."
+		"message": "Export Apps",
+		"description": "Export Apps button text."
 	},
 	"todos": {
 		"message": "Todos",
 		"description": "Todos Tab."
 	},
 	"create_your_first_todo": {
-		"message": "Create your first todo",
+		"message": "Create your first todo.",
 		"description": "Todos Tab."
 	},
-	"new_todo_placeholder": {
-		"message": "New todo",
-		"description": "New todo placeholder."
+	"todo_title": {
+		"message": "Todo",
+		"description": "New Todo title."
+	},
+	"todo_description": {
+		"message": "Add a todo.",
+		"description": "New Todo placeholder."
 	},
 	"projects": {
 		"message": "Projects",
 		"description": "Projects Tab."
 	},
-	"new_project": {
-		"message": "New Project",
-		"description": "New Project"
+	"add_project": {
+		"message": "Add Project",
+		"description": "Add new project button."
+	},
+	"edit_project": {
+		"message": "Edit Project",
+		"description": "Edit project button."
+	},
+	"delete_project": {
+		"message": "Delete Project",
+		"description": "Delete project button."
 	},
 	"add_project_title": {
-		"message": "Add project",
-		"description": "Modal title"
+		"message": "Add Project",
+		"description": "Add project title."
 	},
 	"add_project_description": {
 		"message": "Add a new project to your collection.",
-		"description": "Modal description"
+		"description": "Add project description."
 	},
 	"project_title_label": {
 		"message": "Title",
-		"description": "Modal input projectitle."
+		"description": "Project title label."
 	},
 	"project_title_input_placeholder": {
-		"message": "My projecttitle",
-		"description": "Modal input placeholder."
+		"message": "My Project Title",
+		"description": "Project title placeholder."
 	},
 	"project_description_label": {
-		"message": "Projectdescription",
-		"description": "Projectdescription."
+		"message": "Description",
+		"description": "Project description label."
 	},
 	"project_description_input_placeholder": {
-		"message": "Details of the project",
-		"description": "Details of the project."
+		"message": "Project details",
+		"description": "Project description placeholder."
+	},
+	"project_url_label": {
+		"message": "Project URL",
+		"description": "Project URL label."
+	},
+	"project_url_input_placeholder": {
+		"message": "https://...",
+		"description": "Project URL placeholder."
+	},
+	"project_giturl_label": {
+		"message": "Git URL",
+		"description": "Project Git URL label."
+	},
+	"project_giturl_input_placeholder": {
+		"message": "https://...",
+		"description": "GitHub link placeholder."
 	},
 	"edit_project_title": {
-		"message": "Projekt bearbeiten",
-		"description": "Projekt bearbeiten Text"
+		"message": "Edit Project",
+		"description": "Edit project title."
 	},
 	"edit_project_description": {
-		"message": "Ändere Details des Projekts.",
-		"description": "Projekt bearbeiten Text"
+		"message": "Change project details.",
+		"description": "Edit project description."
+	},
+	"website": {
+		"message": "Website",
+		"description": "Website Text"
+	},
+	"git_url": {
+		"message": "Repository-Url",
+		"description": "Git-Url Text"
 	},
 	"tabs": {
 		"message": "Tabs",
-		"description": "Todos Tab."
+		"description": "Tabs Tab."
 	},
 	"history": {
 		"message": "History",
@@ -157,11 +193,11 @@
 	},
 	"delete_history": {
 		"message": "Delete history",
-		"description": "History Tab."
+		"description": "Delete history button."
 	},
 	"no_history_found": {
-		"message": "No history available",
-		"description": "History Tab."
+		"message": "No history found.",
+		"description": "No history message."
 	},
 	"downloads": {
 		"message": "Downloads",
@@ -169,10 +205,10 @@
 	},
 	"no_downloads_found": {
 		"message": "No downloads found.",
-		"description": "Downloads Tab."
+		"description": "No downloads message."
 	},
 	"popular_sites": {
-		"message": "Popular sites",
+		"message": "Popular Sites",
 		"description": "Popular Sites Tab."
 	},
 	"settings": {
@@ -181,54 +217,58 @@
 	},
 	"search_placeholder": {
 		"message": "Search",
-		"description": "Search input placeholder."
+		"description": "Search placeholder text."
 	},
 	"goodMorning": {
 		"message": "Good morning",
 		"description": "Salutation of the user in the morning."
 	},
 	"edit": {
-		"message": "edit",
-		"description": "Edit Button."
+		"message": "Edit",
+		"description": "Edit button."
 	},
 	"delete": {
-		"message": "delete",
-		"description": "Delete Button."
+		"message": "Delete",
+		"description": "Delete button."
 	},
 	"photo_by": {
 		"message": "Photo by",
-		"description": "Photo by text."
+		"description": "Photo attribution label."
 	},
 	"on": {
 		"message": "on",
-		"description": "on preposition."
+		"description": "Preposition 'on'."
 	},
 	"start_meazure_tool": {
 		"message": "Start measure tool",
-		"description": "Starts the measure tool."
+		"description": "Start the measure tool."
 	},
 	"open_dashboard": {
 		"message": "Open Dashboard",
-		"description": "Open Dashboard."
+		"description": "Open dashboard."
 	},
 	"settings_title": {
 		"message": "Settings",
-		"description": "Settings Title."
+		"description": "Settings title."
 	},
 	"settings_description": {
-		"message": "Hier kannst Du Deine Einstellungen für Deinen Tab vornehmen.",
-		"description": "App Einstellungen Beschreibung."
+		"message": "Here you can configure your tab settings.",
+		"description": "Tab settings description."
 	},
 	"reset_apps_settings_text": {
 		"message": "Reset apps to default settings.",
-		"description": "Dashboard öffnen"
+		"description": "Reset button description."
 	},
 	"import_apps_settings_text": {
-		"message": "Import apps as .json-file.",
-		"description": "Import explaination."
+		"message": "Import apps as .json file.",
+		"description": "Import explanation."
 	},
 	"export_apps_settings_text": {
-		"message": "Export apps as .json-file.",
-		"description": "Export explaination."
+		"message": "Export apps as .json file.",
+		"description": "Export explanation."
+	},
+	"delete_all_apps": {
+		"message": "Delete all apps.",
+		"description": "Delete all apps text."
 	}
 }

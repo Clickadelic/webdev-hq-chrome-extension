@@ -1,7 +1,6 @@
 export default defineBackground(() => {
-	// installation message in console
 	chrome.runtime.onInstalled.addListener(() => {
-		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome Extension installed."))
+		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."))
 	})
 
 	interface StorageData {

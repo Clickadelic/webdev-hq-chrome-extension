@@ -50,7 +50,7 @@ const UserDownloads = () => {
 			{downloads.length === 0 ? (
 				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
 					<div className="bg-white rounded p-2">
-						<p className="text-center text-md text-slate-500">{noDownloadsFoundLabel}</p>
+						<p className="text-center text-md text-slate-500 my-1.5">{noDownloadsFoundLabel}</p>
 					</div>
 				</div>
 			) : (

@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { ResetAppsButton } from "@/components/newtab/buttons/ResetAppsButton"
 import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
 import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
+import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton"
 
 export const SettingsButton: React.FC = () => {
 	return (
@@ -13,7 +14,10 @@ export const SettingsButton: React.FC = () => {
 			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
-					<DialogTitle>{chrome.i18n.getMessage("settings_title", "Settings")}</DialogTitle>
+					<DialogTitle className="flex items-start gap-2">
+						<HiOutlineCog className="mt-[2px] size-4" />
+						{chrome.i18n.getMessage("settings_title", "Settings")}
+					</DialogTitle>
 					<DialogDescription>{chrome.i18n.getMessage("settings_description", "Manage your settings")}</DialogDescription>
 				</DialogHeader>
 				<div className="space-y-2">
@@ -22,6 +26,10 @@ export const SettingsButton: React.FC = () => {
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("reset_apps_settings_text", "Reset apps")}</p>
 						<ResetAppsButton />
+					</div>
+					<div className="flex justify-between gap-2">
+						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("import_apps_settings_text", "Import apps")}</p>
+						<DeleteAllAppsButton />
 					</div>
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("export_apps_settings_text", "Export apps")}</p>

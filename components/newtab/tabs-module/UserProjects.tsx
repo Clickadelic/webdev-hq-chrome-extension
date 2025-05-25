@@ -4,20 +4,27 @@ import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Link } from "react-router-dom"
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
 import { useState } from "react"
-
+import { RxExternalLink } from "react-icons/rx"
+import { BsApp, BsHouse } from "react-icons/bs"
+import { FaGitAlt } from "react-icons/fa"
 import { Plus } from "lucide-react"
 import { TbEdit } from "react-icons/tb"
 import { AiOutlineFundProjectionScreen } from "react-icons/ai"
-
+import { AiOutlineEdit } from "react-icons/ai"
+import { BsTrash } from "react-icons/bs"
+import { HiOutlineDotsVertical } from "react-icons/hi"
 import { useProjectStore } from "@/stores/use-project-store"
 import { ProjectSchema } from "@/schemas"
-
+import { RxHome } from "react-icons/rx"
 const UserProjects = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [isEditing, setIsEditing] = useState(false)
@@ -110,20 +117,49 @@ const UserProjects = () => {
 				{projects &&
 					projects.map(project => (
 						<li key={project.id}>
-							<div className="bg-white rounded p-2 gap-1 h-24">
-								<h3 className="text-[14px] flex justify-start text-md font-semibold">{project.title}</h3>
-								<p className="text-muted-foreground">{project.description}</p>
-								<ul>
-									<li>
-										<a href={project.projectUrl}>{project.projectUrl}</a>
-									</li>
-									<li>
-										<a href={project.gitUrl} target="_self" className="truncate">
-											{project.gitUrl}
-										</a>
-									</li>
-								</ul>
-							</div>
+							<Popover>
+								<PopoverTrigger className="relative flex flex-col flex-start items-start w-full h-24 bg-white rounded p-2 border border-transparent hover:border-mantis-primary hover:cursor-pointer">
+									<h3 className="block text-[14px] font-semibold">{project.title}</h3>
+									<h4 className="block text-muted-foreground">{project.description}</h4>
+								</PopoverTrigger>
+								<PopoverContent className="h-56 rounded" side="top" align="center">
+									<h3 className="w-full text-[14px] font-semibold">{project.title}</h3>
+									<h4 className="w-full text-muted-foreground mb-3">{project.description}</h4>
+									<div className="flex flex-start gap-2 truncate">
+										<ul className="space-y-2">
+											<li>
+												<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary">
+													<BsHouse className="mt-[2px] size-4" />
+													{chrome.i18n.getMessage("website", "Website")}
+													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+												</a>
+											</li>
+											<li>
+												<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary">
+													<FaGitAlt className="mt-[2px] size-4" />
+													{chrome.i18n.getMessage("git_url", "Repository")}
+													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div className="absolute bottom-2 right-2">
+										<Button variant="ghost" className="text-slate-400 p-.5" size="sm" onClick={() => onEdit(project.id)} title={chrome.i18n.getMessage("edit", "Edit")}>
+											<TbEdit />
+										</Button>
+										<Button
+											onClick={() => {
+												onDelete(project.id)
+											}}
+											variant="ghost"
+											size="sm"
+											className="text-slate-400 hover:text-rose-400"
+										>
+											<BsTrash className="size-4" />
+										</Button>
+									</div>
+								</PopoverContent>
+							</Popover>
 						</li>
 					))}
 				<li>

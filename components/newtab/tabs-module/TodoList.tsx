@@ -115,7 +115,7 @@ const TodoList = () => {
 				</Form>
 			</div>
 			<ul className="w-full flex flex-col space-y-1 bg-white rounded p-1 backdrop-blur">
-				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-1">{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}</p>}
+				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-2">{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}</p>}
 				{todos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />
