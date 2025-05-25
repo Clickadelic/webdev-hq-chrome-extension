@@ -112,7 +112,7 @@ const UserProjects = () => {
 	}
 
 	return (
-		<div className="bg-white/30 p-1 rounded backdrop-blur">
+		<div className="bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30">
 			<ul className="grid grid-cols-3 gap-1">
 				{projects &&
 					projects.map(project => (
@@ -176,7 +176,7 @@ const UserProjects = () => {
 					>
 						<DialogTrigger
 							onClick={() => setIsModalOpen(true)}
-							className="flex flex-col gap-1 items-center place-content-center w-full h-24 text-slate-400 bg-white p-2 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+							className="flex flex-col gap-1 items-center place-content-center w-full h-24 text-slate-400 bg-white dark:bg-slate-800 p-2 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 						>
 							<Plus />
 						</DialogTrigger>

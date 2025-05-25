@@ -95,7 +95,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 					</Button>
 
 					{dropdownOpen && (
-						<div className="-left-3 z-50 absolute bg-white shadow-lg mt-1 border rounded w-48">
+						<div className="-left-3 z-50 absolute bg-white dark:bg-slate-700 shadow-lg mt-1 border rounded w-48">
 							{engines.map(engine => (
 								<button
 									key={engine.name}

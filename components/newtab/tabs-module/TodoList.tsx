@@ -86,8 +86,8 @@ const TodoList = () => {
 	}
 
 	return (
-		<div className="flex flex-col bg-white/30 backdrop-blur p-1 space-y-2 rounded">
-			<div className="bg-white rounded p-1 backdrop-blur">
+		<div className="flex flex-col bg-white/30 dark:bg-slate-800/30 backdrop-blur p-1 space-y-2 rounded">
+			<div className="bg-white  dark:bg-slate-800 rounded p-1 backdrop-blur">
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="flex flex-row w-full gap-1">
 						<div className="flex flex-row w-full gap-2">
@@ -111,7 +111,7 @@ const TodoList = () => {
 								)}
 							/>
 
-							<Button type="submit" className="bg-mantis-primary text-white rounded size-[36px] hover:cursor-pointer" disabled={isLoading}>
+							<Button type="submit" className="bg-mantis-primary text-white dark:bg-mantis-primary dark:text-slate-200 rounded size-[36px] hover:cursor-pointer" disabled={isLoading}>
 								{isEditing ? <TbEdit /> : <Plus />}
 							</Button>
 						</div>
@@ -120,8 +120,12 @@ const TodoList = () => {
 					</form>
 				</Form>
 			</div>
-			<ul className="w-full flex flex-col space-y-1 bg-white rounded p-1 backdrop-blur">
-				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-2">{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}</p>}
+			<ul className="w-full flex flex-col space-y-1 bg-white dark:bg-slate-800 rounded p-1 backdrop-blur">
+				{todos.length === 0 && (
+					<p className="text-center text-md bg-white dark:bg-slate-800 rounded text-slate-500 dark:text-neutral-400 my-2">
+						{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}
+					</p>
+				)}
 				{todos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />

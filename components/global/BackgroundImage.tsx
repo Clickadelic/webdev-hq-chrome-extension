@@ -36,13 +36,13 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 			{children}
 			{credit && (
 				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 -translate-x-1/2" : "absolute bottom-4 left-4"}>
-					<p className="text-xs text-white">
+					<p className="text-xs text-white dark:text-slate-800">
 						{chrome.i18n.getMessage("photo_by", "Photo by")}{" "}
-						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
+						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-mantis-primary">
 							{credit.author}
 						</a>{" "}
 						{chrome.i18n.getMessage("on", "on")}{" "}
-						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
+						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline text-white dark:text-slate-800 hover:text-mantis-primary">
 							Unsplash
 						</a>
 					</p>

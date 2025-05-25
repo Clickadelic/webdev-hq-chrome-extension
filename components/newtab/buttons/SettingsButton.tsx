@@ -20,7 +20,7 @@ export const SettingsButton: React.FC = () => {
 					<DialogDescription>{chrome.i18n.getMessage("settings_description", "Manage your settings")}</DialogDescription>
 				</DialogHeader>
 				<div className="space-y-2">
-					<h2 className="text-md font-semibold">{chrome.i18n.getMessage("apps", "Apps")}</h2>
+					<h2 className="text-md font-semibold dark:text-slate-300">{chrome.i18n.getMessage("apps", "Apps")}</h2>
 					<hr />
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>

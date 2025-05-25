@@ -9,15 +9,15 @@ const buttonVariants = cva(
 	{
 		variants: {
 			variant: {
-				primary: "bg-mantis-primary text-mantis-primary-foreground hover:bg-mantis-primary-hover",
-				default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary-hover",
-				destructive: "bg-destructive text-white shadow-xs bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
-				outline: "border bg-background shadow-xs bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
-				secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-				ghost: "rounded hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
-				link: "text-primary underline-offset-4 hover:underline",
-				subtle: "bg-transparent text-slate-800 hover:bg-slate-200 hover:text-accent-foreground dark:bg-input/30 dark:hover:bg-input/50",
-				delete: "text-slate-400 hover:bg-destructive hover:text-white"
+				primary: "bg-mantis-primary text-mantis-primary-foreground dark:text-slate-300 hover:bg-mantis-primary-hover",
+				default: "bg-primary text-primary-foreground dark:bg-slate-800 hover:bg-primary-hover",
+				destructive: "bg-destructive text-white bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+				outline: "border bg-background bg-accent dark:bg-slate-800 hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+				secondary: "bg-secondary text-secondary-foreground dark:bg-slate-800 hover:bg-secondary/80",
+				ghost: "rounded dark:bg-slate-800 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+				link: "text-primary underline-offset-4 dark:bg-slate-800 hover:underline",
+				subtle: "bg-transparent text-slate-800 dark:bg-slate-800 hover:bg-slate-200 hover:text-accent-foreground dark:bg-input/30 dark:hover:bg-input/50",
+				delete: "text-slate-400 dark:bg-slate-800 hover:bg-destructive hover:text-white"
 			},
 			size: {
 				default: "h-9 px-4 py-2 has-[>svg]:px-3",
