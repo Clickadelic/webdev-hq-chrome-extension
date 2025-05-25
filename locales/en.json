@@ -107,6 +107,14 @@
 		"message": "New todo",
 		"description": "New todo placeholder."
 	},
+	"projects": {
+		"message": "Project",
+		"description": "New project placeholder."
+	},
+	"new_project": {
+		"message": "New project",
+		"description": "New project placeholder."
+	},
 	"tabs": {
 		"message": "Tabs",
 		"description": "Todos Tab."

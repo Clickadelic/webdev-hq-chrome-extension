@@ -84,7 +84,7 @@
 		"description": "App bearbeiten Text."
 	},
 	"edit_app_description": {
-		"message": "Bearbeite die aktuelle App",
+		"message": "Bearbeite die aktuelle App.",
 		"description": "App bearbeiten Beschreibung."
 	},
 	"import_apps": {
@@ -114,6 +114,10 @@
 	"projects": {
 		"message": "Projekte",
 		"description": "Projekte Tab."
+	},
+	"new_project": {
+		"message": "Neues Projekt",
+		"description": "Neues Projekt"
 	},
 	"tabs": {
 		"message": "Tabs",
