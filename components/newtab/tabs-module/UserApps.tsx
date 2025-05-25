@@ -96,7 +96,7 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded">
+		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded backdrop-blur">
 			{apps.map(app => (
 				<li
 					key={app.id}

@@ -15,9 +15,9 @@ const App = () => {
 			<Clock classNames="mt-4 mx-auto gap-3" digitStyle="text-4xl text-white font-light" />
 			<AccountMenu classNames="absolute top-4 right-4 text-white" />
 			<Salutation classNames="w-[680px] mt-12 md:mt-20 xl:mt-24 mb-4 mx-auto text-white text-4xl font-light" />
-			<MultiSearch classNames="w-[680px] my-3 mx-auto" />
+			<MultiSearch classNames="w-[680px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur" />
 			<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
-			<ButtonBar classNames="w-[142px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 rounded" />
+			<ButtonBar classNames="w-[142px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 rounded backdrop-blur" />
 		</BackgroundImage>
 	)
 }

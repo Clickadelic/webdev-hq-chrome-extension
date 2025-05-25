@@ -111,9 +111,9 @@
 		"message": "Füge ein Todo hinzu.",
 		"description": "New Todo placeholder."
 	},
-	"new_todo_placeholder": {
-		"message": "Neues Todo",
-		"description": "New Todo placeholder."
+	"projects": {
+		"message": "Projekte",
+		"description": "Projekte Tab."
 	},
 	"tabs": {
 		"message": "Tabs",
