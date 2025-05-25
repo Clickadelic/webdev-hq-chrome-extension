@@ -5,29 +5,27 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
+import { useState } from "react"
 
-import { AiOutlineEdit } from "react-icons/ai"
-import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
-import { BsApp } from "react-icons/bs"
-import { HiOutlineDotsVertical } from "react-icons/hi"
 import { TbEdit } from "react-icons/tb"
+import { AiOutlineFundProjectionScreen } from "react-icons/ai"
 
-import { useProjectStore, ProjectType } from "@/stores/use-project-store"
+import { useProjectStore } from "@/stores/use-project-store"
 import { ProjectSchema } from "@/schemas"
 
 const UserProjects = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [isEditing, setIsEditing] = useState(false)
-	const [editingAppId, setEditingAppId] = useState<string | null>(null)
+
 	const [success, setSuccess] = useState("")
 	const [error, setError] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
+	const [editingProjectId, setEditingProjectId] = useState<string | null>(null)
 
 	let form = useForm<z.infer<typeof ProjectSchema>>({
 		resolver: zodResolver(ProjectSchema),
@@ -35,27 +33,75 @@ const UserProjects = () => {
 			title: "",
 			description: "",
 			projectUrl: "",
-			gitUrl: ""
+			gitUrl: "",
+			done: false
 		}
 	})
 
 	const { projects, addProject, getProject, editProject, removeProject } = useProjectStore()
-	const project = getProject("1")
-
-	const onEdit = (id: string) => {
-		//
-	}
 
 	const onAddSubmit = (values: z.infer<typeof ProjectSchema>) => {
-		//
-	}
-
-	const onEditSubmit = (values: z.infer<typeof ProjectSchema>) => {
-		//
+		setError("")
+		setSuccess("")
+		setIsLoading(true)
+		const newProject = { id: crypto.randomUUID(), ...values }
+		addProject(newProject)
+		setSuccess(chrome.i18n.getMessage("project_added") || "Project added successfully.")
+		form.reset()
+		setTimeout(() => {
+			setIsLoading(false)
+			setIsModalOpen(false)
+			setSuccess("")
+		}, 1250)
 	}
 
 	const onDelete = (id: string) => {
-		//
+		useProjectStore.getState().removeProject(id)
+	}
+
+	const onEdit = (id: string) => {
+		setIsEditing(true)
+		setIsModalOpen(true)
+		setEditingProjectId(id)
+
+		const currentApp = projects.find(project => project.id === id)
+		if (currentApp) {
+			form.setValue("title", currentApp.title)
+			form.setValue("description", currentApp.description)
+			form.setValue("projectUrl", currentApp.projectUrl)
+			form.setValue("gitUrl", currentApp.gitUrl)
+		}
+	}
+
+	const onEditSubmit = (values: z.infer<typeof ProjectSchema>) => {
+		if (!editingProjectId) return
+
+		setError("")
+		setSuccess("")
+		setIsLoading(true)
+
+		const currentProject = projects.find(project => project.id === editingProjectId)
+		if (currentProject) {
+			const updatedProject = {
+				id: currentProject.id,
+				title: values.title,
+				description: values.description,
+				projectUrl: values.projectUrl,
+				gitUrl: values.gitUrl,
+				done: values.done
+			}
+			editProject(updatedProject)
+		}
+
+		setSuccess(chrome.i18n.getMessage("app_edited"))
+		form.reset()
+		setEditingProjectId(null)
+		setIsEditing(false)
+		setTimeout(() => {
+			setIsLoading(false)
+			setIsModalOpen(false)
+			setSuccess("")
+		}, 1250)
 	}
 
 	return (
@@ -77,7 +123,7 @@ const UserProjects = () => {
 							setIsModalOpen(open)
 							if (!open) {
 								setIsEditing(false)
-								setEditingAppId(null)
+								setEditingProjectId(null)
 								form.reset()
 							}
 						}}
@@ -91,7 +137,7 @@ const UserProjects = () => {
 						<DialogContent className="rounded">
 							<DialogHeader>
 								<DialogTitle className="flex items-start gap-2">
-									<BsApp />
+									<AiOutlineFundProjectionScreen />
 									{isEditing ? chrome.i18n.getMessage("edit_project_title") : chrome.i18n.getMessage("add_project_title")}
 								</DialogTitle>
 								<DialogDescription>{isEditing ? chrome.i18n.getMessage("edit_project_description") : chrome.i18n.getMessage("add_project_description")}</DialogDescription>
@@ -134,6 +180,19 @@ const UserProjects = () => {
 														<FormLabel>{chrome.i18n.getMessage("project_url_label")}:</FormLabel>
 														<FormControl>
 															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_url_input_placeholder")} />
+														</FormControl>
+														<FormMessage />
+													</FormItem>
+												)}
+											/>
+											<FormField
+												control={form.control}
+												name="gitUrl"
+												render={({ field }) => (
+													<FormItem>
+														<FormLabel>{chrome.i18n.getMessage("project_giturl_label")}:</FormLabel>
+														<FormControl>
+															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_giturl_input_placeholder")} />
 														</FormControl>
 														<FormMessage />
 													</FormItem>

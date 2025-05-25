@@ -160,8 +160,8 @@
 		"description": "Projektdetails hinzufügen Text."
 	},
 	"project_giturl_label": {
-		"message": "Projekt-Url",
-		"description": "Projekt-Url."
+		"message": "Git-Url",
+		"description": "Git-Url."
 	},
 	"project_giturl_input_placeholder": {
 		"message": "https://...",

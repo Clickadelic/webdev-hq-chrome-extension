@@ -4,9 +4,11 @@ import { persist } from "zustand/middleware"
 export type ProjectType = {
 	id: string
 	title: string
-	description: string
-	projectUrl: string
-	gitUrl: string
+	description?: string
+	projectUrl?: string
+	gitUrl?: string
+	done?: boolean
+	expiryDate?: Date
 }
 
 type ProjectStore = {

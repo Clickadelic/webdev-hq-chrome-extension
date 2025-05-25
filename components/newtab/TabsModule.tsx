@@ -11,8 +11,6 @@ import { BsListCheck } from "react-icons/bs"
 import { PiClockCountdown } from "react-icons/pi"
 import { GoDownload } from "react-icons/go"
 import { AiOutlineFundProjectionScreen } from "react-icons/ai"
-
-import { IoTrendingUpOutline } from "react-icons/io5"
 interface TabsModuleProps {
 	classNames?: string
 }

@@ -19,8 +19,8 @@ export const TodoSchema = z.object({
 export const ProjectSchema = z.object({
 	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
 	description: z.string().optional(),
-	projectUrl: z.string().min(1, chrome.i18n.getMessage("valid_url_required")),
-	gitUrl: z.string().min(1, chrome.i18n.getMessage("valid_url_required")).optional(),
+	projectUrl: z.string().optional(),
+	gitUrl: z.string().optional(),
 	done: z.boolean(),
 	expiryDate: z.date().optional()
 })

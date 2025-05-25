@@ -64,10 +64,14 @@ export const deleteUserHistory = (): Promise<void> => {
 }
 
 export function getFaviconUrl(websiteUrl: string, size = 32): string {
-	try {
-		const url = new URL(websiteUrl)
-		return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
-	} catch {
+	if (websiteUrl) {
+		try {
+			const url = new URL(websiteUrl)
+			return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
+		} catch {
+			return "/assets/icons/default-favicon.png"
+		}
+	} else {
 		return "/assets/icons/default-favicon.png"
 	}
 }
