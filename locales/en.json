@@ -108,12 +108,44 @@
 		"description": "New todo placeholder."
 	},
 	"projects": {
-		"message": "Project",
-		"description": "New project placeholder."
+		"message": "Projects",
+		"description": "Projects Tab."
 	},
 	"new_project": {
-		"message": "New project",
-		"description": "New project placeholder."
+		"message": "New Project",
+		"description": "New Project"
+	},
+	"add_project_title": {
+		"message": "Add project",
+		"description": "Modal title"
+	},
+	"add_project_description": {
+		"message": "Add a new project to your collection.",
+		"description": "Modal description"
+	},
+	"project_title_label": {
+		"message": "Title",
+		"description": "Modal input projectitle."
+	},
+	"project_title_input_placeholder": {
+		"message": "My projecttitle",
+		"description": "Modal input placeholder."
+	},
+	"project_description_label": {
+		"message": "Projectdescription",
+		"description": "Projectdescription."
+	},
+	"project_description_input_placeholder": {
+		"message": "Details of the project",
+		"description": "Details of the project."
+	},
+	"edit_project_title": {
+		"message": "Projekt bearbeiten",
+		"description": "Projekt bearbeiten Text"
+	},
+	"edit_project_description": {
+		"message": "Ändere Details des Projekts.",
+		"description": "Projekt bearbeiten Text"
 	},
 	"tabs": {
 		"message": "Tabs",

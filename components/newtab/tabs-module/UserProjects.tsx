@@ -120,7 +120,7 @@ const UserProjects = () => {
 													<FormItem>
 														<FormLabel>{chrome.i18n.getMessage("project_description_label")}:</FormLabel>
 														<FormControl>
-															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_description_input_placeholder")} />
+															<Input type="text" {...field} placeholder={chrome.i18n.getMessage("project_description_input_placeholder")} />
 														</FormControl>
 														<FormMessage />
 													</FormItem>
@@ -133,20 +133,7 @@ const UserProjects = () => {
 													<FormItem>
 														<FormLabel>{chrome.i18n.getMessage("project_url_label")}:</FormLabel>
 														<FormControl>
-															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_url_input")} />
-														</FormControl>
-														<FormMessage />
-													</FormItem>
-												)}
-											/>
-											<FormField
-												control={form.control}
-												name="projectUrl"
-												render={({ field }) => (
-													<FormItem>
-														<FormLabel>{chrome.i18n.getMessage("project_giturl_label")}:</FormLabel>
-														<FormControl>
-															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_giturl_placeholder")} />
+															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_url_input_placeholder")} />
 														</FormControl>
 														<FormMessage />
 													</FormItem>

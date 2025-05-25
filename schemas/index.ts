@@ -20,7 +20,7 @@ export const ProjectSchema = z.object({
 	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
 	description: z.string().optional(),
 	projectUrl: z.string().min(1, chrome.i18n.getMessage("valid_url_required")),
-	gitUrl: z.string().min(1, chrome.i18n.getMessage("valid_url_required")),
+	gitUrl: z.string().min(1, chrome.i18n.getMessage("valid_url_required")).optional(),
 	done: z.boolean(),
 	expiryDate: z.date().optional()
 })

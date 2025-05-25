@@ -115,8 +115,16 @@
 		"message": "Projekte",
 		"description": "Projekte Tab."
 	},
-	"new_project": {
+	"add_project": {
 		"message": "Neues Projekt",
+		"description": "Neues Projekt"
+	},
+	"edit_project": {
+		"message": "Projekt bearbeiten",
+		"description": "Projekt bearbeiten"
+	},
+	"delete_project": {
+		"message": "Projekt löschen",
 		"description": "Neues Projekt"
 	},
 	"add_project_title": {
@@ -134,6 +142,30 @@
 	"project_title_input_placeholder": {
 		"message": "Mein Projekttitel",
 		"description": "Projekt hinzufügen Text."
+	},
+	"project_description_label": {
+		"message": "Beschreibung",
+		"description": "Projekttitel."
+	},
+	"project_description_input_placeholder": {
+		"message": "Details zum Projekt",
+		"description": "Projektdetails hinzufügen Text."
+	},
+	"project_url_label": {
+		"message": "Projekt-Url",
+		"description": "Projekt-Url."
+	},
+	"project_url_input_placeholder": {
+		"message": "https://...",
+		"description": "Projektdetails hinzufügen Text."
+	},
+	"project_giturl_label": {
+		"message": "Projekt-Url",
+		"description": "Projekt-Url."
+	},
+	"project_giturl_input_placeholder": {
+		"message": "https://...",
+		"description": "Projekt GitHubLink hinzufügen Placeholder."
 	},
 	"edit_project_title": {
 		"message": "Projekt bearbeiten",
