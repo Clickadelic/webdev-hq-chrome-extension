@@ -307,16 +307,16 @@
 		"message": "Fullscreen",
 		"description": "Fullscreen text."
 	},
-	"toggle_fullscreen": {
-		"message": "Fullscreen",
-		"description": "Fullscreen text."
+	"light_mode": {
+		"message": "Light mode",
+		"description": "Light mode text."
 	},
-	"toggle_fullscreen": {
-		"message": "Fullscreen",
-		"description": "Fullscreen text."
+	"dark_mode": {
+		"message": "Dark mode",
+		"description": "Dark mode text."
 	},
-	"toggle_fullscreen": {
-		"message": "Fullscreen",
-		"description": "Fullscreen text."
+	"system_mode": {
+		"message": "System mode",
+		"description": "System mode text."
 	}
 }
