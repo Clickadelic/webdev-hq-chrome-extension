@@ -48,7 +48,7 @@ const UserDownloads = () => {
 	return (
 		<div className="max-w-[680px] mx-auto">
 			{downloads.length === 0 ? (
-				<div className="bg-white/30 backdrop p-1 rounded">
+				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
 					<div className="bg-white rounded p-2">
 						<p className="text-center text-md text-slate-500">{noDownloadsFoundLabel}</p>
 					</div>

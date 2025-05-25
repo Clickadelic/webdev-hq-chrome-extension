@@ -23,13 +23,13 @@ const UserHistory = () => {
 	return (
 		<>
 			{history.length === 0 ? (
-				<div className="bg-white/30 backdrop p-1 rounded">
+				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
 					<div className="bg-white rounded p-2">
 						<p className="text-center text-md text-slate-500">{noHistoryFoundLabel}</p>
 					</div>
 				</div>
 			) : (
-				<div className="bg-white/30 backdrop p-1 rounded">
+				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
 					<ul className="w-full bg-white rounded">
 						{history.map(entry => (
 							<li key={entry.id} className="flex flex-row justify-between items-start p-1">
