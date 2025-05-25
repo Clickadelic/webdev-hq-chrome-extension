@@ -7,7 +7,6 @@ import { getFaviconUrl, deleteUserHistory } from "@/lib/utils"
 const fallbackFavicon = "/assets/icons/default-website-favicon.png" // Stelle sicher, dass dieses Bild in deinem `public`-Ordner liegt
 import { RiResetLeftLine } from "react-icons/ri"
 const UserHistory = () => {
-	const deleteHistoryLabel = chrome.i18n.getMessage("delete_history", "Delete history")
 	const noHistoryFoundLabel = chrome.i18n.getMessage("no_history_found", "No history found")
 
 	const [history, setHistory] = useState<chrome.history.HistoryItem[]>([])
@@ -29,7 +28,7 @@ const UserHistory = () => {
 					</div>
 				</div>
 			) : (
-				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
+				<div className="bg-white/30 dark:bg-slate-800/30 backdrop p-1 rounded backdrop-blur">
 					<ul className="w-full bg-white dark:bg-slate-800 rounded">
 						{history.map(entry => (
 							<li key={entry.id} className="flex flex-row justify-between items-start p-1">
@@ -81,10 +80,11 @@ const UserHistory = () => {
 							setHistory([]) // UI leeren
 						}}
 						variant="secondary"
-						className="w-full mt-2 bg-white rounded hover:cursor-pointer"
+						className="w-full mt-2 bg-white dark:bg-slate-800 rounded hover:cursor-pointer"
+						title={chrome.i18n.getMessage("delete_history", "Delete history")}
 					>
 						<RiResetLeftLine className="mr-2 size-3" />
-						{deleteHistoryLabel}
+						{chrome.i18n.getMessage("delete_history", "Delete history")}
 					</Button>
 				</div>
 			)}

@@ -24,6 +24,8 @@ import tasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
 import fontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
 import geminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
 import formsIcon from "@/assets/icons/google-apps/google-forms.svg"
+import photosIcon from "@/assets/icons/google-apps/google-photos.svg"
+import newsIcon from "@/assets/icons/google-apps/google-news.svg"
 import webstoreIcon from "@/assets/icons/google-apps/google-chrome-web-store.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 import webdevIcon from "@/assets/icons/google-apps/google-webdev.svg"
@@ -94,6 +96,18 @@ const defaultApps = [
 		title: "Calendar",
 		icon: calendarIcon,
 		url: "https://www.google.com/calendar"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "News",
+		icon: newsIcon,
+		url: "https://news.google.com/"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Photos",
+		icon: photosIcon,
+		url: "https://www.google.com/photos/about/"
 	},
 	{
 		id: crypto.randomUUID(),

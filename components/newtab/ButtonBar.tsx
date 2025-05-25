@@ -1,4 +1,4 @@
-import { DashboardButton } from "@/components/newtab/buttons/DashboardButton"
+// import { DashboardButton } from "@/components/newtab/buttons/DashboardButton"
 import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
 import { ModeToggle } from "@/components/global/ModeToggle"
 import { FullscreenButton } from "./buttons/FullscreenButton"
@@ -12,7 +12,7 @@ const ButtonBar = ({ classNames }: ButtonBarProps) => {
 	return (
 		<div className={cn(classNames)}>
 			<div className="w-full flex justify-start gap-1">
-				<DashboardButton />
+				{/* <DashboardButton /> */}
 				<FullscreenButton />
 				<ModeToggle />
 				<SettingsButton />

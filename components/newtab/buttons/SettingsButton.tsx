@@ -9,7 +9,7 @@ export const SettingsButton: React.FC = () => {
 	return (
 		<Dialog>
 			<DialogTrigger
-				className="border border-transparent bg-white text-slate-800 rounded py-2 px-3 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+				className="border border-transparent bg-white dark:bg-slate-800 rounded py-2 px-3 hover:border-mantis-primary hover:cursor-pointer"
 				title={chrome.i18n.getMessage("settings", "Settings")}
 			>
 				<HiOutlineCog className="size-4" />
