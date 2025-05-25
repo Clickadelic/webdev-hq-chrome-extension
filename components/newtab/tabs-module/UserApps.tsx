@@ -104,23 +104,23 @@ const UserApps = () => {
 				>
 					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 dark:text-slate-100 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
+						<span className="text-slate-800 dark:text-slate-300 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>
-							<button className="absolute top-1 right-[1px] text-slate-600 dark:text-slate-200 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer">
+							<button className="absolute top-1 right-[1px] text-slate-600 dark:text-slate-300 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer dark:hover:bg-slate-600">
 								<HiOutlineDotsVertical className="size-4" />
 							</button>
 						</DropdownMenuTrigger>
 						<DropdownMenuContent side="right" align="start" className="rounded">
 							<DropdownMenuItem>
-								<button onClick={() => onEdit(app.id)} className="flex justify-between">
+								<button onClick={() => onEdit(app.id)} className="flex justify-between rounded">
 									<AiOutlineEdit className="mt-1 mr-2" />
 									{chrome.i18n.getMessage("edit", "Edit")}
 								</button>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700">
+								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700 rounded">
 									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {chrome.i18n.getMessage("delete", "Delete")}
 								</button>
 							</DropdownMenuItem>
@@ -143,7 +143,7 @@ const UserApps = () => {
 				>
 					<DialogTrigger
 						onClick={() => setIsModalOpen(true)}
-						className="flex flex-col gap-1 items-center place-content-center text-slate-500 dark:text-slate-200 bg-white dark:bg-slate-800 p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+						className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 					>
 						<Plus />
 					</DialogTrigger>

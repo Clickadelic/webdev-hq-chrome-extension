@@ -20,7 +20,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 		<div className={classNames}>
 			<Tabs defaultValue="apps" className="w-full">
 				<div className="bg-white/30 dark:bg-slate-800/30 p-1 rounded backdrop-blur">
-					<TabsList className="grid grid-cols-5 w-full text-slate-600 h-[44px] dark:bg-slate-800">
+					<TabsList className="grid grid-cols-5 w-full text-slate-600 h-[44px] dark:bg-slate-800 dark:text-slate-300">
 						<TabsTrigger value="apps">
 							<BsApp />
 							{chrome.i18n.getMessage("apps", "Apps")}

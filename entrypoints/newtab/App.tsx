@@ -20,7 +20,7 @@ const App = () => {
 				<MultiSearch classNames="w-[680px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30" />
 				<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
 				<ButtonBar classNames="w-[680px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
-				<Toaster />
+				<Toaster className="dark:bg-slate-800" />
 			</BackgroundImage>
 		</ThemeProvider>
 	)

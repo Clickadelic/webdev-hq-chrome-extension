@@ -122,14 +122,14 @@ const TodoList = () => {
 			</div>
 			<ul className="w-full flex flex-col space-y-1 bg-white dark:bg-slate-800 rounded p-1 backdrop-blur">
 				{todos.length === 0 && (
-					<p className="text-center text-md bg-white dark:bg-slate-800 rounded text-slate-500 dark:text-neutral-400 my-2">
+					<p className="text-center text-md bg-white dark:bg-slate-800 rounded text-slate-500 dark:text-slate-300 my-2">
 						{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}
 					</p>
 				)}
 				{todos.map(todo => (
-					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">
-						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />
-						<span className={cn("w-full flex-grow mt-1.5", todo.done && "line-through text-slate-500")}>{todo.title}</span>
+					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 dark:text-slate-300 space-x-1">
+						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer " />
+						<span className={cn("w-full flex-grow mt-1.5 ", todo.done && "line-through text-slate-500 dark:text-slate-300")}>{todo.title}</span>
 						<Button variant="ghost" className="text-slate-400" size="sm" onClick={() => onEdit(todo.id)}>
 							<TbEdit className="size-4" />
 						</Button>

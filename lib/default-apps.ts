@@ -22,16 +22,11 @@ import translateIcon from "@/assets/icons/google-apps/google-translate.svg"
 import tasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
 import fontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
 import geminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
+import formsIcon from "@/assets/icons/google-apps/google-forms.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 import webdevIcon from "@/assets/icons/google-apps/google-webdev.svg"
 
 const defaultApps = [
-	{
-		id: crypto.randomUUID(),
-		title: "Search",
-		icon: searchIcon,
-		url: "https://www.google.com"
-	},
 	{
 		id: crypto.randomUUID(),
 		title: "G-Mail",
@@ -79,6 +74,12 @@ const defaultApps = [
 		title: "Slides",
 		icon: slidesIcon,
 		url: "https://docs.google.com/presentation/u/0/?ec=wgc-slides-[module]-goto"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Forms",
+		icon: formsIcon,
+		url: "https://docs.google.com/forms/u/0/"
 	},
 	{
 		id: crypto.randomUUID(),

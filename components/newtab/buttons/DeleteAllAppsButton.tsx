@@ -14,9 +14,9 @@ export const DeleteAllAppsButton = () => {
 
 	return (
 		<Button
-			className="border border-slate-200 bg-white shadow-none text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+			className="border border-slate-200 bg-white shadow-none text-slate-800 dark:text-slate-300 hover:border-rose-400 hover:bg-white hover:cursor-pointer"
 			onClick={deleteAllApps}
-			title={chrome.i18n.getMessage("delete_all_apps_button", "Delete all apps")}
+			title={chrome.i18n.getMessage("delete_all_apps", "Delete all apps")}
 		>
 			<BsTrash className="size-4" />
 		</Button>

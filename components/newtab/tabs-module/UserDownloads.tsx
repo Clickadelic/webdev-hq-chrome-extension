@@ -48,14 +48,14 @@ const UserDownloads = () => {
 	return (
 		<div className="max-w-[680px] mx-auto">
 			{downloads.length === 0 ? (
-				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
-					<div className="bg-white rounded p-2">
-						<p className="text-center text-md text-slate-500 my-1.5">{noDownloadsFoundLabel}</p>
+				<div className="bg-white/30 dark:bg-slate-800/30 backdrop p-1 rounded backdrop-blur">
+					<div className="bg-white dark:bg-slate-800 rounded p-2">
+						<p className="text-center text-md text-slate-500 dark:text-slate-300 my-1.5">{noDownloadsFoundLabel}</p>
 					</div>
 				</div>
 			) : (
-				<div className="bg-white/30 backdrop p-1 rounded">
-					<ul className="p-1 bg-white rounded space-y-2">
+				<div className="bg-white/30 dark:bg-slate-800/30 backdrop p-1 rounded">
+					<ul className="p-1 bg-white dark:bg-slate-800 rounded space-y-2">
 						{downloads.map(d => (
 							<li key={d.id} className="w-full p-1 rounded flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
 								<div className="flex flex-col w-full overflow-hidden">
@@ -70,7 +70,7 @@ const UserDownloads = () => {
 								</div>
 
 								<div className="flex items-center justify-between md:gap-4 md:justify-end w-full md:w-auto">
-									<p className="text-xs text-gray-600 whitespace-nowrap">
+									<p className="text-xs text-gray-500 dark:text-slate-300 whitespace-nowrap">
 										{d.state === "in_progress" ? `${Math.round((d.bytesReceived / d.totalBytes) * 100)}%` : d.state === "complete" ? "✅" : "❌"}
 									</p>
 

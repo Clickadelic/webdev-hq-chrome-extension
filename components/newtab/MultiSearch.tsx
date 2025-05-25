@@ -88,7 +88,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 				<div className="relative" ref={dropdownRef}>
 					<Button type="button" className="flex items-center gap-2 hover:cursor-pointer" variant="ghost" onClick={() => setDropdownOpen(prev => !prev)}>
 						{currentEngine.icon}
-						<span className="hidden md:inline">{currentEngine.name}</span>
+						<span className="hidden md:inline dark:text-slate-500">{currentEngine.name}</span>
 						<span className={cn("ml-2 transition-transform ease-in-out duration-300", dropdownOpen ? "rotate-180" : "")} data-rotate={dropdownOpen ? "rotate-180" : ""}>
 							<BsChevronDown />
 						</span>
@@ -100,7 +100,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 								<button
 									key={engine.name}
 									type="button"
-									className="flex items-center gap-2 hover:bg-gray-200 px-4 py-2 w-full text-left hover:cursor-pointer"
+									className="flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-slate-600 px-4 py-2 w-full text-left hover:cursor-pointer dark:text-slate-300"
 									onClick={() => handleEngineChange(engine.url)}
 								>
 									{engine.icon}

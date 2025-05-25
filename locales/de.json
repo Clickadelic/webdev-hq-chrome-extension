@@ -288,7 +288,7 @@
 		"description": "Apps Import-Nachricht."
 	},
 	"delete_all_apps": {
-		"message": "Alle Apps löschen.",
+		"message": "Alle Apps löschen",
 		"description": "Alle Apps löschen Text."
 	},
 	"all_apps_deleted": {

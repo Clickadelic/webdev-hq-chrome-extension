@@ -118,8 +118,8 @@ const UserProjects = () => {
 					projects.map(project => (
 						<li key={project.id}>
 							<Popover>
-								<PopoverTrigger className="relative flex flex-col flex-start items-start w-full h-24 bg-white rounded p-2 border border-transparent hover:border-mantis-primary hover:cursor-pointer">
-									<h3 className="block text-[14px] font-semibold">{project.title}</h3>
+								<PopoverTrigger className="relative flex flex-col flex-start items-start w-full h-24 bg-white dark:bg-slate-800 rounded p-2 border border-transparent hover:border-mantis-primary hover:cursor-pointer">
+									<h3 className="block text-[14px] font-semibold dark:text-slate-300">{project.title}</h3>
 									<h4 className="block text-muted-foreground">{project.description}</h4>
 								</PopoverTrigger>
 								<PopoverContent className="h-56 rounded" side="top" align="center">
@@ -127,23 +127,27 @@ const UserProjects = () => {
 									<h4 className="w-full text-muted-foreground mb-3">{project.description}</h4>
 									<div className="flex flex-start gap-2 truncate">
 										<ul className="space-y-2">
-											<li>
-												<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
-													<BsHouse className="mt-[2px] size-4" />
-													{chrome.i18n.getMessage("website", "Website")}
-													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
-												</a>
-											</li>
-											<li>
-												<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
-													<FaGitAlt className="mt-[2px] size-4" />
-													{chrome.i18n.getMessage("git_url", "Repository")}
-													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
-												</a>
-											</li>
+											{project.projectUrl && (
+												<li>
+													<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
+														<BsHouse className="mt-[2px] size-4" />
+														{chrome.i18n.getMessage("website", "Website")}
+														<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+													</a>
+												</li>
+											)}
+											{project.gitUrl && (
+												<li>
+													<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
+														<FaGitAlt className="mt-[2px] size-4" />
+														{chrome.i18n.getMessage("git_url", "Repository")}
+														<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+													</a>
+												</li>
+											)}
 										</ul>
 									</div>
-									<div className="absolute bottom-2 right-2">
+									<div className="absolute bottom-2 right-2 space-x-2">
 										<Button variant="ghost" className="text-slate-400 p-.5" size="sm" onClick={() => onEdit(project.id)} title={chrome.i18n.getMessage("edit", "Edit")}>
 											<TbEdit />
 										</Button>
