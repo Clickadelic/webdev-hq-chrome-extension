@@ -21,7 +21,7 @@ type AppStore = {
 export const useAppStore = create<AppStore>()(
 	persist(
 		(set, get) => ({
-			apps: defaultApps,
+			apps: [],
 			addApp: app =>
 				set(state => ({
 					apps: [...state.apps, app]

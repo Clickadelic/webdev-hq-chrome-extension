@@ -103,13 +103,17 @@
 		"message": "Create your first todo.",
 		"description": "Todos Tab."
 	},
-	"todo_title": {
-		"message": "Todo",
+	"new_todo_title": {
+		"message": "New Todo",
 		"description": "New Todo title."
+	},
+	"new_todo_placeholder": {
+		"message": "New todo",
+		"description": "New Todo placeholder."
 	},
 	"todo_description": {
 		"message": "Add a todo.",
-		"description": "New Todo placeholder."
+		"description": "New Todo description."
 	},
 	"projects": {
 		"message": "Projects",
@@ -255,9 +259,13 @@
 		"message": "Here you can configure your tab settings.",
 		"description": "Tab settings description."
 	},
-	"reset_apps_settings_text": {
-		"message": "Reset apps to default settings.",
+	"load_google_apps_settings_text": {
+		"message": "Load default Google Apps into the set.",
 		"description": "Reset button description."
+	},
+	"delete_all_apps_settings_text": {
+		"message": "Delete all apps in the set.",
+		"description": "Lösche alle Apps im Set-Text."
 	},
 	"import_apps_settings_text": {
 		"message": "Import apps as .json file.",

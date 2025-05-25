@@ -103,8 +103,12 @@
 		"message": "Erstelle Dein erstes Todo.",
 		"description": "Todos Tab."
 	},
-	"todo_title": {
-		"message": "Todo",
+	"new_todo_title": {
+		"message": "Neues Todo",
+		"description": "New Todo placeholder."
+	},
+	"new_todo_placeholder": {
+		"message": "Neues Todo",
 		"description": "New Todo placeholder."
 	},
 	"todo_description": {
@@ -255,9 +259,13 @@
 		"message": "Hier kannst Du Einstellungen für Deinen Tab vornehmen.",
 		"description": "App Einstellungen Beschreibung."
 	},
-	"reset_apps_settings_text": {
-		"message": "Apps auf Standardeinstellungen zurücksetzen.",
+	"load_google_apps_settings_text": {
+		"message": "Lade Google Apps in die App-Tabs.",
 		"description": "Dashboard öffnen."
+	},
+	"delete_all_apps_settings_text": {
+		"message": "Lösche alle Apps im Set.",
+		"description": "Lösche alle Apps im Set-Text."
 	},
 	"import_apps_settings_text": {
 		"message": "Apps als .json-Datei importieren.",

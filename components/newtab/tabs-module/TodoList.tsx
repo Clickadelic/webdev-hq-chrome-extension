@@ -96,7 +96,7 @@ const TodoList = () => {
 								name="title"
 								render={({ field }) => (
 									<FormItem className="w-full flex flex-col">
-										<FormLabel className="hidden">{chrome.i18n.getMessage("todo_title", "Title")}:</FormLabel>
+										<FormLabel className="hidden">{chrome.i18n.getMessage("new_todo_title", "Title")}:</FormLabel>
 										<FormControl>
 											<Input type="text" {...field} className="border-0 shadow-none" placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")} />
 										</FormControl>
