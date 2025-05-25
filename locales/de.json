@@ -63,6 +63,10 @@
 		"message": "App bearbeitet.",
 		"description": "App bearbeiten Nachricht."
 	},
+	"app_deleted": {
+		"message": "App erfolgreich gelöscht.",
+		"description": "App löschen Nachricht."
+	},
 	"load_google_apps": {
 		"message": "Google Apps laden",
 		"description": "Google Apps laden Button."
@@ -294,5 +298,25 @@
 	"all_apps_deleted": {
 		"message": "Alle Apps gelöscht.",
 		"description": "Lösche alle Apps im Set-Text."
+	},
+	"more_fields_coming_soon": {
+		"message": "Weitere Felde kommen bald.",
+		"description": "Lösche alle Apps im Set-Text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
+	},
+	"light_mode": {
+		"message": "Light mode",
+		"description": "Light mode text."
+	},
+	"dark_mode": {
+		"message": "Dark mode",
+		"description": "Dark mode text."
+	},
+	"system_mode": {
+		"message": "System mode",
+		"description": "System mode text."
 	}
 }

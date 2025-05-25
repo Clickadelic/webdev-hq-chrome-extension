@@ -63,6 +63,10 @@
 		"message": "App edited.",
 		"description": "App edit message."
 	},
+	"app_deleted": {
+		"message": "Apps successfully deleted.",
+		"description": "App successfully deleted."
+	},
 	"load_google_apps": {
 		"message": "Load Google Apps",
 		"description": "Load Google Apps Button."
@@ -294,5 +298,25 @@
 	"all_apps_deleted": {
 		"message": "All app deleted.",
 		"description": "Delete all apps in the set text."
+	},
+	"more_fields_coming_soon": {
+		"message": "More fields coming soon.",
+		"description": "More fields coming soon text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
 	}
 }

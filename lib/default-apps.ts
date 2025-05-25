@@ -99,6 +99,12 @@ const defaultApps = [
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Maps",
+		icon: mapsIcon,
+		url: "https://www.google.com/maps"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "News",
 		icon: newsIcon,
 		url: "https://news.google.com/"
@@ -120,6 +126,12 @@ const defaultApps = [
 		title: "Translate",
 		icon: translateIcon,
 		url: "https://translate.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "Alerts",
+		icon: alertsIcon,
+		url: "https://alerts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),
@@ -153,21 +165,15 @@ const defaultApps = [
 	},
 	{
 		id: crypto.randomUUID(),
+		title: "Fonts",
+		icon: fontsIcon,
+		url: "https://fonts.google.com"
+	},
+	{
+		id: crypto.randomUUID(),
 		title: "Web.Dev",
 		icon: webdevIcon,
 		url: "https://web.dev/"
-	},
-	{
-		id: crypto.randomUUID(),
-		title: "Alerts",
-		icon: alertsIcon,
-		url: "https://alerts.google.com"
-	},
-	{
-		id: crypto.randomUUID(),
-		title: "Maps",
-		icon: mapsIcon,
-		url: "https://www.google.com/maps"
 	},
 	{
 		id: crypto.randomUUID(),
@@ -180,12 +186,6 @@ const defaultApps = [
 		title: "Developers",
 		icon: developersIcon,
 		url: "https://developers.google.com"
-	},
-	{
-		id: crypto.randomUUID(),
-		title: "Fonts",
-		icon: fontsIcon,
-		url: "https://fonts.google.com"
 	},
 	{
 		id: crypto.randomUUID(),

@@ -19,7 +19,7 @@ import { TbEdit } from "react-icons/tb"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
-
+import { toast } from "sonner"
 import { getFaviconUrl } from "@/lib/utils"
 
 const UserApps = () => {
@@ -42,6 +42,7 @@ const UserApps = () => {
 		const newApp = { id: crypto.randomUUID(), ...values, icon: getFaviconUrl(values.url) }
 		addApp(newApp)
 		setSuccess(chrome.i18n.getMessage("app_added", "App added successfully."))
+		toast.success(chrome.i18n.getMessage("app_added", "App added successfully."))
 		form.reset()
 		setTimeout(() => {
 			setIsLoading(false)
@@ -52,6 +53,7 @@ const UserApps = () => {
 
 	const onDelete = (id: string) => {
 		useAppStore.getState().removeApp(id)
+		toast.success(chrome.i18n.getMessage("app_deleted", "App deleted successfully."))
 	}
 
 	const onEdit = (id: string) => {
@@ -85,6 +87,7 @@ const UserApps = () => {
 		}
 
 		setSuccess(chrome.i18n.getMessage("app_edited", "App edited successfully."))
+		toast.success(chrome.i18n.getMessage("app_edited", "App edited successfully."))
 		form.reset()
 		setEditingAppId(null)
 		setIsEditing(false)
@@ -128,7 +131,6 @@ const UserApps = () => {
 					</DropdownMenu>
 				</li>
 			))}
-
 			<li>
 				<Dialog
 					open={isModalOpen}

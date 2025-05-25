@@ -11,7 +11,6 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 
 	useEffect(() => {
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Image response:", response) // <--- Füge das hinzu
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
 				return

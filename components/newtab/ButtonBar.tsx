@@ -2,6 +2,8 @@
 import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
 import { ModeToggle } from "@/components/global/ModeToggle"
 import { FullscreenButton } from "./buttons/FullscreenButton"
+import { GetRandomImageButton } from "./buttons/GetRandomImageButton"
+
 import { cn } from "@/lib/utils"
 
 interface ButtonBarProps {
@@ -14,6 +16,7 @@ const ButtonBar = ({ classNames }: ButtonBarProps) => {
 			<div className="w-full flex justify-start gap-1">
 				{/* <DashboardButton /> */}
 				<FullscreenButton />
+				<GetRandomImageButton />
 				<ModeToggle />
 				<SettingsButton />
 			</div>

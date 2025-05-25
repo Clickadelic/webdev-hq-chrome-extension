@@ -146,6 +146,7 @@ const UserProjects = () => {
 												</li>
 											)}
 										</ul>
+										{/* <p className="dark:text-slate-300">{chrome.i18n.getMessage("more_fields_coming_soon", "More fields coming soon.")}</p> */}
 									</div>
 									<div className="absolute bottom-2 right-2 space-x-2">
 										<Button variant="ghost" className="text-slate-400 p-.5" size="sm" onClick={() => onEdit(project.id)} title={chrome.i18n.getMessage("edit", "Edit")}>

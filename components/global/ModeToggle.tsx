@@ -8,13 +8,25 @@ export function ModeToggle() {
 
 	return (
 		<>
-			<Button onClick={() => setTheme("light")}>
+			<Button
+				className="border border-transparent bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				onClick={() => setTheme("light")}
+				title={chrome.i18n.getMessage("light_mode", "Light mode")}
+			>
 				<Sun />
 			</Button>
-			<Button onClick={() => setTheme("dark")}>
+			<Button
+				className="border border-transparent bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				onClick={() => setTheme("dark")}
+				title={chrome.i18n.getMessage("dark_mode", "Dark mode")}
+			>
 				<Moon />
 			</Button>
-			<Button onClick={() => setTheme("system")}>
+			<Button
+				className="border border-transparent bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				onClick={() => setTheme("system")}
+				title={chrome.i18n.getMessage("system_mode", "System mode")}
+			>
 				<GrSystem />
 			</Button>
 		</>
