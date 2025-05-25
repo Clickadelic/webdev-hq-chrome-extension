@@ -46,7 +46,7 @@ const UserProjects = () => {
 		setIsLoading(true)
 		const newProject = { id: crypto.randomUUID(), ...values }
 		addProject(newProject)
-		setSuccess(chrome.i18n.getMessage("project_added") || "Project added successfully.")
+		setSuccess(chrome.i18n.getMessage("project_added", "Project added successfully.") || "Project added successfully.")
 		form.reset()
 		setTimeout(() => {
 			setIsLoading(false)
@@ -111,7 +111,7 @@ const UserProjects = () => {
 					projects.map(project => (
 						<li key={project.id}>
 							<div className="bg-white rounded p-2 gap-1 h-24">
-								<h3 className="text-[15px] flex justify-start text-md font-semibold">{project.title}</h3>
+								<h3 className="text-[14px] flex justify-start text-md font-semibold">{project.title}</h3>
 								<p className="text-muted-foreground">{project.description}</p>
 								<ul>
 									<li>
@@ -148,9 +148,11 @@ const UserProjects = () => {
 							<DialogHeader>
 								<DialogTitle className="flex items-start gap-2">
 									<AiOutlineFundProjectionScreen />
-									{isEditing ? chrome.i18n.getMessage("edit_project_title") : chrome.i18n.getMessage("add_project_title")}
+									{isEditing ? chrome.i18n.getMessage("edit_project_title", "Edit project") : chrome.i18n.getMessage("add_project_title", "Add project")}
 								</DialogTitle>
-								<DialogDescription>{isEditing ? chrome.i18n.getMessage("edit_project_description") : chrome.i18n.getMessage("add_project_description")}</DialogDescription>
+								<DialogDescription>
+									{isEditing ? chrome.i18n.getMessage("edit_project_description", "Edit project") : chrome.i18n.getMessage("add_project_description", "Add project")}
+								</DialogDescription>
 							</DialogHeader>
 							<div className="flex">
 								<Form {...form}>
@@ -161,7 +163,7 @@ const UserProjects = () => {
 												name="title"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>{chrome.i18n.getMessage("project_title_label")}:</FormLabel>
+														<FormLabel>{chrome.i18n.getMessage("project_title_label", "Title")}:</FormLabel>
 														<FormControl>
 															<Input type="text" {...field} placeholder={chrome.i18n.getMessage("project_title_input_placeholder")} />
 														</FormControl>
@@ -174,9 +176,9 @@ const UserProjects = () => {
 												name="description"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>{chrome.i18n.getMessage("project_description_label")}:</FormLabel>
+														<FormLabel>{chrome.i18n.getMessage("project_description_label", "Description")}:</FormLabel>
 														<FormControl>
-															<Input type="text" {...field} placeholder={chrome.i18n.getMessage("project_description_input_placeholder")} />
+															<Input type="text" {...field} placeholder={chrome.i18n.getMessage("project_description_input_placeholder", "Description")} />
 														</FormControl>
 														<FormMessage />
 													</FormItem>
@@ -200,9 +202,9 @@ const UserProjects = () => {
 												name="gitUrl"
 												render={({ field }) => (
 													<FormItem>
-														<FormLabel>{chrome.i18n.getMessage("project_giturl_label")}:</FormLabel>
+														<FormLabel>{chrome.i18n.getMessage("project_giturl_label", "Git-url")}:</FormLabel>
 														<FormControl>
-															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_giturl_input_placeholder")} />
+															<Input type="url" {...field} placeholder={chrome.i18n.getMessage("project_giturl_input_placeholder", "https://...")} />
 														</FormControl>
 														<FormMessage />
 													</FormItem>
@@ -213,7 +215,7 @@ const UserProjects = () => {
 										<FormSuccess message={success} />
 										<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
 											{isEditing ? <TbEdit /> : <Plus />}
-											{isEditing ? chrome.i18n.getMessage("edit_project") : chrome.i18n.getMessage("add_project")}
+											{isEditing ? chrome.i18n.getMessage("edit_project", "Edit project") : chrome.i18n.getMessage("add_project", "Add project")}
 										</Button>
 									</form>
 								</Form>

@@ -41,7 +41,7 @@ const UserApps = () => {
 		setIsLoading(true)
 		const newApp = { id: crypto.randomUUID(), ...values, icon: getFaviconUrl(values.url) }
 		addApp(newApp)
-		setSuccess(chrome.i18n.getMessage("app_added"))
+		setSuccess(chrome.i18n.getMessage("app_added", "App added successfully."))
 		form.reset()
 		setTimeout(() => {
 			setIsLoading(false)
@@ -84,7 +84,7 @@ const UserApps = () => {
 			editApp(updatedApp)
 		}
 
-		setSuccess(chrome.i18n.getMessage("app_edited"))
+		setSuccess(chrome.i18n.getMessage("app_edited", "App edited successfully."))
 		form.reset()
 		setEditingAppId(null)
 		setIsEditing(false)
@@ -116,12 +116,12 @@ const UserApps = () => {
 							<DropdownMenuItem>
 								<button onClick={() => onEdit(app.id)} className="flex justify-between">
 									<AiOutlineEdit className="mt-1 mr-2" />
-									{chrome.i18n.getMessage("edit")}
+									{chrome.i18n.getMessage("edit", "Edit")}
 								</button>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
 								<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700">
-									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {chrome.i18n.getMessage("delete")}
+									<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" /> {chrome.i18n.getMessage("delete", "Delete")}
 								</button>
 							</DropdownMenuItem>
 						</DropdownMenuContent>
@@ -151,9 +151,11 @@ const UserApps = () => {
 						<DialogHeader>
 							<DialogTitle className="flex items-start gap-2">
 								<BsApp />
-								{isEditing ? chrome.i18n.getMessage("edit_app_title") : chrome.i18n.getMessage("add_app_title")}
+								{isEditing ? chrome.i18n.getMessage("edit_app_title", "Edit App") : chrome.i18n.getMessage("add_app_title", "Add App")}
 							</DialogTitle>
-							<DialogDescription>{isEditing ? chrome.i18n.getMessage("edit_app_description") : chrome.i18n.getMessage("add_app_description")}</DialogDescription>
+							<DialogDescription>
+								{isEditing ? chrome.i18n.getMessage("edit_app_description") : chrome.i18n.getMessage("add_app_description", "Add a new app to your list.")}
+							</DialogDescription>
 						</DialogHeader>
 						<div className="flex">
 							<Form {...form}>
@@ -164,9 +166,9 @@ const UserApps = () => {
 											name="title"
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel>{chrome.i18n.getMessage("app_title")}:</FormLabel>
+													<FormLabel>{chrome.i18n.getMessage("app_title", "Title")}:</FormLabel>
 													<FormControl>
-														<Input type="text" {...field} placeholder={chrome.i18n.getMessage("app_title_placeholder")} />
+														<Input type="text" {...field} placeholder={chrome.i18n.getMessage("app_title_placeholder", "Title")} />
 													</FormControl>
 													<FormMessage />
 												</FormItem>
@@ -177,9 +179,9 @@ const UserApps = () => {
 											name="url"
 											render={({ field }) => (
 												<FormItem>
-													<FormLabel>{chrome.i18n.getMessage("app_url")}:</FormLabel>
+													<FormLabel>{chrome.i18n.getMessage("app_url", "Url")}:</FormLabel>
 													<FormControl>
-														<Input type="url" {...field} placeholder={chrome.i18n.getMessage("app_url_placeholder")} />
+														<Input type="url" {...field} placeholder={chrome.i18n.getMessage("app_url_placeholder", "https://...")} />
 													</FormControl>
 													<FormMessage />
 												</FormItem>
@@ -190,7 +192,7 @@ const UserApps = () => {
 									<FormSuccess message={success} />
 									<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
 										{isEditing ? <TbEdit /> : <Plus />}
-										{isEditing ? chrome.i18n.getMessage("edit_app") : chrome.i18n.getMessage("add_app")}
+										{isEditing ? chrome.i18n.getMessage("edit_app", "Edit app") : chrome.i18n.getMessage("add_app", "Add app")}
 									</Button>
 								</form>
 							</Form>

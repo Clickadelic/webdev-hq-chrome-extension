@@ -14,7 +14,7 @@ interface DownloadItem {
 const UserDownloads = () => {
 	const [downloads, setDownloads] = useState<DownloadItem[]>([])
 
-	const noDownloadsFoundLabel = chrome.i18n.getMessage("no_downloads_found")
+	const noDownloadsFoundLabel = chrome.i18n.getMessage("no_downloads_found", "No downloads found.")
 	const fetchDownloads = () => {
 		if (!chrome?.downloads?.search) return
 

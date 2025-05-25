@@ -68,10 +68,10 @@ const TodoList = () => {
 		if (currentTodo) {
 			currentTodo.title = values.title
 			currentTodo.done = values.done
-			setSuccess(chrome.i18n.getMessage("todo_updated"))
+			setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
 		}
 
-		setSuccess(chrome.i18n.getMessage("todo_updated"))
+		setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
 		form.reset()
 		setEditingAppId(null)
 		setIsEditing(false)
@@ -82,7 +82,7 @@ const TodoList = () => {
 
 	const onDelete = (id: string) => {
 		deleteTodo(id)
-		setSuccess(chrome.i18n.getMessage("todo_deleted"))
+		setSuccess(chrome.i18n.getMessage("todo_deleted", "Todo deleted successfully."))
 	}
 
 	return (
@@ -96,9 +96,9 @@ const TodoList = () => {
 								name="title"
 								render={({ field }) => (
 									<FormItem className="w-full flex flex-col">
-										<FormLabel className="hidden">{chrome.i18n.getMessage("todo_title")}:</FormLabel>
+										<FormLabel className="hidden">{chrome.i18n.getMessage("todo_title", "Title")}:</FormLabel>
 										<FormControl>
-											<Input type="text" {...field} className="border-0 shadow-none" placeholder={chrome.i18n.getMessage("new_todo_placeholder")} />
+											<Input type="text" {...field} className="border-0 shadow-none" placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")} />
 										</FormControl>
 										<FormMessage />
 									</FormItem>
@@ -115,7 +115,7 @@ const TodoList = () => {
 				</Form>
 			</div>
 			<ul className="w-full flex flex-col space-y-1 bg-white rounded p-1 backdrop-blur">
-				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-1">{chrome.i18n.getMessage("create_your_first_todo")}</p>}
+				{todos.length === 0 && <p className="text-center text-md bg-white rounded text-slate-500 my-1">{chrome.i18n.getMessage("create_your_first_todo", "Create your first todo.")}</p>}
 				{todos.map(todo => (
 					<li key={todo.id} className="flex justify-start items-start p-.5 hover:text-slate-500 space-x-1">
 						<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer" />

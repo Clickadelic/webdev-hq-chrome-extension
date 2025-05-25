@@ -54,7 +54,7 @@ const TopSitesList = () => {
 											dateStyle: "medium",
 											timeStyle: "short"
 										}).format(site.lastVisitTime)}
-										&nbsp;{chrome.i18n.getMessage("o_clock")}
+										&nbsp;{chrome.i18n.getMessage("o_clock", "o' clock")}
 									</span>
 								)}
 							</a>

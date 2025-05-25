@@ -7,8 +7,8 @@ import { getFaviconUrl, deleteUserHistory } from "@/lib/utils"
 const fallbackFavicon = "/assets/icons/default-website-favicon.png" // Stelle sicher, dass dieses Bild in deinem `public`-Ordner liegt
 import { RiResetLeftLine } from "react-icons/ri"
 const UserHistory = () => {
-	const deleteHistoryLabel = chrome.i18n.getMessage("delete_history")
-	const noHistoryFoundLabel = chrome.i18n.getMessage("no_history_found")
+	const deleteHistoryLabel = chrome.i18n.getMessage("delete_history", "Delete history")
+	const noHistoryFoundLabel = chrome.i18n.getMessage("no_history_found", "No history found")
 
 	const [history, setHistory] = useState<chrome.history.HistoryItem[]>([])
 

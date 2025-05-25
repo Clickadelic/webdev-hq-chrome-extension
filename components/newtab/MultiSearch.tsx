@@ -22,7 +22,7 @@ interface MultiSearchProps {
  * @return {ReactElement} The rendered component
  */
 const MultiSearch = ({ classNames }: MultiSearchProps) => {
-	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder")
+	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder", "Search")
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const dropdownRef = useRef<HTMLDivElement>(null)

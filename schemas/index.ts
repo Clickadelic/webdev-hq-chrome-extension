@@ -5,19 +5,19 @@ export const SearchInputSchema = z.object({
 })
 
 export const AppSchema = z.object({
-	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
-	url: z.string().min(1, chrome.i18n.getMessage("valid_url_required"))
+	title: z.string().min(1, chrome.i18n.getMessage("min_1_character", "Min 1 character")),
+	url: z.string().min(1, chrome.i18n.getMessage("valid_url_required", "Valid URL required"))
 })
 
 export const TodoSchema = z.object({
-	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
+	title: z.string().min(1, chrome.i18n.getMessage("min_1_character", "Min 1 character")),
 	description: z.string().optional(),
 	done: z.boolean(),
 	expiryDate: z.date().optional()
 })
 
 export const ProjectSchema = z.object({
-	title: z.string().min(1, chrome.i18n.getMessage("min_1_character")),
+	title: z.string().min(1, chrome.i18n.getMessage("min_1_character", "Min 1 character")),
 	description: z.string().optional(),
 	projectUrl: z.string().optional(),
 	gitUrl: z.string().optional(),

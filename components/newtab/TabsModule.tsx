@@ -23,23 +23,23 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 					<TabsList className="grid grid-cols-5 w-full text-slate-600 h-[44px]">
 						<TabsTrigger value="apps">
 							<BsApp />
-							{chrome.i18n.getMessage("apps")}
+							{chrome.i18n.getMessage("apps", "Apps")}
 						</TabsTrigger>
 						<TabsTrigger value="todos">
 							<BsListCheck />
-							{chrome.i18n.getMessage("todos")}
+							{chrome.i18n.getMessage("todos", "Todos")}
 						</TabsTrigger>
 						<TabsTrigger value="projects">
 							<AiOutlineFundProjectionScreen />
-							{chrome.i18n.getMessage("projects")}
+							{chrome.i18n.getMessage("projects", "Projects")}
 						</TabsTrigger>
 						<TabsTrigger value="downloads">
 							<GoDownload />
-							{chrome.i18n.getMessage("downloads")}
+							{chrome.i18n.getMessage("downloads", "Downloads")}
 						</TabsTrigger>
 						<TabsTrigger value="history">
 							<PiClockCountdown />
-							{chrome.i18n.getMessage("history")}
+							{chrome.i18n.getMessage("history", "History")}
 						</TabsTrigger>
 					</TabsList>
 				</div>
