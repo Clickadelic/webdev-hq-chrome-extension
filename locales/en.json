@@ -263,20 +263,36 @@
 		"message": "Load default Google Apps into the set.",
 		"description": "Reset button description."
 	},
+	"google_apps_loaded": {
+		"message": "Google Apps loaded.",
+		"description": "Google Apps loaded."
+	},
 	"delete_all_apps_settings_text": {
 		"message": "Delete all apps in the set.",
 		"description": "Lösche alle Apps im Set-Text."
 	},
 	"import_apps_settings_text": {
-		"message": "Import apps as .json file.",
+		"message": "Import apps as .json-file.",
 		"description": "Import explanation."
 	},
+	"apps_imported": {
+		"message": "Apps successfully imported.",
+		"description": "Apps import-message."
+	},
 	"export_apps_settings_text": {
-		"message": "Export apps as .json file.",
+		"message": "Export apps as .json-file.",
 		"description": "Export explanation."
+	},
+	"apps_exported": {
+		"message": "Apps successfully exported.",
+		"description": "Apps export-message."
 	},
 	"delete_all_apps": {
 		"message": "Delete all apps.",
 		"description": "Delete all apps text."
+	},
+	"all_apps_deleted": {
+		"message": "All app deleted.",
+		"description": "Delete all apps in the set text."
 	}
 }

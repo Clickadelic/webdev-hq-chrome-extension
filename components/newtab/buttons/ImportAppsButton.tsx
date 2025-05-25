@@ -2,6 +2,9 @@ import React, { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { useAppStore } from "@/stores/use-app-store"
 import { TfiImport } from "react-icons/tfi"
+
+import { toast } from "sonner"
+
 export const ImportAppsButton = () => {
 	const fileInputRef = useRef<HTMLInputElement | null>(null)
 	const setApps = useAppStore.setState
@@ -28,6 +31,7 @@ export const ImportAppsButton = () => {
 			}
 		}
 		reader.readAsText(file)
+		toast.success(chrome.i18n.getMessage("apps_imported", "Apps imported"))
 	}
 
 	const triggerFileInput = () => {

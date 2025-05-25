@@ -86,7 +86,7 @@ const TodoList = () => {
 	}
 
 	return (
-		<div className="flex flex-col bg-white/30 backdrop-blur p-1 space-y-1 rounded">
+		<div className="flex flex-col bg-white/30 backdrop-blur p-1 space-y-2 rounded">
 			<div className="bg-white rounded p-1 backdrop-blur">
 				<Form {...form}>
 					<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="flex flex-row w-full gap-1">

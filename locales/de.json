@@ -260,7 +260,11 @@
 		"description": "App Einstellungen Beschreibung."
 	},
 	"load_google_apps_settings_text": {
-		"message": "Lade Google Apps in die App-Tabs.",
+		"message": "Lade Google Apps in das Set.",
+		"description": "Dashboard öffnen."
+	},
+	"google_apps_loaded": {
+		"message": "Google Apps geladen.",
 		"description": "Dashboard öffnen."
 	},
 	"delete_all_apps_settings_text": {
@@ -271,12 +275,24 @@
 		"message": "Apps als .json-Datei importieren.",
 		"description": "Apps Import-Button."
 	},
+	"apps_imported": {
+		"message": "Apps erfolgreich importiert.",
+		"description": "Apps Import-Nachricht."
+	},
 	"export_apps_settings_text": {
 		"message": "Apps als .json-Datei exportieren.",
 		"description": "Apps Export-Button."
 	},
+	"apps_exported": {
+		"message": "Apps erfolgreich exportiert.",
+		"description": "Apps Import-Nachricht."
+	},
 	"delete_all_apps": {
 		"message": "Alle Apps löschen.",
 		"description": "Alle Apps löschen Text."
+	},
+	"all_apps_deleted": {
+		"message": "Alle Apps gelöscht.",
+		"description": "Lösche alle Apps im Set-Text."
 	}
 }

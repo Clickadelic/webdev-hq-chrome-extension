@@ -126,3 +126,8 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+/* Sonner / Toaster border-radius */
+[data-sonner-toast] {
+	border-radius: 4px !important;
+}

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useImageStore } from "@/stores/use-image-store"
-
+import { toast } from "sonner"
 interface BackgroundImageProps {
 	children: React.ReactNode
 	creditsPosition?: "left" | "center" | "right"
@@ -24,7 +24,6 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 			})
 		})
 	}, [setImage])
-	console.log("Current credits from store:", credit)
 
 	return (
 		<div
@@ -38,11 +37,11 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 			{credit && (
 				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 -translate-x-1/2" : "absolute bottom-4 left-4"}>
 					<p className="text-xs text-white">
-						Foto von{" "}
+						{chrome.i18n.getMessage("photo_by", "Photo by")}{" "}
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
 						</a>{" "}
-						auf{" "}
+						{chrome.i18n.getMessage("on", "on")}{" "}
 						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>

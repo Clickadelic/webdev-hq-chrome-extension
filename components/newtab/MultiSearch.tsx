@@ -74,8 +74,8 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	}, [])
 
 	return (
-		<div className={cn("w-full z-50 bg-white flex flex-row gap-1 p-1 rounded items-center", classNames)}>
-			<form method="GET" action={`${searchEngine}${encodeURIComponent(searchQuery)}`} className="w-full bg-white flex flex-row gap-1 p-1 rounded items-center">
+		<div className={cn("w-full z-50 bg-white flex flex-row gap-1 p-1 rounded items-center dark:bg-slate-800/30", classNames)}>
+			<form method="GET" action={`${searchEngine}${encodeURIComponent(searchQuery)}`} className="w-full bg-white dark:bg-slate-800 flex flex-row gap-1 p-1 rounded items-center">
 				<input type="text" name="q" value={searchQuery} onChange={handleQueryChange} className="py-1 pr-2 pl-3 focus:outline-none w-full text-xl" placeholder={searchPlaceholder} />
 				{searchQuery.length >= 1 && (
 					<div className="relative">

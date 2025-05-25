@@ -96,19 +96,19 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 rounded backdrop-blur">
+		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 			{apps.map(app => (
 				<li
 					key={app.id}
-					className="relative bg-white pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+					className="relative bg-white dark:bg-slate-800 pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 				>
 					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
+						<span className="text-slate-800 dark:text-slate-100 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
 					</a>
 					<DropdownMenu modal={false}>
 						<DropdownMenuTrigger asChild>
-							<button className="absolute top-1 right-[1px] text-slate-500 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer">
+							<button className="absolute top-1 right-[1px] text-slate-600 dark:text-slate-200 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer">
 								<HiOutlineDotsVertical className="size-4" />
 							</button>
 						</DropdownMenuTrigger>
@@ -143,7 +143,7 @@ const UserApps = () => {
 				>
 					<DialogTrigger
 						onClick={() => setIsModalOpen(true)}
-						className="flex flex-col gap-1 items-center place-content-center text-slate-400 bg-white p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+						className="flex flex-col gap-1 items-center place-content-center text-slate-500 dark:text-slate-200 bg-white dark:bg-slate-800 p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 					>
 						<Plus />
 					</DialogTrigger>
