@@ -98,14 +98,20 @@ const TodoList = () => {
 									<FormItem className="w-full flex flex-col">
 										<FormLabel className="hidden">{chrome.i18n.getMessage("new_todo_title", "Title")}:</FormLabel>
 										<FormControl>
-											<Input type="text" {...field} className="border-0 shadow-none" placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")} />
+											<Input
+												type="text"
+												{...field}
+												className="border-0 shadow-none"
+												disabled={isLoading}
+												placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")}
+											/>
 										</FormControl>
 										<FormMessage />
 									</FormItem>
 								)}
 							/>
 
-							<Button type="submit" className="bg-mantis-primary text-white rounded size-[36px] hover:cursor-pointer">
+							<Button type="submit" className="bg-mantis-primary text-white rounded size-[36px] hover:cursor-pointer" disabled={isLoading}>
 								{isEditing ? <TbEdit /> : <Plus />}
 							</Button>
 						</div>

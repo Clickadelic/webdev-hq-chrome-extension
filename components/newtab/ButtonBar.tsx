@@ -1,6 +1,6 @@
 import { DashboardButton } from "@/components/newtab/buttons/DashboardButton"
 import { SettingsButton } from "@/components/newtab/buttons/SettingsButton"
-
+// import { ModeToggle } from "@/components/global/ModeToggle"
 import { FullscreenButton } from "./buttons/FullscreenButton"
 import { cn } from "@/lib/utils"
 

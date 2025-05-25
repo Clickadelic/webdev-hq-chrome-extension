@@ -128,14 +128,14 @@ const UserProjects = () => {
 									<div className="flex flex-start gap-2 truncate">
 										<ul className="space-y-2">
 											<li>
-												<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary">
+												<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
 													<BsHouse className="mt-[2px] size-4" />
 													{chrome.i18n.getMessage("website", "Website")}
 													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
 												</a>
 											</li>
 											<li>
-												<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary">
+												<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
 													<FaGitAlt className="mt-[2px] size-4" />
 													{chrome.i18n.getMessage("git_url", "Repository")}
 													<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
