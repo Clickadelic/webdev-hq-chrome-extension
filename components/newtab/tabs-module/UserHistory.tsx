@@ -30,7 +30,7 @@ const UserHistory = () => {
 				</div>
 			) : (
 				<div className="bg-white/30 backdrop p-1 rounded backdrop-blur">
-					<ul className="w-full bg-white rounded">
+					<ul className="w-full bg-white dark:bg-slate-800 rounded">
 						{history.map(entry => (
 							<li key={entry.id} className="flex flex-row justify-between items-start p-1">
 								<a href={entry.url} className="flex justify-between gap-2 p-2 rounded text-md w-full truncate hover:text-mantis-primary" target="_blank" rel="noopener noreferrer">
