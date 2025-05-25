@@ -24,6 +24,7 @@ import tasksIcon from "@/assets/icons/google-apps/google-tasks.svg"
 import fontsIcon from "@/assets/icons/google-apps/google-fonts.svg"
 import geminiIcon from "@/assets/icons/google-apps/google-gemini.svg"
 import formsIcon from "@/assets/icons/google-apps/google-forms.svg"
+import webstoreIcon from "@/assets/icons/google-apps/google-chrome-web-store.svg"
 import youTubeIcon from "@/assets/icons/video-platforms/youtube-color-icon.svg"
 import webdevIcon from "@/assets/icons/google-apps/google-webdev.svg"
 
@@ -183,6 +184,12 @@ const defaultApps = [
 		title: "Console",
 		icon: searchConsoleIcon,
 		url: "https://search.google.com/search-console"
+	},
+	{
+		id: crypto.randomUUID(),
+		title: "WebStore",
+		icon: webstoreIcon,
+		url: "https://chromewebstore.google.com/"
 	},
 	{
 		id: crypto.randomUUID(),
