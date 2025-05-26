@@ -12,7 +12,7 @@ export const GetRandomImageButton = () => {
 
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
-				toast.error("Fehler beim Laden des Hintergrundbildes.")
+				toast.error(chrome.i18n.getMessage("error_loading_background_image", "An error occurred while loading the background image."))
 				return
 			}
 
@@ -22,7 +22,7 @@ export const GetRandomImageButton = () => {
 				unsplashUrl: response.link
 			})
 
-			toast.success("Neues Hintergrundbild geladen!")
+			toast.success(chrome.i18n.getMessage("background_image_updated", "Background image updated."))
 		})
 	}
 
