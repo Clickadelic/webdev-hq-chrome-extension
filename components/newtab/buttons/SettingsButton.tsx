@@ -1,5 +1,6 @@
 import { HiOutlineCog } from "react-icons/hi"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { Separator } from "@/components/ui/separator"
 
 import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton"
 import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
@@ -9,7 +10,7 @@ export const SettingsButton: React.FC = () => {
 	return (
 		<Dialog>
 			<DialogTrigger
-				className="border border-transparent px-3 py-2 rounded bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				className="border border-transparent rounded px-3 py-2 bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 				title={chrome.i18n.getMessage("settings", "Settings")}
 			>
 				<HiOutlineCog className="size-4" />
@@ -24,7 +25,7 @@ export const SettingsButton: React.FC = () => {
 				</DialogHeader>
 				<div className="space-y-2">
 					<h2 className="text-md font-semibold dark:text-slate-300">{chrome.i18n.getMessage("apps", "Apps")}</h2>
-					<hr />
+					<Separator className="my-3 dark:bg-slate-500" />
 					<div className="flex justify-between gap-2">
 						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
 						<LoadGoogleAppsButton />

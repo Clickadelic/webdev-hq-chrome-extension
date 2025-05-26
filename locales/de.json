@@ -115,6 +115,10 @@
 		"message": "Neues Todo",
 		"description": "New Todo placeholder."
 	},
+	"select_date": {
+		"message": "Datum wählen",
+		"description": "Neues Datum wählen."
+	},
 	"todo_description": {
 		"message": "Füge ein Todo hinzu.",
 		"description": "New Todo placeholder."
