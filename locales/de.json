@@ -171,6 +171,10 @@
 		"message": "Todo bearbeitet",
 		"description": "Todo bearbeitet"
 	},
+	"done_label": {
+		"message": "Erledigt",
+		"description": "Todo erledigt"
+	},
 	"projects": {
 		"message": "Projekte",
 		"description": "Projekte Tab."

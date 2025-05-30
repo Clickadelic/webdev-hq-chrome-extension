@@ -11,6 +11,7 @@ import { toast } from "sonner"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
+import { Switch } from "@/components/ui/switch"
 
 import { Plus } from "lucide-react"
 import { BsTrash3 } from "react-icons/bs"
@@ -155,7 +156,10 @@ const TodoList = () => {
 									}
 								}}
 							>
-								<DialogTrigger onClick={() => openAdvancedAdd()} className="flex items-center justify-center py-2 px-3 rounded hover:cursor-pointer hover:bg-slate-200">
+								<DialogTrigger
+									onClick={() => openAdvancedAdd()}
+									className="border border-transparent flex items-center justify-center py-2 px-3 rounded hover:cursor-pointer hover:border-mantis-primary hover:text-mantis-primary"
+								>
 									<FaArrowUpRightDots className="size-4" />
 								</DialogTrigger>
 								<DialogContent className="rounded">
@@ -198,6 +202,20 @@ const TodoList = () => {
 															</FormItem>
 														)}
 													/>
+
+													<FormField
+														control={form.control}
+														name="done"
+														render={({ field }) => (
+															<FormItem className="flex flex-row flex-start">
+																<FormLabel>{chrome.i18n.getMessage("done_label", "Done")}:</FormLabel>
+																<FormControl>
+																	<Switch className="ml-3" checked={field.value} onCheckedChange={field.onChange} />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
 												</div>
 												<FormError message={error} />
 												<FormSuccess message={success} />
@@ -210,7 +228,11 @@ const TodoList = () => {
 									</div>
 								</DialogContent>
 							</Dialog>
-							<Button type="submit" className="bg-mantis-primary text-white dark:bg-mantis-primary dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer" disabled={isLoading}>
+							<Button
+								type="submit"
+								className="bg-mantis-primary hover:bg-mantis-primary-hover text-white dark:bg-mantis-primary dark:hover:bg-mantis-primary-hover dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer"
+								disabled={isLoading}
+							>
 								{isEditing ? <TbEdit /> : <Plus />}
 							</Button>
 						</div>
