@@ -158,7 +158,7 @@ const TodoList = () => {
 							>
 								<DialogTrigger
 									onClick={() => openAdvancedAdd()}
-									className="bg-slate-700 border border-transparent flex items-center justify-center py-2 px-3 rounded hover:cursor-pointer hover:bg-slate-600"
+									className="hover:bg-slate-100 text-slate-400 hover:text-slate-400 dark:hover:text-slate-400 dark:bg-slate-700 border border-transparent flex items-center justify-center py-2 px-3 rounded hover:cursor-pointer dark:hover:bg-slate-600"
 								>
 									<FaArrowUpRightDots className="size-4" />
 								</DialogTrigger>
