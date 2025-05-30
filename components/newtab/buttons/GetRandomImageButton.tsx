@@ -8,27 +8,37 @@ export const GetRandomImageButton = () => {
 
 	const handleClick = () => {
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Image response:", response)
+			console.log("Full background image response:", response.response)
 
 			if (!response || response.error) {
-				console.error("Error loading image:", response?.error)
-				toast.error(chrome.i18n.getMessage("error_loading_background_image", "An error occurred while loading the background image."))
+				toast.error("Error loading background image.")
 				return
 			}
 
-			setImage(response.url, {
-				author: response.author,
-				authorUrl: response.authorUrl,
-				unsplashUrl: response.link
+			// Beispielzugriff auf das Objekt:
+			const imageUrl = response.response?.urls?.regular
+			const author = response.response?.user?.name || "Unbekannt"
+			const authorUrl = response.response?.user?.links?.html || "#"
+			const unsplashUrl = response.response?.links?.html || "#"
+
+			if (!imageUrl) {
+				toast.error("Received invalid image URL.")
+				return
+			}
+
+			setImage(imageUrl, {
+				author,
+				authorUrl,
+				unsplashUrl
 			})
 
-			toast.success(chrome.i18n.getMessage("background_image_updated", "Background image updated."))
+			toast.success("Background image updated.")
 		})
 	}
 
 	return (
-		<Button onClick={handleClick} variant="secondary" className="flex gap-2 items-center shadow-md hover:scale-105 transition-transform duration-200">
-			<RefreshCcw className="size-4" />
+		<Button onClick={handleClick} variant="secondary" className="flex gap-2 items-center shadow-md hover:scale-105 transition-transform duration-200" aria-label="Refresh Background Image">
+			<RefreshCcw className="w-4 h-4" />
 		</Button>
 	)
 }

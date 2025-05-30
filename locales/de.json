@@ -108,7 +108,7 @@
 		"description": "Todos Tab."
 	},
 	"new_todo_title": {
-		"message": "Neues Todo",
+		"message": "Titel",
 		"description": "New Todo placeholder."
 	},
 	"new_todo_placeholder": {
@@ -122,6 +122,54 @@
 	"todo_description": {
 		"message": "Füge ein Todo hinzu.",
 		"description": "New Todo placeholder."
+	},
+	"new_todo_description_label": {
+		"message": "Beschreibung",
+		"description": "Todo Beschreibung placeholder."
+	},
+	"new_todo_description_placeholder": {
+		"message": "Details des Todo's",
+		"description": "New Todo placeholder."
+	},
+	"todo_deleted": {
+		"message": "Todo gelöscht.",
+		"description": "New Todo placeholder."
+	},
+	"add_todo_title": {
+		"message": "Todo hinzufügen",
+		"description": "App hinzufügen Text."
+	},
+	"add_todo_description": {
+		"message": "Füge ein neues Todo hinzu.",
+		"description": "Todo hinzufügen Text."
+	},
+	"edit_todo_title": {
+		"message": "Todo bearbeiten",
+		"description": "App bearbeiten Text."
+	},
+	"edit_todo_description": {
+		"message": "Beschreibung",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"edit_todo_description_placeholder": {
+		"message": "Bearbeite das aktuelle Todo.",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"add_todo": {
+		"message": "Todo hinzufügen",
+		"description": "Todo hinzufügen Beschreibung."
+	},
+	"edit_todo": {
+		"message": "Todo bearbeiten",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"todo_added": {
+		"message": "Todo bearbeiten",
+		"description": "Todo hinzugefügt"
+	},
+	"todo_edited": {
+		"message": "Todo bearbeitet",
+		"description": "Todo bearbeitet"
 	},
 	"projects": {
 		"message": "Projekte",

@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useImageStore } from "@/stores/use-image-store"
 import { toast } from "sonner"
+
 interface BackgroundImageProps {
 	children: React.ReactNode
 	creditsPosition?: "left" | "center" | "right"
@@ -11,15 +12,27 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 
 	useEffect(() => {
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
+			console.log("Image response:", response)
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
 				return
 			}
 
-			setImage(response.url, {
-				author: response.author,
-				authorUrl: response.authorUrl,
-				unsplashUrl: response.link
+			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
+			const url = response.response?.urls?.regular || response.urls?.regular
+			if (!url) {
+				console.error("No valid image URL received.")
+				return
+			}
+
+			const author = response.response?.user?.name || response.user?.name || "Unbekannt"
+			const authorUrl = response.response?.user?.links?.html || response.user?.links?.html || "#"
+			const unsplashUrl = response.response?.links?.html || response.links?.html || "#"
+
+			setImage(url, {
+				author,
+				authorUrl,
+				unsplashUrl
 			})
 		})
 	}, [setImage])
@@ -35,13 +48,13 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 			{children}
 			{credit && (
 				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 -translate-x-1/2" : "absolute bottom-4 left-4"}>
-					<p className="text-xs text-white dark:text-slate-800">
+					<p className="text-xs text-white">
 						{chrome.i18n.getMessage("photo_by", "Photo by")}{" "}
-						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-mantis-primary">
+						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
 						</a>{" "}
 						{chrome.i18n.getMessage("on", "on")}{" "}
-						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline text-white dark:text-slate-800 hover:text-mantis-primary">
+						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>
 					</p>

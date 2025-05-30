@@ -17,7 +17,8 @@ const buttonVariants = cva(
 				ghost: "rounded dark:bg-slate-800 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
 				link: "text-primary underline-offset-4 dark:bg-slate-800 hover:underline",
 				subtle: "bg-transparent text-slate-800 dark:bg-slate-800 hover:bg-slate-200 hover:text-accent-foreground dark:bg-input/30 dark:hover:bg-input/50",
-				delete: "text-slate-400 dark:bg-slate-800 hover:bg-destructive hover:text-white"
+				delete: "text-slate-400 dark:bg-slate-800 hover:bg-destructive hover:text-white",
+				calendar: "text-slate-200 focus:text-slate-200 hover:text-slate-200 dark:bg-slate-800 hover:bg-slate-800"
 			},
 			size: {
 				default: "h-9 px-4 py-2 has-[>svg]:px-3",

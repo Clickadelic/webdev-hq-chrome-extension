@@ -9,6 +9,7 @@ import TabsModule from "@/components/newtab/TabsModule"
 import ButtonBar from "@/components/newtab/ButtonBar"
 import { ThemeProvider } from "@/components/global/ThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
+
 const App = () => {
 	return (
 		<ThemeProvider>
@@ -19,7 +20,7 @@ const App = () => {
 				<Salutation classNames="w-[680px] mt-12 md:mt-20 xl:mt-24 mb-4 mx-auto text-white text-4xl font-light dark:text-slate-300" />
 				<MultiSearch classNames="w-[680px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30" />
 				<TabsModule classNames="w-[680px] mx-auto flex flex-row" />
-				<ButtonBar classNames="w-[226px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
+				<ButtonBar classNames="w-[316px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
 				<Toaster className="dark:bg-slate-800" />
 			</BackgroundImage>
 		</ThemeProvider>

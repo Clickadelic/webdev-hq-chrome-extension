@@ -9,18 +9,11 @@ import { BsChevronDown } from "react-icons/bs"
 import { cn } from "@/lib/utils"
 
 import { engines } from "@/lib/search-engines"
+
 interface MultiSearchProps {
 	classNames?: string
 }
 
-/**
- * A component to handle multiple search engines in the new tab.
- *
- * @param {Object} props - Component props
- * @param {string} [props.classNames] - Additional CSS class names
- *
- * @return {ReactElement} The rendered component
- */
 const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder", "Search")
 	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
@@ -111,7 +104,7 @@ const MultiSearch = ({ classNames }: MultiSearchProps) => {
 					)}
 				</div>
 
-				<Button type="submit" variant="primary" className="size-9">
+				<Button type="submit" variant="primary" className="py-2 px-3">
 					<AiOutlineSearch />
 				</Button>
 			</form>

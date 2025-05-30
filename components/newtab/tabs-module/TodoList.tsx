@@ -1,98 +1,131 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { toast } from "sonner"
+
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
 
 import { Plus } from "lucide-react"
 import { BsTrash3 } from "react-icons/bs"
 import { cn } from "@/lib/utils"
-
+import { FaArrowUpRightDots } from "react-icons/fa6"
 import { useTodoStore } from "@/stores/use-todo-store"
 import { TodoSchema } from "@/schemas"
-import { useState, FormEvent } from "react"
+import { useState } from "react"
 import { TbEdit } from "react-icons/tb"
-import { LucidePlus } from "lucide-react"
+import { BsListCheck } from "react-icons/bs"
 
-/**
- * TodoList
- *
- * Component that displays a list of todos and allows the user to add, toggle and delete them.
- *
- * @returns The TodoList component.
- */
 const TodoList = () => {
 	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore()
 
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [isEditing, setIsEditing] = useState<boolean>(false)
-	const [editingAppId, setEditingAppId] = useState<string | null>(null)
+	const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
 	const [error, setError] = useState<string | undefined>("")
 	const [success, setSuccess] = useState<string | undefined>("")
+	const [quickFormError, setQuickFormError] = useState<string | undefined>("")
+	const [quickFormSuccess, setQuickFormSuccess] = useState<string | undefined>("")
 
-	let form = useForm<z.infer<typeof TodoSchema>>({
+	const QuickFormSchema = TodoSchema.pick({ title: true })
+
+	const quickForm = useForm<z.infer<typeof QuickFormSchema>>({
+		resolver: zodResolver(QuickFormSchema),
+		defaultValues: { title: "" }
+	})
+
+	const form = useForm<z.infer<typeof TodoSchema>>({
 		resolver: zodResolver(TodoSchema),
 		defaultValues: { title: "", description: "", done: false }
 	})
 
+	const openAdvancedAdd = () => {
+		setIsModalOpen(true)
+	}
+
 	const onAddSubmit = (values: z.infer<typeof TodoSchema>) => {
 		setError("")
 		setSuccess("")
-		console.log(values)
+		setQuickFormError("")
+		setQuickFormSuccess("")
 		addTodo(values.title)
 		form.reset()
+		quickForm.reset()
+		setIsModalOpen(false)
+		toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
+	}
+
+	const onQuickAddSubmit = (values: z.infer<typeof QuickFormSchema>) => {
+		try {
+			addTodo(values.title)
+			quickForm.reset()
+			setQuickFormSuccess("")
+			setQuickFormError("")
+			toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
+		} catch (e) {
+			setQuickFormError("Something went wrong.")
+			setQuickFormSuccess("")
+		}
 	}
 
 	const onEdit = (id: string) => {
 		setIsEditing(true)
-		setEditingAppId(id)
-
-		const currentApp = todos.find(todo => todo.id === id)
-		if (currentApp) {
-			form.setValue("title", currentApp.title)
-			form.setValue("done", currentApp.done)
+		setEditingTodoId(id)
+		setIsModalOpen(true)
+		quickForm.reset()
+		const todo = todos.find(todo => todo.id === id)
+		if (todo) {
+			form.setValue("title", todo.title)
+			form.setValue("description", todo.description)
+			form.setValue("done", todo.done)
 		}
 	}
 
 	const onEditSubmit = (values: z.infer<typeof TodoSchema>) => {
-		if (!editingAppId) return
+		if (!editingTodoId) return
 
 		setError("")
 		setSuccess("")
+		setQuickFormError("")
+		setQuickFormSuccess("")
 
-		const currentTodo = todos.find(todo => todo.id === editingAppId)
+		const currentTodo = todos.find(todo => todo.id === editingTodoId)
 		if (currentTodo) {
 			currentTodo.title = values.title
+			currentTodo.description = values.description
 			currentTodo.done = values.done
 			setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
 		}
 
 		setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
 		form.reset()
-		setEditingAppId(null)
+		quickForm.reset()
+		setIsModalOpen(false)
+		setEditingTodoId(null)
 		setIsEditing(false)
-		setTimeout(() => {
-			setSuccess("")
-		}, 2000)
+		toast.success(chrome.i18n.getMessage("todo_edited", "Todo edited."))
 	}
 
 	const onDelete = (id: string) => {
 		deleteTodo(id)
-		setSuccess(chrome.i18n.getMessage("todo_deleted", "Todo deleted successfully."))
+		toast.success(chrome.i18n.getMessage("todo_deleted", "Todo deleted."))
 	}
 
 	return (
 		<div className="flex flex-col bg-white/30 dark:bg-slate-800/30 backdrop-blur p-1 space-y-1 rounded">
 			<div className="bg-white  dark:bg-slate-800 rounded p-1 backdrop-blur">
-				<Form {...form}>
-					<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="flex flex-row w-full gap-1">
+				<Form {...quickForm}>
+					<form onSubmit={quickForm.handleSubmit(onQuickAddSubmit)} className="flex flex-row w-full gap-1">
 						<div className="flex flex-row w-full gap-1">
 							<FormField
-								control={form.control}
+								control={quickForm.control}
 								name="title"
 								render={({ field }) => (
 									<FormItem className="w-full flex flex-col">
@@ -110,13 +143,79 @@ const TodoList = () => {
 									</FormItem>
 								)}
 							/>
-
-							<Button type="submit" className="bg-mantis-primary text-white dark:bg-mantis-primary dark:text-slate-200 rounded size-[36px] hover:cursor-pointer" disabled={isLoading}>
+							<Dialog
+								open={isModalOpen}
+								onOpenChange={open => {
+									setIsModalOpen(open)
+									if (!open) {
+										setIsEditing(false)
+										setEditingTodoId(null)
+										form.reset()
+										quickForm.reset()
+									}
+								}}
+							>
+								<DialogTrigger onClick={() => openAdvancedAdd()} className="flex items-center justify-center py-2 px-3 rounded hover:cursor-pointer hover:bg-slate-200">
+									<FaArrowUpRightDots className="size-4" />
+								</DialogTrigger>
+								<DialogContent className="rounded">
+									<DialogHeader>
+										<DialogTitle className="flex items-start gap-2">
+											<BsListCheck className="mt-[2px] size-4" />
+											{isEditing ? chrome.i18n.getMessage("edit_todo_title", "Edit Todo") : chrome.i18n.getMessage("add_todo_title", "Add todo")}
+										</DialogTitle>
+										<DialogDescription>
+											{isEditing ? chrome.i18n.getMessage("edit_todo_description") : chrome.i18n.getMessage("add_todo_description", "Add a new task to your list.")}
+										</DialogDescription>
+									</DialogHeader>
+									<div className="flex">
+										<Form {...form}>
+											<form onSubmit={form.handleSubmit(isEditing ? onEditSubmit : onAddSubmit)} className="w-full space-y-6">
+												<div className="space-y-4">
+													<FormField
+														control={form.control}
+														name="title"
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>{chrome.i18n.getMessage("new_todo_title", "Title")}:</FormLabel>
+																<FormControl>
+																	<Input type="text" {...field} placeholder={chrome.i18n.getMessage("new_todo_placeholder", "Todo")} />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+													<FormField
+														control={form.control}
+														name="description"
+														render={({ field }) => (
+															<FormItem>
+																<FormLabel>{chrome.i18n.getMessage("new_todo_description_label", "Description")}:</FormLabel>
+																<FormControl>
+																	<Textarea {...field} placeholder={chrome.i18n.getMessage("new_todo_description_placeholder", "Description")} />
+																</FormControl>
+																<FormMessage />
+															</FormItem>
+														)}
+													/>
+												</div>
+												<FormError message={error} />
+												<FormSuccess message={success} />
+												<Button variant="primary" type="submit" className="w-full rounded" disabled={isLoading}>
+													{isEditing ? <TbEdit /> : <Plus />}
+													{isEditing ? chrome.i18n.getMessage("edit_todo", "Edit todo") : chrome.i18n.getMessage("add_todo", "Add todo")}
+												</Button>
+											</form>
+										</Form>
+									</div>
+								</DialogContent>
+							</Dialog>
+							<Button type="submit" className="bg-mantis-primary text-white dark:bg-mantis-primary dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer" disabled={isLoading}>
 								{isEditing ? <TbEdit /> : <Plus />}
 							</Button>
 						</div>
-						<FormError message={error} />
-						<FormSuccess message={success} />
+						{quickFormError && <FormError message={quickFormError} />}
+						{quickFormSuccess && <FormSuccess message={quickFormSuccess} />}
 					</form>
 				</Form>
 			</div>

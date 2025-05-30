@@ -123,6 +123,38 @@
 		"message": "Add a todo.",
 		"description": "New Todo description."
 	},
+	"new_todo_description_label": {
+		"message": "Details der Aufgabe",
+		"description": "New Todo placeholder."
+	},
+	"new_todo_description_placeholder": {
+		"message": "Details der Aufgabe",
+		"description": "New Todo placeholder."
+	},
+	"todo_deleted": {
+		"message": "Todo deleted.",
+		"description": "New Todo placeholder."
+	},
+	"add_todo_title": {
+		"message": "Todo hinzufügen",
+		"description": "App hinzufügen Text."
+	},
+	"add_todo_description": {
+		"message": "Add a new todo to your list.",
+		"description": "Todo hinzufügen Text."
+	},
+	"edit_todo_title": {
+		"message": "Edit todo",
+		"description": "Edit todo text."
+	},
+	"edit_todo_description_label": {
+		"message": "Description",
+		"description": "Todo description."
+	},
+	"edit_todo_description": {
+		"message": "Edit the current todo.",
+		"description": "Edit todo description."
+	},
 	"projects": {
 		"message": "Projects",
 		"description": "Projects Tab."
