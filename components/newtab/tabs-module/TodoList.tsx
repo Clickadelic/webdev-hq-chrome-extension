@@ -66,9 +66,9 @@ const TodoList = () => {
 	const onQuickAddSubmit = (values: z.infer<typeof QuickFormSchema>) => {
 		try {
 			addTodo(values.title)
-			quickForm.reset()
 			setQuickFormSuccess("")
 			setQuickFormError("")
+			quickForm.reset()
 			toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
 		} catch (e) {
 			setQuickFormError("Something went wrong.")
