@@ -27,7 +27,7 @@ export const SettingsButton: React.FC = () => {
 				</DialogHeader>
 				<div className="space-y-2">
 					<Tabs defaultValue="general" className="w-full rounded-none">
-						<TabsList className="bg-transparent p-0">
+						<TabsList className="w-full bg-transparent p-0">
 							<TabsTrigger
 								value="general"
 								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
@@ -45,6 +45,24 @@ export const SettingsButton: React.FC = () => {
 								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
 							>
 								{chrome.i18n.getMessage("todos", "Todos")}
+							</TabsTrigger>
+							<TabsTrigger
+								value="projects"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("projects", "Projects")}
+							</TabsTrigger>
+							<TabsTrigger
+								value="downloads"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("downloads", "Downloads")}
+							</TabsTrigger>
+							<TabsTrigger
+								value="history"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("history", "History")}
 							</TabsTrigger>
 						</TabsList>
 						<TabsContent value="general" className="min-h-48 space-y-2">
@@ -73,6 +91,15 @@ export const SettingsButton: React.FC = () => {
 						</TabsContent>
 						<TabsContent value="todos" className="min-h-48 space-y-2">
 							<p className="mt-2 text-muted-foreground">Change your todo settings here.</p>
+						</TabsContent>
+						<TabsContent value="projects" className="min-h-48 space-y-2">
+							<p className="mt-2 text-muted-foreground">Change your project settings here.</p>
+						</TabsContent>
+						<TabsContent value="downloads" className="min-h-48 space-y-2">
+							<p className="mt-2 text-muted-foreground">Change your download settings here.</p>
+						</TabsContent>
+						<TabsContent value="history" className="min-h-48 space-y-2">
+							<p className="mt-2 text-muted-foreground">Change your history settings here.</p>
 						</TabsContent>
 					</Tabs>
 				</div>
