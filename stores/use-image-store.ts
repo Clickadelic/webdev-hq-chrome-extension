@@ -31,7 +31,7 @@ export const useImageStore = create<ImageStore>()(
 				}))
 		}),
 		{
-			name: "image-storage"
+			name: "wdhq-image-store"
 		}
 	)
 )

@@ -1,11 +1,13 @@
 import { HiOutlineCog } from "react-icons/hi"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Separator } from "@/components/ui/separator"
 
 import { LoadGoogleAppsButton } from "@/components/newtab/buttons/LoadGoogleAppsButton"
 import { ImportAppsButton } from "@/components/newtab/buttons/ImportAppsButton"
 import { ExportAppsButton } from "@/components/newtab/buttons/ExportAppsButton"
 import { DeleteAllAppsButton } from "@/components/newtab/buttons/DeleteAllAppsButton"
+import { SelectDefaultTab } from "@/components/newtab/buttons/SelectDefaultTab"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
 export const SettingsButton: React.FC = () => {
 	return (
 		<Dialog>
@@ -24,24 +26,55 @@ export const SettingsButton: React.FC = () => {
 					<DialogDescription>{chrome.i18n.getMessage("settings_description", "Manage your settings")}</DialogDescription>
 				</DialogHeader>
 				<div className="space-y-2">
-					<h2 className="text-md font-semibold dark:text-slate-300">{chrome.i18n.getMessage("apps", "Apps")}</h2>
-					<Separator className="my-3 dark:bg-slate-500" />
-					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
-						<LoadGoogleAppsButton />
-					</div>
-					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("import_apps_settings_text", "Import all apps.")}</p>
-						<ImportAppsButton />
-					</div>
-					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("export_apps_settings_text", "Export all apps.")}</p>
-						<ExportAppsButton />
-					</div>
-					<div className="flex justify-between gap-2">
-						<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>
-						<DeleteAllAppsButton />
-					</div>
+					<Tabs defaultValue="general" className="w-full rounded-none">
+						<TabsList className="bg-transparent p-0">
+							<TabsTrigger
+								value="general"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("general", "General")}
+							</TabsTrigger>
+							<TabsTrigger
+								value="apps"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("apps", "Apps")}
+							</TabsTrigger>
+							<TabsTrigger
+								value="todos"
+								className="border-solid border-0 border-b rounded-none border-slate-200 data-[state=active]:border-mantis-primary data-[state=active]:text-mantis-primary"
+							>
+								{chrome.i18n.getMessage("todos", "Todos")}
+							</TabsTrigger>
+						</TabsList>
+						<TabsContent value="general" className="min-h-48 space-y-2">
+							<div className="flex justify-between gap-2">
+								<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("general_default_tab_settings_text", "Select your default tab.")}</p>
+								<SelectDefaultTab />
+							</div>
+						</TabsContent>
+						<TabsContent value="apps" className="min-h-48 space-y-2">
+							<div className="flex justify-between gap-2">
+								<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("load_google_apps_settings_text", "Load Google Apps as default set.")}</p>
+								<LoadGoogleAppsButton />
+							</div>
+							<div className="flex justify-between gap-2">
+								<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("import_apps_settings_text", "Import all apps.")}</p>
+								<ImportAppsButton />
+							</div>
+							<div className="flex justify-between gap-2">
+								<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("export_apps_settings_text", "Export all apps.")}</p>
+								<ExportAppsButton />
+							</div>
+							<div className="flex justify-between gap-2">
+								<p className="mt-2 text-muted-foreground">{chrome.i18n.getMessage("delete_all_apps_settings_text", "Delete all apps.")}</p>
+								<DeleteAllAppsButton />
+							</div>
+						</TabsContent>
+						<TabsContent value="todos" className="min-h-48 space-y-2">
+							<p className="mt-2 text-muted-foreground">Change your todo settings here.</p>
+						</TabsContent>
+					</Tabs>
 				</div>
 			</DialogContent>
 		</Dialog>

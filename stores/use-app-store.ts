@@ -16,6 +16,7 @@ type AppStore = {
 	editApp: (app: AppType) => void
 	removeApp: (id: string) => void
 	resetApps: () => void
+	reorderApps: (apps: AppType[]) => void
 }
 
 export const useAppStore = create<AppStore>()(
@@ -38,10 +39,11 @@ export const useAppStore = create<AppStore>()(
 			resetApps: () =>
 				set(() => ({
 					apps: [...defaultApps]
-				}))
+				})),
+			reorderApps: newOrder => set({ apps: newOrder })
 		}),
 		{
-			name: "app-storage"
+			name: "wdhq-app-store"
 		}
 	)
 )

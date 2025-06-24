@@ -43,7 +43,7 @@ export const useProjectStore = create<ProjectStore>()(
 				}))
 		}),
 		{
-			name: "projects-storage"
+			name: "wdhq-projects-store"
 		}
 	)
 )

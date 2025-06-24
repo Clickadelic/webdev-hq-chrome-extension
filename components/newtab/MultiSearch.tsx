@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { useSearchEngineStore } from "@/stores/use-search-engine-store"
+import { useSettingsStore } from "@/stores/use-settings-store"
 
 import { Button } from "@/components/ui/button"
 import { RiCloseFill } from "react-icons/ri"
@@ -16,7 +16,7 @@ interface MultiSearchProps {
 
 const MultiSearch = ({ classNames }: MultiSearchProps) => {
 	const searchPlaceholder: string = chrome.i18n.getMessage("search_placeholder", "Search")
-	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSearchEngineStore()
+	const { searchQuery, searchEngine, setSearchQuery, setSearchEngine } = useSettingsStore()
 	const [dropdownOpen, setDropdownOpen] = useState(false)
 	const dropdownRef = useRef<HTMLDivElement>(null)
 	// engines 3 = google default

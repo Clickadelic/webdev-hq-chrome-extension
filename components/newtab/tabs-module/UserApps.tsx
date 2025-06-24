@@ -52,7 +52,7 @@ const UserApps = () => {
 	}
 
 	const onDelete = (id: string) => {
-		useAppStore.getState().removeApp(id)
+		removeApp(id)
 		toast.success(chrome.i18n.getMessage("app_deleted", "App deleted successfully."))
 	}
 

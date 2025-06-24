@@ -354,5 +354,17 @@
 	"system_mode": {
 		"message": "System mode",
 		"description": "System mode text."
+	},
+	"general": {
+		"message": "General",
+		"description": "General settings tab title."
+	},
+	"general_default_tab_settings_text": {
+		"message": "Select your default mini-tab.",
+		"description": "Select your default mini-tab text."
+	},
+	"default_tab_changed": {
+		"message": "Default tab changed.",
+		"description": "Message, when the default tab has been changed."
 	}
 }

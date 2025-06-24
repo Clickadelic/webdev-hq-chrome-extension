@@ -33,7 +33,7 @@ export const useTodoStore = create<TodoStore>()(
 			}
 		}),
 		{
-			name: "todo-storage" // key für localStorage
+			name: "wdhq-todo-store" // key für localStorage
 		}
 	)
 )
