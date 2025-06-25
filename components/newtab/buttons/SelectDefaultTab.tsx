@@ -18,7 +18,7 @@ export const SelectDefaultTab = () => {
 
 	return (
 		<Select value={defaultTab} onValueChange={handleValueChange}>
-			<SelectTrigger className="w-[160px]">
+			<SelectTrigger className="w-[160px] rounded border border-gray-300 dark:border-gray-600 data-[state=open]:border-mantis-primary focus:outline-none focus:ring-2 focus:ring-mantis-primary">
 				<SelectValue placeholder={chrome.i18n.getMessage(defaultTab, defaultTab)} />
 			</SelectTrigger>
 			<SelectContent>
