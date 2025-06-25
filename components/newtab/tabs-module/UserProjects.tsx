@@ -122,7 +122,7 @@ const UserProjects = () => {
 									<h3 className="block text-[14px] font-semibold dark:text-slate-300">{project.title}</h3>
 									<h4 className="block text-muted-foreground">{project.description}</h4>
 								</PopoverTrigger>
-								<PopoverContent className="h-56 rounded" side="top" align="center">
+								<PopoverContent className="h-56 rounded" side="bottom" align="center">
 									<h3 className="w-full text-[14px] font-semibold">{project.title}</h3>
 									<h4 className="w-full text-muted-foreground mb-3">{project.description}</h4>
 									<div className="flex flex-start gap-2 truncate">

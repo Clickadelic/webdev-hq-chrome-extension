@@ -1,13 +1,9 @@
 import { Routes, Route } from "react-router-dom"
 
-import HeaderSidebar from "@/components/dashboard/HeaderSidebar"
-
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-
-import IndexPage from "./pages/IndexPage"
-import AboutPage from "./pages/AboutPage"
-import ContactPage from "./pages/ContactPage"
 import BackgroundImage from "@/components/global/BackgroundImage"
+import HeaderSidebar from "@/components/dashboard/HeaderSidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
+import DashboardPage from "./pages/DashboardPage"
 
 const App = () => {
 	return (
@@ -15,14 +11,11 @@ const App = () => {
 			<BackgroundImage creditsPosition="center">
 				<SidebarProvider>
 					<HeaderSidebar />
-					<main className="md:ml-64 pt-16 p-2">
-						<div>
-							<Routes>
-								<Route path="/" element={<IndexPage />} />
-								<Route path="/about" element={<AboutPage />} />
-								<Route path="/contact" element={<ContactPage />} />
-							</Routes>
-						</div>
+					<main className="container mx-auto mt-32">
+						<Routes>
+							{/* Hashrouter is ready, just add routes */}
+							<Route path="/" element={<DashboardPage />} />
+						</Routes>
 					</main>
 				</SidebarProvider>
 			</BackgroundImage>

@@ -28,6 +28,7 @@ export const useAppStore = create<AppStore>()(
 					apps: [...state.apps, app]
 				})),
 			getApp: id => get().apps.find(app => app.id === id)!,
+			getApps: () => get().apps,
 			editApp: app =>
 				set(state => ({
 					apps: state.apps.map(a => (a.id === app.id ? app : a))

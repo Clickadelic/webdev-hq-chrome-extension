@@ -1,21 +1,18 @@
 import * as React from "react"
-import { AudioWaveform, BookOpen, Bot, Command, Frame, GalleryVerticalEnd, Map, PieChart, Settings2, SquareTerminal } from "lucide-react"
+import { Frame, Map, PieChart, SquareTerminal } from "lucide-react"
 
+// TODO: rename these
 import { NavMain } from "@/components/dashboard/nav-main"
 import { NavProjects } from "@/components/dashboard/nav-projects"
 import { NavUser } from "@/components/dashboard/nav-user"
-import { TeamSwitcher } from "@/components/dashboard/team-switcher"
+
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
 import Logo from "../global/Logo"
-// This is sample data.
-
-const userData = chrome.identity.getProfileUserInfo()
-console.log(userData)
 
 const data = {
 	user: {
 		name: "shadcn",
-		email: "userData@email.com",
+		email: "shadcn@vercel.com",
 		avatar: "/avatars/shadcn.jpg"
 	},
 	navMain: [
@@ -28,79 +25,6 @@ const data = {
 				{
 					title: "Overview",
 					url: "/"
-				},
-				{
-					title: "About",
-					url: "/about"
-				},
-				{
-					title: "Contact",
-					url: "/about"
-				}
-			]
-		},
-		{
-			title: "Models",
-			url: "#",
-			icon: Bot,
-			items: [
-				{
-					title: "Genesis",
-					url: "#"
-				},
-				{
-					title: "Explorer",
-					url: "#"
-				},
-				{
-					title: "Quantum",
-					url: "#"
-				}
-			]
-		},
-		{
-			title: "Documentation",
-			url: "#",
-			icon: BookOpen,
-			items: [
-				{
-					title: "Introduction",
-					url: "#"
-				},
-				{
-					title: "Get Started",
-					url: "#"
-				},
-				{
-					title: "Tutorials",
-					url: "#"
-				},
-				{
-					title: "Changelog",
-					url: "#"
-				}
-			]
-		},
-		{
-			title: "Settings",
-			url: "#",
-			icon: Settings2,
-			items: [
-				{
-					title: "General",
-					url: "#"
-				},
-				{
-					title: "Team",
-					url: "#"
-				},
-				{
-					title: "Billing",
-					url: "#"
-				},
-				{
-					title: "Limits",
-					url: "#"
 				}
 			]
 		}
@@ -127,7 +51,7 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar collapsible="icon" {...props}>
-			<SidebarHeader className="flex items-center justify-center">
+			<SidebarHeader className="flex items-center justify-center p-0">
 				<Logo />
 			</SidebarHeader>
 			<SidebarContent className="pt-8">

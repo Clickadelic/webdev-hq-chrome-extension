@@ -23,15 +23,15 @@ const HeaderSidebar = () => {
 
 	return (
 		<>
-			<aside className={cn("App-sidebar hidden fixed md:block top-0 left-0 min-h-screen border-r bg-white", isSidebarOpen ? "w-16" : "w-64")}>
-				<div className="sidebar-logo hidden md:flex justify-center px-2 py-3">
-					<Logo href={`${import.meta.env.WXT_HOMEPAGE_URL}`} isOpen={isSidebarOpen} />
+			<aside className={cn("App-sidebar hidden fixed md:block top-0 left-0 min-h-screen bg-white", isSidebarOpen ? "w-16" : "w-64")}>
+				<div className="hidden md:flex justify-center px-2 py-3">
+					<Logo url={`${import.meta.env.WXT_HOMEPAGE_URL}`} isSidebarOpen={isSidebarOpen} />
 				</div>
-				<section className="sidebar-accordion mt-[18px] mb-6 overflow-y-auto">
+				<section className="mt-[18px] mb-6 overflow-y-auto">
 					<AppSidebar />
 				</section>
 			</aside>
-			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen p-3 border-b bg-white z-50", isSidebarOpen ? "md:ml-16" : "md:ml-64")}>
+			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-[60px] p-3 border-b bg-white z-50", isSidebarOpen ? "md:ml-16" : "md:ml-64")}>
 				<nav className="header-nav flex justify-between w-max">
 					<div className="inline-flex gap-3">
 						<SidebarTrigger variant="ghost" size="sm" className="rounded-xs" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
