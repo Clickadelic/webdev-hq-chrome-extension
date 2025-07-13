@@ -46,7 +46,7 @@ const UserDownloads = () => {
 	}
 
 	return (
-		<div className="max-w-[680px] mx-auto">
+		<div className="w-full mx-auto">
 			{downloads.length === 0 ? (
 				<div className="bg-white/30 dark:bg-slate-800/30 backdrop p-1 rounded backdrop-blur">
 					<div className="bg-white dark:bg-slate-800 rounded p-2">

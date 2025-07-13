@@ -1,5 +1,10 @@
 import * as z from "zod"
 
+export const LoginSchema = z.object({
+	email: z.string().min(1, chrome.i18n.getMessage("min_3_character", "Min 3 character")),
+	password: z.string().min(1, chrome.i18n.getMessage("min_6_character", "Min 6 character"))
+})
+
 export const SearchInputSchema = z.object({
 	query: z.string().min(1, chrome.i18n.getMessage("min_1_character", "Min 1 character"))
 })

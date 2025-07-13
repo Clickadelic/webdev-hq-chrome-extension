@@ -99,11 +99,11 @@ const UserApps = () => {
 	}
 
 	return (
-		<ul className="w-full grid grid-cols-9 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
+		<ul className="w-full grid grid-cols-12 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 			{apps.map(app => (
 				<li
 					key={app.id}
-					className="relative bg-white dark:bg-slate-800 pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+					className="size-[70px]  relative bg-white dark:bg-slate-800 pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 				>
 					<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 						<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />

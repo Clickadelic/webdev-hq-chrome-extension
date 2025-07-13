@@ -8,9 +8,10 @@ interface BackgroundImageProps {
 }
 
 const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) => {
-	const { imageUrl, credit, setImage } = useImageStore()
+	const { imageUrl, credit, setImage, resetImage } = useImageStore()
 
 	useEffect(() => {
+		resetImage()
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
 			console.log("Image response:", response)
 			if (!response || response.error) {
