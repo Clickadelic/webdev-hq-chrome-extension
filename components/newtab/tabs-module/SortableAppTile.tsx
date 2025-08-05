@@ -1,9 +1,10 @@
 import { useSortable } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
-import { HiOutlineDotsVertical } from "react-icons/hi"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { cn } from "@/lib/utils"
 
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { AiOutlineEdit } from "react-icons/ai"
+import { BsTrash } from "react-icons/bs"
+import { HiOutlineDotsVertical } from "react-icons/hi"
 export interface SortableAppTileProps {
 	app: {
 		id: string
@@ -17,7 +18,7 @@ export interface SortableAppTileProps {
 	setWasDragged: (val: boolean) => void
 }
 
-export const SortableAppTile = ({ app, onEdit, onDelete, wasDragged, setWasDragged }: SortableAppTileProps) => {
+export const SortableAppTile = ({ app, onEdit, onDelete }: SortableAppTileProps) => {
 	const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: app.id })
 
 	const style = {
@@ -26,36 +27,43 @@ export const SortableAppTile = ({ app, onEdit, onDelete, wasDragged, setWasDragg
 	}
 
 	return (
-		<li ref={setNodeRef} style={style} {...attributes} {...listeners}>
-			<a
-				href={wasDragged ? undefined : app.url}
-				onClick={e => {
-					if (wasDragged) {
-						e.preventDefault()
-						setWasDragged(false)
-					}
-				}}
-				target="_self"
-				rel="noopener noreferrer"
-				className={cn(
-					"group flex flex-col justify-between items-center p-2 gap-2 text-xs bg-white dark:bg-slate-800 border border-transparent rounded hover:border-mantis-primary hover:text-mantis-primary transition-colors duration-150 ease-in-out cursor-pointer size-[70px]",
-					isDragging && "opacity-50"
-				)}
-			>
-				<img src={app.icon} alt={app.title} className="size-5" />
-				<span className="text-center leading-tight line-clamp-2">{app.title}</span>
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<div className="absolute top-1.5 right-1.5 text-slate-400 hover:text-mantis-primary">
-							<HiOutlineDotsVertical />
-						</div>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align="end">
-						<DropdownMenuItem onClick={() => onEdit(app.id)}>{chrome.i18n.getMessage("edit")}</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => onDelete(app.id)}>{chrome.i18n.getMessage("delete")}</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
+		<li ref={setNodeRef}
+			style={style}
+			key={app.id}
+			
+			className="size-[70px] z-10 relative bg-white dark:bg-slate-800 pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+		>
+			<div
+				className="drag-handle absolute top-[4px] left-[24px] w-[20px] h-[5px] bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 inline-flex z-100 text-slate-600 dark:text-slate-300 rounded hover:cursor-move"
+				{...listeners}
+				{...attributes}
+			/>
+			<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
+				<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
+				<span className="text-slate-800 dark:text-slate-300 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
 			</a>
+			<DropdownMenu modal={false}>
+				<DropdownMenuTrigger asChild>
+					<button className="z-50 absolute top-1 right-[1px] text-slate-600 dark:text-slate-300 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer dark:hover:bg-slate-600">
+						<HiOutlineDotsVertical className="size-4" />
+					</button>
+				</DropdownMenuTrigger>
+				
+				<DropdownMenuContent side="right" align="start" className="rounded">
+					<DropdownMenuItem>
+						<button onClick={() => onEdit(app.id)} className="flex justify-between rounded">
+							<AiOutlineEdit className="mt-1 mr-2" />
+							{chrome.i18n.getMessage("edit", "Edit")}
+						</button>
+					</DropdownMenuItem>
+					<DropdownMenuItem>
+						<button onClick={() => onDelete(app.id)} className="flex justify-between text-red-500 hover:text-red-700 rounded">
+							<BsTrash className="text-red-500 hover:text-red-700 size-3 mt-1 mr-2" />
+							{chrome.i18n.getMessage("delete", "Delete")}
+						</button>
+					</DropdownMenuItem>
+				</DropdownMenuContent>
+			</DropdownMenu>
 		</li>
 	)
 }
