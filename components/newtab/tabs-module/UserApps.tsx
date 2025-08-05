@@ -1,32 +1,32 @@
 import * as z from "zod"
+
+import type { DragEndEvent } from "@dnd-kit/core"
+import type { DragStartEvent } from '@dnd-kit/core'
+
+import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragOverlay } from "@dnd-kit/core"
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
+
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 
 import { useAppStore, AppType } from "@/stores/use-app-store"
 import { AppSchema } from "@/schemas"
 
-import { AiOutlineEdit } from "react-icons/ai"
-import { BsTrash } from "react-icons/bs"
 import { Plus } from "lucide-react"
 import { BsApp } from "react-icons/bs"
-import { HiOutlineDotsVertical } from "react-icons/hi"
 import { TbEdit } from "react-icons/tb"
 
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
 import { toast } from "sonner"
 import { getFaviconUrl } from "@/lib/utils"
-import type { DragStartEvent } from '@dnd-kit/core'
 
 import { SortableAppTile } from "./SortableAppTile"
-import type { DragEndEvent } from "@dnd-kit/core"
-import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragOverlay } from "@dnd-kit/core"
-import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 
 const UserApps = () => {
 	const { apps, addApp, editApp, removeApp } = useAppStore()
@@ -37,6 +37,7 @@ const UserApps = () => {
 	const [error, setError] = useState<string | undefined>("")
 	const [success, setSuccess] = useState<string | undefined>("")
 	const [draggingApp, setDraggingApp] = useState<AppType | null>(null)
+	
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
 			activationConstraint: {
@@ -47,13 +48,11 @@ const UserApps = () => {
 
 	const handleDragStart = (event: DragStartEvent) => {
 		const activeId = event.active.id
-
 		const found = apps.find(app => app.id === activeId)
 		if (found) {
 			setDraggingApp(found)
 		}
 	}
-
 
 	const handleDragEnd = ({ active, over }: DragEndEvent) => {
 		setDraggingApp(null)
@@ -68,7 +67,6 @@ const UserApps = () => {
 			useAppStore.getState().reorderApps(newApps)
 		}
 	}
-
 
 	let form = useForm<z.infer<typeof AppSchema>>({
 		resolver: zodResolver(AppSchema),
