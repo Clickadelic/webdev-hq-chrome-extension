@@ -22,7 +22,7 @@ import { TodoSchema } from "@/schemas"
 import { useState } from "react"
 import { TbEdit } from "react-icons/tb"
 import { BsListCheck } from "react-icons/bs"
-import { DatePickerButton } from "@/components/global/DatepickerButton"
+// import { DatePickerButton } from "@/components/global/DatepickerButton"
 
 const TodoList = () => {
 	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore()
@@ -145,7 +145,7 @@ const TodoList = () => {
 									</FormItem>
 								)}
 							/>
-							<DatePickerButton />
+							{/* <DatePickerButton /> */}
 							<Dialog
 								open={isModalOpen}
 								onOpenChange={open => {

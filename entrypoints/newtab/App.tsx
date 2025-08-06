@@ -14,9 +14,9 @@ const App = () => {
 	return (
 		<ThemeProvider>
 			<BackgroundImage>
-				<div className="flex justify-between gap-1 p-1">
+				<div className="flex justify-between gap-1 p-1 pr-4">
 					<AppIcon url={import.meta.env.WXT_HOMEPAGE_URL} classNames="flex justify-center items-center size-[64px]" />
-					<nav className="border border-rose-200">
+					{/* <nav className="w-full max-w-[890px] bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 						<ul className="flex justify-between space-y-2 space-x-4 items-center">
 							<li>
 								<a href="#" className="size-5 bg-slate-800/30 dark:bg-white/30 rounded-full flex items-center justify-center">
@@ -24,13 +24,17 @@ const App = () => {
 								</a>
 							</li>
 							<li>
+								<Clock classNames="text-white text-shadow-lg" />
+							</li>
+							<li>
 								<a href="#" className="size-5">
 									Link
 								</a>
 							</li>
 						</ul>
-					</nav>
-					<AccountMenu />
+					</nav> */}
+					<Clock classNames="text-white font-light text-shadow-lg text-3xl space-x-2" />
+					<AccountMenu classNames="flex justify-center items-center text-shadow-lg" />
 				</div>
 				<Salutation classNames="w-full max-w-[890px] mt-12 md:mt-20 xl:mt-24 mb-3 mx-auto text-center text-white text-4xl font-light dark:text-slate-100 text-shadow-lg" />
 				<MultiSearch classNames="max-w-[890px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30" />

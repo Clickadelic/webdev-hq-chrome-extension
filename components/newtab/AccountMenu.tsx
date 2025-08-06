@@ -13,13 +13,7 @@ const AccountMenu = ({ classNames }: AccountMenuProps) => {
 		getUserInfo().then(userInfo => setUser(userInfo))
 	}, [])
 
-	return (
-		<div className={cn("font-semibold", classNames)}>
-			<div className="bg-white/30 dark:bg-slate-800/30 p-1 rounded backdrop-blur mb-3">
-				<div className="bg-white dark:bg-slate-800 rounded p-2">{user?.email ? user.email : "Incognito"}</div>
-			</div>
-		</div>
-	)
+	return <div className={cn("font-semibold", classNames)}>{user?.email ? user.email : "Incognito"}</div>
 }
 
 export default AccountMenu
