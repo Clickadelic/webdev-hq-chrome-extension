@@ -14,6 +14,8 @@ type TodoStore = {
 	addTodo: (name: string, description?: string, expiryDate?: Date) => void
 	toggleTodo: (id: string) => void
 	deleteTodo: (id: string) => void
+	expiryDate?: Date
+	setExpiryDate: (date: Date) => void
 }
 
 export const useTodoStore = create<TodoStore>()(
@@ -30,7 +32,8 @@ export const useTodoStore = create<TodoStore>()(
 			},
 			deleteTodo: id => {
 				set({ todos: get().todos.filter(todo => todo.id !== id) })
-			}
+			},
+			setExpiryDate: date => set({ expiryDate: date })
 		}),
 		{
 			name: "wdhq-todo-store" // key für localStorage

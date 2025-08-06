@@ -30,13 +30,13 @@ interface DatePickerButtonProps {
 export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 	const [date, setDate] = useState<Date | undefined>()
 	const locale = getLocale()
-	const { setTodoExpiryDate } = useTodoStore()
+	const { setExpiryDate } = useTodoStore()
 	const calendarRef = useRef<HTMLDivElement>(null)
 	const [open, setOpen] = useState(false)
 
 	const onDateSelect = (selectedDate: Date) => {
 		setDate(selectedDate)
-		setTodoExpiryDate(id, selectedDate)
+		setExpiryDate(selectedDate)
 		setOpen(false) // Popover schließen beim Datumsauswahl
 	}
 
@@ -55,7 +55,7 @@ export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 					aria-haspopup="dialog"
 					aria-expanded={open}
 					className={cn(
-						"w-[150px] justify-start text-left font-normal border text-slate-800 border-slate-200 dark:border-slate-700 hover:border-mantis-primary hover:text-mantis-primary",
+						"w-[150px] justify-start text-left font-normal border text-mantis-primary border-slate-200 dark:border-slate-700 hover:border-mantis-primary hover:text-mantis-primary",
 						!date && "text-muted-foreground"
 					)}
 				>
@@ -78,7 +78,9 @@ export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 							onDateSelect(date || new Date())
 						}}
 						locale={locale}
-						// Keyboard-Navigation sollte der Calendar selbst unterstützen
+						classNames={{
+							day_selected: "text-white",
+						}}
 					/>
 				</div>
 			</PopoverContent>
