@@ -4,7 +4,7 @@ import type { DragEndEvent } from "@dnd-kit/core"
 import type { DragStartEvent } from '@dnd-kit/core'
 
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragOverlay } from "@dnd-kit/core"
-import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
+import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -138,7 +138,7 @@ const UserApps = () => {
 
 	return (
 		<DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd} onDragStart={handleDragStart}>
-			<SortableContext items={apps.map(app => app.id)} strategy={verticalListSortingStrategy}>
+			<SortableContext items={apps.map(app => app.id)} strategy={rectSortingStrategy}>
 				<ul className="w-full grid grid-cols-12 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 					{apps.map(app => (
 						<SortableAppTile

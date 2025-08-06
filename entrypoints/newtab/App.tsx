@@ -33,7 +33,7 @@ const App = () => {
 							</li>
 						</ul>
 					</nav> */}
-					<Clock classNames="text-white font-light text-shadow-lg text-3xl space-x-2" />
+					<Clock classNames="text-white mt-2 font-light text-shadow-lg text-3xl space-x-2" />
 					<AccountMenu classNames="flex justify-center items-center text-shadow-lg" />
 				</div>
 				<Salutation classNames="w-full max-w-[890px] mt-12 md:mt-20 xl:mt-24 mb-3 mx-auto text-center text-white text-4xl font-light dark:text-slate-100 text-shadow-lg" />

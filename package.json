@@ -2,7 +2,7 @@
 	"name": "webdev-hq-chrome-extension",
 	"description": "WebDeveloper Tools Chrome Extension",
 	"private": true,
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"type": "module",
 	"scripts": {
 		"debug": "wxt prepare --debug",
