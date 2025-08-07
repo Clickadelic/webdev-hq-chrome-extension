@@ -1,25 +1,23 @@
 import { Routes, Route } from "react-router-dom"
 
-import HeaderSidebar from "@/components/dashboard/HeaderSidebar"
-
-import IndexPage from "./pages/IndexPage"
-import AboutPage from "./pages/AboutPage"
-import ContactPage from "./pages/ContactPage"
 import BackgroundImage from "@/components/global/BackgroundImage"
+import HeaderSidebar from "@/components/dashboard/HeaderSidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
+import DashboardPage from "./pages/DashboardPage"
+
 const App = () => {
 	return (
 		<div className="min-h-dvh bg-slate-100">
-			<BackgroundImage>
-				<HeaderSidebar />
-				<main className="md:ml-64 pt-16 p-2">
-					<div>
+			<BackgroundImage creditsPosition="center">
+				<SidebarProvider>
+					<HeaderSidebar />
+					<main className="container mx-auto mt-32">
 						<Routes>
-							<Route path="/" element={<IndexPage />} />
-							<Route path="/about" element={<AboutPage />} />
-							<Route path="/contact" element={<ContactPage />} />
+							{/* Hashrouter is ready, just add routes */}
+							<Route path="/" element={<DashboardPage />} />
 						</Routes>
-					</div>
-				</main>
+					</main>
+				</SidebarProvider>
 			</BackgroundImage>
 		</div>
 	)

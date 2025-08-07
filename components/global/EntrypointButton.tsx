@@ -22,7 +22,7 @@ const EntrypointButton: React.FC<EntrypointButtonProps> = ({ path, translationLa
 	}
 
 	return (
-		<Button onClick={handleClick} className={cn(btnClasses)} title={chrome.i18n.getMessage(translationLabel)}>
+		<Button onClick={handleClick} className={cn(btnClasses)} title={(chrome.i18n.getMessage(translationLabel), "Toogle Fullscreen")}>
 			<SlScreenDesktop />
 		</Button>
 	)

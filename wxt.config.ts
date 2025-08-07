@@ -22,6 +22,7 @@ export default defineConfig({
 			"management",
 			"tabs",
 			"tabGroups",
+			"topSites",
 			"storage",
 			"sidePanel",
 			"scripting",

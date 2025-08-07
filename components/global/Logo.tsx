@@ -9,18 +9,18 @@ interface LogoProps {
 	headingClasses?: string
 	linkClasses?: string
 	imgClasses?: string
-	isOpen?: boolean
-	href?: string
+	isSidebarOpen?: boolean
+	url?: string
 }
 
-const Logo = ({ wrapperClasses, headingClasses, linkClasses, imgClasses, isOpen, href }: LogoProps) => {
+const Logo = ({ wrapperClasses, headingClasses, linkClasses, imgClasses, isSidebarOpen, url }: LogoProps) => {
 	return (
-		<div className={cn("flex items-center", wrapperClasses)}>
-			<h1 className={cn("flex text-2xl", headingClasses)}>
-				<a href={href} className={cn("flex text-slate-800", linkClasses)}>
+		<div className={cn("w-full flex h-[60px]", wrapperClasses)}>
+			<h1 className={cn("w-full flex text-2xl", headingClasses)}>
+				<a href={url} className={cn("w-full flex justify-center items-center", linkClasses)} target="_blank" rel="noopener noreferrer">
 					<img src={logoUrl} className={cn("size-7 mr-2 mt-[2px]", imgClasses)} alt="WebDev HQ Logo" />
-					{!isOpen && (
-						<span className="font-light">
+					{!isSidebarOpen && (
+						<span className={cn("font-light")}>
 							<span className="web">Web</span>
 							<span className="dev-hq font-medium">Dev HQ</span>
 						</span>

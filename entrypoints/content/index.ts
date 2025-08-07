@@ -1,5 +1,4 @@
 import "./style.css"
-import { isDOM } from "@/lib/utils"
 
 export default defineContentScript({
 	registration: "runtime",

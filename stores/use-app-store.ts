@@ -16,17 +16,19 @@ type AppStore = {
 	editApp: (app: AppType) => void
 	removeApp: (id: string) => void
 	resetApps: () => void
+	reorderApps: (apps: AppType[]) => void
 }
 
 export const useAppStore = create<AppStore>()(
 	persist(
 		(set, get) => ({
-			apps: defaultApps,
+			apps: [],
 			addApp: app =>
 				set(state => ({
 					apps: [...state.apps, app]
 				})),
 			getApp: id => get().apps.find(app => app.id === id)!,
+			getApps: () => get().apps,
 			editApp: app =>
 				set(state => ({
 					apps: state.apps.map(a => (a.id === app.id ? app : a))
@@ -38,10 +40,11 @@ export const useAppStore = create<AppStore>()(
 			resetApps: () =>
 				set(() => ({
 					apps: [...defaultApps]
-				}))
+				})),
+			reorderApps: newOrder => set({ apps: newOrder })
 		}),
 		{
-			name: "app-storage"
+			name: "wdhq-app-store"
 		}
 	)
 )

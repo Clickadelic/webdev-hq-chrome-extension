@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { useAppStore } from "@/stores/use-app-store" // Pfad ggf. anpassen
 import { TfiExport } from "react-icons/tfi"
+
+import { toast } from "sonner"
+
 export const ExportAppsButton = () => {
 	const apps = useAppStore(state => state.apps)
 
@@ -16,12 +19,17 @@ export const ExportAppsButton = () => {
 		link.click()
 		document.body.removeChild(link)
 		URL.revokeObjectURL(url)
+
+		toast.success(chrome.i18n.getMessage("apps_exported", "Apps exported"))
 	}
 
 	return (
-		<Button className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer" onClick={handleExport}>
-			<TfiExport className="mr-2 size-4" />
-			{chrome.i18n.getMessage("export_apps")}
+		<Button
+			className="border border-slate-200 bg-white shadow-none text-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+			onClick={handleExport}
+			title={chrome.i18n.getMessage("export_apps", "Export apps")}
+		>
+			<TfiExport className="size-4" />
 		</Button>
 	)
 }

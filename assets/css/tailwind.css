@@ -112,9 +112,8 @@
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
 
-	--background-image-rotterdam: url("../images/simone-hutsch-xOLhD-qfoRI-unsplash.jpg");
-	--background-image-geometrics: url("../images/ash-edmonds-gcINRBbUxl0-unsplash.jpg");
 	--color-mantis-primary: #1677ff;
+	--color-mantis-primary-hover: #0d6ff8;
 	--color-mantis-primary-foreground: #ffffff;
 }
 
@@ -127,8 +126,7 @@
 	}
 }
 
-@theme {
-	--background-image-blue-fractals: url("../images/ash-edmonds-gcINRBbUxl0-unsplash.jpg");
-	--background-image-color-curves: url("../images/Color-Curves.jpg");
-	--background-image-color-fog: url("../images/Color-Fog.jpg");
+/* Sonner / Toaster border-radius */
+[data-sonner-toast] {
+	border-radius: 4px !important;
 }

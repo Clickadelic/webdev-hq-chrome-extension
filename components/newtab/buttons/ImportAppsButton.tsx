@@ -2,6 +2,9 @@ import React, { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { useAppStore } from "@/stores/use-app-store"
 import { TfiImport } from "react-icons/tfi"
+
+import { toast } from "sonner"
+
 export const ImportAppsButton = () => {
 	const fileInputRef = useRef<HTMLInputElement | null>(null)
 	const setApps = useAppStore.setState
@@ -28,6 +31,7 @@ export const ImportAppsButton = () => {
 			}
 		}
 		reader.readAsText(file)
+		toast.success(chrome.i18n.getMessage("apps_imported", "Apps imported"))
 	}
 
 	const triggerFileInput = () => {
@@ -37,9 +41,12 @@ export const ImportAppsButton = () => {
 	return (
 		<>
 			<input type="file" accept="application/json" ref={fileInputRef} onChange={handleFileChange} style={{ display: "none" }} />
-			<Button className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer" onClick={triggerFileInput}>
-				<TfiImport className="mr-2 size-4" />
-				{chrome.i18n.getMessage("import_apps")}
+			<Button
+				className="border border-slate-200 bg-white shadow-none text-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
+				onClick={triggerFileInput}
+				title={chrome.i18n.getMessage("import_apps", "Import apps")}
+			>
+				<TfiImport className="size-4" />
 			</Button>
 		</>
 	)

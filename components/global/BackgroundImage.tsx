@@ -1,29 +1,42 @@
 import { useEffect } from "react"
 import { useImageStore } from "@/stores/use-image-store"
+import { toast } from "sonner"
 
 interface BackgroundImageProps {
 	children: React.ReactNode
+	creditsPosition?: "left" | "center" | "right"
 }
 
-const BackgroundImage = ({ children }: BackgroundImageProps) => {
-	const { imageUrl, credit, setImage } = useImageStore()
+const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) => {
+	const { imageUrl, credit, setImage, resetImage } = useImageStore()
 
 	useEffect(() => {
+		resetImage()
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Image response:", response) // <--- Füge das hinzu
+			console.log("Image response:", response)
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
 				return
 			}
 
-			setImage(response.url, {
-				author: response.author,
-				authorUrl: response.authorUrl,
-				unsplashUrl: response.link
+			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
+			const url = response.response?.urls?.regular || response.urls?.regular
+			if (!url) {
+				console.error("No valid image URL received.")
+				return
+			}
+
+			const author = response.response?.user?.name || response.user?.name || "Unbekannt"
+			const authorUrl = response.response?.user?.links?.html || response.user?.links?.html || "#"
+			const unsplashUrl = response.response?.links?.html || response.links?.html || "#"
+
+			setImage(url, {
+				author,
+				authorUrl,
+				unsplashUrl
 			})
 		})
 	}, [setImage])
-	console.log("Current credits from store:", credit)
 
 	return (
 		<div
@@ -35,13 +48,13 @@ const BackgroundImage = ({ children }: BackgroundImageProps) => {
 		>
 			{children}
 			{credit && (
-				<div className="absolute bottom-4 left-4">
+				<div className={creditsPosition === "center" ? "absolute bottom-4 left-1/2 -translate-x-1/2" : "absolute bottom-4 left-4"}>
 					<p className="text-xs text-white">
-						Foto von{" "}
+						{chrome.i18n.getMessage("photo_by", "Photo by")}{" "}
 						<a href={credit.authorUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							{credit.author}
 						</a>{" "}
-						auf{" "}
+						{chrome.i18n.getMessage("on", "on")}{" "}
 						<a href={credit.unsplashUrl} target="_blank" rel="noreferrer" className="underline hover:text-blue-600">
 							Unsplash
 						</a>

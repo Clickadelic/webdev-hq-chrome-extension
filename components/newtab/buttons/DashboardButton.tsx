@@ -10,8 +10,8 @@ export const DashboardButton: React.FC = () => {
 	return (
 		<Button
 			onClick={handleClick}
-			className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer"
-			title={chrome.i18n.getMessage("open_dashboard")}
+			className="border border-transparent rounded px-3 py-2 bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+			title={chrome.i18n.getMessage("open_dashboard", "Open dashboard")}
 		>
 			<SlScreenDesktop className="size-4" />
 		</Button>

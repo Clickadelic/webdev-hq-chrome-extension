@@ -1,20 +1,37 @@
-// src/store/imageStore.ts
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
-interface CreditsProps {
+export type CreditInfo = {
 	author: string
 	authorUrl: string
 	unsplashUrl: string
 }
 
-interface ImageStore {
+type ImageStore = {
 	imageUrl: string | null
-	credit: CreditsProps | null
-	setImage: (url: string, credit: CreditsProps) => void
+	credit: CreditInfo | null
+	setImage: (url: string, credit: CreditInfo) => void
+	resetImage: () => void
 }
 
-export const useImageStore = create<ImageStore>(set => ({
-	imageUrl: null,
-	credit: null,
-	setImage: (url, credit) => set({ imageUrl: url, credit })
-}))
+export const useImageStore = create<ImageStore>()(
+	persist(
+		(set, get) => ({
+			imageUrl: null,
+			credit: null,
+			setImage: (url, credit) =>
+				set(() => ({
+					imageUrl: url,
+					credit
+				})),
+			resetImage: () =>
+				set(() => ({
+					imageUrl: null,
+					credit: null
+				}))
+		}),
+		{
+			name: "wdhq-image-store"
+		}
+	)
+)

@@ -27,7 +27,11 @@ export const FullscreenButton = () => {
 	}
 
 	return (
-		<Button onClick={requestFullscreen} className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer">
+		<Button
+			onClick={requestFullscreen}
+			className="border border-transparent bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+			title={chrome.i18n.getMessage("fullscreen", "Fullscreen")}
+		>
 			{isFullscreen ? <AiOutlineFullscreenExit className="size-4" /> : <BsArrowsFullscreen className="size-4" />}
 		</Button>
 	)

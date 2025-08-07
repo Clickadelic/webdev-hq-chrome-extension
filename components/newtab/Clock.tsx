@@ -16,7 +16,7 @@ interface ClockProps {
 const Clock: React.FC<ClockProps> = ({ classNames, digitStyle }: ClockProps) => {
 	const [time, setTime] = useState<string>("")
 
-	const oClockLabel = chrome.i18n.getMessage("o_clock")
+	const oClockLabel = chrome.i18n.getMessage("o_clock", "o' clock")
 	useEffect(() => {
 		const updateClock = () => {
 			const now = new Date()

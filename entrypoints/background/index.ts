@@ -1,7 +1,6 @@
 export default defineBackground(() => {
-	// installation message in console
 	chrome.runtime.onInstalled.addListener(() => {
-		console.log(chrome.i18n.getMessage("console_log_on_installed"))
+		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."))
 	})
 
 	interface StorageData {
@@ -10,7 +9,9 @@ export default defineBackground(() => {
 		unsplashUrl?: string
 		author?: string
 		authorUrl?: string
+		unsplashResponse?: any
 	}
+
 	function setToStorage(items: Record<string, any>): Promise<void> {
 		return new Promise((resolve, reject) => {
 			chrome.storage.local.set(items, () => {
@@ -40,7 +41,7 @@ export default defineBackground(() => {
 	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 		if (message.action === "getRandomImage") {
 			handleRandomImage(sendResponse)
-			return true // Wichtig!
+			return true // keep channel open for async response
 		}
 	})
 
@@ -48,33 +49,20 @@ export default defineBackground(() => {
 		const today = new Date().toISOString().split("T")[0]
 
 		try {
-			const data = await getFromStorage<StorageData>(["backgroundImageUrl", "lastFetchedDate", "author", "authorUrl", "unsplashUrl"])
-
-			if (data.backgroundImageUrl && data.lastFetchedDate === today) {
-				sendResponse({
-					url: data.backgroundImageUrl,
-					author: data.author,
-					authorUrl: data.authorUrl,
-					link: data.unsplashUrl
-				})
+			const data = await getFromStorage<StorageData>(["backgroundImageUrl", "lastFetchedDate", "unsplashResponse"])
+			if (data.unsplashResponse && data.lastFetchedDate === today) {
+				// Wir haben den ganzen Unsplash-Response bereits gespeichert
+				sendResponse(data.unsplashResponse)
 			} else {
 				const res = await fetch(`${import.meta.env.WXT_API_URL}/common/v1/chrome-extension/random-image`)
 				const json = await res.json()
 
 				await setToStorage({
-					backgroundImageUrl: json.url,
-					lastFetchedDate: today,
-					unsplashUrl: json.link,
-					author: json.author,
-					authorUrl: json.authorUrl
+					unsplashResponse: json,
+					lastFetchedDate: today
 				})
 
-				sendResponse({
-					url: json.url,
-					author: json.author,
-					authorUrl: json.authorUrl,
-					link: json.link
-				})
+				sendResponse(json)
 			}
 		} catch (e) {
 			console.error("Error loading:", e)

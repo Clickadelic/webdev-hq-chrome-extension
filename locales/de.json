@@ -63,9 +63,13 @@
 		"message": "App bearbeitet.",
 		"description": "App bearbeiten Nachricht."
 	},
-	"reset_apps": {
-		"message": "Apps zurücksetzen",
-		"description": "App zurücksetzen Button."
+	"app_deleted": {
+		"message": "App erfolgreich gelöscht.",
+		"description": "App löschen Nachricht."
+	},
+	"load_google_apps": {
+		"message": "Google Apps laden",
+		"description": "Google Apps laden Button."
 	},
 	"reset_apps_to_default_settings": {
 		"message": "Apps auf Standard zurücksetzen",
@@ -84,7 +88,7 @@
 		"description": "App bearbeiten Text."
 	},
 	"edit_app_description": {
-		"message": "Bearbeite die aktuelle App",
+		"message": "Bearbeite die aktuelle App.",
 		"description": "App bearbeiten Beschreibung."
 	},
 	"import_apps": {
@@ -103,17 +107,145 @@
 		"message": "Erstelle Dein erstes Todo.",
 		"description": "Todos Tab."
 	},
-	"todo_title": {
-		"message": "Todo",
-		"description": "New Todo placeholder."
-	},
-	"todo_description": {
-		"message": "Füge ein Todo hinzu.",
+	"new_todo_title": {
+		"message": "Titel",
 		"description": "New Todo placeholder."
 	},
 	"new_todo_placeholder": {
 		"message": "Neues Todo",
 		"description": "New Todo placeholder."
+	},
+	"select_date": {
+		"message": "Datum wählen",
+		"description": "Neues Datum wählen."
+	},
+	"todo_description": {
+		"message": "Füge ein Todo hinzu.",
+		"description": "New Todo placeholder."
+	},
+	"new_todo_description_label": {
+		"message": "Beschreibung",
+		"description": "Todo Beschreibung placeholder."
+	},
+	"new_todo_description_placeholder": {
+		"message": "Details des Todo's",
+		"description": "New Todo placeholder."
+	},
+	"todo_deleted": {
+		"message": "Todo gelöscht.",
+		"description": "New Todo placeholder."
+	},
+	"add_todo_title": {
+		"message": "Todo hinzufügen",
+		"description": "App hinzufügen Text."
+	},
+	"add_todo_description": {
+		"message": "Füge ein neues Todo hinzu.",
+		"description": "Todo hinzufügen Text."
+	},
+	"edit_todo_title": {
+		"message": "Todo bearbeiten",
+		"description": "App bearbeiten Text."
+	},
+	"edit_todo_description": {
+		"message": "Beschreibung",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"edit_todo_description_placeholder": {
+		"message": "Bearbeite das aktuelle Todo.",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"add_todo": {
+		"message": "Todo hinzufügen",
+		"description": "Todo hinzufügen Beschreibung."
+	},
+	"edit_todo": {
+		"message": "Todo bearbeiten",
+		"description": "Todo bearbeiten Beschreibung."
+	},
+	"todo_added": {
+		"message": "Todo bearbeiten",
+		"description": "Todo hinzugefügt"
+	},
+	"todo_edited": {
+		"message": "Todo bearbeitet",
+		"description": "Todo bearbeitet"
+	},
+	"done_label": {
+		"message": "Erledigt",
+		"description": "Todo erledigt"
+	},
+	"projects": {
+		"message": "Projekte",
+		"description": "Projekte Tab."
+	},
+	"add_project": {
+		"message": "Neues Projekt",
+		"description": "Neues Projekt"
+	},
+	"edit_project": {
+		"message": "Projekt bearbeiten",
+		"description": "Projekt bearbeiten"
+	},
+	"delete_project": {
+		"message": "Projekt löschen",
+		"description": "Neues Projekt"
+	},
+	"add_project_title": {
+		"message": "Projekt hinzufügen",
+		"description": "Neues Projekt hinzufügen"
+	},
+	"add_project_description": {
+		"message": "Füge ein neues Projekt zu Deiner Sammlung hinzu.",
+		"description": "Projekt hinzufügen Text."
+	},
+	"project_title_label": {
+		"message": "Titel",
+		"description": "Projekttitel."
+	},
+	"project_title_input_placeholder": {
+		"message": "Mein Projekttitel",
+		"description": "Projekt hinzufügen Text."
+	},
+	"project_description_label": {
+		"message": "Beschreibung",
+		"description": "Projekttitel."
+	},
+	"project_description_input_placeholder": {
+		"message": "Details zum Projekt",
+		"description": "Projektdetails hinzufügen Text."
+	},
+	"project_url_label": {
+		"message": "Projekt-Url",
+		"description": "Projekt-Url."
+	},
+	"project_url_input_placeholder": {
+		"message": "https://...",
+		"description": "Projektdetails hinzufügen Text."
+	},
+	"project_giturl_label": {
+		"message": "Git-Url",
+		"description": "Git-Url."
+	},
+	"project_giturl_input_placeholder": {
+		"message": "https://...",
+		"description": "Projekt GitHubLink hinzufügen Placeholder."
+	},
+	"edit_project_title": {
+		"message": "Projekt bearbeiten",
+		"description": "Projekt bearbeiten Text"
+	},
+	"edit_project_description": {
+		"message": "Ändere Details des Projekts.",
+		"description": "Projekt bearbeiten Text"
+	},
+	"website": {
+		"message": "Webseite",
+		"description": "Webseite Text"
+	},
+	"git_url": {
+		"message": "Repository-Url",
+		"description": "Git-Url Text"
 	},
 	"tabs": {
 		"message": "Tabs",
@@ -138,6 +270,10 @@
 	"no_downloads_found": {
 		"message": "Keine Downloads vorhanden.",
 		"description": "Downloads Tab."
+	},
+	"popular_sites": {
+		"message": "Häufige Seiten",
+		"description": "Popular Sites Tab."
 	},
 	"settings": {
 		"message": "Einstellungen",
@@ -180,19 +316,75 @@
 		"description": "Einstellungen Titel."
 	},
 	"settings_description": {
-		"message": "Hier kannst Du Deine Einstellungen für Deinen Tab vornehmen.",
+		"message": "Hier kannst Du Einstellungen für Deinen Tab vornehmen.",
 		"description": "App Einstellungen Beschreibung."
 	},
-	"reset_apps_settings_text": {
-		"message": "Apps auf Standardeinstellungen zurücksetzen.",
+	"load_google_apps_settings_text": {
+		"message": "Lade Google Apps in das Set.",
 		"description": "Dashboard öffnen."
+	},
+	"google_apps_loaded": {
+		"message": "Google Apps geladen.",
+		"description": "Dashboard öffnen."
+	},
+	"delete_all_apps_settings_text": {
+		"message": "Lösche alle Apps im Set.",
+		"description": "Lösche alle Apps im Set-Text."
 	},
 	"import_apps_settings_text": {
 		"message": "Apps als .json-Datei importieren.",
 		"description": "Apps Import-Button."
 	},
+	"apps_imported": {
+		"message": "Apps erfolgreich importiert.",
+		"description": "Apps Import-Nachricht."
+	},
 	"export_apps_settings_text": {
 		"message": "Apps als .json-Datei exportieren.",
 		"description": "Apps Export-Button."
+	},
+	"apps_exported": {
+		"message": "Apps erfolgreich exportiert.",
+		"description": "Apps Import-Nachricht."
+	},
+	"delete_all_apps": {
+		"message": "Alle Apps löschen",
+		"description": "Alle Apps löschen Text."
+	},
+	"all_apps_deleted": {
+		"message": "Alle Apps gelöscht.",
+		"description": "Lösche alle Apps im Set-Text."
+	},
+	"more_fields_coming_soon": {
+		"message": "Weitere Felde kommen bald.",
+		"description": "Lösche alle Apps im Set-Text."
+	},
+	"toggle_fullscreen": {
+		"message": "Fullscreen",
+		"description": "Fullscreen text."
+	},
+	"light_mode": {
+		"message": "Light mode",
+		"description": "Light mode text."
+	},
+	"dark_mode": {
+		"message": "Dark mode",
+		"description": "Dark mode text."
+	},
+	"system_mode": {
+		"message": "System mode",
+		"description": "System mode text."
+	},
+	"general": {
+		"message": "Allgemein",
+		"description": "Allgemeine Einstellungen Tab Titel."
+	},
+	"general_default_tab_settings_text": {
+		"message": "Wähle Deinen Standard-Mini-Tab aus.",
+		"description": "Allgemeine Standard-Tab Einstellungen Tab Titel."
+	},
+	"default_tab_changed": {
+		"message": "Standard-Tab geändert.",
+		"description": "Nachricht, wenn der Standard-Tab geändert wurde."
 	}
 }

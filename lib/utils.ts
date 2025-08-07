@@ -9,11 +9,11 @@ export const dailySalutation = () => {
 	const date = new Date()
 	const hours = date.getHours()
 	if (hours < 12) {
-		return chrome.i18n.getMessage("good_morning")
+		return chrome.i18n.getMessage("good_morning", "Good Morning")
 	} else if (hours < 18) {
-		return chrome.i18n.getMessage("good_afternoon")
+		return chrome.i18n.getMessage("good_afternoon", "Good Afternoon")
 	} else {
-		return chrome.i18n.getMessage("good_evening")
+		return chrome.i18n.getMessage("good_evening", "Good Evening")
 	}
 }
 
@@ -64,10 +64,14 @@ export const deleteUserHistory = (): Promise<void> => {
 }
 
 export function getFaviconUrl(websiteUrl: string, size = 32): string {
-	try {
-		const url = new URL(websiteUrl)
-		return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
-	} catch {
+	if (websiteUrl) {
+		try {
+			const url = new URL(websiteUrl)
+			return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${url.origin}`
+		} catch {
+			return "/assets/icons/default-favicon.png"
+		}
+	} else {
 		return "/assets/icons/default-favicon.png"
 	}
 }
