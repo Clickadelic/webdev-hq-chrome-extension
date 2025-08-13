@@ -95,4 +95,68 @@ export default defineBackground(() => {
 			})
 		}
 	})
+
+	const CLIENT_ID = import.meta.env.WXT_GOOGLE_CALENDAR_CLIENT_ID;
+	// const REDIRECT_URI = `https://${chrome.runtime.id}.chromiumapp.org`;
+	const REDIRECT_URI = `https://${import.meta.env.WXT_EXTENSION_ID}.chromiumapp.org`;
+	const SCOPE = "https://www.googleapis.com/auth/calendar.readonly";
+
+	async function getAuthToken(): Promise<string> {
+		return new Promise((resolve, reject) => {
+			const authUrl = new URL("https://accounts.google.com/o/oauth2/auth");
+			authUrl.searchParams.set("client_id", CLIENT_ID);
+			authUrl.searchParams.set("redirect_uri", REDIRECT_URI);
+			authUrl.searchParams.set("response_type", "token");
+			authUrl.searchParams.set("scope", SCOPE);
+
+			chrome.identity.launchWebAuthFlow(
+			{ url: authUrl.toString(), interactive: true },
+			(redirectUrl) => {
+				if (chrome.runtime.lastError) {
+				reject(new Error(chrome.runtime.lastError.message));
+				return;
+				}
+				if (!redirectUrl) {
+				reject(new Error("OAuth-Flow abgebrochen oder kein Redirect URL erhalten"));
+				return;
+				}
+
+				const params = new URLSearchParams(redirectUrl.split("#")[1]);
+				const token = params.get("access_token");
+				if (!token) return reject(new Error("Kein Token erhalten"));
+				resolve(token);
+			}
+			);
+		});
+	}
+
+	async function getNextEvent(token: string) {
+	const now = new Date().toISOString();
+	const url =
+		`https://www.googleapis.com/calendar/v3/calendars/primary/events` +
+		`?timeMin=${encodeURIComponent(now)}&maxResults=1&orderBy=startTime&singleEvents=true`;
+
+		const resp = await fetch(url, {
+			headers: { Authorization: `Bearer ${token}` },
+		});
+		const data = await resp.json();
+		return data.items?.[0] || null;
+	}
+
+	// Listener für Nachrichten vom NewTab
+	chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+		if (msg.action === "getNextCalendarEvent") {
+			(async () => {
+				try {
+					const token = await getAuthToken();
+					const event = await getNextEvent(token);
+					sendResponse({ event });
+				} catch (e: any) {
+					sendResponse({ error: e.message });
+				}
+			})();
+			return true; // async
+		}
+	});
+
 })

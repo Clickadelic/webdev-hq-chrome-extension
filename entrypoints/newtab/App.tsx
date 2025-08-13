@@ -9,7 +9,7 @@ import TabsModule from "@/components/newtab/TabsModule"
 import ButtonBar from "@/components/newtab/ButtonBar"
 import { ThemeProvider } from "@/components/global/ThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
-
+import NextAppointment from "@/components/newtab/NextAppointment"
 const App = () => {
 	return (
 		<ThemeProvider>
@@ -37,6 +37,7 @@ const App = () => {
 					<AccountMenu classNames="flex justify-center items-center text-shadow-lg" />
 				</div>
 				<Salutation classNames="w-full max-w-[890px] mt-12 md:mt-20 xl:mt-24 mb-3 mx-auto text-center text-white text-4xl font-light dark:text-slate-100 text-shadow-lg" />
+				<NextAppointment />
 				<MultiSearch classNames="max-w-[890px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-slate-800/30" />
 				<TabsModule classNames="w-full max-w-[890px] mx-auto flex flex-row" />
 				<ButtonBar classNames="w-[227px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
