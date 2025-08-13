@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import { formatIsoDate } from "@/lib/utils";
+// import { format } from "date-fns";
 export default function NextAppointment() {
   const [event, setEvent] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
@@ -16,18 +17,16 @@ export default function NextAppointment() {
       }
     );
   }, []);
-
   return (
-    <div>
-      {error && <p>Fehler: {error}</p>}
+    <>
+      {error && <p>{error}</p>}
       {event ? (
-        <p>
-          Nächster Termin: {event.summary} –{" "}
-          {event.start.dateTime || event.start.date}
+        <p className="text-white text-4xl font-light dark:text-slate-100 text-shadow-lg">{chrome.i18n.getMessage("next_appointment", "Next appointment")}: {event.summary} –{" "}
+          <a href={event.htmlLink} className="hover:underline" target="_self" title={event.summary}>{formatIsoDate(event.start.date)}</a>
         </p>
       ) : (
-        <p>Keine Termine gefunden.</p>
+        <p className="text-white text-4xl font-light dark:text-slate-100 text-shadow-lg">{chrome.i18n.getMessage("no_appointment_found", "No appointment found")}</p>
       )}
-    </div>
+    </>
   );
 }
