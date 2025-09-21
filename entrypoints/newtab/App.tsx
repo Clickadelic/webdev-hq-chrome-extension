@@ -9,7 +9,7 @@ import TabsModule from "@/components/newtab/TabsModule"
 import ButtonBar from "@/components/newtab/ButtonBar"
 import { ThemeProvider } from "@/components/global/ThemeProvider"
 import { Toaster } from "@/components/ui/sonner"
-import NextAppointment from "@/components/newtab/NextAppointment"
+
 const App = () => {
 	return (
 		<ThemeProvider>

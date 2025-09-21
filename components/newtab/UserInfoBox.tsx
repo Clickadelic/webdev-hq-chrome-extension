@@ -1,8 +1,7 @@
 import { dailySalutation } from "@/lib/utils"
 import { cn } from "@/lib/utils"
 
-
-import NextAppointment from "./NextAppointment"
+// import NextAppointment from "./NextAppointment"
 
 interface UserInfoBoxProps {
 	classNames?: string
@@ -19,7 +18,7 @@ const UserInfoBox = ({ classNames }: UserInfoBoxProps) => {
 	return (
 		<div className={cn("flex justify-between", classNames)}>
 			<h2 className="text-white text-4xl font-light dark:text-slate-100 text-shadow-lg">{salutation}</h2>
-			<NextAppointment />
+			
 		</div>
 	)
 }
