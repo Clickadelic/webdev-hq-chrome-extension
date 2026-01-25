@@ -79,3 +79,12 @@ export function getFaviconUrl(websiteUrl: string, size = 32): string {
 export function isDOM(Obj: any): Obj is Element {
 	return Obj instanceof Element
 }
+
+export function formatIsoDate(isoString: string | Date) {
+    const date = new Date(isoString);
+    return date.toLocaleDateString(chrome.i18n.getUILanguage(), {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+    }) 
+}

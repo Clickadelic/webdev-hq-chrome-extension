@@ -15,6 +15,14 @@
 		"message": "Guten Abend",
 		"description": "Begrüßung abends."
 	},
+	"next_appointment": {
+		"message": "Nächster Termin",
+		"description": "Anzeige nächster Termin."
+	},
+	"no_appointment_found": {
+		"message": "Kein Termin gefunden.",
+		"description": "Anzeige kein Termin gefunden."
+	},
 	"o_clock": {
 		"message": "Uhr",
 		"description": "Uhr Tab."

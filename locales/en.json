@@ -15,6 +15,14 @@
 		"message": "Good evening",
 		"description": "Salutation in the evening."
 	},
+	"next_appointment": {
+		"message": "Next Appointment",
+		"description": "Next Appointment Tab."
+	},
+	"no_appointment_found": {
+		"message": "No appointment found.",
+		"description": "No appointment found."
+	},
 	"o_clock": {
 		"message": "o'clock",
 		"description": "Clock Tab."

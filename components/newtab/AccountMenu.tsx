@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUserInfo } from "@/lib/utils"
 import { cn } from "@/lib/utils"
+import LoginForm from "../global/forms/login-form"
 
 interface AccountMenuProps {
 	classNames?: string
@@ -13,7 +14,12 @@ const AccountMenu = ({ classNames }: AccountMenuProps) => {
 		getUserInfo().then(userInfo => setUser(userInfo))
 	}, [])
 
-	return <div className={cn("font-semibold", classNames)}>{user?.email ? user.email : "Incognito"}</div>
+	return (
+		<>
+			<div className={cn("font-semibold", classNames)}>{user?.email ? user.email : "Incognito"}</div>
+			<LoginForm />
+		</>
+	)
 }
 
 export default AccountMenu
