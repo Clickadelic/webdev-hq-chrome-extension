@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { cn } from "@/lib/utils"
 
 type StorageUnitInfo = {
 	name: string
@@ -11,11 +12,21 @@ type StorageUnit = StorageUnitInfo & {
 	availableCapacity: number
 }
 
-export const HardwareGrid = () => {
+interface HardwareGridProps {
+	className?: string
+}
+
+const HardwareGrid = ({ className }: HardwareGridProps) => {
 	const [cpuInfo, setCpuInfo] = useState<string>("")
 	const [memoryCapacity, setMemoryCapacity] = useState<number>(0)
 	const [memoryAvailable, setMemoryAvailable] = useState<number>(0)
 	const [storageInfo, setStorageInfo] = useState<StorageUnit[]>([])
+
+	const getStorageLabel = (unit: StorageUnitInfo) => {
+		const clean = unit.name?.replace(/[^\x20-\x7E]/g, "").trim()
+		if (clean && clean.length > 0) return clean
+		return `Volume ${unit.id}`
+	}
 
 	// Hilfsfunktion, um StorageInfos zu holen und "availableCapacity" hinzuzufügen
 	const fetchStorage = (): Promise<StorageUnit[]> => {
@@ -61,13 +72,13 @@ export const HardwareGrid = () => {
 	}
 
 	return (
-		<div className="space-y-6 p-4 bg-white text-sm font-medium">
-			<div>
+		<div className={cn("flex flex-col gap-4 p-4 bg-white dark:bg-slate-800", className)}>
+			<div className="w-full">
 				<span className="block mb-1 text-gray-700">CPU:</span>
 				<span>{cpuInfo}</span>
 			</div>
 
-			<div>
+			<div className="w-full">
 				<span className="block mb-1 text-gray-700">RAM:</span>
 				<span className="block mb-1 text-gray-500">
 					{formatGB(memoryCapacity)} GB gesamt, {formatGB(memoryAvailable)} GB frei
@@ -75,14 +86,16 @@ export const HardwareGrid = () => {
 				{renderBar(memoryCapacity - memoryAvailable, memoryCapacity, "bg-blue-500")}
 			</div>
 
-			<div>
+			<div className="w-full">
 				<span className="block mb-1 text-gray-700">Storage:</span>
 				<div className="space-y-3">
 					{storageInfo.map(unit => {
 						const used = unit.capacity - unit.availableCapacity
 						return (
 							<div key={unit.id}>
-								<span className="block text-gray-500 mb-1">{unit.name}</span>
+								<span className="block text-gray-500 mb-1">
+									{getStorageLabel(unit)}
+								</span>
 								<span className="block text-xs text-gray-400 mb-1">
 									{formatGB(unit.capacity)} GB gesamt, {formatGB(unit.availableCapacity)} GB frei
 								</span>
@@ -95,3 +108,5 @@ export const HardwareGrid = () => {
 		</div>
 	)
 }
+
+export default HardwareGrid

@@ -394,5 +394,29 @@
 	"default_tab_changed": {
 		"message": "Standard-Tab geändert.",
 		"description": "Nachricht, wenn der Standard-Tab geändert wurde."
+	},
+	"loading": {
+		"message": "Loading...",
+		"description": "Loading text."
+	},
+	"email": {
+		"message": "E-Mail",
+		"description": "E-Mail field."
+	},
+	"password": {
+		"message": "Password",
+		"description": "Password field."
+	},
+	"login": {
+		"message": "Login",
+		"description": "Login Button."
+	},
+	"logout": {
+		"message": "Logout",
+		"description": "Logout Button."
+	},
+	"create_new_content": {
+		"message": "Neuen Inhalt anlegen",
+		"description": "Create new content text."
 	}
 }
