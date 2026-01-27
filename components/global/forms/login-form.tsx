@@ -127,18 +127,8 @@ const LoginForm = ({ className }: LoginFormProps) => {
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
 				<div className="flex flex-col gap-1">
 
-					<span className="text-lg font-semibold">
-						{user.username}
-					</span>
-
-					{user.role && (
-						<span className="text-xs text-gray-400">
-							Role: {user.role}
-						</span>
-					)}
-
 					<Button
-						variant="primary"
+						variant="link"
 						className="mt-2 text-white"
 						onClick={handleLogout}
 					>
@@ -170,6 +160,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 											type="email"
 											placeholder={chrome.i18n.getMessage("email", "E-Mail")}
 											disabled={isLoading}
+											autoComplete="email"
 											{...field}
 										/>
 									</FormControl>
@@ -191,6 +182,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 											type="password"
 											placeholder={chrome.i18n.getMessage("password", "Password")}
 											disabled={isLoading}
+											autoComplete="password"
 											{...field}
 										/>
 									</FormControl>

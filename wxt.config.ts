@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite"
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
-	extensionApi: "chrome",
 	modules: ["@wxt-dev/module-react", "@wxt-dev/i18n/module"],
 	vite: () => ({
 		plugins: [tailwindcss()]
@@ -17,8 +16,6 @@ export default defineConfig({
 			"cookies",
 			"downloads",
 			"history",
-			"identity",
-			"identity.email",
 			"management",
 			"tabs",
 			"tabGroups",

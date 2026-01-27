@@ -418,5 +418,9 @@
 	"create_new_content": {
 		"message": "Neuen Inhalt anlegen",
 		"description": "Create new content text."
+	},
+	"create_new_hyperlink": {
+		"message": "Neuen Link anlegen",
+		"description": "Create new content text."
 	}
 }

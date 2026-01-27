@@ -398,5 +398,9 @@
 	"create_new_content": {
 		"message": "Create new content",
 		"description": "Create new content text."
+	},
+	"create_new_hyperlink": {
+		"message": "New Hyperlink",
+		"description": "Create new hyperlink text."
 	}
 }
