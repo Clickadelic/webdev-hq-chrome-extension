@@ -30,8 +30,8 @@ const TodoList = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [isEditing, setIsEditing] = useState<boolean>(false)
 	const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
-	const [error, setError] = useState<string | undefined>("")
-	const [success, setSuccess] = useState<string | undefined>("")
+	const [error, setError] = useState<string | undefined>(undefined)
+	const [success, setSuccess] = useState<string | undefined>(undefined)
 
 	const form = useForm<z.infer<typeof TodoSchema>>({
 		resolver: zodResolver(TodoSchema),
@@ -41,20 +41,14 @@ const TodoList = () => {
 	const onAddSubmit = (values: z.infer<typeof TodoSchema>) => {
 		setError("")
 		setSuccess("")
-		setQuickFormError("")
-		setQuickFormSuccess("")
 		addTodo(values.title)
 		form.reset()
-		quickForm.reset()
-		setIsModalOpen(false)
 		toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
 	}
 
 	const onEdit = (id: string) => {
 		setIsEditing(true)
 		setEditingTodoId(id)
-		setIsModalOpen(true)
-		quickForm.reset()
 		const todo = todos.find(todo => todo.id === id)
 		if (todo) {
 			form.setValue("title", todo.title)
@@ -68,10 +62,9 @@ const TodoList = () => {
 
 		setError("")
 		setSuccess("")
-		setQuickFormError("")
-		setQuickFormSuccess("")
 
 		const currentTodo = todos.find(todo => todo.id === editingTodoId)
+		
 		if (currentTodo) {
 			currentTodo.title = values.title
 			currentTodo.description = values.description
@@ -81,8 +74,6 @@ const TodoList = () => {
 
 		setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
 		form.reset()
-		quickForm.reset()
-		setIsModalOpen(false)
 		setEditingTodoId(null)
 		setIsEditing(false)
 		toast.success(chrome.i18n.getMessage("todo_edited", "Todo edited."))

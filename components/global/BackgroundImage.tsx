@@ -1,13 +1,15 @@
 import { useEffect } from "react"
 import { useImageStore } from "@/stores/use-image-store"
-import { toast } from "sonner"
+
+import { cn } from "@/lib/utils"
 
 interface BackgroundImageProps {
-	children: React.ReactNode
+	classNames?: string
 	creditsPosition?: "left" | "center" | "right"
+	children: React.ReactNode
 }
 
-const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) => {
+const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundImageProps) => {
 	const { imageUrl, credit, setImage, resetImage } = useImageStore()
 
 	useEffect(() => {
@@ -40,7 +42,7 @@ const BackgroundImage = ({ children, creditsPosition }: BackgroundImageProps) =>
 
 	return (
 		<div
-			className="min-h-screen relative flex flex-col flex-start bg-slate-900 bg-cover transition-opacity duration-1000 ease-in-out"
+			className={cn("min-h-screen bg-cover transition-opacity duration-1000 ease-in-out", classNames)}
 			style={{
 				backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
 				backgroundPosition: "center"
