@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Grip, Map, PieChart, SquareTerminal } from "lucide-react"
 
-// TODO: rename these
 import { NavMain } from "@/components/dashboard/nav-main"
 import { NavCommunityItems } from "@/components/dashboard/nav-community-items"
 import { NavUser } from "@/components/dashboard/nav-user"
@@ -52,6 +51,7 @@ const data = {
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+
 	return (
 		<Sidebar collapsible="icon" {...props}>
 			<SidebarHeader className="flex items-center justify-center p-0">
