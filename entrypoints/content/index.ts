@@ -1,5 +1,3 @@
-import "./style.css"
-
 export default defineContentScript({
 	registration: "runtime",
 	matches: [],

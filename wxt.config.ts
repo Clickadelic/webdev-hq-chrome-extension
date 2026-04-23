@@ -1,5 +1,5 @@
 import { defineConfig } from "wxt"
-import tailwindcss from "@tailwindcss/vite"
+import tailwindcss from "tailwindcss"
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({

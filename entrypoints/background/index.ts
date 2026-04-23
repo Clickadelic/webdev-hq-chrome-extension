@@ -43,7 +43,7 @@ export default defineBackground(() => {
 				return data.seasonalImageResponse
 			} else {
 				// Fetch vom API Endpoint
-				const res = await fetch(`${import.meta.env.WXT_TEMP_URL}?collections=4lffCviDg28&response=json`)
+				const res = await fetch(`${import.meta.env.WXT_TEMP_URL}/background/seasonal?collections=4lffCviDg28&response=json`)
 				const json = await res.json()
 
 				await setToStorage({

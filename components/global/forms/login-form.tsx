@@ -50,8 +50,8 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		resolver: zodResolver(LoginSchema),
 		defaultValues: {
 			email: "",
-			password: "",
-		},
+			password: ""
+		}
 	})
 
 	/**
@@ -83,14 +83,11 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		setIsLoading(true)
 
 		try {
-			const response = await fetch(
-				`${import.meta.env.WXT_API_URL}/common/v1/auth/login`,
-				{
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(values),
-				}
-			)
+			const response = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(values)
+			})
 
 			const data = await response.json()
 
@@ -126,12 +123,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		return (
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
 				<div className="flex flex-col gap-1">
-
-					<Button
-						variant="link"
-						className="mt-2 text-white"
-						onClick={handleLogout}
-					>
+					<Button variant="link" className="mt-2 text-white" onClick={handleLogout}>
 						{chrome.i18n.getMessage("logout", "Logout")}
 					</Button>
 				</div>
@@ -143,26 +135,15 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		<div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur">
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-3", className)}>
 				<Form {...form}>
-					<form
-						onSubmit={form.handleSubmit(handleSubmit)}
-						className="flex flex-col gap-2"
-					>
+					<form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-2">
 						<FormField
 							control={form.control}
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">
-										{chrome.i18n.getMessage("email", "E-Mail")}
-									</FormLabel>
+									<FormLabel className="hidden">{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
 									<FormControl>
-										<Input
-											type="email"
-											placeholder={chrome.i18n.getMessage("email", "E-Mail")}
-											disabled={isLoading}
-											autoComplete="email"
-											{...field}
-										/>
+										<Input type="email" placeholder={chrome.i18n.getMessage("email", "E-Mail")} disabled={isLoading} autoComplete="email" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -174,32 +155,17 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							name="password"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">
-										{chrome.i18n.getMessage("password", "Password")}
-									</FormLabel>
+									<FormLabel className="hidden">{chrome.i18n.getMessage("password", "Password")}</FormLabel>
 									<FormControl>
-										<Input
-											type="password"
-											placeholder={chrome.i18n.getMessage("password", "Password")}
-											disabled={isLoading}
-											autoComplete="password"
-											{...field}
-										/>
+										<Input type="password" placeholder={chrome.i18n.getMessage("password", "Password")} disabled={isLoading} autoComplete="password" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
 							)}
 						/>
 
-						<Button
-							type="submit"
-							variant="primary"
-							disabled={isLoading}
-							className="bg-mantis-primary hover:bg-mantis-primary-hover text-white rounded"
-						>
-							{isLoading
-								? chrome.i18n.getMessage("loading", "Loading...")
-								: chrome.i18n.getMessage("login", "Login")}
+						<Button type="submit" variant="primary" disabled={isLoading} className="bg-mantis-primary hover:bg-mantis-primary-hover text-white rounded">
+							{isLoading ? chrome.i18n.getMessage("loading", "Loading...") : chrome.i18n.getMessage("login", "Login")}
 						</Button>
 
 						{error && <FormError message={error} />}
