@@ -22,7 +22,8 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 			}
 
 			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
-			const url = response.response?.urls?.regular || response.urls?.regular
+			// const url = response.response?.urls?.regular || response.urls?.regular
+			const url = response.photo.urls.regular
 			if (!url) {
 				console.error("No valid image URL received.")
 				return

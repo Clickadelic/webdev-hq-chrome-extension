@@ -1,11 +1,10 @@
-
 import AppIcon from "@/components/global/AppIcon"
 import LoginForm from "@/components/global/forms/login-form"
 import BackgroundImage from "@/components/global/BackgroundImage"
 import ButtonBar from "@/components/newtab/ButtonBar"
 import CircularMenu from "@/components/global/CircularMenu"
 import Clock from "@/components/newtab/Clock"
-// import HardwareGrid from "@/components/newtab/HardwareGrid"
+import HardwareGrid from "@/components/newtab/HardwareGrid"
 import UserInfoBox from "@/components/newtab/UserInfoBox"
 import MultiSearch from "@/components/newtab/MultiSearch"
 import TabsModule from "@/components/newtab/TabsModule"
@@ -28,8 +27,8 @@ const App = () => {
 				<TabsModule classNames="w-full max-w-[890px] mx-auto flex flex-row" />
 				<EntrypointButton path="/dashboard.html" translationLabel="dashboard" params={{}} btnClasses="absolute bottom-3 right-3" />
 				<ButtonBar classNames="w-[227px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
-				{/* <HardwareGrid className="w-96 absolute bottom-24 left-4 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" /> */}
-				<CircularMenu />
+				<HardwareGrid className="w-96 absolute bottom-24 left-4 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur" />
+				{/* <CircularMenu /> */}
 				<Toaster className="dark:bg-slate-800" />
 			</BackgroundImage>
 		</ThemeProvider>
