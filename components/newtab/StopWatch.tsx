@@ -8,7 +8,7 @@ export default function StopWatch() {
 		hr: 0
 	});
 
-	const [intervalId, setIntervalId] = useState();
+	const [intervalId, setIntervalId] = useState<ReturnType<typeof setInterval> | null>(null);
 
 	const updateTimer = () => {
 		setTime((prev) => {
@@ -35,12 +35,12 @@ export default function StopWatch() {
 			setIntervalId(id);
 		} else {
 			clearInterval(intervalId);
-			setIntervalId("");
+			setIntervalId(null);
 		}
 	};
 
 	const reset = () => {
-		clearInterval(intervalId);
+		if (intervalId) clearInterval(intervalId);
 		setTime({
 			sec: 0,
 			min: 0,

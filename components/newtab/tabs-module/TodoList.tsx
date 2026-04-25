@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils"
 import { FaArrowUpRightDots } from "react-icons/fa6"
 import { useTodoStore } from "@/stores/use-todo-store"
 import { TodoSchema } from "@/schemas"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { TbEdit } from "react-icons/tb"
 import { BsListCheck } from "react-icons/bs"
 import { DatePickerButton } from "@/components/global/DatepickerButton"
@@ -32,6 +32,7 @@ const TodoList = () => {
 	const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
 	const [error, setError] = useState<string | undefined>(undefined)
 	const [success, setSuccess] = useState<string | undefined>(undefined)
+	const submittedByKeyRef = useRef(false)
 
 	const form = useForm<z.infer<typeof TodoSchema>>({
 		resolver: zodResolver(TodoSchema),
@@ -88,7 +89,17 @@ const TodoList = () => {
 		<div className="flex flex-col bg-white/30 dark:bg-slate-800/30 backdrop-blur p-1 space-y-1 rounded">
 			<div className="bg-white  dark:bg-slate-800 rounded p-1 backdrop-blur">
 				<Form {...form}>
-					<form onSubmit={form.handleSubmit(onAddSubmit)} className="flex flex-row w-full gap-1">
+					<form
+						onSubmit={e => {
+							e.preventDefault()
+							if (submittedByKeyRef.current) {
+								submittedByKeyRef.current = false
+								return
+							}
+							form.handleSubmit(onAddSubmit)(e)
+						}}
+						className="flex flex-row w-full gap-1"
+					>
 						<div className="flex flex-row w-full gap-1">
 							<FormField
 								control={form.control}
@@ -99,10 +110,22 @@ const TodoList = () => {
 										<FormControl>
 											<Input
 												type="text"
-												{...field}
 												className="border-0 shadow-none"
 												disabled={isLoading}
 												placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")}
+											{...field}
+												onKeyDown={e => {
+													if (e.key === "Enter") {
+														e.preventDefault()
+														submittedByKeyRef.current = true
+														const title = e.currentTarget.value.trim()
+														if (title) {
+															addTodo(title)
+															form.reset()
+															toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
+														}
+													}
+												}}
 											/>
 										</FormControl>
 										<FormMessage />
@@ -135,10 +158,10 @@ const TodoList = () => {
 							<Input type="checkbox" name={todo.id} checked={todo.done} onChange={() => toggleTodo(todo.id)} className="mt-2 mx-2 size-4 hover:cursor-pointer " />
 							<span className={cn("w-full grow my-2 ", todo.done && "line-through text-slate-500 dark:text-slate-300")}>{todo.title}</span>
 						</div>
-						<Button variant="ghost" className="text-slate-400" size="sm" onClick={() => onEdit(todo.id)}>
+						<Button type="button" variant="ghost" className="text-slate-400" size="sm" onClick={() => onEdit(todo.id)}>
 							<TbEdit className="size-4" />
 						</Button>
-						<Button variant="ghost" size="sm" className="text-slate-400 hover:text-rose-400" onClick={() => onDelete(todo.id)}>
+						<Button type="button" variant="ghost" size="sm" className="text-slate-400 hover:text-rose-400" onClick={() => onDelete(todo.id)}>
 							<BsTrash3 className="size-4" />
 						</Button>
 					</li>

@@ -4,15 +4,18 @@ import { useTheme } from "@/components/global/ThemeProvider"
 import { GrSystem } from "react-icons/gr"
 import { useState, useEffect } from "react"
 
+type Theme = "dark" | "light" | "system"
+
 export function ModeToggle() {
 	const { setTheme, theme } = useTheme()
-	const [value, setValue] = useState("system")
+	const [value, setValue] = useState<Theme>("system")
 
 	useEffect(() => {
 		if (theme) setValue(theme)
 	}, [theme])
 
 	const handleThemeChange = (val: string) => {
+		if (val !== "light" && val !== "dark" && val !== "system") return
 		setTheme(val)
 		setValue(val)
 	}

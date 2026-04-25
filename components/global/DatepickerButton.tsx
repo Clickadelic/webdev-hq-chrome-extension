@@ -51,6 +51,7 @@ export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
 				<Button
+					type="button"
 					variant="ghost"
 					aria-haspopup="dialog"
 					aria-expanded={open}
