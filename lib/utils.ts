@@ -17,7 +17,7 @@ export const dailySalutation = () => {
 	}
 }
 
-export const getUserInfo = (): Promise<chrome.identity.UserInfo> => {
+export const getUserInfo = (): Promise<chrome.identity.ProfileUserInfo> => {
 	return new Promise(resolve => {
 		chrome.identity.getProfileUserInfo(userInfo => {
 			resolve(userInfo)

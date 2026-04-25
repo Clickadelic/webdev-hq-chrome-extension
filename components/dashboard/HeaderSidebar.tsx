@@ -1,5 +1,6 @@
+import * as React from "react"
 import { useState } from "react"
-import { cn } from "@/lib/utils"
+
 
 import { BsTextIndentRight } from "react-icons/bs"
 import { BsTextIndentLeft } from "react-icons/bs"
@@ -13,29 +14,94 @@ import { NotificationButton } from "../dashboard/NotificationButton"
 import { InboxButton } from "../dashboard/InboxButton"
 import { FullscreenButton } from "../dashboard/FullscreenButton"
 import { LangSwitch } from "../dashboard/LangSwitch"
+import { Grip, Map, PieChart, SquareTerminal } from "lucide-react"
 
-import Logo from "../global/Logo"
+import { NavMain } from "@/components/dashboard/nav-main"
+import { NavCommunityItems } from "@/components/dashboard/nav-community-items"
+import { NavUser } from "@/components/dashboard/nav-user"
+
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
 
 import { SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/dashboard/AppSidebar"
-const HeaderSidebar = () => {
-	const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
+import Logo from "../global/Logo"
+import { cn } from "@/lib/utils"
+import { is } from "date-fns/locale"
+
+const HeaderSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+	const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false)
+	const data = {
+		user: {
+			name: "shadcn",
+			email: "shadcn@vercel.com",
+			avatar: "/avatars/shadcn.jpg"
+		},
+		navMain: [
+			{
+				title: "Dashboard",
+				url: "/",
+				icon: SquareTerminal,
+				isActive: true,
+				items: [
+					{
+						title: "Overview",
+						url: "#"
+					},
+					{
+						title: "Apps",
+						url: "#apps"
+					},
+					{
+						title: "Todos",
+						url: "#todos"
+					},
+					{
+						title: "Projects",
+						url: "#projects"
+					}
+				]
+			}
+		],
+		communityItems: [
+			{
+				name: "News",
+				url: "#",
+				icon: Grip
+			},
+
+		]
+	}
+	useEffect(() => {
+		const handleResize = () => {
+			setSidebarOpen(false)
+		}
+		window.addEventListener("resize", handleResize)
+		return () => {
+			window.removeEventListener("resize", handleResize)
+		}
+	}, [isSidebarOpen])
 	return (
 		<>
-			<aside className={cn("App-sidebar hidden fixed md:block top-0 left-0 min-h-screen bg-white", isSidebarOpen ? "w-16" : "w-64")}>
-				<div className="hidden md:flex justify-center px-2 py-3">
-					<Logo url={`${import.meta.env.WXT_HOMEPAGE_URL}`} isSidebarOpen={isSidebarOpen} />
-				</div>
-				<section className="mt-[18px] mb-6 overflow-y-auto">
-					<AppSidebar />
-				</section>
+			<aside className={cn("App-sidebar hidden fixed md:block top-0 left-0 min-h-screen bg-white")}>
+				<Sidebar collapsible="icon" {...props}>
+					<SidebarHeader className="flex items-center justify-center p-0">
+						<Logo isSidebarOpen={isSidebarOpen} />
+					</SidebarHeader>
+					<SidebarContent className="pt-8">
+						<NavMain items={data.navMain} />
+						<NavCommunityItems communityItems={data.communityItems} />
+					</SidebarContent>
+					<SidebarFooter>
+						<NavUser user={data.user} />
+					</SidebarFooter>
+					<SidebarRail />
+				</Sidebar>
 			</aside>
-			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-[60px] p-3 border-b bg-white z-50", isSidebarOpen ? "md:ml-16" : "md:ml-64")}>
+			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-[60px] p-3 border-b bg-white z-50")}>
 				<nav className="header-nav flex justify-between w-max">
 					<div className="inline-flex gap-3">
-						<SidebarTrigger variant="ghost" size="sm" className="rounded-xs" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-							{isSidebarOpen ? <BsTextIndentLeft /> : <BsTextIndentRight />}
+						<SidebarTrigger variant="ghost" size="sm" className="rounded-xs">
+							<BsTextIndentRight className="text-2xl" />
 						</SidebarTrigger>
 						<form>
 							<input type="search" placeholder="Search" />

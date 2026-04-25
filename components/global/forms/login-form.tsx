@@ -1,98 +1,179 @@
 import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { useEffect, useState } from "react"
 
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { LoginSchema } from "@/schemas"
 
+import { LoginSchema } from "@/schemas"
 import { FormError } from "@/components/global/forms/form-error"
 import { FormSuccess } from "@/components/global/forms/form-success"
-import { Switch } from "@/components/ui/switch"
-
-import { useState } from "react"
-
 import { cn } from "@/lib/utils"
 
-const LoginForm = () => {
+interface LoginFormProps {
+	className?: string
+}
 
-	const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-	const [isLoading, setIsLoading] = useState<boolean>(false)
-	const [isEditing, setIsEditing] = useState<boolean>(false)
-	const [error, setError] = useState<string | undefined>("")
-	const [success, setSuccess] = useState<string | undefined>("")
+/**
+ * JWT Payload Struktur (relevant für UI)
+ */
+type JwtPayload = {
+	id: string
+	username: string
+	email: string
+	role?: string
+	exp: number
+}
+
+/**
+ * Minimaler JWT Decoder (ohne Library)
+ */
+const decodeJwt = (token: string): JwtPayload | null => {
+	try {
+		const base64 = token.split(".")[1]
+		const json = atob(base64.replace(/-/g, "+").replace(/_/g, "/"))
+		return JSON.parse(json)
+	} catch {
+		return null
+	}
+}
+
+const LoginForm = ({ className }: LoginFormProps) => {
+	const [isLoading, setIsLoading] = useState(false)
+	const [error, setError] = useState<string>()
+	const [success, setSuccess] = useState<string>()
+	const [user, setUser] = useState<JwtPayload | null>(null)
 
 	const form = useForm<z.infer<typeof LoginSchema>>({
 		resolver: zodResolver(LoginSchema),
-		defaultValues: { email: "", password: "" }
+		defaultValues: {
+			email: "",
+			password: ""
+		}
 	})
 
-    const handleSubmit = (values: z.infer<typeof LoginSchema>) => {
-        console.log(values)
-    }
+	/**
+	 * Beim Mount: JWT aus Storage laden & validieren
+	 */
+	useEffect(() => {
+		chrome.storage.local.get(["authToken"], result => {
+			if (!result.authToken) return
+
+			const payload = decodeJwt(result.authToken as string)
+			if (!payload) return
+
+			// Token abgelaufen → entfernen
+			if (payload.exp * 1000 < Date.now()) {
+				chrome.storage.local.remove("authToken")
+				return
+			}
+
+			setUser(payload)
+		})
+	}, [])
+
+	/**
+	 * Login
+	 */
+	const handleSubmit = async (values: z.infer<typeof LoginSchema>) => {
+		setError(undefined)
+		setSuccess(undefined)
+		setIsLoading(true)
+
+		try {
+			const response = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(values)
+			})
+
+			const data = await response.json()
+
+			if (!response.ok || !data?.token) {
+				throw new Error(data?.message || "Login fehlgeschlagen")
+			}
+
+			const payload = decodeJwt(data.token)
+			if (!payload) {
+				throw new Error("Ungültiger Token")
+			}
+
+			await chrome.storage.local.set({ authToken: data.token })
+			setUser(payload)
+			setSuccess(chrome.i18n.getMessage("login_success", "Login erfolgreich"))
+			form.reset()
+		} catch (err: any) {
+			setError(err.message || "Unbekannter Fehler")
+		} finally {
+			setIsLoading(false)
+		}
+	}
+
+	/**
+	 * Logout
+	 */
+	const handleLogout = async () => {
+		await chrome.storage.local.remove("authToken")
+		setUser(null)
+	}
+
+	if (user) {
+		return (
+			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
+				<div className="flex flex-col gap-1">
+					<Button variant="link" className="mt-2 text-white" onClick={handleLogout}>
+						{chrome.i18n.getMessage("logout", "Logout")}
+					</Button>
+				</div>
+			</div>
+		)
+	}
 
 	return (
-        <div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur flex flex-col gap-2">
-            <div className="bg-white dark:bg-slate-800 rounded p-1 backdrop-blur">
-                <Form {...form}>
-                    <form onSubmit={handleSubmit} className="flex flex-row w-full gap-1">
-                        <div className="flex flex-row w-full gap-1">
-                            <FormField
-                                control={form.control}
-                                name="title"
-                                render={({ field }) => (
-                                    <FormItem className="w-full flex flex-col">
-                                        <FormLabel className="hidden">{chrome.i18n.getMessage("email", "E-Mail")}:</FormLabel>
-                                        <FormControl>
-                                            <Input
-                                                type="text"
-                                                {...field}
-                                                className="border-0 shadow-none"
-                                                disabled={isLoading}
-                                                placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+		<div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur">
+			<div className={cn("bg-white dark:bg-slate-800 rounded p-3", className)}>
+				<Form {...form}>
+					<form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-2">
+						<FormField
+							control={form.control}
+							name="email"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className="hidden">{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
+									<FormControl>
+										<Input type="email" placeholder={chrome.i18n.getMessage("email", "E-Mail")} disabled={isLoading} autoComplete="email" {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
 
-                            <FormField
-                                control={form.control}
-                                name="message"
-                                render={({ field }) => (
-                                    <FormItem className="w-full flex flex-col">
-                                        <FormLabel className="hidden">{chrome.i18n.getMessage("message", "message")}:</FormLabel>
-                                        <FormControl>
-                                            <Textarea
-                                                {...field}
-                                                className="border-0 shadow-none"
-                                                disabled={isLoading}
-                                                placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem> 
-                                )}
-                            />
+						<FormField
+							control={form.control}
+							name="password"
+							render={({ field }) => (
+								<FormItem>
+									<FormLabel className="hidden">{chrome.i18n.getMessage("password", "Password")}</FormLabel>
+									<FormControl>
+										<Input type="password" placeholder={chrome.i18n.getMessage("password", "Password")} disabled={isLoading} autoComplete="password" {...field} />
+									</FormControl>
+									<FormMessage />
+								</FormItem>
+							)}
+						/>
 
-                            <Button
-                                type="submit"
-                                className="bg-mantis-primary hover:bg-mantis-primary-hover text-white dark:bg-mantis-primary dark:hover:bg-mantis-primary-hover dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer"
-                                disabled={isLoading}
-                            >
-                                Login
-                            </Button>
-                        </div>
-                        {loginFormError && <FormError message={loginFormError} />}
-                        {loginFormSuccess && <FormSuccess message={loginFormSuccess} />}
-                    </form>
-                </Form>
-            </div>
-        </div>
+						<Button type="submit" variant="primary" disabled={isLoading} className="bg-mantis-primary hover:bg-mantis-primary-hover text-white rounded">
+							{isLoading ? chrome.i18n.getMessage("loading", "Loading...") : chrome.i18n.getMessage("login", "Login")}
+						</Button>
+
+						{error && <FormError message={error} />}
+						{success && <FormSuccess message={success} />}
+					</form>
+				</Form>
+			</div>
+		</div>
 	)
 }
 

@@ -1,9 +1,8 @@
 import * as React from "react"
-import { Frame, Map, PieChart, SquareTerminal } from "lucide-react"
+import { Grip, Map, PieChart, SquareTerminal } from "lucide-react"
 
-// TODO: rename these
 import { NavMain } from "@/components/dashboard/nav-main"
-import { NavProjects } from "@/components/dashboard/nav-projects"
+import { NavCommunityItems } from "@/components/dashboard/nav-community-items"
 import { NavUser } from "@/components/dashboard/nav-user"
 
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from "@/components/ui/sidebar"
@@ -18,37 +17,41 @@ const data = {
 	navMain: [
 		{
 			title: "Dashboard",
-			url: "#",
+			url: "/",
 			icon: SquareTerminal,
 			isActive: true,
 			items: [
 				{
 					title: "Overview",
-					url: "/"
+					url: "#"
+				},
+				{
+					title: "Apps",
+					url: "#apps"
+				},
+				{
+					title: "Todos",
+					url: "#todos"
+				},
+				{
+					title: "Projects",
+					url: "#projects"
 				}
 			]
 		}
 	],
-	projects: [
+	communityItems: [
 		{
-			name: "Design Engineering",
+			name: "News",
 			url: "#",
-			icon: Frame
+			icon: Grip
 		},
-		{
-			name: "Sales & Marketing",
-			url: "#",
-			icon: PieChart
-		},
-		{
-			name: "Travel",
-			url: "#",
-			icon: Map
-		}
+
 	]
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+
 	return (
 		<Sidebar collapsible="icon" {...props}>
 			<SidebarHeader className="flex items-center justify-center p-0">
@@ -56,7 +59,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 			</SidebarHeader>
 			<SidebarContent className="pt-8">
 				<NavMain items={data.navMain} />
-				<NavProjects projects={data.projects} />
+				<NavCommunityItems communityItems={data.communityItems} />
 			</SidebarContent>
 			<SidebarFooter>
 				<NavUser user={data.user} />

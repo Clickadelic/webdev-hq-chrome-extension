@@ -3,10 +3,10 @@ import { Folder, Forward, MoreHorizontal, Trash2, type LucideIcon } from "lucide
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuAction, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
 
-export function NavProjects({
-	projects
+export function NavCommunityItems({
+	communityItems
 }: {
-	projects: {
+	communityItems: {
 		name: string
 		url: string
 		icon: LucideIcon
@@ -16,9 +16,9 @@ export function NavProjects({
 
 	return (
 		<SidebarGroup className="group-data-[collapsible=icon]:hidden">
-			<SidebarGroupLabel>Projects</SidebarGroupLabel>
+			<SidebarGroupLabel>Community</SidebarGroupLabel>
 			<SidebarMenu>
-				{projects.map(item => (
+				{communityItems.map(item => (
 					<SidebarMenuItem key={item.name}>
 						<SidebarMenuButton asChild>
 							<a href={item.url}>

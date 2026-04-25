@@ -32,7 +32,7 @@ export const SortableAppTile = ({ app, onEdit, onDelete }: SortableAppTileProps)
 			style={style}
 			key={app.id}
 			
-			className="size-[70px] z-10 relative bg-white dark:bg-slate-800 pt-1 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+			className="size-[70px] z-10 relative bg-white dark:bg-slate-800 pt-1 rounded transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
 		>
 			<div
 				className="drag-handle absolute top-[4px] left-[24px] w-[20px] h-[5px] bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 inline-flex z-100 text-slate-600 dark:text-slate-300 rounded hover:cursor-move"
@@ -45,7 +45,7 @@ export const SortableAppTile = ({ app, onEdit, onDelete }: SortableAppTileProps)
 			</a>
 			<DropdownMenu modal={false}>
 				<DropdownMenuTrigger asChild>
-					<button className="z-50 absolute top-1 right-[1px] text-slate-600 dark:text-slate-300 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer dark:hover:bg-slate-600">
+					<button className="z-50 absolute top-1 right-px text-slate-600 dark:text-slate-300 rounded-xs hover:text-slate-900 hover:bg-slate-200 hover:cursor-pointer dark:hover:bg-slate-600">
 						<HiOutlineDotsVertical className="size-4" />
 					</button>
 				</DropdownMenuTrigger>
