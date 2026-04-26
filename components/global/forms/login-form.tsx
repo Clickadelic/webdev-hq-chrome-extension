@@ -198,7 +198,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							)}
 						/>
 
-						<Button type="submit" variant="primary" disabled={isLoading} className="bg-mantis-primary hover:bg-mantis-primary-hover text-white rounded">
+						<Button type="submit" variant="primary" disabled={isLoading} className="bg-primary hover:bg-primary-hover text-white rounded">
 							{isLoading ? chrome.i18n.getMessage("loading", "Loading...") : chrome.i18n.getMessage("login", "Login")}
 						</Button>
 

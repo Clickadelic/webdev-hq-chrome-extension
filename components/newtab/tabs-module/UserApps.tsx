@@ -1,7 +1,7 @@
 import * as z from "zod"
 
 import type { DragEndEvent } from "@dnd-kit/core"
-import type { DragStartEvent } from '@dnd-kit/core'
+import type { DragStartEvent } from "@dnd-kit/core"
 
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragOverlay } from "@dnd-kit/core"
 import { arrayMove, SortableContext, rectSortingStrategy } from "@dnd-kit/sortable"
@@ -37,12 +37,12 @@ const UserApps = () => {
 	const [error, setError] = useState<string | undefined>("")
 	const [success, setSuccess] = useState<string | undefined>("")
 	const [draggingApp, setDraggingApp] = useState<AppType | null>(null)
-	
+
 	const sensors = useSensors(
 		useSensor(PointerSensor, {
 			activationConstraint: {
-				distance: 8, // minimale Bewegung zum Starten von Drag (z.B. um Klick vs. Drag zu unterscheiden)
-			},
+				distance: 8 // minimale Bewegung zum Starten von Drag (z.B. um Klick vs. Drag zu unterscheiden)
+			}
 		})
 	)
 
@@ -141,15 +141,7 @@ const UserApps = () => {
 			<SortableContext items={apps.map(app => app.id)} strategy={rectSortingStrategy}>
 				<ul className="w-full grid grid-cols-12 gap-1 p-1 bg-white/30 dark:bg-slate-800/30 rounded backdrop-blur">
 					{apps.map(app => (
-						<SortableAppTile
-							key={app.id}
-							app={app}
-							onEdit={onEdit}
-							onDelete={onDelete}
-							wasDragged={isEditing}
-							
-							setWasDragged={setIsEditing}
-						/>
+						<SortableAppTile key={app.id} app={app} onEdit={onEdit} onDelete={onDelete} wasDragged={isEditing} setWasDragged={setIsEditing} />
 					))}
 					<li>
 						<Dialog
@@ -165,7 +157,7 @@ const UserApps = () => {
 						>
 							<DialogTrigger
 								onClick={() => setIsModalOpen(true)}
-								className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-[70px] rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+								className="flex flex-col gap-1 items-center place-content-center text-slate-400 dark:text-slate-300 bg-white dark:bg-slate-800 p-2 size-17.5 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
 							>
 								<Plus />
 							</DialogTrigger>
@@ -226,7 +218,7 @@ const UserApps = () => {
 			</SortableContext>
 			<DragOverlay zIndex={50}>
 				{draggingApp ? (
-					<div className="size-[70px] bg-white dark:bg-slate-800 pt-1 rounded border border-mantis-primary shadow-lg p-2 flex flex-col items-center justify-between">
+					<div className="size-[70px] bg-white dark:bg-slate-800 pt-1 rounded border border-primary shadow-lg p-2 flex flex-col items-center justify-between">
 						<img src={draggingApp.icon} alt={draggingApp.title} className="size-6 rounded-xs" />
 						<span className="text-slate-800 dark:text-slate-300 text-xs truncate max-w-[56px]">{draggingApp.title}</span>
 					</div>

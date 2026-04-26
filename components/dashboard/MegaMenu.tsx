@@ -11,8 +11,8 @@ export const MegaMenu = () => {
 					<AiOutlineWindows className="size-5" />
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="md:w-[940px] min-h-[300px] grid md:grid-cols-4 gap-4 p-0 overflow-hidden md:mr-8">
-				<div className="bg-mantis-primary bg-wave-pattern bg-cover p-8 flex flex-col w-[240px]">
+			<DropdownMenuContent className="md:w-235 min-h-75 grid md:grid-cols-4 gap-4 p-0 overflow-hidden md:mr-8">
+				<div className="bg-primary bg-wave-pattern bg-cover p-8 flex flex-col w-60">
 					<h2 className="text-md font-bold text-white mb-3">WebDev HQ &middot; Dashboard</h2>
 					<p className="text-white text-sm mb-4">Where developers meet.</p>
 					<img src="placekitten.com/100/200" width={64} height={64} className="mx-auto my-4 bg-transparent rounded-lg" alt="Data Chart" />
