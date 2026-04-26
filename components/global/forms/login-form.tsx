@@ -82,7 +82,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 					id: "0",
 					username: "User",
 					email: "",
-					exp: Date.now() + (60 * 60 * 24 * 7 * 1000)
+					exp: Date.now() + 60 * 60 * 24 * 7 * 1000
 				})
 			}
 		})
@@ -104,9 +104,8 @@ const LoginForm = ({ className }: LoginFormProps) => {
 			})
 
 			const data = await response.json()
-			console.log("Login Response:", data)
 			if (!response.ok) {
-				throw new Error(data.message || "Login fehlgeschlagen")
+				throw new Error(data.message || chrome.i18n.getMessage("login_failed", "Login failed"))
 			}
 
 			// Handle Sanctum token (format: "number|random") or JWT
@@ -124,14 +123,14 @@ const LoginForm = ({ className }: LoginFormProps) => {
 					id: String(data.user?.id || "0"),
 					username: data.user?.name || "User",
 					email: values.email,
-					exp: Date.now() + (60 * 60 * 24 * 7 * 1000) // 7 days default
+					exp: Date.now() + 60 * 60 * 24 * 7 * 1000 // 7 days default
 				})
 			}
 
-			setSuccess(chrome.i18n.getMessage("login_success", "Login erfolgreich"))
+			setSuccess(chrome.i18n.getMessage("login_success", "Login successful"))
 			form.reset()
 		} catch (err: any) {
-			setError(err.message || "Unbekannter Fehler")
+			setError(err.message || chrome.i18n.getMessage("unknown_error", "Unknown error"))
 		} finally {
 			setIsLoading(false)
 		}
@@ -148,11 +147,20 @@ const LoginForm = ({ className }: LoginFormProps) => {
 	if (user) {
 		return (
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
-				<div className="flex flex-col gap-1">
-					<Button variant="link" className="mt-2 text-white" onClick={handleLogout}>
-						{chrome.i18n.getMessage("logout", "Logout")}
-					</Button>
-				</div>
+				<ul className="text-sm">
+					<li>
+						<strong>{user.username}</strong>
+					</li>
+					<li>{user.email}</li>
+					<li>
+						{chrome.i18n.getMessage("role", "Role")}: {user.role}
+					</li>
+					<li>
+						<Button variant="link" className="asd" onClick={handleLogout}>
+							{chrome.i18n.getMessage("logout", "Logout")}
+						</Button>
+					</li>
+				</ul>
 			</div>
 		)
 	}
