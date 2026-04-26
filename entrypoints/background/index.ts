@@ -43,12 +43,15 @@ export default defineBackground(() => {
 				return data.seasonalImageResponse
 			} else {
 				// Fetch vom API Endpoint
-				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/unsplash/image/general`)
+				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/unsplash/image/seasonal`)
 				const json = await res.json()
 
 				// API returns { data: { urls: {...} } }
-				const data = json.data || json
-				const imageUrl = data.urls?.full || data.urls?.raw || data.urls?.regular
+				if (!json?.data?.urls) {
+					throw new Error("Invalid API response structure")
+				}
+
+				const imageUrl = json.data.urls.full || json.data.urls.raw || json.data.urls.regular
 				console.log("Fetched new seasonal image:", imageUrl)
 				await setToStorage({
 					seasonalImageResponse: json,
@@ -65,7 +68,8 @@ export default defineBackground(() => {
 	}
 
 	/**
-	 * Prüft beim Öffnen jeder Seite, ob ein neues Bild geholt werden muss
+	 * Prüft beim Öffnen jeder Seite, ob ein neues Bild geholt werden muss, sehr aggressiv, aber so stellen wir sicher,
+	 * dass die Daten immer aktuell sind, auch wenn der User selten die Extension-Seiten öffnet
 	 */
 	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 		if (changeInfo.status === "complete") {
