@@ -40,7 +40,8 @@ export default defineConfig({
 				matches: ["*://*/*"]
 			}
 		],
-		host_permissions: ["<all_urls>"],
+		// host_permissions: ["<all_urls>"],
+		host_permissions: ["https://webdev-hq.com/*"],
 		background: {
 			service_worker: "background.js"
 		},
