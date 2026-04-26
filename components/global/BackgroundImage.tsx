@@ -1,44 +1,44 @@
-import { useEffect } from "react"
-import { useImageStore } from "@/stores/use-image-store"
+import { useEffect } from "react";
+import { useImageStore } from "@/stores/use-image-store";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface BackgroundImageProps {
-	classNames?: string
-	creditsPosition?: "left" | "center" | "right"
-	children: React.ReactNode
+	classNames?: string;
+	creditsPosition?: "left" | "center" | "right";
+	children: React.ReactNode;
 }
 
 const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundImageProps) => {
-	const { imageUrl, credit, setImage, resetImage } = useImageStore()
+	const { imageUrl, credit, setImage, resetImage } = useImageStore();
 
 	useEffect(() => {
-		resetImage()
+		resetImage();
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Image response:", response.data) // Logge die gesamte Antwort, um die Struktur zu überprüfen
+			console.log("Image response:", response.data); // Logge die gesamte Antwort, um die Struktur zu überprüfen
 			if (!response || response.error) {
-				console.error("Error loading image:", response?.error)
-				return
+				console.error("Error loading image:", response?.error);
+				return;
 			}
 
 			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
-			const url = response.response?.data.urls.raw || response.data.urls
+			const url = response.data.urls.raw || response.data.urls.full || response.data.urls.regular;
 			if (!url) {
-				console.error("No valid image URL received.")
-				return
+				console.error("No valid image URL received.");
+				return;
 			}
 
-			const author = response.response?.data.user?.name || response.data.user?.name || "Unbekannt"
-			const authorUrl = response.response?.data.user?.links?.html || response.data.user?.links?.html || "#"
-			const unsplashUrl = response.response?.data.links?.html || response.data.links?.html || "#"
+			const author = response.data.user?.name || "Unbekannt";
+			const authorUrl = response.data.user?.links?.html || "#";
+			const unsplashUrl = response.data.links?.html || "#";
 
 			setImage(url, {
 				author,
 				authorUrl,
 				unsplashUrl
-			})
-		})
-	}, [setImage])
+			});
+		});
+	}, [setImage]);
 
 	return (
 		<div
@@ -64,7 +64,7 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 				</div>
 			)}
 		</div>
-	)
-}
+	);
+};
 
-export default BackgroundImage
+export default BackgroundImage;
