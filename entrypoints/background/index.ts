@@ -46,10 +46,14 @@ export default defineBackground(() => {
 				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/unsplash/image/general`)
 				const json = await res.json()
 
+				// API returns { data: { urls: {...} } }
+				const data = json.data || json
+				const imageUrl = data.urls?.full || data.urls?.raw || data.urls?.regular
+				console.log("Fetched new seasonal image:", imageUrl)
 				await setToStorage({
 					seasonalImageResponse: json,
 					lastFetchedDate: today,
-					backgroundImageUrl: json.urls.full // Direkt die URL speichern, damit sie schnell verfügbar ist
+					backgroundImageUrl: imageUrl
 				})
 
 				return json
