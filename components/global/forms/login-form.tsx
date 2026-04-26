@@ -29,9 +29,14 @@ type JwtPayload = {
 
 /**
  * Minimaler JWT Decoder (ohne Library)
+ * Falls Token kein JWT ist (z.B. Sanctum), return null
  */
 const decodeJwt = (token: string): JwtPayload | null => {
 	try {
+		// Sanctum tokens have format "number|random" - not a JWT
+		if (!token.includes(".")) {
+			return null
+		}
 		const base64 = token.split(".")[1]
 		const json = atob(base64.replace(/-/g, "+").replace(/_/g, "/"))
 		return JSON.parse(json)
@@ -55,22 +60,31 @@ const LoginForm = ({ className }: LoginFormProps) => {
 	})
 
 	/**
-	 * Beim Mount: JWT aus Storage laden & validieren
+	 * Beim Mount: Token aus Storage laden & validieren
 	 */
 	useEffect(() => {
 		chrome.storage.local.get(["authToken"], result => {
 			if (!result.authToken) return
 
-			const payload = decodeJwt(result.authToken as string)
-			if (!payload) return
+			const token = result.authToken as string
+			const payload = decodeJwt(token)
 
-			// Token abgelaufen → entfernen
-			if (payload.exp * 1000 < Date.now()) {
-				chrome.storage.local.remove("authToken")
-				return
+			if (payload) {
+				// Standard JWT - check expiration
+				if (payload.exp * 1000 < Date.now()) {
+					chrome.storage.local.remove("authToken")
+					return
+				}
+				setUser(payload)
+			} else {
+				// Sanctum token - assume valid for 7 days
+				setUser({
+					id: "0",
+					username: "User",
+					email: "",
+					exp: Date.now() + (60 * 60 * 24 * 7 * 1000)
+				})
 			}
-
-			setUser(payload)
 		})
 	}, [])
 
@@ -90,18 +104,30 @@ const LoginForm = ({ className }: LoginFormProps) => {
 			})
 
 			const data = await response.json()
-
-			if (!response.ok || !data?.token) {
-				throw new Error(data?.message || "Login fehlgeschlagen")
+			console.log("Login Response:", data)
+			if (!response.ok) {
+				throw new Error(data.message || "Login fehlgeschlagen")
 			}
 
-			const payload = decodeJwt(data.token)
-			if (!payload) {
-				throw new Error("Ungültiger Token")
+			// Handle Sanctum token (format: "number|random") or JWT
+			const token = data.token
+			const payload = decodeJwt(token)
+
+			await chrome.storage.local.set({ authToken: token })
+
+			if (payload) {
+				// Standard JWT
+				setUser(payload)
+			} else {
+				// Sanctum token - use user data from response
+				setUser({
+					id: String(data.user?.id || "0"),
+					username: data.user?.name || "User",
+					email: values.email,
+					exp: Date.now() + (60 * 60 * 24 * 7 * 1000) // 7 days default
+				})
 			}
 
-			await chrome.storage.local.set({ authToken: data.token })
-			setUser(payload)
 			setSuccess(chrome.i18n.getMessage("login_success", "Login erfolgreich"))
 			form.reset()
 		} catch (err: any) {
