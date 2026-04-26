@@ -61,7 +61,7 @@ const UserDownloads = () => {
 								<div className="flex flex-col w-full overflow-hidden">
 									<Button
 										variant="link"
-										className="m-0 p-1 pb-0 font-medium justify-start text-sm text-left text-mantis-primary hover:cursor-pointer hover:underline truncate"
+										className="m-0 p-1 pb-0 font-medium justify-start text-sm text-left text-primary hover:cursor-pointer hover:underline truncate"
 										onClick={() => handleShowInFolder(d.id)}
 									>
 										{d.filename}
