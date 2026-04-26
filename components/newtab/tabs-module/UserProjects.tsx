@@ -118,7 +118,7 @@ const UserProjects = () => {
 					projects.map(project => (
 						<li key={project.id}>
 							<Popover>
-								<PopoverTrigger className="relative flex flex-col flex-start items-start w-full h-24 bg-white dark:bg-slate-800 rounded p-2 border border-transparent hover:border-mantis-primary hover:cursor-pointer">
+								<PopoverTrigger className="relative flex flex-col flex-start items-start w-full h-24 bg-white dark:bg-slate-800 rounded p-2 border border-transparent hover:border-primary hover:cursor-pointer">
 									<h3 className="block text-[14px] font-semibold dark:text-slate-300">{project.title}</h3>
 									<h4 className="block text-muted-foreground">{project.description}</h4>
 								</PopoverTrigger>
@@ -129,19 +129,19 @@ const UserProjects = () => {
 										<ul className="space-y-2">
 											{project.projectUrl && (
 												<li>
-													<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
-														<BsHouse className="mt-[2px] size-4" />
+													<a href={project.projectUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-primary" target="_blank">
+														<BsHouse className="mt-.5 size-4" />
 														{chrome.i18n.getMessage("website", "Website")}
-														<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+														<RxExternalLink className="mt-.5 size-4 text-slate-400" />
 													</a>
 												</li>
 											)}
 											{project.gitUrl && (
 												<li>
-													<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-mantis-primary" target="_blank">
-														<FaGitAlt className="mt-[2px] size-4" />
+													<a href={project.gitUrl} className="flex flex-row flex-start gap-2 text-[14px] hover:text-primary" target="_blank">
+														<FaGitAlt className="mt-.5 size-4" />
 														{chrome.i18n.getMessage("git_url", "Repository")}
-														<RxExternalLink className="mt-[2px] size-4 text-slate-400" />
+														<RxExternalLink className="mt-.5 size-4 text-slate-400" />
 													</a>
 												</li>
 											)}
@@ -181,7 +181,7 @@ const UserProjects = () => {
 					>
 						<DialogTrigger
 							onClick={() => setIsModalOpen(true)}
-							className="flex flex-col gap-1 items-center place-content-center w-full h-24 text-slate-400 bg-white dark:bg-slate-800 p-2 rounded border-1 transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+							className="flex flex-col gap-1 items-center place-content-center w-full h-24 text-slate-400 bg-white dark:bg-slate-800 p-2 rounded border transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
 						>
 							<Plus />
 						</DialogTrigger>

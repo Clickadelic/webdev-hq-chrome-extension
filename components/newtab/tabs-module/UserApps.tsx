@@ -218,9 +218,9 @@ const UserApps = () => {
 			</SortableContext>
 			<DragOverlay zIndex={50}>
 				{draggingApp ? (
-					<div className="size-[70px] bg-white dark:bg-slate-800 pt-1 rounded border border-primary shadow-lg p-2 flex flex-col items-center justify-between">
+					<div className="size-17.5 bg-white dark:bg-slate-800 pt-1 rounded border border-primary shadow-lg p-2 flex flex-col items-center justify-between">
 						<img src={draggingApp.icon} alt={draggingApp.title} className="size-6 rounded-xs" />
-						<span className="text-slate-800 dark:text-slate-300 text-xs truncate max-w-[56px]">{draggingApp.title}</span>
+						<span className="text-slate-800 dark:text-slate-300 text-xs truncate max-w-14">{draggingApp.title}</span>
 					</div>
 				) : null}
 			</DragOverlay>
