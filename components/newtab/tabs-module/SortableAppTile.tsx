@@ -28,20 +28,20 @@ export const SortableAppTile = ({ app, onEdit, onDelete }: SortableAppTileProps)
 	}
 
 	return (
-		<li ref={setNodeRef}
+		<li
+			ref={setNodeRef}
 			style={style}
 			key={app.id}
-			
-			className="size-[70px] z-10 relative bg-white dark:bg-slate-800 pt-1 rounded transition-colors duration-150 ease-in-out border-transparent hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+			className="size-17.5 z-10 relative bg-white dark:bg-slate-800 pt-1 rounded transition-colors duration-150 ease-in-out border-transparent hover:border-primary hover:text-primary hover:cursor-pointer"
 		>
 			<div
-				className="drag-handle absolute top-[4px] left-[24px] w-[20px] h-[5px] bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 inline-flex z-100 text-slate-600 dark:text-slate-300 rounded hover:cursor-move"
+				className="drag-handle absolute top-1 left-6 w-5 h-1.25 bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 inline-flex z-100 text-slate-600 dark:text-slate-300 rounded hover:cursor-move"
 				{...listeners}
 				{...attributes}
 			/>
 			<a href={app.url} target="_self" className="flex flex-col justify-between items-center p-2 gap-2" rel="noopener noreferrer">
 				<img src={app.icon} alt={app.title} className="size-6 rounded-xs" />
-				<span className="text-slate-800 dark:text-slate-300 text-xs inline-block truncate max-w-[56px]">{app.title}</span>
+				<span className="text-slate-800 dark:text-slate-300 text-xs inline-block truncate max-w-14">{app.title}</span>
 			</a>
 			<DropdownMenu modal={false}>
 				<DropdownMenuTrigger asChild>
@@ -49,7 +49,7 @@ export const SortableAppTile = ({ app, onEdit, onDelete }: SortableAppTileProps)
 						<HiOutlineDotsVertical className="size-4" />
 					</button>
 				</DropdownMenuTrigger>
-				
+
 				<DropdownMenuContent side="right" align="start" className="rounded">
 					<DropdownMenuItem>
 						<button onClick={() => onEdit(app.id)} className="flex justify-between rounded">

@@ -20,7 +20,7 @@ export const SidePanelButton = () => {
 	}
 
 	return (
-		<Button className="border border-transparent bg-white text-slate-800 hover:border-mantis-primary hover:bg-white hover:cursor-pointer" onClick={handleClick} title="Sidepanel öffnen">
+		<Button className="border border-transparent bg-white text-slate-800 hover:border-primary hover:bg-white hover:cursor-pointer" onClick={handleClick} title="Sidepanel öffnen">
 			<BsReverseLayoutSidebarInsetReverse className="size-4" />
 		</Button>
 	)

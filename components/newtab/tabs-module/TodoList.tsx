@@ -65,7 +65,7 @@ const TodoList = () => {
 		setSuccess("")
 
 		const currentTodo = todos.find(todo => todo.id === editingTodoId)
-		
+
 		if (currentTodo) {
 			currentTodo.title = values.title
 			currentTodo.description = values.description
@@ -113,7 +113,7 @@ const TodoList = () => {
 												className="border-0 shadow-none"
 												disabled={isLoading}
 												placeholder={chrome.i18n.getMessage("new_todo_placeholder", "New todo")}
-											{...field}
+												{...field}
 												onKeyDown={e => {
 													if (e.key === "Enter") {
 														e.preventDefault()
@@ -135,7 +135,7 @@ const TodoList = () => {
 							<DatePickerButton />
 							<Button
 								type="submit"
-								className="bg-mantis-primary hover:bg-mantis-primary-hover text-white dark:bg-mantis-primary dark:hover:bg-mantis-primary-hover dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer"
+								className="bg-primary hover:bg-primary-hover text-white dark:bg-primary dark:hover:bg-primary-hover dark:text-slate-200 rounded py-2 px-3 hover:cursor-pointer"
 								disabled={isLoading}
 							>
 								{isEditing ? <TbEdit /> : <Plus />}

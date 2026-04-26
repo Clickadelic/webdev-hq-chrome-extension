@@ -11,7 +11,7 @@ export const SettingsButton: React.FC = () => {
 	return (
 		<Dialog>
 			<DialogTrigger
-				className="border border-transparent rounded px-3 py-2 bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer"
+				className="border border-transparent rounded px-3 py-2 bg-white text-slate-800 dark:bg-slate-800 dark:text-slate-300 hover:border-primary hover:text-primary hover:cursor-pointer"
 				title={chrome.i18n.getMessage("settings", "Settings")}
 			>
 				<HiOutlineCog className="size-4" />
@@ -19,7 +19,7 @@ export const SettingsButton: React.FC = () => {
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle className="flex items-start gap-2">
-						<HiOutlineCog className="mt-[2px] size-4" />
+						<HiOutlineCog className="mt-.5 size-4" />
 						{chrome.i18n.getMessage("settings_title", "Settings")}
 					</DialogTitle>
 					<DialogDescription>{chrome.i18n.getMessage("settings_description", "Manage your settings")}</DialogDescription>

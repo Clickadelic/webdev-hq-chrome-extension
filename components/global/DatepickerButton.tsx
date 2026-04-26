@@ -56,7 +56,7 @@ export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 					aria-haspopup="dialog"
 					aria-expanded={open}
 					className={cn(
-						"w-[150px] justify-start text-left font-normal border text-mantis-primary border-slate-200 dark:border-slate-700 hover:border-mantis-primary hover:text-mantis-primary",
+						"w-[150px] justify-start text-left font-normal border text-primary border-slate-200 dark:border-slate-700 hover:border-primary hover:text-primary",
 						!date && "text-muted-foreground"
 					)}
 				>
@@ -80,7 +80,7 @@ export function DatePickerButton({ id, selectedDate }: DatePickerButtonProps) {
 						}}
 						locale={locale}
 						classNames={{
-							day_selected: "text-white",
+							day_selected: "text-white"
 						}}
 					/>
 				</div>

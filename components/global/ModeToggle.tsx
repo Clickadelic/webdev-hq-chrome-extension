@@ -22,8 +22,8 @@ export function ModeToggle() {
 
 	const itemBase =
 		"border border-transparent bg-white px-3 text-slate-800 dark:bg-slate-800 dark:text-slate-300 " +
-		"hover:border-mantis-primary hover:text-mantis-primary hover:cursor-pointer " +
-		"data-[state=on]:border-mantis-primary data-[state=on]:text-mantis-primary"
+		"hover:border-primary hover:text-primary hover:cursor-pointer " +
+		"data-[state=on]:border-primary data-[state=on]:text-primary"
 
 	return (
 		<ToggleGroup type="single" value={value} onValueChange={handleThemeChange}>

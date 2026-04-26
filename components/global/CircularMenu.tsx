@@ -20,13 +20,13 @@ export function CircularMenu() {
 				<TooltipProvider>
 					<Tooltip>
 						<TooltipTrigger asChild data-state="instant-open">
-							<a className="rounded-full bg-mantis-primary hover:bg-mantis-primary/90 text-white p-3 hover:cursor-pointer shadow-lg" href="#">
+							<a className="rounded-full bg-primary hover:bg-primary/90 text-white p-3 hover:cursor-pointer shadow-lg" href="#">
 								<BsJournalBookmark />
 							</a>
 						</TooltipTrigger>
 						<TooltipContent side="left" className="text-white">
 							<p>Neues Rezept</p>
-							<TooltipArrow className="fill-mantis-primaary dark:fill-emerald-800" />
+							<TooltipArrow className="fill-primary dark:fill-primary" />
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
@@ -34,13 +34,13 @@ export function CircularMenu() {
 				<TooltipProvider>
 					<Tooltip>
 						<TooltipTrigger asChild data-state="instant-open">
-							<a className="rounded-full bg-mantis-primary hover:bg-mantis-primary/90 text-white p-3 hover:cursor-pointer shadow-lg" href="#">
+							<a className="rounded-full bg-primary hover:bg-primary/90 text-white p-3 hover:cursor-pointer shadow-lg" href="#">
 								<TbSalt />
 							</a>
 						</TooltipTrigger>
 						<TooltipContent side="left" className="text-white">
 							<p>Neue Zutat</p>
-							<TooltipArrow className="fill-emerald-800 dark:fill-emerald-800" />
+							<TooltipArrow className="fill-primary dark:fill-primary" />
 						</TooltipContent>
 					</Tooltip>
 				</TooltipProvider>
@@ -51,16 +51,16 @@ export function CircularMenu() {
 				<Tooltip>
 					<TooltipTrigger asChild data-state="instant-open">
 						<button
-							aria-label="Neuen Inhalt anlegen"
+							aria-label={chrome.i18n.getMessage("create_new_content", "Create new content")}
 							onClick={() => setShowCircularMenu(prev => !prev)}
-							className="bg-mantis-primary hover:bg-mantis-primary/90 hover:cursor-pointer text-white p-4 text-lg rounded-full transition shadow-lg"
+							className="bg-primary hover:bg-primary/90 hover:cursor-pointer text-white p-4 text-lg rounded-full transition shadow-lg"
 						>
 							<FiPlus className={cn("transition-transform", showCircularMenu ? "rotate-45" : "")} />
 						</button>
 					</TooltipTrigger>
-					<TooltipContent side="left" className="bg-mantis-primary text-white">
+					<TooltipContent side="left" className="bg-primary text-white">
 						<p>{chrome.i18n.getMessage("create_new_content", "Create new content")}</p>
-						<TooltipArrow className="fill-mantis-primary" />
+						<TooltipArrow className="fill-primary" />
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>
