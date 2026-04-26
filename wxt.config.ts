@@ -5,7 +5,10 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineConfig({
 	modules: ["@wxt-dev/module-react", "@wxt-dev/i18n/module"],
 	vite: () => ({
-		plugins: [tailwindcss()]
+		plugins: [tailwindcss()],
+		define: {
+			"import.meta.env.WXT_HOMEPAGE_URL": JSON.stringify(process.env.WXT_HOMEPAGE_URL || "https://webdev-hq.com")
+		}
 	}),
 	manifest: {
 		default_locale: "en",

@@ -88,14 +88,12 @@ const HardwareGrid = ({ className }: HardwareGridProps) => {
 
 			<div className="w-full">
 				<span className="block mb-1 text-gray-700">Storage:</span>
-				<div className="space-y-3">
+				<div className="flex gap-3">
 					{storageInfo.map(unit => {
 						const used = unit.capacity - unit.availableCapacity
 						return (
 							<div key={unit.id}>
-								<span className="block text-gray-500 mb-1">
-									{getStorageLabel(unit)}
-								</span>
+								<span className="block text-gray-500 mb-1">{getStorageLabel(unit)}</span>
 								<span className="block text-xs text-gray-400 mb-1">
 									{formatGB(unit.capacity)} GB gesamt, {formatGB(unit.availableCapacity)} GB frei
 								</span>

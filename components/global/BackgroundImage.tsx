@@ -15,23 +15,22 @@ const BackgroundImage = ({ classNames, creditsPosition, children }: BackgroundIm
 	useEffect(() => {
 		resetImage()
 		chrome.runtime.sendMessage({ action: "getRandomImage" }, response => {
-			console.log("Image response:", response)
+			console.log("Image response:", response.data) // Logge die gesamte Antwort, um die Struktur zu überprüfen
 			if (!response || response.error) {
 				console.error("Error loading image:", response?.error)
 				return
 			}
 
 			// Aus dem kompletten Response-Objekt die wichtigen Felder extrahieren:
-			// const url = response.response?.urls?.regular || response.urls?.regular
-			const url = response.photo.urls.regular
+			const url = response.response?.data.urls.raw || response.data.urls
 			if (!url) {
 				console.error("No valid image URL received.")
 				return
 			}
 
-			const author = response.response?.user?.name || response.user?.name || "Unbekannt"
-			const authorUrl = response.response?.user?.links?.html || response.user?.links?.html || "#"
-			const unsplashUrl = response.response?.links?.html || response.links?.html || "#"
+			const author = response.response?.data.user?.name || response.data.user?.name || "Unbekannt"
+			const authorUrl = response.response?.data.user?.links?.html || response.data.user?.links?.html || "#"
+			const unsplashUrl = response.response?.data.links?.html || response.data.links?.html || "#"
 
 			setImage(url, {
 				author,
