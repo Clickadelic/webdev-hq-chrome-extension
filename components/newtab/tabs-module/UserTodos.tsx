@@ -1,89 +1,89 @@
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { toast } from "sonner"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
-import { FormError } from "@/components/global/forms/form-error"
-import { FormSuccess } from "@/components/global/forms/form-success"
-import { Switch } from "@/components/ui/switch"
+import { FormError } from "@/components/global/forms/form-error";
+import { FormSuccess } from "@/components/global/forms/form-success";
+import { Switch } from "@/components/ui/switch";
 
-import { Plus } from "lucide-react"
-import { BsTrash3 } from "react-icons/bs"
-import { cn } from "@/lib/utils"
-import { FaArrowUpRightDots } from "react-icons/fa6"
-import { useTodoStore } from "@/stores/use-todo-store"
-import { TodoSchema } from "@/schemas"
-import { useState, useRef } from "react"
-import { TbEdit } from "react-icons/tb"
-import { BsListCheck } from "react-icons/bs"
-import { DatePickerButton } from "@/components/global/DatepickerButton"
+import { Plus } from "lucide-react";
+import { BsTrash3 } from "react-icons/bs";
+import { cn } from "@/lib/utils";
+import { FaArrowUpRightDots } from "react-icons/fa6";
+import { useTodoStore } from "@/stores/use-todo-store";
+import { TodoSchema } from "@/schemas";
+import { useState, useRef } from "react";
+import { TbEdit } from "react-icons/tb";
+import { BsListCheck } from "react-icons/bs";
+import { DatePickerButton } from "@/components/global/DatepickerButton";
 
-const TodoList = () => {
-	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore()
+const UserTodos = () => {
+	const { todos, addTodo, toggleTodo, deleteTodo } = useTodoStore();
 
-	const [isLoading, setIsLoading] = useState<boolean>(false)
-	const [isEditing, setIsEditing] = useState<boolean>(false)
-	const [editingTodoId, setEditingTodoId] = useState<string | null>(null)
-	const [error, setError] = useState<string | undefined>(undefined)
-	const [success, setSuccess] = useState<string | undefined>(undefined)
-	const submittedByKeyRef = useRef(false)
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [isEditing, setIsEditing] = useState<boolean>(false);
+	const [editingTodoId, setEditingTodoId] = useState<string | null>(null);
+	const [error, setError] = useState<string | undefined>(undefined);
+	const [success, setSuccess] = useState<string | undefined>(undefined);
+	const submittedByKeyRef = useRef(false);
 
 	const form = useForm<z.infer<typeof TodoSchema>>({
 		resolver: zodResolver(TodoSchema),
 		defaultValues: { title: "", description: "", done: false }
-	})
+	});
 
 	const onAddSubmit = (values: z.infer<typeof TodoSchema>) => {
-		setError("")
-		setSuccess("")
-		addTodo(values.title)
-		form.reset()
-		toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
-	}
+		setError("");
+		setSuccess("");
+		addTodo(values.title);
+		form.reset();
+		toast.success(chrome.i18n.getMessage("todo_added", "Todo added."));
+	};
 
 	const onEdit = (id: string) => {
-		setIsEditing(true)
-		setEditingTodoId(id)
-		const todo = todos.find(todo => todo.id === id)
+		setIsEditing(true);
+		setEditingTodoId(id);
+		const todo = todos.find(todo => todo.id === id);
 		if (todo) {
-			form.setValue("title", todo.title)
-			form.setValue("description", todo.description)
-			form.setValue("done", todo.done)
+			form.setValue("title", todo.title);
+			form.setValue("description", todo.description);
+			form.setValue("done", todo.done);
 		}
-	}
+	};
 
 	const onEditSubmit = (values: z.infer<typeof TodoSchema>) => {
-		if (!editingTodoId) return
+		if (!editingTodoId) return;
 
-		setError("")
-		setSuccess("")
+		setError("");
+		setSuccess("");
 
-		const currentTodo = todos.find(todo => todo.id === editingTodoId)
+		const currentTodo = todos.find(todo => todo.id === editingTodoId);
 
 		if (currentTodo) {
-			currentTodo.title = values.title
-			currentTodo.description = values.description
-			currentTodo.done = values.done
-			setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
+			currentTodo.title = values.title;
+			currentTodo.description = values.description;
+			currentTodo.done = values.done;
+			setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."));
 		}
 
-		setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."))
-		form.reset()
-		setEditingTodoId(null)
-		setIsEditing(false)
-		toast.success(chrome.i18n.getMessage("todo_edited", "Todo edited."))
-	}
+		setSuccess(chrome.i18n.getMessage("todo_updated", "Todo updated successfully."));
+		form.reset();
+		setEditingTodoId(null);
+		setIsEditing(false);
+		toast.success(chrome.i18n.getMessage("todo_edited", "Todo edited."));
+	};
 
 	const onDelete = (id: string) => {
-		deleteTodo(id)
-		toast.success(chrome.i18n.getMessage("todo_deleted", "Todo deleted."))
-	}
+		deleteTodo(id);
+		toast.success(chrome.i18n.getMessage("todo_deleted", "Todo deleted."));
+	};
 
 	return (
 		<div className="flex flex-col bg-white/30 dark:bg-slate-800/30 backdrop-blur p-1 space-y-1 rounded">
@@ -91,12 +91,12 @@ const TodoList = () => {
 				<Form {...form}>
 					<form
 						onSubmit={e => {
-							e.preventDefault()
+							e.preventDefault();
 							if (submittedByKeyRef.current) {
-								submittedByKeyRef.current = false
-								return
+								submittedByKeyRef.current = false;
+								return;
 							}
-							form.handleSubmit(onAddSubmit)(e)
+							form.handleSubmit(onAddSubmit)(e);
 						}}
 						className="flex flex-row w-full gap-1"
 					>
@@ -116,13 +116,13 @@ const TodoList = () => {
 												{...field}
 												onKeyDown={e => {
 													if (e.key === "Enter") {
-														e.preventDefault()
-														submittedByKeyRef.current = true
-														const title = e.currentTarget.value.trim()
+														e.preventDefault();
+														submittedByKeyRef.current = true;
+														const title = e.currentTarget.value.trim();
 														if (title) {
-															addTodo(title)
-															form.reset()
-															toast.success(chrome.i18n.getMessage("todo_added", "Todo added."))
+															addTodo(title);
+															form.reset();
+															toast.success(chrome.i18n.getMessage("todo_added", "Todo added."));
 														}
 													}
 												}}
@@ -168,7 +168,7 @@ const TodoList = () => {
 				))}
 			</ul>
 		</div>
-	)
-}
+	);
+};
 
-export default TodoList
+export default UserTodos;

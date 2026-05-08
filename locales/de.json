@@ -420,7 +420,15 @@
 		"description": "Create new content text."
 	},
 	"create_new_hyperlink": {
-		"message": "Neuen Link anlegen",
+		"message": "Neuen Hyperlink anlegen",
 		"description": "Create new content text."
+	},
+	"add_hyperlink_title": {
+		"message": "Neuer Hyperlink",
+		"description": "Erstelle einen neuen Hyperlink Titel"
+	},
+	"edit_hyperlink_title": {
+		"message": "Hyperlink bearbeiten",
+		"description": "Bearbeite einen neuen Hyperlink Titel"
 	}
 }
