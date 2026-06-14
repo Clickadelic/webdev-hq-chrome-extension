@@ -80,7 +80,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 				// Sanctum token - assume valid for 7 days
 				setUser({
 					id: "0",
-					username: "User",
+					username: username,
 					email: "",
 					exp: Date.now() + 60 * 60 * 24 * 7 * 1000
 				})
@@ -146,15 +146,15 @@ const LoginForm = ({ className }: LoginFormProps) => {
 
 	if (user) {
 		return (
-			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
+			<div className={cn("bg-white dark:bg-neutral-800 rounded p-2", className)}>
 				<ul className="text-sm">
 					<li>
 						<strong>{user.username}</strong>
 					</li>
 					<li>{user.email}</li>
-					<li>
+					{/* <li>
 						{chrome.i18n.getMessage("role", "Role")}: {user.role}
-					</li>
+					</li> */}
 					<li>
 						<Button variant="link" className="asd" onClick={handleLogout}>
 							{chrome.i18n.getMessage("logout", "Logout")}
@@ -175,7 +175,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
+									<FormLabel>{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
 									<FormControl>
 										<Input type="email" placeholder={chrome.i18n.getMessage("email", "E-Mail")} disabled={isLoading} autoComplete="email" {...field} />
 									</FormControl>
@@ -189,7 +189,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							name="password"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">{chrome.i18n.getMessage("password", "Password")}</FormLabel>
+									<FormLabel>{chrome.i18n.getMessage("password", "Password")}</FormLabel>
 									<FormControl>
 										<Input type="password" placeholder={chrome.i18n.getMessage("password", "Password")} disabled={isLoading} autoComplete="password" {...field} />
 									</FormControl>

@@ -421,14 +421,30 @@
 	},
 	"create_new_hyperlink": {
 		"message": "Neuen Hyperlink anlegen",
-		"description": "Create new content text."
+		"description": "Create new hyperlink text."
 	},
 	"add_hyperlink_title": {
 		"message": "Neuer Hyperlink",
-		"description": "Erstelle einen neuen Hyperlink Titel"
+		"description": "Legt einen neuen Hyperlink an."
+	},
+	"add_hyperlink_description": {
+		"message": "Füge einen neuen Hyperlink der Liste hinzu.",
+		"description": "Fügt einen Hyperlink zum Pool aller Hyperlinks hinzu."
 	},
 	"edit_hyperlink_title": {
-		"message": "Hyperlink bearbeiten",
-		"description": "Bearbeite einen neuen Hyperlink Titel"
+		"message": "Bearbeite den Hyperlink.",
+		"description": "Bearbeitet den Hyperlink."
+	},
+	"hyperlink_title": {
+		"message": "Titel",
+		"description": "Bearbeitet den Hyperlink."
+	},
+	"hyperlink_url": {
+		"message": "Url",
+		"description": "Bearbeitet die Url."
+	},
+	"hyperlink_url_placeholder": {
+		"message": "https://...",
+		"description": "Hyperlink url placeholder."
 	}
 }

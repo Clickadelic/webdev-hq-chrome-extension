@@ -400,15 +400,31 @@
 		"description": "Create new content text."
 	},
 	"create_new_hyperlink": {
-		"message": "New Hyperlink",
+		"message": "Neuen Hyperlink anlegen",
 		"description": "Create new hyperlink text."
 	},
 	"add_hyperlink_title": {
-		"message": "New hyperlink",
-		"description": "Create a new hyperlink title."
+		"message": "Neuer Hyperlink",
+		"description": "Legt einen neuen Hyperlink an."
+	},
+	"add_hyperlink_description": {
+		"message": "Füge einen neuen Hyperlink der Liste hinzu.",
+		"description": "Fügt einen Hyperlink zum Pool aller Hyperlinks hinzu."
 	},
 	"edit_hyperlink_title": {
-		"message": "Edit hyperlink",
-		"description": "Edit hyperlink title."
+		"message": "Bearbeite den Hyperlink.",
+		"description": "Bearbeitet den Hyperlink."
+	},
+	"hyperlink_title": {
+		"message": "Title",
+		"description": "Bearbeitet den Hyperlink."
+	},
+	"hyperlink_url": {
+		"message": "Url",
+		"description": "Edit the url."
+	},
+	"hyperlink_url_placeholder": {
+		"message": "https://...",
+		"description": "Hyperlink url placeholder."
 	}
 }

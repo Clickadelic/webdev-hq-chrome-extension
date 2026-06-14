@@ -7,7 +7,6 @@ import DashboardPage from "./pages/DashboardPage"
 import * as React from "react"
 import { useState } from "react"
 
-
 import { BsTextIndentRight } from "react-icons/bs"
 import { BsTextIndentLeft } from "react-icons/bs"
 import { HiMenuAlt3 } from "react-icons/hi"
@@ -33,8 +32,6 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import Logo from "@/components/global/Logo"
 import { cn } from "@/lib/utils"
 import { is } from "date-fns/locale"
-
-
 
 const App = () => {
 	const data = {
@@ -74,8 +71,7 @@ const App = () => {
 				name: "News",
 				url: "#",
 				icon: Grip
-			},
-
+			}
 		]
 	}
 	const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false)
@@ -101,17 +97,17 @@ const App = () => {
 						<SidebarRail />
 					</Sidebar>
 				</aside>
-				<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-[60px] p-3 border-b bg-white z-50")}>
+				<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-15 p-3 border-b bg-white z-50")}>
 					<nav className="header-nav flex justify-between w-max">
 						<div className="inline-flex gap-3">
 							<SidebarTrigger variant="ghost" size="sm" className="rounded-xs">
 								<BsTextIndentRight className="text-2xl" />
 							</SidebarTrigger>
 							<form>
-								<input type="search" placeholder="Search" />
+								<input className="p-2 border rounded w-72 border-black" type="search" placeholder="Search" />
 							</form>
 						</div>
-						<ul className="hidden md:space-x-1 md:fixed md:right-5 md:mt-[-2px] md:inline-flex md:mr-1 mb-1">
+						<ul className="hidden md:space-x-1 md:fixed md:right-5 md:mt-.5 md:inline-flex md:mr-1 mb-1">
 							<li>
 								<MegaMenu />
 							</li>
