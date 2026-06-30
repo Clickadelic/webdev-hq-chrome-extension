@@ -1,25 +1,25 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import UserApps from "@/components/newtab/tabs-module/UserApps"
-import UserHistory from "@/components/newtab/tabs-module/UserHistory"
-import TodoList from "@/components/newtab/tabs-module/TodoList"
-import UserDownloads from "@/components/newtab/tabs-module/UserDownloads"
-import UserProjects from "@/components/newtab/tabs-module/UserProjects"
+import UserApps from "@/components/newtab/tabs-module/UserApps";
+import UserHistory from "@/components/newtab/tabs-module/UserHistory";
+import UserTodos from "@/components/newtab/tabs-module/UserTodos";
+import UserDownloads from "@/components/newtab/tabs-module/UserDownloads";
+import UserProjects from "@/components/newtab/tabs-module/UserProjects";
 
-import { BsApp } from "react-icons/bs"
-import { BsListCheck } from "react-icons/bs"
-import { PiClockCountdown } from "react-icons/pi"
-import { GoDownload } from "react-icons/go"
-import { AiOutlineFundProjectionScreen } from "react-icons/ai"
+import { BsApp } from "react-icons/bs";
+import { BsListCheck } from "react-icons/bs";
+import { PiClockCountdown } from "react-icons/pi";
+import { GoDownload } from "react-icons/go";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 
-import { useSettingsStore } from "@/stores/use-settings-store"
+import { useSettingsStore } from "@/stores/use-settings-store";
 
 interface TabsModuleProps {
-	classNames?: string
+	classNames?: string;
 }
 
 const TabsModule = ({ classNames }: TabsModuleProps) => {
-	const defaultTab = useSettingsStore(state => state.defaultTab)
+	const defaultTab = useSettingsStore(state => state.defaultTab);
 
 	return (
 		<div className={classNames}>
@@ -52,7 +52,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 					<UserApps />
 				</TabsContent>
 				<TabsContent value="todos">
-					<TodoList />
+					<UserTodos />
 				</TabsContent>
 				<TabsContent value="projects">
 					<UserProjects />
@@ -65,7 +65,7 @@ const TabsModule = ({ classNames }: TabsModuleProps) => {
 				</TabsContent>
 			</Tabs>
 		</div>
-	)
-}
+	);
+};
 
-export default TabsModule
+export default TabsModule;

@@ -80,7 +80,11 @@ const LoginForm = ({ className }: LoginFormProps) => {
 				// Sanctum token - assume valid for 7 days
 				setUser({
 					id: "0",
+<<<<<<< HEAD
 					username: "User",
+=======
+					username: username,
+>>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 					email: "",
 					exp: Date.now() + 60 * 60 * 24 * 7 * 1000
 				})
@@ -146,15 +150,25 @@ const LoginForm = ({ className }: LoginFormProps) => {
 
 	if (user) {
 		return (
+<<<<<<< HEAD
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
+=======
+			<div className={cn("bg-white dark:bg-neutral-800 rounded p-2", className)}>
+>>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 				<ul className="text-sm">
 					<li>
 						<strong>{user.username}</strong>
 					</li>
 					<li>{user.email}</li>
+<<<<<<< HEAD
 					<li>
 						{chrome.i18n.getMessage("role", "Role")}: {user.role}
 					</li>
+=======
+					{/* <li>
+						{chrome.i18n.getMessage("role", "Role")}: {user.role}
+					</li> */}
+>>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 					<li>
 						<Button variant="link" className="asd" onClick={handleLogout}>
 							{chrome.i18n.getMessage("logout", "Logout")}
@@ -175,7 +189,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							name="email"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
+									<FormLabel>{chrome.i18n.getMessage("email", "E-Mail")}</FormLabel>
 									<FormControl>
 										<Input type="email" placeholder={chrome.i18n.getMessage("email", "E-Mail")} disabled={isLoading} autoComplete="email" {...field} />
 									</FormControl>
@@ -189,7 +203,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 							name="password"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel className="hidden">{chrome.i18n.getMessage("password", "Password")}</FormLabel>
+									<FormLabel>{chrome.i18n.getMessage("password", "Password")}</FormLabel>
 									<FormControl>
 										<Input type="password" placeholder={chrome.i18n.getMessage("password", "Password")} disabled={isLoading} autoComplete="password" {...field} />
 									</FormControl>
