@@ -25,6 +25,7 @@ const App = () => {
 		<ThemeProvider>
 			<div className="p-4 w-96 bg-white dark:bg-slate-800">
 				<Logo url={import.meta.env.WXT_HOMEPAGE_URL} />
+
 				<LoginForm className="flex" />
 			</div>
 		</ThemeProvider>

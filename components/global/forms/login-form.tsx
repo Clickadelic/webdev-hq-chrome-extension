@@ -146,7 +146,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 					</div>
 				</div>
 				<Form {...form}>
-					<form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-2">
+					<form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-4">
 						<FormField
 							control={form.control}
 							name="email"
@@ -183,8 +183,8 @@ const LoginForm = ({ className }: LoginFormProps) => {
 						{success && <FormSuccess message={success} />}
 					</form>
 				</Form>
-				<p>
-					<a href="https://webdev-hq.com/forgot-password" className="text-xs text-white block w-full hover:underline">
+				<p className="flex gap-2 items-center justify-center text-xs text-white">
+					<a href="https://webdev-hq.com/forgot-password" className="text-xs text-white w-full hover:underline">
 						{chrome.i18n.getMessage("forgot_password", "Forgot password?")}
 					</a>
 				</p>

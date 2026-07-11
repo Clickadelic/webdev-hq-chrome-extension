@@ -11,10 +11,7 @@
 	--popover: oklch(1 0 0);
 	--popover-foreground: oklch(0.145 0 0);
 	--primary: oklch(0.599 0.219 259);
-<<<<<<< HEAD
-=======
-	--primary-hover: oklch(55.879% 0.20523 259.007);
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
+	--primary-hover: oklch(56.181% 0.21037 259.321);
 	--primary-foreground: oklch(0.985 0 0);
 	--secondary: oklch(0.97 0 0);
 	--secondary-foreground: oklch(0.205 0 0);
@@ -51,10 +48,7 @@
 	--popover: oklch(0.145 0 0);
 	--popover-foreground: oklch(0.985 0 0);
 	--primary: oklch(0.599 0.219 259);
-<<<<<<< HEAD
-=======
-	--primary-hover: oklch(55.879% 0.20523 259.007);
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
+	--primary-hover: oklch(56.181% 0.21037 259.321);
 	--primary-foreground: oklch(0.985 0 0);
 	--secondary: oklch(0.269 0 0);
 	--secondary-foreground: oklch(0.985 0 0);
