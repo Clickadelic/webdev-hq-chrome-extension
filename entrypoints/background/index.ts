@@ -1,10 +1,25 @@
 export default defineBackground(() => {
+	// ==========================================
+	// 1. ZENTRALES INSTALL-EVENT
+	// ==========================================
 	chrome.runtime.onInstalled.addListener(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."));
-		// Direkt beim Install die Seasonal-Image Daten laden
+
+		// Seasonal-Image Daten laden
 		fetchSeasonalImage().catch(console.error);
+
+		// Kontextmenü erstellen
+		chrome.contextMenus.create({
+			id: "webdev-hq-inject-css",
+			title: "Debug CSS",
+			type: "normal",
+			contexts: ["selection", "page"]
+		});
 	});
 
+	// ==========================================
+	// 2. HELPER & STORAGE LOGIK
+	// ==========================================
 	interface StorageData {
 		backgroundImageUrl?: string;
 		lastFetchedDate?: string;
@@ -31,22 +46,16 @@ export default defineBackground(() => {
 		});
 	}
 
-	/**
-	 * Fetches the Seasonal Image from API or from Storage if already fetched today
-	 */
 	async function fetchSeasonalImage(): Promise<any> {
 		const today = new Date().toISOString().split("T")[0];
 		try {
 			const data = await getFromStorage<StorageData>(["seasonalImageResponse", "lastFetchedDate"]);
 			if (data.seasonalImageResponse && data.lastFetchedDate === today) {
-				// Schon für heute geladen
 				return data.seasonalImageResponse;
 			} else {
-				// Fetch vom API Endpoint
 				const res = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/unsplash/image/seasonal`);
 				const json = await res.json();
 
-				// API returns { data: { urls: {...} } }
 				if (!json?.data?.urls) {
 					throw new Error("Invalid API response structure");
 				}
@@ -67,43 +76,6 @@ export default defineBackground(() => {
 		}
 	}
 
-	/**
-	 * Prüft beim Öffnen jeder Seite, ob ein neues Bild geholt werden muss, sehr aggressiv, aber so stellen wir sicher,
-	 * dass die Daten immer aktuell sind, auch wenn der User selten die Extension-Seiten öffnet
-	 */
-	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-		if (changeInfo.status === "complete") {
-			fetchSeasonalImage().catch(err => console.error("Auto-update failed:", err));
-		}
-	});
-
-	/**
-	 * Message Listener
-	 */
-	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-		console.log("Background received message:", message);
-		console.log("Message action:", message.action);
-		if (message.action === "getRandomImage") {
-			console.log("Handling getRandomImage request");
-			fetchSeasonalImage()
-				.then(response => {
-					console.log("Sending response to component:", response);
-					console.log("Response has data:", response && "data" in response);
-					sendResponse(response);
-				})
-				.catch(error => {
-					console.error("Error in fetchSeasonalImage:", error);
-					sendResponse({ error: "fetch_failed" });
-				});
-			return true; // keep channel open for async response
-		}
-
-		if (message.action === "getHistory") {
-			getHistory().then(history => sendResponse({ history }));
-			return true;
-		}
-	});
-
 	function getHistory() {
 		return new Promise((resolve, reject) => {
 			chrome.history.search({ text: "", maxResults: 10 }, function (results) {
@@ -112,15 +84,68 @@ export default defineBackground(() => {
 		});
 	}
 
-	/**
-	 * Action Button Klick
-	 */
-	chrome.action.onClicked.addListener(tab => {
-		if (tab.id) {
-			chrome.scripting.executeScript({
-				target: { tabId: tab.id },
-				files: ["meazure-script.js"]
+	// ==========================================
+	// 3. AUTO-UPDATE BEI TABS
+	// ==========================================
+	chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+		if (changeInfo.status === "complete") {
+			fetchSeasonalImage().catch(err => console.error("Auto-update failed:", err));
+		}
+	});
+
+	// ==========================================
+	// 4. KONTEXTMENÜ KLICK
+	// ==========================================
+	chrome.contextMenus.onClicked.addListener((info, tab) => {
+		if (info.menuItemId === "webdev-hq-inject-css" && tab?.id) {
+			chrome.tabs.sendMessage(tab.id, {
+				command: "injectStylesheet",
+				stylesheet: "assets/pesticide.css"
 			});
 		}
+	});
+
+	// ==========================================
+	// 5. EXTENSION ICON (ACTION BUTTON) KLICK
+	// ==========================================
+	chrome.action.onClicked.addListener(tab => {
+		if (!tab.id) return;
+
+		// Führt dein Meazure-Script aus...
+		chrome.scripting.executeScript({
+			target: { tabId: tab.id },
+			files: ["meazure-script.js"]
+		});
+
+		// ...und schickt dem Content Script gleichzeitig den CSS Befehl
+		chrome.tabs.sendMessage(tab.id, {
+			command: "injectStylesheet",
+			stylesheet: "assets/pesticide.css"
+		});
+	});
+
+	// ==========================================
+	// 6. ZENTRALER MESSAGE LISTENER
+	// ==========================================
+	chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+		console.log("Background received message:", message);
+
+		if (message.action === "getRandomImage") {
+			fetchSeasonalImage()
+				.then(response => sendResponse(response))
+				.catch(error => {
+					console.error("Error in fetchSeasonalImage:", error);
+					sendResponse({ error: "fetch_failed" });
+				});
+			return true;
+		}
+
+		if (message.action === "getHistory") {
+			getHistory().then(history => sendResponse({ history }));
+			return true;
+		}
+
+		// HINWEIS: Der "injectStylesheet" Zweig wurde hier entfernt!
+		// Das gehört exklusiv in den onMessage-Listener deines Content-Scripts!
 	});
 });

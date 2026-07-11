@@ -175,7 +175,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 					</form>
 				</Form>
 				<p className="flex gap-2 items-center justify-center text-xs text-white">
-					<a href="https://webdev-hq.com/forgot-password" className="text-xs text-white w-full hover:underline">
+					<a href="https://webdev-hq.com/forgot-password" className="text-xs text-white w-full hover:underline" target="_blank">
 						{chrome.i18n.getMessage("forgot_password", "Forgot password?")}
 					</a>
 				</p>

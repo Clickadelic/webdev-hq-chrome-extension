@@ -6,14 +6,14 @@ export default defineContentScript({
 	async main(ctx) {
 		chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			if (request.command === "injectStylesheet") {
-				const link = document.createElement("link")
-				link.id = "webdev-hq-debug-stylesheet"
-				link.rel = "stylesheet"
-				link.href = chrome.runtime.getURL(request.stylesheet)
-				document.head.appendChild(link)
+				const link = document.createElement("link");
+				link.id = "webdev-hq-debug-stylesheet";
+				link.rel = "stylesheet";
+				link.href = chrome.runtime.getURL(request.stylesheet);
+				document.head.appendChild(link);
 			} else if (request.command === "removeStylesheet") {
-				document.getElementById("webdev-hq-debug-stylesheet")?.remove()
+				document.getElementById("webdev-hq-debug-stylesheet")?.remove();
 			}
-		})
+		});
 	}
-})
+});
