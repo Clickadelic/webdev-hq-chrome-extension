@@ -119,3 +119,11 @@ export const decodeJwt = (token: string): JwtPayload | null => {
 		return null;
 	}
 };
+
+/**
+ * Logout
+ */
+export const handleLogout = async () => {
+	await chrome.storage.local.remove("authToken");
+	// setUser(null);
+};

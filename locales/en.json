@@ -446,5 +446,9 @@
 	"your_account": {
 		"message": "Your Account",
 		"description": "Your Account text."
+	},
+	"inject_debug_css": {
+		"message": "Debug CSS",
+		"description": "Inject debug CSS text."
 	}
 }

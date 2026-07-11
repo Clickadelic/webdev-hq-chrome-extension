@@ -2,7 +2,6 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +10,7 @@ import { LoginSchema } from "@/schemas";
 import { FormError } from "@/components/global/forms/form-error";
 import { FormSuccess } from "@/components/global/forms/form-success";
 import { cn } from "@/lib/utils";
-import { decodeJwt, JwtPayload } from "@/lib/utils";
+import { decodeJwt, JwtPayload, handleLogout } from "@/lib/utils";
 
 interface LoginFormProps {
 	className?: string;
@@ -93,7 +92,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 				// Sanctum token - use user data from response
 				setUser({
 					id: String(data.user?.id || "0"),
-					username: data.user?.name || "User",
+					username: data.user?.name || data.user.username,
 					email: values.email,
 					exp: Date.now() + 60 * 60 * 24 * 7 * 1000 // 7 days default
 				});
@@ -108,14 +107,6 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		}
 	};
 
-	/**
-	 * Logout
-	 */
-	const handleLogout = async () => {
-		await chrome.storage.local.remove("authToken");
-		setUser(null);
-	};
-
 	if (user) {
 		return (
 			<div className="bg-white/30 dark:bg-slate-800/30 rounded p-1 backdrop-blur">
@@ -124,7 +115,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 						<span className="sr-only">{chrome.i18n.getMessage("your_account")}</span>
 						<div className="space-y-2 text-center">
 							<h1 className="text-xl font-medium">{chrome.i18n.getMessage("your_account", "Account")}</h1>
-							<p className="text-center text-sm text-muted-foreground">Welcome back</p>
+							<p className="text-center text-sm text-muted-foreground">Welcome back, {user.username}!</p>
 						</div>
 					</div>
 					<Button onClick={handleLogout} className="hover:underline">
