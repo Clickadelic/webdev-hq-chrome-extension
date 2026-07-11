@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useState } from "react"
 
-
 import { BsTextIndentRight } from "react-icons/bs"
 import { BsTextIndentLeft } from "react-icons/bs"
 import { HiMenuAlt3 } from "react-icons/hi"
@@ -67,8 +66,7 @@ const HeaderSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 				name: "News",
 				url: "#",
 				icon: Grip
-			},
-
+			}
 		]
 	}
 	useEffect(() => {
@@ -97,7 +95,7 @@ const HeaderSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 					<SidebarRail />
 				</Sidebar>
 			</aside>
-			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-[60px] p-3 border-b bg-white z-50")}>
+			<header className={cn("App-header flex fixed top-0 md:ml-64 w-screen h-15 p-3 border-b bg-white z-50")}>
 				<nav className="header-nav flex justify-between w-max">
 					<div className="inline-flex gap-3">
 						<SidebarTrigger variant="ghost" size="sm" className="rounded-xs">
@@ -107,7 +105,7 @@ const HeaderSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
 							<input type="search" placeholder="Search" />
 						</form>
 					</div>
-					<ul className="hidden md:space-x-1 md:fixed md:right-5 md:mt-[-2px] md:inline-flex md:mr-1 mb-1">
+					<ul className="hidden md:space-x-1 md:fixed md:right-5 md:-mt-1 md:inline-flex md:mr-1 mb-1">
 						<li>
 							<MegaMenu />
 						</li>
