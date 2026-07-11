@@ -80,11 +80,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
 				// Sanctum token - assume valid for 7 days
 				setUser({
 					id: "0",
-<<<<<<< HEAD
 					username: "User",
-=======
-					username: username,
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 					email: "",
 					exp: Date.now() + 60 * 60 * 24 * 7 * 1000
 				})
@@ -150,25 +146,15 @@ const LoginForm = ({ className }: LoginFormProps) => {
 
 	if (user) {
 		return (
-<<<<<<< HEAD
 			<div className={cn("bg-white dark:bg-slate-800 rounded p-2", className)}>
-=======
-			<div className={cn("bg-white dark:bg-neutral-800 rounded p-2", className)}>
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 				<ul className="text-sm">
 					<li>
 						<strong>{user.username}</strong>
 					</li>
 					<li>{user.email}</li>
-<<<<<<< HEAD
 					<li>
 						{chrome.i18n.getMessage("role", "Role")}: {user.role}
 					</li>
-=======
-					{/* <li>
-						{chrome.i18n.getMessage("role", "Role")}: {user.role}
-					</li> */}
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 					<li>
 						<Button variant="link" className="asd" onClick={handleLogout}>
 							{chrome.i18n.getMessage("logout", "Logout")}

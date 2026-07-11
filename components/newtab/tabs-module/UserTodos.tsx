@@ -66,11 +66,6 @@ const UserTodos = () => {
 
 		const currentTodo = todos.find(todo => todo.id === editingTodoId);
 
-<<<<<<< HEAD:components/newtab/tabs-module/TodoList.tsx
-		const currentTodo = todos.find(todo => todo.id === editingTodoId)
-
-=======
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40:components/newtab/tabs-module/UserTodos.tsx
 		if (currentTodo) {
 			currentTodo.title = values.title;
 			currentTodo.description = values.description;

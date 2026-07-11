@@ -3,14 +3,6 @@ export default defineBackground(() => {
 		console.log(chrome.i18n.getMessage("console_log_on_installed", "WebDev HQ Chrome-Extension installed."));
 		// Direkt beim Install die Seasonal-Image Daten laden
 		fetchSeasonalImage().catch(console.error);
-<<<<<<< HEAD
-=======
-		chrome.contextMenus.create({
-			id: "webdev-hq",
-			title: chrome.i18n.getMessage("context_menu_title", "WebDev HQ"),
-			contexts: ["page"]
-		});
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 	});
 
 	interface StorageData {

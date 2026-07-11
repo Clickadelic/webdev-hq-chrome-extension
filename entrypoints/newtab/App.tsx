@@ -1,21 +1,16 @@
-import AppIcon from "@/components/global/AppIcon"
-import BackgroundImage from "@/components/global/BackgroundImage"
-import ButtonBar from "@/components/newtab/ButtonBar"
-import CircularMenu from "@/components/global/CircularMenu"
-import Clock from "@/components/newtab/Clock"
+import AppIcon from "@/components/global/AppIcon";
+import BackgroundImage from "@/components/global/BackgroundImage";
+import ButtonBar from "@/components/newtab/ButtonBar";
+import CircularMenu from "@/components/global/CircularMenu";
+import Clock from "@/components/newtab/Clock";
 
-import UserInfoBox from "@/components/newtab/UserInfoBox"
-import MultiSearch from "@/components/newtab/MultiSearch"
-import TabsModule from "@/components/newtab/TabsModule"
-<<<<<<< HEAD
+import UserInfoBox from "@/components/newtab/UserInfoBox";
+import MultiSearch from "@/components/newtab/MultiSearch";
+import TabsModule from "@/components/newtab/TabsModule";
 // import EntrypointButton from "@/components/global/EntrypointButton"
-=======
-import EntrypointButton from "@/components/global/EntrypointButton"
-import HardwareGrid from "@/components/newtab/HardwareGrid"
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 
-import { ThemeProvider } from "@/components/global/ThemeProvider"
-import { Toaster } from "@/components/ui/sonner"
+import { ThemeProvider } from "@/components/global/ThemeProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 const App = () => {
 	return (
@@ -30,16 +25,12 @@ const App = () => {
 				<MultiSearch classNames="w-full max-w-[890px] my-3 mx-auto bg-white/30 p-1 rounded backdrop-blur dark:bg-neutral-800/30" />
 				<TabsModule classNames="w-full max-w-[890px] mx-auto flex flex-row" />
 				<ButtonBar classNames="w-[227px] absolute bottom-3 left-24 right-24 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" />
-<<<<<<< HEAD
 				{/* <HardwareGrid className="w-96 absolute bottom-24 left-4 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" /> */}
-=======
-				<HardwareGrid className="w-96 absolute bottom-24 left-4 p-1 mx-auto flex items-center justify-center bg-white/30 dark:bg-neutral-800/30 rounded backdrop-blur" />
->>>>>>> 2e7e1d587dff6c49972ce6c4740eea04a07a7f40
 				<CircularMenu />
 				<Toaster className="dark:bg-neutral-800" />
 			</BackgroundImage>
 		</ThemeProvider>
-	)
-}
+	);
+};
 
-export default App
+export default App;
