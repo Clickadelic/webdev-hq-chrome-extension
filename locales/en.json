@@ -426,5 +426,29 @@
 	"hyperlink_url_placeholder": {
 		"message": "https://...",
 		"description": "Hyperlink url placeholder."
+	},
+	"dont_have_an_account": {
+		"message": "Du hast noch kein Konto?",
+		"description": "Don't have an account text."
+	},
+	"register": {
+		"message": "Registrieren",
+		"description": "Register text."
+	},
+	"already_have_an_account": {
+		"message": "Du hast bereits ein Konto?",
+		"description": "Already have an account text."
+	},
+	"login_here": {
+		"message": "Login",
+		"description": "Login here text."
+	},
+	"your_account": {
+		"message": "Your Account",
+		"description": "Your Account text."
+	},
+	"inject_debug_css": {
+		"message": "Debug CSS",
+		"description": "Inject debug CSS text."
 	}
 }
