@@ -98,8 +98,9 @@ export default defineBackground(() => {
 	// ==========================================
 	chrome.contextMenus.onClicked.addListener((info, tab) => {
 		if (info.menuItemId === "webdev-hq-inject-css" && tab?.id) {
+			// Wir senden jetzt "toggleStylesheet" statt fest "inject"
 			chrome.tabs.sendMessage(tab.id, {
-				command: "injectStylesheet",
+				command: "toggleStylesheet",
 				stylesheet: "assets/pesticide.css"
 			});
 		}
@@ -111,15 +112,14 @@ export default defineBackground(() => {
 	chrome.action.onClicked.addListener(tab => {
 		if (!tab.id) return;
 
-		// Führt dein Meazure-Script aus...
 		chrome.scripting.executeScript({
 			target: { tabId: tab.id },
 			files: ["meazure-script.js"]
 		});
 
-		// ...und schickt dem Content Script gleichzeitig den CSS Befehl
+		// Auch hier senden wir jetzt den Toggle-Befehl
 		chrome.tabs.sendMessage(tab.id, {
-			command: "injectStylesheet",
+			command: "toggleStylesheet",
 			stylesheet: "assets/pesticide.css"
 		});
 	});
@@ -144,8 +144,5 @@ export default defineBackground(() => {
 			getHistory().then(history => sendResponse({ history }));
 			return true;
 		}
-
-		// HINWEIS: Der "injectStylesheet" Zweig wurde hier entfernt!
-		// Das gehört exklusiv in den onMessage-Listener deines Content-Scripts!
 	});
 });
