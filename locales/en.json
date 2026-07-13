@@ -447,8 +447,8 @@
 		"message": "Your Account",
 		"description": "Your Account text."
 	},
-	"inject_debug_css": {
-		"message": "Debug CSS",
+	"enable_disable_debug_css": {
+		"message": "activate/deactivate debug CSS",
 		"description": "Inject debug CSS text."
 	}
 }
