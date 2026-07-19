@@ -68,13 +68,21 @@ const LoginForm = ({ className }: LoginFormProps) => {
 		setIsLoading(true);
 
 		try {
-			const response = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/login`, {
+			const apiVersion = import.meta.env.WXT_API_VERSION ?? "v1";
+			const response = await fetch(`${import.meta.env.WXT_HOMEPAGE_URL}/api/${apiVersion}/auth/login`, {
 				method: "POST",
-				headers: { "Content-Type": "application/json" },
+				headers: { "Content-Type": "application/json", "Accept": "application/json" },
 				body: JSON.stringify(values)
 			});
 
-			const data = await response.json();
+			const contentType = response.headers.get("content-type") || "";
+			let data: any = null;
+			if (contentType.includes("application/json")) {
+				data = await response.json();
+			} else {
+				const text = await response.text();
+				throw new Error(chrome.i18n.getMessage("invalid_server_response", "Invalid server response") + ` (${contentType}): ${text.substring(0, 200)}`);
+			}
 			if (!response.ok) {
 				throw new Error(data.message || chrome.i18n.getMessage("login_failed", "Login failed"));
 			}
